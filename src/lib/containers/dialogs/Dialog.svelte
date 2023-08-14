@@ -1,0 +1,89 @@
+<script>
+	import { DialogBody, DialogFooter, DialogHeader } from '$lib/index.js';
+	import { setContext } from 'svelte';
+
+	export let title, showModal;
+
+	let dialog;
+
+	$: if (dialog && showModal) dialog.showModal();
+
+	function closeDialog() {
+		showModal = false
+		dialog.close();
+	}
+
+	setContext('modalDialog', closeDialog);
+</script>
+
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class='dialog-container'>
+	<dialog bind:this={dialog} on:close on:click|self={closeDialog}>
+		<DialogHeader {title} {closeDialog} />
+		<DialogBody>
+			<slot name='dialog-body-slot' />
+		</DialogBody>
+		<DialogFooter>
+			<slot name='dialog-footer-slot' />
+		</DialogFooter>
+	</dialog>
+</div>
+
+<style>
+	.dialog-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 100;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(10px);
+	}
+	dialog {
+		border-radius: var(--border-radius-xl);
+		border: none;
+		box-shadow: 0px var(--spacing04) var(--spacing10) var(--neutral-trans-050),
+			0px var(--spacing02) var(--spacing03) var(--spacing02) var(--neutral-trans-100);
+		display: block;
+		margin: auto;
+	}
+	dialog:modal {
+		background-color: var(--background-base);		
+		flex-direction: column;
+		max-height: 90vh;
+		width: var(--spacing29);
+	}
+	dialog::backdrop {
+		
+		z-index: 101;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	dialog[open] {
+		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+	dialog[open]::backdrop {
+		animation: fade 0.2s ease-out;
+		backdrop-filter: blur(10px);
+	}
+	@keyframes zoom {
+		from {
+			transform: scale(0.95);
+		}
+		to {
+			transform: scale(1);
+		}
+	}
+	@keyframes fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+</style>

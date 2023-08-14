@@ -1,0 +1,36 @@
+<script>
+	import { Button, Dialog, Content } from '$lib/index.js'
+
+	let showModal = false
+
+	function toggleModal() {
+		showModal = !showModal
+	}
+</script>
+
+<Content>
+	<h1>Dialog</h1>
+	<Button
+		callback={toggleModal}
+		text='Show Dialog'
+	/>
+		<Dialog title='Test Dialog' bind:showModal={showModal}>
+			<div slot='dialog-body'>Lorem ipsum so on and so forth</div>
+			<div slot='dialog-footer'>
+				<div class='test-1'>
+					testing footer 1
+				</div>
+				<div class='test-2'>
+					testing footer 2
+				</div>
+			</div>
+		</Dialog>
+</Content>
+
+
+<style>
+	.test-1, .test-2 {
+		border: 1px solid red;
+		width: fit-content;
+	}
+</style>

@@ -1,0 +1,211 @@
+@import url("https://p.typekit.net/p.css?s=1&k=ocg0khl&ht=tk&f=44510.44511.44514.44515&a=126109130&app=typekit&e=css");
+
+:root {
+	--heading-large-xxl-font-size: 66px;
+	--heading-large-xl-font-size: 46px;
+	--heading-large-l-font-size: 36px;
+	--heading-large-m-font-size: 32px;
+	--heading-large-s-font-size: 26px;
+	--heading-large-xs-font-size: 20px;
+
+	--heading-small-xxl-font-size: 46px;
+	--heading-small-xl-font-size: 36px;
+	--heading-small-l-font-size: 29px;
+	--heading-small-m-font-size: 26px;
+	--heading-small-s-font-size: 23px;
+	--heading-small-xs-font-size: 20px;
+
+	--body-large-xl-font-size: 40.3px;
+	--body-large-l-font-size: 30.1px;
+	--body-large-m-font-size: 22.6px;
+	--body-large-s-font-size: 17px;
+	--body-large-xs-font-size: 12.8px;
+
+	--body-small-xl-font-size: 29.4px;
+	--body-small-l-font-size: 24.5px;
+	--body-small-m-font-size: 20.4px;
+	--body-small-s-font-size: 17px;
+	--body-small-xs-font-size: 12.8px;
+}
+
+@font-face {
+	font-family: 'VentiCF';
+	src: url('../fonts/VentiCF-Regular.otf');
+}
+
+@font-face {
+	font-family: "degular";
+	src: url("https://use.typekit.net/af/174e41/00000000000000007735c867/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/174e41/00000000000000007735c867/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/174e41/00000000000000007735c867/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+	font-display: auto;
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: normal;
+}
+
+@font-face {
+	font-family: "degular";
+	src: url("https://use.typekit.net/af/f22e6a/00000000000000007735c869/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"), url("https://use.typekit.net/af/f22e6a/00000000000000007735c869/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"), url("https://use.typekit.net/af/f22e6a/00000000000000007735c869/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+	font-display: auto;
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: normal;
+}
+
+@font-face {
+	font-family: "degular";
+	src: url("https://use.typekit.net/af/2fce28/00000000000000007735c872/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"), url("https://use.typekit.net/af/2fce28/00000000000000007735c872/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"), url("https://use.typekit.net/af/2fce28/00000000000000007735c872/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
+	font-display: auto;
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: normal;
+}
+
+@font-face {
+	font-family: "degular";
+	src: url("https://use.typekit.net/af/1db274/00000000000000007735c875/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("woff2"), url("https://use.typekit.net/af/1db274/00000000000000007735c875/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("woff"), url("https://use.typekit.net/af/1db274/00000000000000007735c875/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("opentype");
+	font-display: auto;
+	font-style: italic;
+	font-weight: 600;
+	font-stretch: normal;
+}
+
+* {
+	font-family: 'Degular';
+}
+
+*[class*='headline-l-xxl'],
+*[class*='headline-l-xl'],
+*[class*='headline-l-l'],
+*[class*='headline-l-m'],
+*[class*='headline-l-s'],
+*[class*='headline-l-xs'],
+*[class*='headline-s-xxl'],
+*[class*='headline-s-xl'],
+*[class*='headline-s-l'],
+*[class*='headline-s-m'],
+*[class*='headline-s-s'],
+*[class*='headline-s-xs'] {
+	font-family: 'VentiCF';
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%;
+}
+
+*[class*='headline-l-xxl'] {
+	font-size: var(--heading-large-xxl-font-size);
+	margin-bottom: var(--spacing10);
+}
+
+*[class*='headline-l-xl'] {
+	font-size: var(--heading-large-xl-font-size);
+}
+
+*[class*='headline-l-l'] {
+	font-size: var(--heading-large-l-font-size);
+}
+
+*[class*='headline-l-m'] {
+	font-size: var(--heading-large-m-font-size);
+}
+
+*[class*='headline-l-s'] {
+	font-size: var(--heading-large-s-font-size);
+}
+
+*[class*='headline-l-xs'] {
+	font-size: var(--heading-large-xs-font-size);
+}
+
+*[class*='headline-s-xxl'] {
+	font-size: var(--heading-small-xxl-font-size);
+}
+
+*[class*='headline-s-xl'] {
+	font-size: var(--heading-small-xl-font-size);
+}
+
+*[class*='headline-s-l'] {
+	font-size: var(--heading-small-l-font-size);
+}
+
+*[class*='headline-s-m'] {
+	font-size: var(--heading-small-m-font-size);
+}
+
+*[class*='headline-s-s'] {
+	font-size: var(--heading-small-s-font-size);
+}
+
+*[class*='headline-s-xs'] {
+	font-size: var(--heading-small-xs-font-size);
+}
+
+*[class*='body-l-xxl'],
+*[class*='body-l-xl'],
+*[class*='body-l-l'],
+*[class*='body-l-m'],
+*[class*='body-l-s'],
+*[class*='body-l-xs'],
+*[class*='body-s-xxl'],
+*[class*='body-s-xl'],
+*[class*='body-s-l'],
+*[class*='body-s-m'],
+*[class*='body-s-s'],
+*[class*='body-s-xs'] {
+	font-family: 'Courier New', Courier, monospace;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 150%;
+}
+
+*[class*='body-l-xxl'] {
+	font-size: var(--body-large-xxl-font-size);
+}
+
+*[class*='body-l-xl'] {
+	font-size: var(--body-large-xl-font-size);
+}
+
+*[class*='body-l-l'] {
+	font-size: var(--body-large-l-font-size);
+}
+
+*[class*='body-l-m'] {
+	font-size: var(--body-large-m-font-size);
+}
+
+*[class*='body-l-s'] {
+	font-size: var(--body-large-s-font-size);
+}
+
+*[class*='body-l-xs'] {
+	font-size: var(--body-large-xs-font-size);
+}
+
+*[class*='body-s-xxl'] {
+	font-size: var(--body-small-xxl-font-size);
+}
+
+*[class*='body-s-xl'] {
+	font-size: var(--body-small-xl-font-size);
+}
+
+*[class*='body-s-l'] {
+	font-size: var(--body-small-l-font-size);
+}
+
+*[class*='body-s-m'] {
+	font-size: var(--body-small-m-font-size);
+}
+
+*[class*='body-s-s'] {
+	font-size: var(--body-small-s-font-size);
+}
+
+*[class*='body-s-xs'] {
+	font-size: var(--body-small-xs-font-size);
+}
+
+*[class*='semibold'] {
+	font-weight: 600;
+}

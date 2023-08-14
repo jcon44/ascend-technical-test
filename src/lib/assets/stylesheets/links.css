@@ -1,0 +1,6 @@
+a {
+	text-decoration: underline var(--neutral-100) var(--spacing01);
+}
+a:hover {
+	text-decoration: underline var(--primary-500) var(--spacing01);
+}

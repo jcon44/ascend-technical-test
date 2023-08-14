@@ -1,0 +1,55 @@
+<script>
+	import { PageTitle } from '$lib/index.js';
+
+	export let titleText = '',
+		paragraphText = '',
+		headerButton = null,
+		headerPill = null;
+</script>
+
+<div class="page-header">
+	<div class="page-header-top-row">
+		<div class="page-header-left-column">
+			<PageTitle text={titleText} />
+		</div>
+		<div class="page-header-right-column">
+			{#if headerButton}
+				<svelte:component this={headerButton} />
+			{/if}
+		</div>
+	</div>
+	{#if headerPill || paragraphText}
+		<div class="page-header-middle-row">
+			{#if headerPill}
+				<svelte:component this={headerPill} />
+			{/if}
+			{#if paragraphText}
+				<p>{paragraphText}</p>
+			{/if}
+		</div>
+	{/if}
+	<div class="page-header-bottom-row">
+		<slot />
+	</div>
+</div>
+
+<style>
+	.page-header {
+		display: flex;
+		flex-direction: column;
+	}
+	.page-header-top-row {
+		display: flex;
+		justify-content: space-between;
+	}
+	.page-header-middle-row {
+		margin: var(--spacing10) 0;
+		gap: var(--spacing10);
+	}
+	.page-header-bottom-row {
+		align-items: center;
+		display: flex;
+		gap: var(--spacing09);
+		justify-content: space-between;
+	}
+</style>

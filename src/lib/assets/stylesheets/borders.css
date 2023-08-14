@@ -1,0 +1,33 @@
+:root {
+	--border-radius-xs:	var(--spacing02);
+	--border-radius-s: var(--spacing05);
+	--border-radius-m: var(--spacing09);
+	--border-radius-l: var(--spacing10);
+	--border-radius-xl: var(--spacing11);
+	--border-radius-full: 100%;
+	--btn-border-radius: var(--border-radius-s);
+}
+
+*[class*='border-radius-xs']	{ border-radius: var(--border-radius-xs); }
+*[class*='border-radius-s']		{ border-radius: var(--border-radius-s); }
+*[class*='border-radius-m']		{ border-radius: var(--border-radius-m); }
+*[class*='border-radius-l']		{ border-radius: var(--border-radius-l); }
+*[class*='border-radius-xl']	{ border-radius: var(--border-radius-xl); }
+*[class*='border-radius-full']	{ border-radius: var(--border-radius-full); }
+
+*[class*='border-neutral-000-s']	{ border: var(--neutral-stroke-000-s); }
+*[class*='border-neutral-100-s']	{ border: var(--neutral-stroke-100-s); }
+*[class*='border-neutral-200-s']	{ border: var(--neutral-stroke-200-s); }
+*[class*='border-neutral-600-s']	{ border: var(--neutral-stroke-600-s); }
+*[class*='border-neutral-700-s']	{ border: var(--neutral-stroke-700-s); }
+*[class*='border-neutral-000-m']	{ border: var(--neutral-stroke-000-m); }
+*[class*='border-neutral-100-m']	{ border: var(--neutral-stroke-100-m); }
+*[class*='border-neutral-200-m']	{ border: var(--neutral-stroke-200-m); }
+*[class*='border-neutral-600-m']	{ border: var(--neutral-stroke-600-m); }
+*[class*='border-neutral-700-m']	{ border: var(--neutral-stroke-700-m); }
+
+*[class*='border-secondary-500-s']	{ border: var(--secondary-stroke-500-s); }
+*[class*='border-secondary-500-m']	{ border: var(--secondary-stroke-500-m); }
+
+*[class*='border-white-900-s']		{ border: var(--white-stroke-900-s); }
+*[class*='border-white-900-m']		{ border: var(--white-stroke-900-m); }

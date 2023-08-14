@@ -1,0 +1,110 @@
+<script>
+	import { NavBarHeader, NavButton } from '$lib/index.js'
+	import { slide } from 'svelte/transition'
+
+	export let hoverOpen = false,
+		keepOpen = false,
+		navBarContents
+
+	$: navBarOpen = hoverOpen || keepOpen
+
+	function toggleNavbar() {
+		keepOpen = !keepOpen
+	}
+
+	function openNavbar() {
+		hoverOpen = true
+	}
+
+	function closeNavbar() {
+		hoverOpen = false
+	}
+</script>
+
+<div
+	class={`navbar ${navBarOpen ? 'open' : 'closed'}`}
+	transition:slide={{ axis: 'x' }}
+	on:mouseenter={openNavbar}
+	on:focus={openNavbar}
+	on:mouseleave={closeNavbar}
+	on:blur={closeNavbar}
+>
+	<div class="navbar-upper-content">
+		<NavBarHeader {keepOpen} {navBarOpen} {toggleNavbar} />
+		<div class="page-list">
+			{#if navBarContents?.primaryPageList?.length}
+				{#each navBarContents.primaryPageList as pageData}
+					<div class="nav-button">
+						<NavButton {pageData} {navBarOpen} />
+					</div>
+				{/each}
+			{/if}
+			{#if navBarContents?.secondaryPageList?.length}
+				<div class="separator" />
+				{#each navBarContents?.secondaryPageList as pageData}
+					<div class="nav-button">
+						<NavButton {pageData} {navBarOpen} />
+					</div>
+				{/each}
+			{/if}
+		</div>
+	</div>
+	<div class="navbar-lower-content">
+		{#if navBarContents?.bottomButtonLarge && navBarContents?.bottomButtonSmall}
+			{#if navBarOpen}
+				<svelte:component this={navBarContents?.bottomButtonLarge} />
+			{:else}
+				<svelte:component this={navBarContents?.bottomButtonSmall} />
+			{/if}
+		{/if}
+	</div>
+</div>
+
+<style>
+	.navbar {
+		background-color: var(--background-base);
+		border-radius: 0px var(--spacing05) var(--spacing05) 0px;
+		color: var(--white-900);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing09);
+		height: 99vh;
+		justify-content: space-between;
+		max-height: var(--spacing33);
+		scrollbar-width: var(--spacing02);
+		width: var(--spacing28);
+		position: fixed;
+		z-index: 10;
+	}
+	.navbar:hover {
+		box-shadow: 0px var(--spacing02) var(--spacing02) var(--neutral-trans-400),
+			0px var(--spacing01) var(--spacing02) calc(-1 * var(--spacing02)) var(--neutral-trans-050);
+		width: var(--container-max-width-s);
+	}
+	.nav-button {
+		width: 100%;
+	}
+	.page-list {
+		align-items: flex-start;
+		background-color: var(--background-base);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing01);
+		width: 100%;
+		padding: 0 var(--spacing06);
+	}
+	.open {
+		width: var(--container-max-width-s);
+	}
+	.closed {
+		width: var(--spacing15);
+	}
+	.separator {
+		background-color: var(--neutral-100);
+		height: var(--spacing00);
+		width: 90%;
+	}
+	.navbar-lower-content {
+		padding: var(--spacing06);
+	}
+</style>
