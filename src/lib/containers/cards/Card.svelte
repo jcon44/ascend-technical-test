@@ -98,4 +98,7 @@
 		color: var(--neutral-base);
 		text-decoration: none;
 	}
+	a:hover {
+		text-decoration: none;
+	}
 </style>
