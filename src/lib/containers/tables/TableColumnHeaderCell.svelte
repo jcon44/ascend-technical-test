@@ -1,7 +1,7 @@
 <script>
 	import { CheckboxInput, TableColumnHeaderButton, sortArray } from '$lib/index.js'
 
-	export let column, columns, index, list
+	export let column, columns, index = 0, list
 
 	let allChecked = false
 
@@ -33,6 +33,7 @@
 	style={`${column?.styles?.join(';')}`}
 >
 	{#if column.type === 'checkbox'}
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div class="check-all" on:click={toggleCheckAll} on:keyup={toggleCheckAll}>
 			<CheckboxInput bind:checked={allChecked} />
 		</div>

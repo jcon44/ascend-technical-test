@@ -1,5 +1,5 @@
 <script>
-	import { CheckboxInput, TableCell } from '$lib/index.js'
+	import { TableCell } from '$lib/index.js'
 
 	export let list, rowIndex, columns
 
@@ -19,8 +19,5 @@
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
-	}
-	div[class^='column'] {
-		overflow-x: hidden;
 	}
 </style>

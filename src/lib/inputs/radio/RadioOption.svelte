@@ -6,9 +6,9 @@
 
 <div class="radio-option">
 	<RadioInput bind:item={item} />
-	<label for={item.value} class="semibold">
+	<div class="semibold">
 		{item.label}
-	</label>
+	</div>
 </div>
 
 <style>

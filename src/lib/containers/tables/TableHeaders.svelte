@@ -20,7 +20,4 @@
 		justify-content: space-between;
 		width: 100%;
 	}
-	div[class^='column'] {
-		overflow-x: hidden;
-	}
 </style>

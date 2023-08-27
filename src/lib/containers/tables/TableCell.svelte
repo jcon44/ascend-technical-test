@@ -1,4 +1,6 @@
 <script>
+	import CheckboxInput from '$lib/inputs/checkboxes/CheckboxInput.svelte'
+
 	export let column, columnIndex, row
 </script>
 

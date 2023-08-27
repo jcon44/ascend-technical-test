@@ -69,6 +69,7 @@ export { default as Alert } from '$lib/containers/alerts/Alert.svelte'
 
 // Cards
 export { default as Card } from '$lib/containers/cards/Card.svelte'
+export { default as CardList } from '$lib/containers/cards/CardList.svelte'
 export { default as LoginCard } from '$lib/containers/cards/LoginCard.svelte'
 
 // Dialogs

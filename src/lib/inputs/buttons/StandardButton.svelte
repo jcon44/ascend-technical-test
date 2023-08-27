@@ -5,7 +5,6 @@
 <button
 	{disabled}
 	class={`
-		test
 		semibold
 		${classes.includes('btn-full') ? 'btn-full' : 'btn-fit'}
 	`}
@@ -37,3 +36,16 @@
 		{/if}
 	</div>
 </button>
+
+<style>
+	button {
+		align-items: center;
+		background-color: transparent;
+		border-radius: var(--btn-border-radius);
+		border: none;
+		color: inherit;
+		cursor: pointer;
+		display: flex;
+		text-decoration: none;
+	}
+</style>

@@ -11,6 +11,7 @@
 		url = '';
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div on:click={callback || ''} on:keypress={callback || ''} class="btn-fit button-wrapper">
 	{#if url?.length}
 		<LinkButton {classes} {disabled} {firstIcon} {secondIcon} {styles} {text} {url} />

@@ -27,6 +27,7 @@ button {
 
 /* Medium Buttons */
 .btn-m {
+	font-size: var(--spacing06);
 	padding: var(--spacing05);
 }
 

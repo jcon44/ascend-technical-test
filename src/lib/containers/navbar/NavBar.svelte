@@ -21,6 +21,7 @@
 	}
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	class={`navbar ${navBarOpen ? 'open' : 'closed'}`}
 	transition:slide={{ axis: 'x' }}

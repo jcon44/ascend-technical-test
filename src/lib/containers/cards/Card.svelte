@@ -12,6 +12,7 @@
 
 {#if link}
 	<a href={link}>
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div class={`card ${classes?.join(' ') ?? ''}`}
 			on:click={callback ? callback : ''}
 			on:keyup={callback ? callback : ''}
@@ -36,6 +37,7 @@
 		</div>
 	</a>
 {:else}
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class={`card ${classes?.join(' ') ?? ''}`}
 		on:click={callback ? callback : ''}
 		on:keyup={callback ? callback : ''}
@@ -93,6 +95,7 @@
 		width: 100%;
 	}
 	a {
+		color: var(--neutral-base);
 		text-decoration: none;
 	}
 </style>

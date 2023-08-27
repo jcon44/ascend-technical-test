@@ -1,7 +1,7 @@
 <script>
 	import { Tag } from '$lib/index.js'
 
-	export let status = '', time
+	export let status = '', time = ''
 
 	const statusKey = status ? status.replace(' ','').toLowerCase() : ''
 
