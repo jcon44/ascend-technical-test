@@ -1,9 +1,10 @@
 <script>
 	import { TabBar } from '$lib/index.js'
 
-	export let currentTab, tabList = []
+	export let currentTab, tabList
 
 	function handleTabSelection(event) {
+		console.log(event)
 		currentTab = event.detail.tabIndex
 	}
 </script>

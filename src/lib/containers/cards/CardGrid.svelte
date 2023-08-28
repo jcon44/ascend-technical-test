@@ -13,7 +13,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--spacing10);
-		justify-content: center;
+		justify-content: flex-start;
 		width: var(--spacing33);
 	}
 </style>

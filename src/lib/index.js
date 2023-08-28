@@ -69,7 +69,7 @@ export { default as Alert } from '$lib/containers/alerts/Alert.svelte'
 
 // Cards
 export { default as Card } from '$lib/containers/cards/Card.svelte'
-export { default as CardList } from '$lib/containers/cards/CardList.svelte'
+export { default as CardGrid } from '$lib/containers/cards/CardGrid.svelte'
 export { default as LoginCard } from '$lib/containers/cards/LoginCard.svelte'
 
 // Dialogs
@@ -97,6 +97,7 @@ export { default as PageDescription } from '$lib/containers/layout/PageDescripti
 export { default as PageHeader } from '$lib/containers/layout/PageHeader.svelte'
 export { default as PageTitle } from '$lib/containers/layout/PageTitle.svelte'
 export { default as Shell } from '$lib/containers/layout/Shell.svelte'
+export { default as TitleContainer } from '$lib/containers/layout/TitleContainer.svelte'
 
 // Navbar
 export { default as NavBar } from '$lib/containers/navbar/NavBar.svelte'
