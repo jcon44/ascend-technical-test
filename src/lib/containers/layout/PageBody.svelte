@@ -5,6 +5,9 @@
 
 <style>
 	.page-body {
-		width: var(--spacing27);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing09);
+		padding: 0 var(--spacing14);
 	}
 </style>
