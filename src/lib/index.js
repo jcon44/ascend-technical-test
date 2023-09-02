@@ -121,7 +121,7 @@ export { default as TableHeaders } from '$lib/containers/tables/TableHeaders.sve
 export { default as TableRow } from '$lib/containers/tables/TableRow.svelte'
 
 // Tags
-export { default as ErrorsTag } from '$lib/containers/tags/ErrorsTag.svelte'
+export { default as ErrorTag } from '$lib/containers/tags/ErrorTag.svelte'
 export { default as StatusTag } from '$lib/containers/tags/StatusTag.svelte'
 export { default as Tag } from '$lib/containers/tags/Tag.svelte'
 

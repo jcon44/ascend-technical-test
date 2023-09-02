@@ -11,6 +11,7 @@
 		inprogress: 'warning',
 		scheduled: 'neutral',
 		sent: 'success',
+		subscribed: 'success'
 	}
 
 	const statusType = statusColorMap[statusKey]

@@ -1,7 +1,9 @@
 <script>
 	import { CheckboxInput, TableColumnHeaderButton, sortArray } from '$lib/index.js'
 
-	export let column, columns, index = 0, list
+	export let cellData
+
+	let { column, columns, columnIndex, list } = cellData
 
 	let allChecked = false
 
@@ -29,7 +31,7 @@
 </script>
 
 <div
-	class={`table-column-header-cell ${column?.classes?.join(' ')}`}
+	class='table-column-header-cell'
 	style={`${column?.styles?.join(';')}`}
 >
 	{#if column.type === 'checkbox'}
@@ -42,15 +44,17 @@
 			callback={() => sortTable(column.key, column.type)}
 			order={sortMap[column.key]}
 			text={column?.title || ''}
-			{index}
+			index={columnIndex}
 		/>
 	{/if}
 </div>
 
 <style>
 	.table-column-header-cell {
+		align-items: center;
+		align-self: stretch;
 		display: flex;
+		gap: var(--spacing03);
 		padding: var(--spacing06);
-		width: 100%;
 	}
 </style>

@@ -8,5 +8,5 @@
 	class={`${cellData.column?.classes?.join(' ')}`}
 	style={cellData.column?.styles?.join(';')}
 >
-	{cellContent || ''}
+	{cellContent || ' '}
 </div>
