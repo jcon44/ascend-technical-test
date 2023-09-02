@@ -1,47 +1,43 @@
 <script>
-	import CheckboxInput from '$lib/inputs/checkboxes/CheckboxInput.svelte'
+	import ArrayCell from '$lib/containers/tables/cells/ArrayCell.svelte'
+	import BooleanCell from '$lib/containers/tables/cells/BooleanCell.svelte'
+	import CheckboxCell from '$lib/containers/tables/cells/CheckboxCell.svelte'
+	import ComponentCell from '$lib/containers/tables/cells/ComponentCell.svelte'
+	import DefaultCell from '$lib/containers/tables/cells/DefaultCell.svelte'
+	import EditableCell from '$lib/containers/tables/cells/EditableCell.svelte'
 
-	export let column, columnIndex, row
+	export let cellData
+
+	const cellType = cellData.column.type
 </script>
 
 <div
 	class='table-column-body-cell'
-	style={`${column?.styles?.join(';')}`}
+	style={`${cellData.column?.styles?.join(';')}`}
 >
-	{#if column.component !== undefined}
-		<svelte:component
-			this={column.component}
-			classes={`column-${columnIndex} ${column?.classes?.join(' ')}`}
-			record={row}
-			style={`${column?.styles?.join(';')}`}
-		/>
-	{:else if column.type === 'checkbox'}
-		<CheckboxInput bind:checked={row.selected} />
-	{:else if column.editable}
-		<input
-			bind:value={row[column.key]}
-			class={`column-${columnIndex} ${column?.classes?.join(' ')}`}
-			style={column?.styles?.join(';')}
-			type="text"
-		/>
+	{#if cellType === 'array'}
+		<ArrayCell {cellData} />
+	{:else if cellType === 'boolean'}
+		<BooleanCell {cellData} />
+	{:else if cellType === 'checkbox'}
+		<CheckboxCell {cellData} />
+	{:else if cellType === 'component'}
+		<ComponentCell {cellData} />
+	{:else if cellData.column.editable}
+		<EditableCell {cellData} />
 	{:else}
-		<div
-			class={`column-${columnIndex} ${column?.classes?.join(' ')}`}
-			style={column?.styles?.join(';')}
-		>
-			{#if column.type === 'boolean'}
-				{row[column.key] ? 'Yes' : 'No'}
-			{:else}
-				{column.type === 'array' ? row[column.key]?.join(', ') : row[column.key]}
-			{/if}
-		</div>
+		<DefaultCell {cellData} />
 	{/if}
 </div>
 
 <style>
 	.table-column-body-cell {
+		align-items: center;
+		align-self: stretch;
+		border: 1px solid lime;
 		display: flex;
+		flex: 1 0 0;
+		gap: var(--spacing03);
 		padding: var(--spacing06);
-		width: 100%;
 	}
 </style>

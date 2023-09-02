@@ -8,3 +8,11 @@
 	<TableHeaders bind:list {columns} />
 	<TableBody bind:list {columns} />
 </div>
+
+<style>
+	.table-container {
+		margin-left: auto;
+		margin-right: auto;
+		width: var(--spacing33);
+	}
+</style>

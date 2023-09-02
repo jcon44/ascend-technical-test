@@ -8,16 +8,14 @@
 
 <div class="table-body-row">
 	{#each columns as column, columnIndex}
-		<TableCell {column} {columnIndex} {row} />
+		<TableCell cellData={{ column, columnIndex, row }} />
 	{/each}
 </div>
 
 <style>
 	.table-body-row {
-		align-items: center;
+		align-items: flex-start;
 		border-bottom: var(--spacing01) solid var(--neutral-000);
 		display: flex;
-		justify-content: space-between;
-		width: 100%;
 	}
 </style>
