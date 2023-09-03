@@ -70,7 +70,9 @@ export { default as Alert } from '$lib/containers/alerts/Alert.svelte'
 // Cards
 export { default as Card } from '$lib/containers/cards/Card.svelte'
 export { default as CardGrid } from '$lib/containers/cards/CardGrid.svelte'
+export { default as LinkCard } from '$lib/containers/cards/LinkCard.svelte'
 export { default as LoginCard } from '$lib/containers/cards/LoginCard.svelte'
+export { default as StandardCard } from '$lib/containers/cards/StandardCard.svelte'
 
 // Dialogs
 export { default as Dialog } from '$lib/containers/dialogs/Dialog.svelte'

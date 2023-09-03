@@ -55,6 +55,9 @@
 	.warning-prominent {
 		background-color: var(--warning-base);
 	}
+	.primary-prominent {
+		background-color: var(--primary-base);
+	}
 	.error-subtle {
 		background-color: var(--error-100);
 		color: var(--error-800);
