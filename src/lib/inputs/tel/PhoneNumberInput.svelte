@@ -7,14 +7,15 @@
 		phoneNumber='',
 		placeholder='',
 		required=false,
-		width='100%'
+		width=''
 </script>
 
-<div class="phone-number-input">
+<div class='phone-number-control'>
 	<InputLabel {id} {label} />
 	<input
 		type="tel"
 		bind:value={phoneNumber}
+		class="phone-number-input"
 		maxlength="11"
 		minlength="11"
 		placeholder={placeholder}
@@ -25,11 +26,6 @@
 </div>
 
 <style>
-	input {
-		border: var(--spacing01) solid var(--neutral-100);
-		border-radius: var(--spacing05);
-		padding: var(--spacing05) var(--spacing09);
-	}
 	.phone-number-input {
 		display: flex;
 		gap: var(--spacing07);

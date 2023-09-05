@@ -7,7 +7,7 @@
 		label='',
 		optionList=[],
 		selectedValue='',
-		width='100%'
+		width=''
 </script>
 
 <select

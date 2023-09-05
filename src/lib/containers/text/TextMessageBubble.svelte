@@ -1,14 +1,14 @@
 <script>
-	export let height = '', width = '', padding = ''
+	export let height='', width='', padding=''
 </script>
 
 <div class='text-bubble'
 	style={`
-		${(height ? `height: ${height};` : '')}
-		${(width ? `width: ${width};` : '')}
+		${`height:${height}`}
+		${`width:${width}`}
 	`}
 >
-	<div class='text-content' style={`${(padding ? `padding: ${padding};` : '')}`}>
+	<div class='text-content' style={`padding:${padding}`}>
 		<slot />
 	</div>
 	<div class='text-arrow'></div>

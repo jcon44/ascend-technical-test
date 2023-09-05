@@ -11,32 +11,28 @@
 		width=''
 </script>
 
-<div class='text-input'>
+<div class='text-control'>
 	<InputLabel {id} {label} />
 	<input
 		type='text'
-		{id}
+		class='text-input'
 		style={`
 			height:${height};
 			width:${width};
 		`}
 		bind:value={text}
+		{id}
 		{placeholder}
 		{required}
 	>
 </div>
 
 <style>
-	.text-input {
+	.text-control {
 		display: flex;
 		flex-direction: column;
 		height: var(--spacing12);
 		gap: var(--spacing03);
 		width: 100%;
-	}
-	input {
-		border: var(--spacing01) solid var(--neutral-100);
-		border-radius: var(--spacing05);
-		padding: var(--spacing05) var(--spacing09);
 	}
 </style>

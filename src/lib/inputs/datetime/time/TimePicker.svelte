@@ -1,7 +1,7 @@
 <script>
 	import { TimeInput, InputLabel } from '$lib/index.js'
 
-	export let id='', label='', time, width='100%'
+	export let id='', label='', time, width=''
 </script>
 
 <div class='time-picker'>

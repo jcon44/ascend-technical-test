@@ -1,0 +1,5 @@
+*[class*='input'] {
+	border: var(--neutral-stroke-100-s);
+	border-radius: var(--spacing05);
+	padding: var(--spacing05) var(--spacing09);
+}
