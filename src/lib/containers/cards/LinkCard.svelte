@@ -11,18 +11,18 @@
 		width = ''
 </script>
 
-<a href={link}>
+<a href={link} class='link-card'>
 	<StandardCard {callback} {classes} {height} {icon} {title} {width}>
 		<slot />
 	</StandardCard>
 </a>
 
 <style>
-	a {
+	.link-card {
 		color: var(--neutral-light-base);
 		text-decoration: none;
 	}
-	a:hover {
+	.link-card:hover {
 		text-decoration: none;
 	}
 </style>

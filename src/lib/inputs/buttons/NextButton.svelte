@@ -1,24 +1,20 @@
 <script>
-	import {
-		ArrowRightSmallIcon,
-		Button,
-		ProgressSpinner
-	} from '$lib/index.js';
-	import { onMount } from 'svelte';
+	import { ArrowRightSmallIcon, Button, ProgressSpinner } from '$lib/index.js'
+	import { onMount } from 'svelte'
 
 	export let arrow = true,
 		callback = null,
 		classes = ['btn-fit', 'btn-l', 'btn-square'],
 		loading = false,
 		text = '',
-		url = '';
+		url = ''
 
-	let icon;
+	let icon
 
 	onMount(() => {
-		if (loading) icon = ProgressSpinner;
-		else if (arrow) icon = ArrowRightSmallIcon;
-	});
+		if (loading) icon = ProgressSpinner
+		else if (arrow) icon = ArrowRightSmallIcon
+	})
 </script>
 
 <Button {callback} {classes} secondIcon={icon} {text} {url} />

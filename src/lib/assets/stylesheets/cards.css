@@ -3,7 +3,6 @@
 	background-color: var(--white-trans-900);
 	border-radius: var(--spacing10);
 	border: var(--spacing00) solid var(--neutral-trans-100);
-	box-shadow: var(--neutral-shadow-s);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -32,4 +31,7 @@
 }
 .card-content {
 	width: 100%;
+}
+.link-card {
+	box-shadow: var(--neutral-shadow-s);
 }

@@ -13,5 +13,6 @@
 	.table-container {
 		border: var(--neutral-stroke-100-s);
 		border-radius: var(--border-radius-s);
+		gap: 0;
 	}
 </style>

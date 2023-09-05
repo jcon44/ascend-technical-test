@@ -1,15 +1,13 @@
 <script>
-	import {
-		ArrowLeftSmallIcon,
-		Button,
-		browserBack
-	} from '$lib/index.js';
+	import { ArrowLeftSmallIcon, Button, browserBack } from '$lib/index.js'
 
 	export let arrow = true,
-		callback = browserBack,
+		// callback = browserBack,
 		classes = ['btn-fit', 'btn-m', 'btn-outline', 'btn-square'],
 		text = '',
 		url = ''
+	
+	const callback = () => console.log('back up!')
 </script>
 
 <Button
