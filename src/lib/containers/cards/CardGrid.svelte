@@ -1,19 +1,18 @@
-<div class='list-container'>
-	<div class="card-list">
+<section class='list-container'>
+	<div class="card-grid">
 		<slot />
 	</div>
-</div>
+</section>
 
 <style>
 	.list-container {
 		display: flex;
 		justify-content: space-around;
 	}
-	.card-list {
+	.card-grid {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--spacing10);
+		gap: var(--spacing09);
 		justify-content: flex-start;
-		width: var(--spacing33);
 	}
 </style>

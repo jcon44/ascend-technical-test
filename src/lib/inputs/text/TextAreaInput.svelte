@@ -1,7 +1,10 @@
 <script>
+	import { InputLabel } from '$lib/index.js'
+
 	export let
 		callback = null,
 		cols = '',
+		id = '',
 		label = '',
 		name = '',
 		placeholder = '',
@@ -10,24 +13,19 @@
 		text = ''
 </script>
 
-
 <div class='text-area-input'>
-	{#if label}
-		<label for={name || label} class='semibold'>
-			{label}
-		</label>
-	{/if}
+	<InputLabel {id} {label} />
 	<textarea
 		bind:value={text}
 		name={name || label}
-		on:input={callback ? callback : ''}
+		on:input={callback || ''}
 		cols={cols}
 		rows={rows}
+		{id}
 		{placeholder}
 		{required}
 	/>
 </div>
-
 
 <style>
 	.text-area-input {

@@ -8,7 +8,6 @@
 		text = ''
 </script>
 
-
 <TextMessageBubble>
 	<TextAreaInput
 		bind:text={text}
@@ -22,7 +21,6 @@
 		</div>
 	{/if}
 </TextMessageBubble>
-
 
 <style>
 	.characters-remaining {

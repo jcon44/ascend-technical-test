@@ -1,7 +1,7 @@
 <script>
-	import { CheckboxInput } from '$lib/index.js';
+	import { CheckboxInput } from '$lib/index.js'
 
-	export let title, description, status;
+	export let title, description, status
 </script>
 
 <div class="checkbox-option">

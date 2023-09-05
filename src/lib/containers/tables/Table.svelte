@@ -4,15 +4,14 @@
 	export let list, columns
 </script>
 
-<div class="table-container">
+<section class="table-container">
 	<TableHeaders bind:list {columns} />
 	<TableBody bind:list {columns} />
-</div>
+</section>
 
 <style>
 	.table-container {
-		margin-left: auto;
-		margin-right: auto;
-		width: var(--spacing33);
+		border: var(--neutral-stroke-100-s);
+		border-radius: var(--border-radius-s);
 	}
 </style>

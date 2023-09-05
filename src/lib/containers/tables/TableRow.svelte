@@ -15,7 +15,7 @@
 <style>
 	.table-body-row {
 		align-items: flex-start;
-		border-bottom: var(--spacing01) solid var(--neutral-000);
+		border-bottom: var(--neutral-stroke-100-s);
 		display: flex;
 	}
 </style>

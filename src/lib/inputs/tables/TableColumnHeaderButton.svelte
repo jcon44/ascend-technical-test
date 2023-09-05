@@ -1,26 +1,22 @@
 <script>
-	import {
-		ArrowDownExtraSmallIcon,
-		ArrowUpExtraSmallIcon
-	} from '$lib/index.js';
+	import { ArrowDownExtraSmallIcon, ArrowUpExtraSmallIcon } from '$lib/index.js'
 
 	export let text = null, order = 'descending', callback
 </script>
 
-	<button
-		on:click={callback}
-		class="semibold"
-	>
-		{text}
-		{#if order === 'descending'}
-			<ArrowDownExtraSmallIcon />
-		{:else if order === 'ascending'}
-			<ArrowUpExtraSmallIcon />
-		{/if}
-	</button>
+<button
+	on:click={callback}
+	class="semibold"
+>
+	{text}
+	{#if order === 'descending'}
+		<ArrowDownExtraSmallIcon />
+	{:else if order === 'ascending'}
+		<ArrowUpExtraSmallIcon />
+	{/if}
+</button>
 
 <style>
-
 	button {
 		align-items: center;
 		background-color: transparent;

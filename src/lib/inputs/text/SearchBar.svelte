@@ -1,9 +1,7 @@
 <script>
-	import { SearchSmallIcon } from '$lib/index.js';
+	import { SearchSmallIcon } from '$lib/index.js'
 
-	export let query,
-		callback,
-		placeholder = 'Search';
+	export let query, callback, placeholder = 'Search'
 </script>
 
 <form role="search">

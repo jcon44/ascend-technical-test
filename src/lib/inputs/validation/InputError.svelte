@@ -1,5 +1,5 @@
 <script>
-	import { AlertCircleSmallIcon } from '$lib/index.js';
+	import { AlertCircleSmallIcon } from '$lib/index.js'
 
 	export let text
 </script>

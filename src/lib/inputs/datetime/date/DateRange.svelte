@@ -1,7 +1,7 @@
 <script>
-	import { DatePicker } from '$lib/index.js';
+	import { DatePicker } from '$lib/index.js'
 
-	export let startDate, endDate, width='100%';
+	export let startDate, endDate, width='100%'
 </script>
 
 <div class="date-range">

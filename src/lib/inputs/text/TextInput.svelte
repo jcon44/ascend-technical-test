@@ -1,21 +1,21 @@
 <script>
+	import { InputLabel } from '$lib/index.js'
+
 	export let
-		height = '',
-		label = '',
-		name = '',
-		placeholder = '',
-		required = false,
-		text = '',
-		width = ''
+		height='',
+		id='',
+		label='',
+		placeholder='',
+		required=false,
+		text='',
+		width=''
 </script>
 
-
 <div class='text-input'>
-	<label for={name || label} class='semibold'>
-		{label}
-	</label>
-	<input type='text'
-		name={name || label}
+	<InputLabel {id} {label} />
+	<input
+		type='text'
+		{id}
 		style={`
 			height:${height};
 			width:${width};
@@ -25,7 +25,6 @@
 		{required}
 	>
 </div>
-
 
 <style>
 	.text-input {

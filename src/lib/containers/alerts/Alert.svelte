@@ -45,6 +45,11 @@
 		width: var(--spacing12);
 	}
 	.alert-text {
+		color: var(--neutral-base);
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: space-between;
 		width: var(--container-max-width-full);
 	}
 </style>

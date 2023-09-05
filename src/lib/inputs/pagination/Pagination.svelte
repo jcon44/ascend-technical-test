@@ -1,13 +1,10 @@
 <script>
-	import {
-		BackButton,
-		NextButton
-	} from '$lib/index.js';
+	import { BackButton, NextButton } from '$lib/index.js'
 
 	export let currentPage = 1,
 		totalPages = 1,
 		leftClickCallback = null,
-		rightClickCallback = null;
+		rightClickCallback = null
 </script>
 
 <div class="pagination-bar">

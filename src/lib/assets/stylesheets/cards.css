@@ -6,23 +6,25 @@
 	box-shadow: var(--neutral-shadow-s);
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing11);
-	max-width: var(--spacing27);
+	justify-content: space-between;
 }
 .card:hover {
 	box-shadow: var(--neutral-shadow-m);
 	text-decoration: none;
 }
 .card-l {
-	padding: var(--spacing11);
-	min-width: var(--spacing27);
-	min-height: var(--spacing24);
+	height: var(--spacing25);
+	padding: var(--spacing10);
+	width: var(--spacing27);
 }
 .card-m {
-	padding: var(--spacing10);
+	height: var(--spacing23);
+	padding: var(--spacing09);
+	width: var(--spacing22);
 }
 .card-s {
-	padding: var(--spacing09);
+	height: var(--spacing16);
+	padding: var(--spacing09) var(--spacing10);
 	width: var(--spacing22);
 }
 .card-title {

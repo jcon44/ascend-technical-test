@@ -1,16 +1,12 @@
 <script>
-	import { TimeInput } from '$lib/index.js';
+	import { TimeInput, InputLabel } from '$lib/index.js'
 
-	export let time,
-		label,
-		name
+	export let id='', label='', time, width='100%'
 </script>
 
 <div class='time-picker'>
-	<label class="semibold" for={name}>
-		{label}
-	</label>
-	<TimeInput bind:time {name} />
+	<InputLabel {id} {label} />
+	<TimeInput bind:time {id} {label} {width} />
 </div>
 
 <style>

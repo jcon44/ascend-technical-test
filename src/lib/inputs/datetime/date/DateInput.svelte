@@ -1,11 +1,13 @@
 <script>
-	export let date, name
+	export let date, id='', required=false, width='100%'
 </script>
 
 <input
 	type="date"
-	{name}
 	bind:value={date}
+	style={`width:${width}`}
+	{id}
+	{required}
 />
 
 <style>
@@ -14,6 +16,5 @@
 		border-radius: var(--spacing05);
 		height: var(--spacing12);
 		padding: 0 var(--spacing09);
-		width: 100%;
 	}
 </style>

@@ -72,6 +72,7 @@ export { default as Card } from '$lib/containers/cards/Card.svelte'
 export { default as CardGrid } from '$lib/containers/cards/CardGrid.svelte'
 export { default as LinkCard } from '$lib/containers/cards/LinkCard.svelte'
 export { default as LoginCard } from '$lib/containers/cards/LoginCard.svelte'
+export { default as MetricCard } from '$lib/containers/cards/MetricCard.svelte'
 export { default as StandardCard } from '$lib/containers/cards/StandardCard.svelte'
 
 // Dialogs
@@ -146,6 +147,7 @@ export { default as getGlobalColorPalette } from '$lib/functions/getGlobalColorP
 export { default as removeToast } from '$lib/functions/removeToast.js'
 export { default as sortArray } from '$lib/functions/sortArray.js'
 export { default as sortByDate } from '$lib/functions/sortByDate.js'
+export { default as sortTable } from  '$lib/functions/sortTable.js'
 export { default as todaysDate } from '$lib/functions/todaysDate.js'
 export { default as withinDateRange } from '$lib/functions/withinDateRange.js'
 
@@ -192,6 +194,9 @@ export { default as DateRange } from '$lib/inputs/datetime/date/DateRange.svelte
 export { default as DateTimePicker } from '$lib/inputs/datetime/DateTimePicker.svelte'
 export { default as TimeInput } from '$lib/inputs/datetime/time/TimeInput.svelte'
 export { default as TimePicker } from '$lib/inputs/datetime/time/TimePicker.svelte'
+
+// Label
+export { default as InputLabel } from '$lib/inputs/labels/InputLabel.svelte'
 
 // Pagination
 export { default as Pagination } from '$lib/inputs/pagination/Pagination.svelte'

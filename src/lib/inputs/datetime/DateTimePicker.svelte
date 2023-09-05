@@ -1,12 +1,12 @@
 <script>
 	import { DatePicker, TimePicker } from '$lib/index.js'
 
-	export let date, time
+	export let date, dateId, time, timeId
 </script>
 
 <div class="date-time-selector">
-	<DatePicker name="date" label="Enter Date" bind:date={date} />
-	<TimePicker name="time" label="Enter Time" bind:time={time} />
+	<DatePicker name="date" label="Enter Date" bind:date={date} id={dateId} />
+	<TimePicker name="time" label="Enter Time" bind:time={time} id={timeId} />
 </div>
 
 <style>

@@ -1,11 +1,13 @@
 <script>
-	export let time, name
+	export let id='', required=false, time, width='100%'
 </script>
 
 <input
 	type="time"
-	{name}
 	bind:value={time}
+	style={`width:${width}`}
+	{id}
+	{required}
 />
 
 <style>

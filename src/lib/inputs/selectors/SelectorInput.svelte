@@ -1,19 +1,19 @@
 <script>
 	export let 
 		callback = null,
-		defaultOptionName,
-		defaultOptionValue,
-		optionList,
-		selectedValue,
-		width = '100%'
+		defaultOptionName='',
+		defaultOptionValue='',
+		id='',
+		label='',
+		optionList=[],
+		selectedValue='',
+		width='100%'
 </script>
 
 <select
 	bind:value={selectedValue}
 	on:change={callback}
-	style={`
-		width:${width};
-	`}
+	style={`width:${width}`}
 >
 	<option
 		selected

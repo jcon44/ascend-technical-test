@@ -1,20 +1,10 @@
 <script>
-	import { DateInput } from '$lib/index.js';
+	import { DateInput, InputLabel } from '$lib/index.js'
 
-	export let date,
-		label,
-		name
+	export let date, id='', label='', width='100%'
 </script>
 
 <div class='date-picker'>
-	<label class="semibold" for={name}>
-		{label}
-	</label>
-	<DateInput bind:date {name} />
+	<InputLabel {id} {label} />
+	<DateInput bind:date {id} {label} {width} />
 </div>
-
-<style>
-	.date-picker {
-		width: 100%;
-	}
-</style>

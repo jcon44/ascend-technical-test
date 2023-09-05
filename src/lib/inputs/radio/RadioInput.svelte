@@ -1,9 +1,11 @@
 <script>
+	import { InputLabel } from '$lib/index.js'
+
 	export let item
 </script>
 
 <input
-	type="radio"
+	type='radio'
 	name={item.name}
 	value={item.value}
 />

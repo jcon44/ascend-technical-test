@@ -7,11 +7,15 @@
 		height = '',
 		icon = undefined,
 		link = '',
+		padding = '',
 		title = '',
 		width = ''
 </script>
 
-<div class='card'>
+<div class='card' style={`
+	${height ? `height: ${height};` : ''}
+	${width ? `width: ${width};` : ''}
+`}>
 	{#if link}
 		<LinkCard {callback} {classes} {height} {icon} {link} {title} {width}>
 			<slot />
