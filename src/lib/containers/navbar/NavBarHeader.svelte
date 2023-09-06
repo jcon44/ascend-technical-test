@@ -1,12 +1,14 @@
 <script>
-	import { AscendLogo, AscendLogoIcon, NavBarToggleButton } from '$lib/index.js';
+	import { AscendLogo, AscendLogoIcon, Button, NavBarToggleButton } from '$lib/index.js';
 
 	export let keepOpen, navBarOpen, toggleNavbar
 </script>
 
 <div class="nav-header">
 	{#if navBarOpen}
-		<AscendLogo />
+		<a href='/'>
+			<AscendLogo />
+		</a>
 		<NavBarToggleButton callback={toggleNavbar} {keepOpen} />
 	{:else}
 		<AscendLogoIcon />
