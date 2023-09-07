@@ -1,5 +1,5 @@
 <script>
-	export let classes, disabled, firstIcon, secondIcon, styles, text, url='/'
+	export let classes, disabled, firstIcon, secondIcon, styles, text, url=''
 </script>
 
 <a
@@ -33,7 +33,7 @@
 				<svelte:component this={secondIcon} />
 			{/if}
 		{:else}
-			<svelte:component this={firstIcon} /> <!-- Icon only -->
+			<svelte:component this={firstIcon} />
 		{/if}
 	</div>
 </a>

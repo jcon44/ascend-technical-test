@@ -1,9 +1,11 @@
 <script>
+	import { ButtonContents } from '$lib/index.js'
+
 	export let classes, disabled, firstIcon, secondIcon, styles, text;
 </script>
 
 <button
-	{disabled}
+	disabled={disabled}
 	class={`
 		semibold
 		${classes.includes('btn-full') ? 'btn-full' : 'btn-fit'}
@@ -32,7 +34,7 @@
 				<svelte:component this={secondIcon} />
 			{/if}
 		{:else}
-			<svelte:component this={firstIcon} /> <!-- Icon only -->
+			<svelte:component this={firstIcon} />
 		{/if}
 	</div>
 </button>

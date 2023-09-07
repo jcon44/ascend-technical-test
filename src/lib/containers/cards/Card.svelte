@@ -12,7 +12,7 @@
 		width = ''
 </script>
 
-<div class='card' style={`
+<div style={`
 	${height ? `height: ${height};` : ''}
 	${width ? `width: ${width};` : ''}
 `}>

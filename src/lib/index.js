@@ -158,6 +158,7 @@ export { default as withinDateRange } from '$lib/functions/withinDateRange.js'
 // Buttons
 export { default as BackButton } from '$lib/inputs/buttons/BackButton.svelte'
 export { default as Button } from '$lib/inputs/buttons/Button.svelte'
+export { default as ButtonContents } from '$lib/inputs/buttons/ButtonContents.svelte'
 export { default as CancelButton } from '$lib/inputs/buttons/CancelButton.svelte'
 export { default as ClearButton } from '$lib/inputs/buttons/ClearButton.svelte'
 export { default as ClearFiltersButton } from '$lib/inputs/buttons/ClearFiltersButton.svelte'

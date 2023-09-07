@@ -1,9 +1,9 @@
 <script>
-	import { LinkButton, StandardButton } from '$lib/index.js';
+	import { LinkButton, StandardButton } from '$lib/index.js'
 
 	export let callback = undefined,
 		classes = ['btn-fit', 'btn-m', 'btn-primary', 'btn-rect'],
-		disabled = 'false',
+		disabled = '',
 		firstIcon = undefined,
 		secondIcon = undefined,
 		styles = '',

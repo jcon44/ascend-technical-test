@@ -4,7 +4,7 @@
 
 	export let arrow = true,
 		callback = null,
-		classes = ['btn-fit', 'btn-l', 'btn-square'],
+		classes = ['btn-fit', 'btn-l', 'btn-primary', 'btn-square'],
 		loading = false,
 		text = '',
 		url = ''
