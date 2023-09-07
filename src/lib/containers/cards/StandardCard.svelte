@@ -39,4 +39,8 @@
 		height: 100%;
 		justify-content: space-between;
 	}
+	.hover-link:hover {
+		box-shadow: var(--neutral-shadow-m);
+		text-decoration: none;
+	}
 </style>

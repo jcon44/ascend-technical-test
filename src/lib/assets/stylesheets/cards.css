@@ -10,11 +10,6 @@
 	padding: var(--spacing10);
 	width: var(--spacing27);
 }
-.card-l:hover {
-	box-shadow: var(--neutral-shadow-m);
-	text-decoration: none;
-}
-
 .card-m {
 	align-items: flex-start;
 	background-color: var(--white-trans-900);
@@ -27,11 +22,6 @@
 	padding: var(--spacing09);
 	width: var(--spacing22);
 }
-.card-m:hover {
-	box-shadow: var(--neutral-shadow-m);
-	text-decoration: none;
-}
-
 .card-s {
 	align-items: flex-start;
 	background-color: var(--white-trans-900);
@@ -44,19 +34,9 @@
 	padding: var(--spacing09) var(--spacing10);
 	width: var(--spacing22);
 }
-.card-s:hover {
-	box-shadow: var(--neutral-shadow-m);
-	text-decoration: none;
-}
-
 .card-title {
 	color: var(--neutral-base);
 }
-
 .card-content {
 	width: 100%;
-}
-
-.link-card {
-	box-shadow: var(--neutral-shadow-s);
 }
