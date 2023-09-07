@@ -1,20 +1,20 @@
 <script>
 	import { Button, Dialog, Content } from '$lib/index.js'
 
-	let showModal = false
+	let showDialog = false
 
-	function toggleModal() {
-		showModal = !showModal
+	function toggleDialog() {
+		showDialog = !showDialog
 	}
 </script>
 
 <Content>
 	<h1>Dialog</h1>
 	<Button
-		callback={toggleModal}
+		callback={toggleDialog}
 		text='Show Dialog'
 	/>
-		<Dialog title='Test Dialog' bind:showModal={showModal}>
+		<Dialog title='Test Dialog' bind:showDialog={showDialog}>
 			<div slot='dialog-body'>Lorem ipsum so on and so forth</div>
 			<div slot='dialog-footer'>
 				<div class='test-1'>

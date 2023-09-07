@@ -3,17 +3,17 @@
 		Button,
 		Dialog,
 		Content,
-		SampleModalDialogContent,
+		SampleDialogContent,
 	} from '$lib/index.js';
 
 	let button,
-		showModal = false,
-		title = 'Sample Modal'
+		showDialog = false,
+		title = 'Sample Dialog'
 </script>
 
 <Content>
-	<Button bind:this={button} callback={() => (showModal = true)} text="Show Modal" />
-	<Dialog {title} {showModal} on:close={() => (showModal = false)}>
-		<SampleModalDialogContent />
+	<Button bind:this={button} callback={() => (showDialog = true)} text="Show Dialog" />
+	<Dialog {title} {showDialog} on:close={() => (showDialog = false)}>
+		<SampleDialogContent />
 	</Dialog>
 </Content>

@@ -90,8 +90,8 @@
 			},
 			{
 				icon: NavIcon,
-				text: 'Modal',
-				url: '/modal'
+				text: 'Dialog',
+				url: '/Dialog'
 			},
 			{
 				icon: NavIcon,

@@ -2,7 +2,7 @@
 	import { OkButton } from '$lib/index.js';
 	import { getContext } from 'svelte';
 
-	const closeDialog = getContext('modalDialog');
+	const closeDialog = getContext('Dialog');
 </script>
 
 <div class="sample-dialog">

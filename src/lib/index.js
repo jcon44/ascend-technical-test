@@ -81,7 +81,7 @@ export { default as DialogBody } from '$lib/containers/dialogs/DialogBody.svelte
 export { default as DialogFooter } from '$lib/containers/dialogs/DialogFooter.svelte'
 export { default as DialogHeader } from '$lib/containers/dialogs/DialogHeader.svelte'
 export { default as DialogSection } from '$lib/containers/dialogs/DialogSection.svelte'
-export { default as SampleModalDialogContent } from '$lib/containers/dialogs/SampleModalDialogContent.svelte'
+export { default as SampleDialogContent } from '$lib/containers/dialogs/SampleDialogContent.svelte'
 
 // Footers
 export { default as FooterBar } from '$lib/containers/footers/FooterBar.svelte'
@@ -142,12 +142,13 @@ export { default as ToastArea } from '$lib/containers/toasts/ToastArea.svelte'
 
 export { default as browserBack } from '$lib/functions/browserBack.js'
 export { default as capitalize } from '$lib/functions/capitalize.js'
+export { default as closeDialog } from '$lib/functions/closeDialog.js'
 export { default as formatDate } from '$lib/functions/formatDate.js'
 export { default as getGlobalColorPalette } from '$lib/functions/getGlobalColorPalette.js'
 export { default as removeToast } from '$lib/functions/removeToast.js'
 export { default as sortArray } from '$lib/functions/sortArray.js'
 export { default as sortByDate } from '$lib/functions/sortByDate.js'
-export { default as sortTable } from  '$lib/functions/sortTable.js'
+export { default as sortTable } from '$lib/functions/sortTable.js'
 export { default as todaysDate } from '$lib/functions/todaysDate.js'
 export { default as withinDateRange } from '$lib/functions/withinDateRange.js'
 

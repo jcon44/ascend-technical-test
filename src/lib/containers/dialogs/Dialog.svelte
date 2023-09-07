@@ -1,26 +1,21 @@
 <script>
-	import { DialogBody, DialogFooter, DialogHeader } from '$lib/index.js';
+	import { closeDialog, DialogBody, DialogFooter, DialogHeader } from '$lib/index.js';
 	import { setContext } from 'svelte';
 
-	export let title, showModal;
+	export let title, showDialog;
 
 	let dialog;
 
-	$: if (dialog && showModal) dialog.showModal();
+	$: if (dialog && showDialog) dialog.showDialog();
 
-	function closeDialog() {
-		showModal = false
-		dialog.close();
-	}
-
-	setContext('modalDialog', closeDialog);
+	setContext('Dialog', closeDialog);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <div class='dialog-container'>
 	<dialog bind:this={dialog} on:close on:click|self={closeDialog}>
-		<DialogHeader {title} {closeDialog} />
+		<DialogHeader {title} closeDialog={() => showDialog = closeDialog(dialog)} />
 		<DialogBody>
 			<slot name='dialog-body-slot' />
 		</DialogBody>
@@ -50,7 +45,7 @@
 		display: block;
 		margin: auto;
 	}
-	dialog:modal {
+	dialog:Dialog {
 		background-color: var(--background-base);		
 		flex-direction: column;
 		max-height: 90vh;
