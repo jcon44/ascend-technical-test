@@ -1,5 +1,5 @@
 .card-l {
-	align-items: flex-start;
+	align-items: space-between;
 	background-color: var(--white-trans-900);
 	border-radius: var(--spacing10);
 	border: var(--spacing00) solid var(--neutral-trans-100);
@@ -11,7 +11,7 @@
 	width: var(--spacing27);
 }
 .card-m {
-	align-items: flex-start;
+	align-items: space-between;
 	background-color: var(--white-trans-900);
 	border-radius: var(--spacing10);
 	border: var(--spacing00) solid var(--neutral-trans-100);
@@ -23,7 +23,7 @@
 	width: var(--spacing22);
 }
 .card-s {
-	align-items: flex-start;
+	align-items: space-between;
 	background-color: var(--white-trans-900);
 	border-radius: var(--spacing10);
 	border: var(--spacing00) solid var(--neutral-trans-100);

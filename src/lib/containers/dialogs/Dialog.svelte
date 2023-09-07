@@ -1,21 +1,26 @@
 <script>
-	import { closeDialog, DialogBody, DialogFooter, DialogHeader } from '$lib/index.js';
+	import { DialogBody, DialogFooter, DialogHeader } from '$lib/index.js';
 	import { setContext } from 'svelte';
 
-	export let title, showDialog;
+	export let title, showModal;
 
 	let dialog;
 
-	$: if (dialog && showDialog) dialog.showDialog();
+	$: if (dialog && showModal) dialog.showModal();
 
-	setContext('Dialog', closeDialog);
+	function closeDialog() {
+		showModal = false
+		dialog.close()
+	}
+
+	setContext('modalDialog', closeDialog);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <div class='dialog-container'>
 	<dialog bind:this={dialog} on:close on:click|self={closeDialog}>
-		<DialogHeader {title} closeDialog={() => showDialog = closeDialog(dialog)} />
+		<DialogHeader {title} {closeDialog} />
 		<DialogBody>
 			<slot name='dialog-body-slot' />
 		</DialogBody>
@@ -27,15 +32,15 @@
 
 <style>
 	.dialog-container {
-		display: flex;
-		justify-content: center;
 		align-items: center;
-		z-index: 100;
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		background-color: rgba(0, 0, 0, 0.5);
 		backdrop-filter: blur(10px);
+		background-color: rgba(0, 0, 0, 0.5);
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		position: absolute;
+		width: 100%;
+		z-index: 100;
 	}
 	dialog {
 		border-radius: var(--border-radius-xl);
@@ -45,19 +50,18 @@
 		display: block;
 		margin: auto;
 	}
-	dialog:Dialog {
+	dialog:modal {
 		background-color: var(--background-base);		
 		flex-direction: column;
 		max-height: 90vh;
 		width: var(--spacing29);
 	}
 	dialog::backdrop {
-		
-		z-index: 101;
-		height: 100vh;
-		display: flex;
-		justify-content: center;
 		align-items: center;
+		display: flex;
+		height: 100vh;
+		justify-content: center;
+		z-index: 101;
 	}
 	dialog[open] {
 		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
