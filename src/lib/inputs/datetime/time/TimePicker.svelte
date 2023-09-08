@@ -6,7 +6,7 @@
 
 <div class='time-picker'>
 	<InputLabel {id} {label} />
-	<TimeInput bind:time {id} {label} {width} />
+	<TimeInput bind:time {id} {width} />
 </div>
 
 <style>

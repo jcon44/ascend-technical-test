@@ -6,7 +6,7 @@
 
 <div class='date-picker'>
 	<InputLabel {id} {label} />
-	<DateInput bind:date {id} {label} {width} />
+	<DateInput bind:date {id} {width} />
 </div>
 
 <style>

@@ -5,8 +5,8 @@
 </script>
 
 <div class="date-range">
-	<DatePicker bind:date={startDate} label="Start Date" name="start-date" {width} />
-	<DatePicker bind:date={endDate} label="End Date" name="end-date" {width} />
+	<DatePicker bind:date={startDate} label="Start Date" id="start-date" {width} />
+	<DatePicker bind:date={endDate} label="End Date" id="end-date" {width} />
 </div>
 
 <style>
