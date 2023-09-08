@@ -90,6 +90,9 @@ export { default as FooterNavigation } from '$lib/containers/footers/FooterNavig
 // Headers
 export { default as HeaderBar } from '$lib/containers/headers/HeaderBar.svelte'
 
+// Labels
+export { default as InputLabel } from '$lib/containers/labels/InputLabel.svelte'
+
 // Layout
 export { default as Content } from '$lib/containers/layout/Content.svelte'
 export { default as Error404Page } from '$lib/containers/layout/Error404Page.svelte'
@@ -128,7 +131,7 @@ export { default as ErrorTag } from '$lib/containers/tags/ErrorTag.svelte'
 export { default as StatusTag } from '$lib/containers/tags/StatusTag.svelte'
 export { default as Tag } from '$lib/containers/tags/Tag.svelte'
 
-// Tex
+// Text
 export { default as TextMessageBubble } from '$lib/containers/text/TextMessageBubble.svelte'
 export { default as TextMessageDisplayBubble } from '$lib/containers/text/TextMessageDisplayBubble.svelte'
 
@@ -197,9 +200,6 @@ export { default as DateRange } from '$lib/inputs/datetime/date/DateRange.svelte
 export { default as DateTimePicker } from '$lib/inputs/datetime/DateTimePicker.svelte'
 export { default as TimeInput } from '$lib/inputs/datetime/time/TimeInput.svelte'
 export { default as TimePicker } from '$lib/inputs/datetime/time/TimePicker.svelte'
-
-// Label
-export { default as InputLabel } from '$lib/inputs/labels/InputLabel.svelte'
 
 // Pagination
 export { default as Pagination } from '$lib/inputs/pagination/Pagination.svelte'

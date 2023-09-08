@@ -7,7 +7,6 @@
 		height = '',
 		icon = undefined,
 		link = '',
-		padding = '',
 		title = '',
 		width = ''
 </script>

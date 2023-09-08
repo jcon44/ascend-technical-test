@@ -1,13 +1,9 @@
 <script>
-	import { Button } from '$lib/index.js';
-	import { onMount } from 'svelte';
+	import { Button } from '$lib/index.js'
 
-	export let arrow = true,
-		callback = null,
+	export let callback = null,
 		classes = ['btn-fit', 'btn-l', 'btn-square', 'btn-primary'],
-		loading = false,
-		text = '',
-		url = '';
+		url = ''
 </script>
 
-<Button {callback} {classes} text='Continue' {url} />
+<Button {callback} {classes} text='Confirm' {url} />

@@ -1,4 +1,6 @@
 <script>
+	import { InputLabel } from '$lib/index.js'
+
 	export let 
 		callback = null,
 		defaultOptionName='',
@@ -10,23 +12,27 @@
 		width=''
 </script>
 
-<select
-	bind:value={selectedValue}
-	on:change={callback}
-	style={`width:${width}`}
->
-	<option
-		selected
-		value={defaultOptionValue}
+<div class='selector-input'>
+	<InputLabel {id} {label} />
+	<select
+		bind:value={selectedValue}
+		on:change={callback}
+		style={`width:${width}`}
+		{id}
 	>
-		{defaultOptionName}
-	</option>
-	{#each optionList as optionItem}
-		<option value={optionItem}>
-			{optionItem}
+		<option
+			selected
+			value={defaultOptionValue}
+		>
+			{defaultOptionName}
 		</option>
-	{/each}
-</select>
+		{#each optionList as optionItem}
+			<option value={optionItem}>
+				{optionItem}
+			</option>
+		{/each}
+	</select>
+</div>
 
 <style>
 	select {

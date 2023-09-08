@@ -35,10 +35,7 @@
 		</div>
 		{#if toast.category === 'action'}
 			<div class="close-column">
-				<CloseButton
-					callback={() => closeToast(toast._id)}
-					classes={['purple']}
-				/>
+				<CloseToastButton callback={() => closeToast(toast._id)} />
 			</div>
 		{/if}
 	</div>

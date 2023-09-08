@@ -1,10 +1,5 @@
 <script>
-	export let
-		classes=[],
-		styles=[],
-		text='',
-		firstIcon=null,
-		secondIcon=null
+	export let text='', firstIcon=null, secondIcon=null
 </script>
 
 {#if text}
