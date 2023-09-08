@@ -9,7 +9,7 @@
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class={`${classes?.join(' ') ?? ''}`}
+<div class={`card-wrapper ${classes?.join(' ') ?? ''}`}
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
 	style={`
@@ -33,6 +33,9 @@
 </div>
 
 <style>
+	.card-wrapper {
+		gap: var(--spacing05);
+	}
 	.card-content {
 		display: flex;
 		flex-direction: column;

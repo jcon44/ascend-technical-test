@@ -29,7 +29,6 @@
 		background-color: transparent;
 		border-radius: var(--btn-border-radius);
 		border: none;
-		color: inherit;
 		cursor: pointer;
 		display: flex;
 		text-decoration: none;

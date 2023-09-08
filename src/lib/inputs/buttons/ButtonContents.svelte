@@ -1,10 +1,10 @@
 <script>
 	export let
-		classes,
-		styles,
-		text,
-		firstIcon,
-		secondIcon
+		classes=[],
+		styles=[],
+		text='',
+		firstIcon=null,
+		secondIcon=null
 </script>
 
 {#if text}

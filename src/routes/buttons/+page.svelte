@@ -3,7 +3,8 @@
 		BackButton,
 		CancelButton,
 		ClearButton,
-		CloseButton,
+		CloseDialogButton,
+		CloseToastButton,
 		ContactUsButton,
 		ContinueButton,
 		ExportCSVButton,
@@ -30,8 +31,11 @@
 	<SampleButton name='ClearButton'>
 		<ClearButton />
 	</SampleButton>
-	<SampleButton name='CloseButton'>
-		<CloseButton />
+	<SampleButton name='CloseDialogButton'>
+		<CloseDialogButton />
+	</SampleButton>
+	<SampleButton name='CloseToastButton'>
+		<CloseToastButton />
 	</SampleButton>
 	<SampleButton name='ContactUsButton'>
 		<ContactUsButton />

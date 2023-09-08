@@ -1,15 +1,13 @@
 <script>
-	import { CloseButton } from '$lib/index.js';
+	import { CloseDialogButton } from '$lib/index.js';
 
 	export let title, closeDialog
 </script>
 
 <div class="dialog-header">
-	<div class="headline-l-xl">
-		{title}
-	</div>
+	<div class="headline-l-xl">{title}</div>
 	<form method="dialog">
-		<CloseButton callback={closeDialog} />
+		<CloseDialogButton callback={closeDialog} />
 	</form>
 </div>
 

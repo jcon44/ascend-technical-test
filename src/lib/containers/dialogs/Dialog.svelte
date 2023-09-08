@@ -1,19 +1,19 @@
 <script>
-	import { DialogBody, DialogFooter, DialogHeader } from '$lib/index.js';
-	import { setContext } from 'svelte';
+	import { DialogBody, DialogFooter, DialogHeader } from '$lib/index.js'
+	import { setContext } from 'svelte'
 
-	export let title, showModal;
+	export let title, showDialog
 
-	let dialog;
+	let dialog
 
-	$: if (dialog && showModal) dialog.showModal();
+	$: if (dialog && showDialog) dialog.showDialog()
 
 	function closeDialog() {
-		showModal = false
+		showDialog = false
 		dialog.close()
 	}
 
-	setContext('modalDialog', closeDialog);
+	setContext('modalDialog', closeDialog)
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->

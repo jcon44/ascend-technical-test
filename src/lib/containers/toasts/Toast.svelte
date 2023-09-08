@@ -1,24 +1,19 @@
 <script>
-	import {
-		AlertCircleSmallIcon,
-		CloseButton,
-		SuccessCheckCircleSmallIcon
-	} from '$lib/index.js';
-	import { createEventDispatcher } from 'svelte';
-	import { fade } from 'svelte/transition';
-	import { onMount } from 'svelte';
+	import { AlertCircleSmallIcon, CloseToastButton, SuccessCheckCircleSmallIcon } from '$lib/index.js'
+	import { createEventDispatcher, onMount } from 'svelte'
+	import { fade } from 'svelte/transition'
 
-	export let toast;
+	export let toast
 
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher()
 
 	function closeToast(id) {
-		dispatch('timer', { id });
+		dispatch('timer', { id })
 	}
 
 	onMount(() => {
 		if (toast.category === 'dismiss') {
-			setTimeout(() => closeToast(toast._id), 2000);
+			setTimeout(() => closeToast(toast._id), 2000)
 		}
 	});
 </script>
@@ -33,9 +28,7 @@
 			{/if}
 		</div>
 		<div class="text-column">
-			<div class="text-title headline-l-xs">
-				{toast.title}
-			</div>
+			<div class="text-title headline-l-xs">{toast.title}</div>
 			<div class="text-body">
 				<p>{toast.body}</p>
 			</div>
@@ -71,9 +64,9 @@
 		width: 100%;
 	}
 	.icon-column {
-		width: var(--spacing13);
-		display: flex;
 		align-items: center;
+		display: flex;
+		width: var(--spacing13);
 	}
 	.text-column {
 		width: var(--spacing22);
