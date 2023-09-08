@@ -11,6 +11,8 @@
 
 <style>
 	.time-picker {
-		width: 100%;
+		display: flex;
+		gap: var(--spacing03);
+		flex-direction: column;
 	}
 </style>

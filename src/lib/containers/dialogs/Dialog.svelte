@@ -6,7 +6,9 @@
 
 	let dialog
 
-	$: if (dialog && showDialog) dialog.showDialog()
+	console.log(dialog, showDialog)
+
+	// $: if (dialog && showDialog) dialog.showDialog()
 
 	function closeDialog() {
 		showDialog = false

@@ -23,10 +23,4 @@
 		position: sticky;
 		width: 100%;
 	}
-	.left-actions,
-	.right-actions {
-		display: flex;
-		gap: var(--spacing06);
-		width: fit-content;
-	}
 </style>

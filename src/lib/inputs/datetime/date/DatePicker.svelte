@@ -8,3 +8,11 @@
 	<InputLabel {id} {label} />
 	<DateInput bind:date {id} {label} {width} />
 </div>
+
+<style>
+	.date-picker {
+		display: flex;
+		gap: var(--spacing03);
+		flex-direction: column;
+	}
+</style>
