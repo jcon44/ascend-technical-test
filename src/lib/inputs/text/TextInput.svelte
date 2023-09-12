@@ -1,5 +1,5 @@
 <script>
-	import { InputLabel } from '$lib/index.js'
+	import {  Label } from '$lib/index.js'
 
 	export let
 		height='',
@@ -12,7 +12,7 @@
 </script>
 
 <div class='text-control'>
-	<InputLabel {id} {label} />
+	<Label {id} {label} />
 	<input
 		type='text'
 		class='text-input'

@@ -1,5 +1,5 @@
 <script>
-	import { InputLabel } from '$lib/index.js'
+	import {  Label } from '$lib/index.js'
 
 	export let
 		id='',
@@ -11,7 +11,7 @@
 </script>
 
 <div class='phone-number-control'>
-	<InputLabel {id} {label} />
+	<Label {id} {label} />
 	<input
 		type="tel"
 		bind:value={phoneNumber}

@@ -1,13 +1,8 @@
 <script>
-	import {
-		Card,
-		Content,
-		ProgressBar,
-		ProgressSpinner
-	} from '$lib/index.js';
+	import { Card, Page, ProgressBar, ProgressSpinner } from '$lib/index.js'
 </script>
 
-<Content>
+<Page>
 	<h1>Progress</h1>
 	<Card title="Progress Bars" width="100%">
 		<div>
@@ -38,4 +33,4 @@
 	<Card title="Progress Animation" width="100%">
 		<ProgressSpinner active="true" />
 	</Card>
-</Content>
+</Page>

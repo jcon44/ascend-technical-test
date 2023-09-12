@@ -1,14 +1,10 @@
 <script>
-	import {
-		ArrowDownExtraSmallIcon,
-		Content,
-		Tag,
-	} from '$lib/index.js';
+	import { ArrowDownExtraSmallIcon, Page, Tag } from '$lib/index.js'
 
-	const typeList = ['Success', 'Secondary', 'Error', 'Warning', 'Neutral'];
+	const typeList = ['Success', 'Secondary', 'Error', 'Warning', 'Neutral']
 </script>
 
-<Content>
+<Page>
 	<h1>Tags</h1>
 	{#each typeList as prominentType}
 		<h2>{prominentType} Tag</h2>
@@ -28,4 +24,4 @@
 			side="right"
 		/>
 	{/each}
-</Content>
+</Page>

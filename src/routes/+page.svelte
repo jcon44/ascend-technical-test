@@ -1,7 +1,7 @@
 <script>
-	import { Content } from '$lib/index.js';
+	import { MainContent } from '$lib/index.js';
 </script>
 
-<Content>
+<MainContent>
 	<h1>TEST</h1>
-</Content>
+</MainContent>

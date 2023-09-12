@@ -1,15 +1,15 @@
 <script>
-	import { LoginCard, Content } from '$lib/index.js';
+	import { LoginCard, Page } from '$lib/index.js'
 </script>
 
-<Content>
+<Page>
 	<h1>Login</h1>
 	<div class="login-sample-container">
 		<div class="landing">
 			<LoginCard />
 		</div>
 	</div>
-</Content>
+</Page>
 
 <style>
 	.landing {

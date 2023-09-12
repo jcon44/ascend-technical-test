@@ -1,5 +1,5 @@
 <script>
-	import { InputLabel } from '$lib/index.js'
+	import {  Label } from '$lib/index.js'
 
 	export let item
 </script>

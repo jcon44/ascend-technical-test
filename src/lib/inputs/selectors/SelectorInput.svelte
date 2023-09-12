@@ -1,5 +1,5 @@
 <script>
-	import { InputLabel } from '$lib/index.js'
+	import {  Label } from '$lib/index.js'
 
 	export let 
 		callback = null,
@@ -13,7 +13,7 @@
 </script>
 
 <div class='selector-input'>
-	<InputLabel {id} {label} />
+	<Label {id} {label} />
 	<select
 		bind:value={selectedValue}
 		on:change={callback}

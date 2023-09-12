@@ -3,13 +3,13 @@
 </script>
 
 {#if id}
-	<label class='input-label semibold' for={id}>
+	<label class='semibold' for={id}>
 		{label}
 	</label>
 {/if}
 
 <style>
-	.input-label {
+	label {
 		margin-bottom: var(--spacing03);
 	}
 </style>

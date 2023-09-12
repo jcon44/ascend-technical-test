@@ -6,22 +6,18 @@
 
 	let dialog
 
-	console.log(dialog, showDialog)
-
-	// $: if (dialog && showDialog) dialog.showDialog()
-
 	function closeDialog() {
 		showDialog = false
 		dialog.close()
 	}
 
-	setContext('modalDialog', closeDialog)
+	setContext('Dialog', closeDialog)
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <div class='dialog-container'>
-	<dialog bind:this={dialog} on:close on:click|self={closeDialog}>
+	<dialog bind:this={dialog} on:close on:click|self={(closeDialog)}>
 		<DialogHeader {title} {closeDialog} />
 		<DialogBody>
 			<slot name='dialog-body-slot' />
@@ -51,12 +47,12 @@
 			0px var(--spacing02) var(--spacing03) var(--spacing02) var(--neutral-trans-100);
 		display: block;
 		margin: auto;
+		width: var(--spacing30);
 	}
 	dialog:modal {
 		background-color: var(--background-base);		
 		flex-direction: column;
 		max-height: 90vh;
-		width: var(--spacing29);
 	}
 	dialog::backdrop {
 		align-items: center;

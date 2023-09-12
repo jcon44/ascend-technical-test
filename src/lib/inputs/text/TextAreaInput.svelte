@@ -1,5 +1,5 @@
 <script>
-	import { InputLabel } from '$lib/index.js'
+	import {  Label } from '$lib/index.js'
 
 	export let
 		callback=null,
@@ -14,7 +14,7 @@
 </script>
 
 <div class='textarea-control'>
-	<InputLabel {id} {label} />
+	<Label {id} {label} />
 	<textarea
 		bind:value={text}
 		class='textarea-input'

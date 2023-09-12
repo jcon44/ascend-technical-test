@@ -16,55 +16,55 @@
 		OkButton,
 		Content,
 		ProfileButton,
-		SampleButton,
+		SampleButton
 	} from '$lib/index.js'
 </script>
 
-<Content>
+<Page>
 	<h1>Buttons</h1>
-	<SampleButton name='BackButton'>
+	<SampleButton name="BackButton">
 		<BackButton />
 	</SampleButton>
-	<SampleButton name='CancelButton'>
+	<SampleButton name="CancelButton">
 		<CancelButton />
 	</SampleButton>
-	<SampleButton name='ClearButton'>
+	<SampleButton name="ClearButton">
 		<ClearButton />
 	</SampleButton>
-	<SampleButton name='CloseDialogButton'>
+	<SampleButton name="CloseDialogButton">
 		<CloseDialogButton />
 	</SampleButton>
-	<SampleButton name='CloseToastButton'>
+	<SampleButton name="CloseToastButton">
 		<CloseToastButton />
 	</SampleButton>
-	<SampleButton name='ContactUsButton'>
+	<SampleButton name="ContactUsButton">
 		<ContactUsButton />
 	</SampleButton>
-	<SampleButton name='ContinueButton'>
+	<SampleButton name="ContinueButton">
 		<ContinueButton />
 	</SampleButton>
-	<SampleButton name='ExportCSVButton'>
+	<SampleButton name="ExportCSVButton">
 		<ExportCSVButton />
 	</SampleButton>
-	<SampleButton name='HomeButton'>
+	<SampleButton name="HomeButton">
 		<HomeButton />
 	</SampleButton>
-	<SampleButton name='LoginButton'>
+	<SampleButton name="LoginButton">
 		<LoginButton />
 	</SampleButton>
-	<SampleButton name='LogoutButton'>
+	<SampleButton name="LogoutButton">
 		<LogoutButton />
 	</SampleButton>
-	<SampleButton name='NavBarToggleButton'>
+	<SampleButton name="NavBarToggleButton">
 		<NavBarToggleButton />
 	</SampleButton>
-	<SampleButton name='NextButton'>
+	<SampleButton name="NextButton">
 		<NextButton />
 	</SampleButton>
-	<SampleButton name='OkButton'>
+	<SampleButton name="OkButton">
 		<OkButton />
 	</SampleButton>
-	<SampleButton name='ProfileButton'>
+	<SampleButton name="ProfileButton">
 		<ProfileButton />
 	</SampleButton>
-</Content>
+</Page>

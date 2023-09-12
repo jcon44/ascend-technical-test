@@ -14,6 +14,8 @@
 <style>
 	.search-bar-control {
 		align-items: center;
+		border-radius: var(--spacing05);
+		border: var(--neutral-stroke-100-s);
 		display: flex;
 		gap: var(--spacing05);
 		padding: var(--spacing03) var(--spacing05);

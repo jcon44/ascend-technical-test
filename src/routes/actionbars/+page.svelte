@@ -1,19 +1,13 @@
 <script>
-	import {
-		ActionBar,
-		BackButton,
-		LoremIpsum,
-		NextButton,
-		Content
-	} from '$lib/index.js';
+	import { ActionBar, BackButton, LoremIpsum, NextButton, Page } from '$lib/index.js'
 
-	const leftContent = [BackButton];
+	const leftContent = [BackButton]
 
-	const rightContent = [NextButton];
+	const rightContent = [NextButton]
 </script>
 
-<Content>
+<Page>
 	<h1>Action Bars</h1>
 	<LoremIpsum />
-</Content>
+</Page>
 <ActionBar {leftContent} {rightContent} />

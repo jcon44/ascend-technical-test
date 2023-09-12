@@ -1,13 +1,9 @@
 <script>
-	import {
-		LoremIpsum,
-		Content,
-		Pagination
-	} from '$lib/index.js';
+	import { LoremIpsum, Page, Pagination } from '$lib/index.js'
 </script>
 
-<Content>
+<Page>
 	<h1>Pagination</h1>
 	<LoremIpsum />
-</Content>
+</Page>
 <Pagination />

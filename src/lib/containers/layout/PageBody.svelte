@@ -8,6 +8,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing09);
-		padding: 0 var(--spacing14);
+		max-width: var(--spacing33);
 	}
 </style>

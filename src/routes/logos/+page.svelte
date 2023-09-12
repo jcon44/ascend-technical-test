@@ -1,7 +1,7 @@
 <script>
-	import { Content } from '$lib/index.js';
+	import { Page } from '$lib/index.js'
 </script>
 
-<Content>
+<Page>
 	<h1>Logos</h1>
-</Content>
+</Page>

@@ -90,15 +90,16 @@ export { default as FooterNavigation } from '$lib/containers/footers/FooterNavig
 // Headers
 export { default as HeaderBar } from '$lib/containers/headers/HeaderBar.svelte'
 
-// Labels
-export { default as InputLabel } from '$lib/containers/labels/InputLabel.svelte'
+//Labels
+export { default as Label } from '$lib/containers/labels/Label.svelte'
 
 // Layout
-export { default as Content } from '$lib/containers/layout/Content.svelte'
 export { default as Error404Page } from '$lib/containers/layout/Error404Page.svelte'
 export { default as Main } from '$lib/containers/layout/Main.svelte'
+export { default as MainContent } from '$lib/containers/layout/MainContent.svelte'
 export { default as Page } from '$lib/containers/layout/Page.svelte'
 export { default as PageBody } from '$lib/containers/layout/PageBody.svelte'
+export { default as PageContent } from '$lib/containers/layout/PageContent.svelte'
 export { default as PageDescription } from '$lib/containers/layout/PageDescription.svelte'
 export { default as PageHeader } from '$lib/containers/layout/PageHeader.svelte'
 export { default as PageTitle } from '$lib/containers/layout/PageTitle.svelte'
@@ -145,7 +146,7 @@ export { default as ToastArea } from '$lib/containers/toasts/ToastArea.svelte'
 
 export { default as browserBack } from '$lib/functions/browserBack.js'
 export { default as capitalize } from '$lib/functions/capitalize.js'
-export { default as closeDialog } from '$lib/functions/closeDialog.js'
+export { default as clearDialog } from '$lib/functions/clearDialog.js'
 export { default as formatDate } from '$lib/functions/formatDate.js'
 export { default as getGlobalColorPalette } from '$lib/functions/getGlobalColorPalette.js'
 export { default as removeToast } from '$lib/functions/removeToast.js'
