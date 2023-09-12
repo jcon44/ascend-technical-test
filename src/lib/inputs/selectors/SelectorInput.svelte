@@ -12,7 +12,7 @@
 		width=''
 </script>
 
-<div class='selector-input'>
+<div class='selector'>
 	<Label {id} {label} />
 	<select
 		bind:value={selectedValue}
