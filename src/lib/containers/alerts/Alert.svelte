@@ -7,30 +7,38 @@
 
 
 <div class="alert">
-	<div class="alert-icon">
-		<svelte:component this={icon} />
+	<div class="alert-content">
+		<div class="alert-icon">
+			<svelte:component this={icon} />
+		</div>
+		<div class="alert-text">
+			<div class="alert-title headline-l-xs">
+				{title}
+			</div>
+			<div class="alert-body body-s">
+				{body}
+			</div>
+		</div>
 	</div>
-	<div class="alert-text">
-		<div class="alert-title headline-l-xs">
-			{title}
-		</div>
-		<div class="alert-body body-s">
-			{body}
-		</div>
+	<div class="alert-control">
+		{#if button}
+			<div class="alert-button">
+				<svelte:component this={button} />
+			</div>
+		{/if}
 	</div>
-	{#if button}
-		<div class="alert-button">
-			<svelte:component this={button} />
-		</div>
-	{/if}
 </div>
 
 
 <style>
 	.alert {
-		border: var(--spacing01) solid var(--neutral-050);
 		border-radius: var(--spacing09);
+		border: var(--spacing01) solid var(--neutral-050);
+		display: flex;
+		justify-content: space-between;
 		padding: var(--spacing09);
+	}
+	.alert-content {
 		display: flex;
 		gap: var(--spacing06);
 	}
@@ -51,5 +59,8 @@
 		height: 100%;
 		justify-content: space-between;
 		width: var(--container-max-width-full);
+	}
+	.alert-control {
+		display: flex;
 	}
 </style>
