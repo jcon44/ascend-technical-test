@@ -1,10 +1,10 @@
 <script>
 	import { Card } from '$lib/index.js'
 
-	export let callback, height, icon, link, title, value, width = '100%'
+	export let callback, icon, link, styles, title, value
 </script>
 
-<Card classes={[ 'card-s' ]} {callback} {height} {icon} {link} {width}>
+<Card classes={[ 'card-s' ]} {callback} {icon} {link} {styles}>
 	<div class="body-s semibold">{title}</div>
 	<div class="headline-l-xl semibold">{value}</div>
 </Card>

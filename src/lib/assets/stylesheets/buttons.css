@@ -125,7 +125,7 @@ button {
 .btn-outline:active,
 .btn-outline:focus,
 .btn-outline:hover {
-	border: var(--spacing01) solid var(--primary-400);
+	box-shadow: 0px 0px 0px var(--spacing00) var(--primary-400);
 }
 
 .btn-outline:disabled {
@@ -171,8 +171,5 @@ button {
 .btn-tab:active,
 .btn-tab:hover {
 	color: var(--neutral-400);
-}
-
-.btn-tab:hover {
-	border-bottom: var(--spacing01) solid var(--primary-base);
+	border-bottom: var(--spacing00) solid var(--primary-base);
 }

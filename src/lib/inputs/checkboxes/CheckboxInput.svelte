@@ -1,5 +1,5 @@
 <script>
-	import { CheckExtraSmallIcon } from '$lib/index.js';
+	import { CheckExtraSmallIcon } from '$lib/index.js'
 
 	export let callback, checked, value
 
@@ -34,6 +34,9 @@
 	.checkbox-container:focus {
 		border: 3px solid var(--primary-500);
 		background-color: red;
+	}
+	.checkbox-container:hover {
+		box-shadow: 0px 0px 0px var(--spacing00) var(--primary-400);
 	}
 	/* Hide default checkbox */
 	input[type='checkbox'] {

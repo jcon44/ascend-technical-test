@@ -17,11 +17,9 @@
 	const statusType = statusColorMap[statusKey]
 
 	function getStatus() {
-		if ((status === 'Sent' || status === 'In Progress') && time) {
-			return `${status} ${time}`
-		} else if (status === 'Scheduled' && time) {
-			return `${status} for ${time}`
-		} else return status
+		if ((status === 'Sent' || status === 'In Progress') && time) return `${status} ${time}`
+		else if (status === 'Scheduled' && time) return `${status} for ${time}`
+		else return status
 	}
 </script>
 

@@ -4,21 +4,19 @@
 	export let
 		callback = undefined,
 		classes = [],
-		height = '',
 		icon = undefined,
 		link = '',
-		title = '',
-		width = ''
+		styles = [],
+		title = ''
 </script>
 
 <a href={link} class='link-card'>
 	<StandardCard
 		{callback}
 		classes={[...classes, 'hover-link']}
-		{height}
 		{icon}
+		{styles}
 		{title}
-		{width}
 	>
 		<slot />
 	</StandardCard>

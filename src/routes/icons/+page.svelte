@@ -6,6 +6,7 @@
 		NewNotificationIcon,
 		NotificationsIcon,
 		Content,
+		Page,
 		ProfileIcon,
 		SubscribersIcon,
 		TemplatesIcon

@@ -3,3 +3,8 @@
 	border-radius: var(--spacing05);
 	padding: var(--spacing05) var(--spacing09);
 }
+*[class*='input']:active,
+*[class*='input']:focus,
+*[class*='input']:hover {
+	box-shadow: 0px 0px 0px var(--spacing00) var(--primary-400);
+}

@@ -2,20 +2,16 @@
 	export let
 		callback = undefined,
 		classes = [],
-		height = '100%',
 		icon = undefined,
-		title = '',
-		width = ''
+		styles = [],
+		title = ''
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class={`card-wrapper ${classes?.join(' ') ?? ''}`}
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
-	style={`
-		${(height ? `height: ${height};` : '')}
-		${(width ? `width: ${width};` : '')}
-	`}
+	style={`${styles.join(';')}`}
 >
 	{#if icon}
 		<div class='card-icon'>

@@ -6,13 +6,8 @@
 		type
 </script>
 
-<div
-	class={`
-		tag
-		semibold
-		${type}
-	`}
->
+
+<div class={`tag semibold ${type}`}>
 	{#if icon && side === 'left'}
 		<svelte:component this={icon} />
 	{/if}
@@ -25,13 +20,13 @@
 
 <style>
 	.tag {
+		align-items: center;
 		border-radius: 150px;
 		border: none;
 		color: var(--neutral-base);
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
 		gap: var(--spacing02);
+		justify-content: space-between;
 		padding: 0px var(--spacing05) var(--spacing01);
 		width: fit-content;
 	}

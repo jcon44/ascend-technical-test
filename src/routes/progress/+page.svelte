@@ -4,7 +4,7 @@
 
 <Page>
 	<h1>Progress</h1>
-	<Card title="Progress Bars" width="100%">
+	<Card title="Progress Bars" styles={[ 'width: 100%' ]}>
 		<div>
 			<h3>Alert Progress Bar (25%)</h3>
 			<br />
@@ -30,7 +30,7 @@
 		</div>
 	</Card>
 	<br />
-	<Card title="Progress Animation" width="100%">
+	<Card title="Progress Animation" styles={[ 'width: 100%' ]}>
 		<ProgressSpinner active="true" />
 	</Card>
 </Page>

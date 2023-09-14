@@ -4,23 +4,19 @@
 	export let
 		callback = undefined,
 		classes = [],
-		height = '',
 		icon = undefined,
 		link = '',
-		title = '',
-		width = ''
+		styles = [],
+		title = ''
 </script>
 
-<div style={`
-	${height ? `height: ${height};` : ''}
-	${width ? `width: ${width};` : ''}
-`}>
+<div style={`${styles.join(';')}`}>
 	{#if link}
-		<LinkCard {callback} {classes} {height} {icon} {link} {title} {width}>
+		<LinkCard {callback} {classes} {icon} {link} {styles} {title}>
 			<slot />
 		</LinkCard>
 	{:else}
-		<StandardCard {callback} {classes} {height} {icon} {title} {width}>
+		<StandardCard {callback} {classes} {icon} {styles} {title}>
 			<slot />
 		</StandardCard>
 	{/if}
