@@ -5,8 +5,8 @@
 </script>
 
 <section class="table-container">
-	<TableHeaders bind:list {columns} />
-	<TableBody bind:list {columns} />
+	<TableHeaders {list} {columns} />
+	<TableBody {list} {columns} />
 </section>
 
 <style>

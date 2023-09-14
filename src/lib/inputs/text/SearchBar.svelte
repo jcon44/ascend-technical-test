@@ -4,15 +4,21 @@
 	export let query, callback, placeholder = 'Search'
 </script>
 
-<form role="search" class='search-bar-control'>
+<form role="search" class='search-bar-input-control'>
 	<button on:click={callback} class='search-bar-button'>
 		<svelte:component this={SearchSmallIcon} />
 	</button>
-	<input bind:value={query} class="search-bar-input" on:input={callback} type="search" {placeholder} />
+	<input
+		type="search"
+		bind:value={query}
+		class="search-bar"
+		on:input={callback}
+		{placeholder} 
+	/>
 </form>
 
 <style>
-	.search-bar-control {
+	.search-bar-input-control {
 		align-items: center;
 		border-radius: var(--spacing05);
 		border: var(--neutral-stroke-100-s);
@@ -25,7 +31,7 @@
 		border: none;
 		cursor: pointer;
 	}
-	.search-bar-input {
+	.search-bar {
 		all: unset;
 		background: none;
 		border: none;

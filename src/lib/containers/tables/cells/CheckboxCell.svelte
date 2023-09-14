@@ -2,6 +2,8 @@
 	import CheckboxInput from '$lib/inputs/checkboxes/CheckboxInput.svelte'
 
 	export let cellData
+
+	$: selected = cellData?.row?.selected || false
 </script>
 
-<CheckboxInput bind:checked={cellData.row.selected} />
+<CheckboxInput bind:checked={selected} />
