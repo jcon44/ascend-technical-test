@@ -8,7 +8,5 @@
 
 <Page>
 	<Button bind:this={button} callback={() => (showDialog = true)} text="Show Dialog" />
-	<Dialog {title} {showDialog} on:close={() => (showDialog = false)}>
-		<SampleDialogContent />
-	</Dialog>
+	
 </Page>

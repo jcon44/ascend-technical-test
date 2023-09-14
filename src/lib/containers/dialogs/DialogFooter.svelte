@@ -6,8 +6,9 @@
 	.dialog-footer {
 		border-top: var(--spacing00) solid var(--neutral-050);
 		display: flex;
-		padding: var(--spacing09) var(--spacing09) var(--spacing11) var(--spacing09);
 		flex-direction: row;
-		justify-content: space-evenly;
+		justify-content: space-between;
+		padding: var(--spacing09) var(--spacing09) var(--spacing11) var(--spacing09);
+		width: 100%;
 	}
 </style>

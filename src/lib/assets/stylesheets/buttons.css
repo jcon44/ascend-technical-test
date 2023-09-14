@@ -87,7 +87,7 @@ button {
 
 /* Width */
 .btn-fit {
-	min-width: fit-content;
+	width: fit-content;
 }
 
 .btn-full {

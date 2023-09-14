@@ -1,24 +1,20 @@
 <script>
 	import { DialogBody, DialogFooter, DialogHeader } from '$lib/index.js'
-	import { setContext } from 'svelte'
 
-	export let title, showDialog
+	export let store
 
 	let dialog
 
-	function closeDialog() {
-		showDialog = false
-		dialog.close()
-	}
-
-	setContext('Dialog', closeDialog)
+	$: if (store.dialog.showDialog === false) dialog.close()
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<div class='dialog-container'>
-	<dialog bind:this={dialog} on:close on:click|self={(closeDialog)}>
-		<DialogHeader {title} {closeDialog} />
+<div class='dialog-container' on:click={() => store.dialog.showDialog = false}>
+	<dialog bind:this={dialog} on:click|stopPropagation>
+		<DialogHeader>
+			<slot name='dialog-header-slot' />
+		</DialogHeader>
 		<DialogBody>
 			<slot name='dialog-body-slot' />
 		</DialogBody>
@@ -36,7 +32,7 @@
 		display: flex;
 		height: 100%;
 		justify-content: center;
-		position: absolute;
+		position: fixed;
 		width: 100%;
 		z-index: 100;
 	}
@@ -53,13 +49,6 @@
 		background-color: var(--background-base);		
 		flex-direction: column;
 		max-height: 90vh;
-	}
-	dialog::backdrop {
-		align-items: center;
-		display: flex;
-		height: 100vh;
-		justify-content: center;
-		z-index: 101;
 	}
 	dialog[open] {
 		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
