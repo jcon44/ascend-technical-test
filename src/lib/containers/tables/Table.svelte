@@ -1,13 +1,13 @@
 <script>
 	import { TableBody, TableHeaders } from '$lib/index.js'
 
-	export let list, columns
+	export let list, callback, columns
 </script>
 
 
 <section class="table-container">
-	<TableHeaders bind:list={list} {columns} />
-	<TableBody bind:list={list} {columns} />
+	<TableHeaders bind:list={list} {callback} {columns} />
+	<TableBody bind:list={list} {callback} {columns} />
 </section>
 
 

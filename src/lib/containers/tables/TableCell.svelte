@@ -6,7 +6,7 @@
 	import EditableCell from '$lib/containers/tables/cells/EditableCell.svelte'
 	import TagCell from '$lib/containers/tables/cells/TagCell.svelte'
 
-	export let column, columnIndex, row
+	export let callback, column, columnIndex, row
 </script>
 
 
@@ -19,7 +19,7 @@
 	{:else if column?.type === 'boolean'}
 		<BooleanCell bind:column={column} bind:row={row} />
 	{:else if column?.type === 'checkbox'}
-		<CheckboxCell bind:row={row} />
+		<CheckboxCell {callback} bind:row={row} />
 	{:else if column?.type === 'tag'}
 		<TagCell bind:row={row} />
 	{:else if column?.editable}

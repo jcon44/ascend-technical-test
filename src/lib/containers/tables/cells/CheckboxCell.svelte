@@ -1,7 +1,7 @@
 <script>
 	import CheckboxInput from '$lib/inputs/checkboxes/CheckboxInput.svelte'
 
-	export let row
+	export let callback, row
 </script>
 
-<CheckboxInput bind:checked={row.selected} />
+<CheckboxInput {callback} bind:checked={row.selected} />

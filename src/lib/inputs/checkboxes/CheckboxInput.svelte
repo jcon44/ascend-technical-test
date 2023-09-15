@@ -5,14 +5,15 @@
 
 	function checkBox() {
 		checked = !checked;
-		callback(checked, value)
+		if (callback) callback(checked, value)
+		console.log(checked)
 	}
 </script>
 
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="checkbox-container" on:click={checkBox} on:keyup={checkBox}>
-	<input type="checkbox" bind:checked {value} />
+	<input type="checkbox" bind:checked={checked} {value} />
 	<div class="checkmark" style={`background-color: ${checked ? 'var(--primary-500);' : ''}`}>
 		{#if checked}
 			<CheckExtraSmallIcon />
