@@ -4,11 +4,13 @@
 	export let columns, list
 </script>
 
+
 <div class="table-header-row">
 	{#each columns as column, columnIndex}
-		<TableColumnHeaderCell cellData={{ column, columns, columnIndex, list }} />
+		<TableColumnHeaderCell {column} {columns} bind:list={list} />
 	{/each}
 </div>
+
 
 <style>
 	.table-header-row {

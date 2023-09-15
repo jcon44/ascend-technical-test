@@ -1,23 +1,28 @@
 <script>
 	import { CheckboxInput, TableColumnHeaderButton, sortArray, sortTable } from '$lib/index.js'
 
-	export let cellData
-
-	let { column, columns, columnIndex, list } = cellData
+	export let column, columns, list
 
 	let allChecked = false
 
 	const sortMap = {}
-	Object.values(columns).forEach((column) => (sortMap[column.key] = 'none'))
+	Object.values(columns).forEach(column => sortMap[column.key] = 'none')
 
 	function toggleCheckAll() {
-		list = list.map(item => item.selected = allChecked)
+		console.log('check all')
+		console.log(list)
+		list = list.map(item => {
+			item.selected = allChecked
+			return item
+		})
+		console.log(list)
 	}
 
 	function sortRows(columnKey, columnType) {
 		list = sortTable(columnKey, columnType, list, sortMap)
 	}
 </script>
+
 
 <div
 	class='table-column-header-cell'
@@ -36,6 +41,7 @@
 		/>
 	{/if}
 </div>
+
 
 <style>
 	.table-column-header-cell {

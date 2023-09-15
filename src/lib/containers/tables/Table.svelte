@@ -4,10 +4,12 @@
 	export let list, columns
 </script>
 
+
 <section class="table-container">
-	<TableHeaders {list} {columns} />
-	<TableBody {list} {columns} />
+	<TableHeaders bind:list={list} {columns} />
+	<TableBody bind:list={list} {columns} />
 </section>
+
 
 <style>
 	.table-container {

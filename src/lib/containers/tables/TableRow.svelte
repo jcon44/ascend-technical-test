@@ -6,11 +6,13 @@
 	$: row = list[rowIndex]
 </script>
 
+
 <div class="table-body-row">
 	{#each columns as column, columnIndex}
-		<TableCell cellData={{ column, columnIndex, row }} />
+		<TableCell bind:column={column} columnIndex={columnIndex} bind:row={row} />
 	{/each}
 </div>
+
 
 <style>
 	.table-body-row {

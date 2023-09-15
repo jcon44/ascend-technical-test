@@ -4,8 +4,9 @@
 	export let columns, list
 </script>
 
+
 <div class="table-body-container">
 	{#each list as row, rowIndex}
-		<TableRow {columns} {list} {rowIndex} />
+		<TableRow {columns} bind:list={list} {rowIndex} />
 	{/each}
 </div>

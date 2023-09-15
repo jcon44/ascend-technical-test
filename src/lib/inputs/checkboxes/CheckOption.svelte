@@ -4,6 +4,7 @@
 	export let title, description, status
 </script>
 
+
 <div class="checkbox-option">
 	<div class="left-option-column">
 		<CheckboxInput bind:checked={status} />
@@ -13,6 +14,7 @@
 		<div class="option-description">{description}</div>
 	</div>
 </div>
+
 
 <style>
 	.checkbox-option {

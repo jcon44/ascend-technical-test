@@ -6,29 +6,29 @@
 	import EditableCell from '$lib/containers/tables/cells/EditableCell.svelte'
 	import TagCell from '$lib/containers/tables/cells/TagCell.svelte'
 
-	export let cellData
-
-	const cellType = cellData?.column?.type
+	export let column, columnIndex, row
 </script>
+
 
 <div
 	class='table-column-body-cell'
-	style={`${cellData.column?.styles?.join(';')}`}
+	style={`${column?.styles?.join(';')}`}
 >
-	{#if cellType === 'array'}
-		<ArrayCell {cellData} />
-	{:else if cellType === 'boolean'}
-		<BooleanCell {cellData} />
-	{:else if cellType === 'checkbox'}
-		<CheckboxCell {cellData} />
-	{:else if cellType === 'tag'}
-		<TagCell {cellData} />
-	{:else if cellData.column.editable}
-		<EditableCell {cellData} />
+	{#if column?.type === 'array'}
+		<ArrayCell bind:column={column} bind:row={row} />
+	{:else if column?.type === 'boolean'}
+		<BooleanCell bind:column={column} bind:row={row} />
+	{:else if column?.type === 'checkbox'}
+		<CheckboxCell bind:row={row} />
+	{:else if column?.type === 'tag'}
+		<TagCell bind:row={row} />
+	{:else if column?.editable}
+		<EditableCell bind:column={column} bind:row={row} />
 	{:else}
-		<DefaultCell {cellData} />
+		<DefaultCell bind:column={column} bind:row={row} />
 	{/if}
 </div>
+
 
 <style>
 	.table-column-body-cell {

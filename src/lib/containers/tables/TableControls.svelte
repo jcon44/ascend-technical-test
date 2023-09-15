@@ -10,10 +10,12 @@
 	}
 </script>
 
+
 <div class='subscriber-table-controls'>
 	<FilterAndSortButton callback={openFilterAndSortDialog} />
 	<SearchBar />
 </div>
+
 
 <style>
 	.subscriber-table-controls {

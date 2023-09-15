@@ -9,6 +9,7 @@
 	}
 </script>
 
+
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="checkbox-container" on:click={checkBox} on:keyup={checkBox}>
 	<input type="checkbox" bind:checked {value} />
@@ -18,6 +19,7 @@
 		{/if}
 	</div>
 </div>
+
 
 <style>
 	.checkbox-container {

@@ -1,12 +1,10 @@
 <script>
-	export let cellData
-
-	const cellContent = cellData.row[cellData.column.key]
+	export let column, row
 </script>
 
 <div
-	class={`${cellData.column?.classes?.join(' ')}`}
-	style={cellData.column?.styles?.join(';')}
+	class={`${column?.classes?.join(' ')}`}
+	style={column?.styles?.join(';')}
 >
-	{cellContent ? 'Yes' : 'No'}
+	{row[column.key] ? 'Yes' : 'No'}
 </div>
