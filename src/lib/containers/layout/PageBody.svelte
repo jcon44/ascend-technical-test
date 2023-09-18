@@ -1,4 +1,9 @@
-<div class="page-body">
+<script>
+	export let size = 'thin'
+</script>
+
+
+<div class={`page-body ${size}`}>
 	<slot />
 </div>
 
@@ -8,6 +13,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing09);
+	}
+	.thin {
+		width: var(--spacing27);
+	}
+	.wide {
 		max-width: var(--spacing33);
 	}
 </style>

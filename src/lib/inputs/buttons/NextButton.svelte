@@ -4,7 +4,8 @@
 
 	export let arrow = true,
 		callback = null,
-		classes = ['btn-fit', 'btn-l', 'btn-primary', 'btn-square'],
+		classes = ['btn-fit', 'btn-l', 'btn-square'],
+		disabled = false,
 		loading = false,
 		text = '',
 		url = ''
@@ -17,4 +18,4 @@
 	})
 </script>
 
-<Button {callback} {classes} secondIcon={icon} {text} {url} />
+<Button {callback} {classes} {disabled} secondIcon={icon} {text} {url} />

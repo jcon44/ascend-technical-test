@@ -2,28 +2,28 @@
 	import {  Label } from '$lib/index.js'
 
 	export let
-		height='',
+		autofocus=false,
 		id='',
 		label='',
 		placeholder='',
 		required=false,
-		text='',
-		width=''
+		styles=[],
+		tabindex='',
+		text=''
 </script>
 
 <div class='text-control'>
 	<Label {id} {label} />
 	<input
-		type='text'
-		class='text-input'
-		style={`
-			height:${height};
-			width:${width};
-		`}
 		bind:value={text}
+		class='text-input'
+		style={styles.join(';')}
+		type='text'
+		{autofocus}
 		{id}
 		{placeholder}
 		{required}
+		{tabindex}
 	>
 </div>
 

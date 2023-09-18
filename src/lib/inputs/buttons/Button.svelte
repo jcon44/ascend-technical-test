@@ -3,10 +3,10 @@
 
 	export let callback = undefined,
 		classes = ['btn-fit', 'btn-m', 'btn-primary', 'btn-rect'],
-		disabled = '',
+		disabled = false,
 		firstIcon = undefined,
 		secondIcon = undefined,
-		styles = '',
+		styles = [],
 		text = '',
 		url = '';
 </script>

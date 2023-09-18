@@ -6,7 +6,6 @@
 	function checkBox() {
 		checked = !checked;
 		if (callback) callback(checked, value)
-		console.log(checked)
 	}
 </script>
 

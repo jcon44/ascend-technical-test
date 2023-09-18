@@ -1,7 +1,7 @@
 <script>
 	import { ButtonContents } from '$lib/index.js'
 
-	export let classes, disabled, firstIcon, secondIcon, styles, text;
+	export let classes, disabled, firstIcon, secondIcon, styles=[], text
 </script>
 
 <button
@@ -9,15 +9,16 @@
 	class={`
 		semibold
 		${classes.includes('btn-full') ? 'btn-full' : 'btn-fit'}
+		${disabled ? 'btn-disabled' : ''}
 	`}
-	style={styles?.length ? [...styles] : ''}
+	style={styles.join(';')}
 >
 	<div
 		class={`
 			btn-content-wrapper
 			${classes?.join(' ') ?? ''}
 		`}
-		style={styles?.length ? [...styles] : ''}
+		style={styles.join(';')}
 	>
 		<ButtonContents {text} {firstIcon} {secondIcon} />
 	</div>

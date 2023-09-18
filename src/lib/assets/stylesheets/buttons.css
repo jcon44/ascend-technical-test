@@ -112,28 +112,34 @@ button {
 	background-color: var(--secondary-base);
 }
 
-.btn-primary:disabled {
-	background-color: var(--neutral-050);
+.btn-primary:disabled,
+.btn-primary-disabled {
+	background-color: var(--neutral-100);
 }
 
 /* Outline */
-.btn-outline {
+.btn-outline,
+.btn-outline-disabled {
 	background-color: var(--background-base);
 	border: var(--neutral-stroke-100-s);
 }
 
 .btn-outline:active,
+.btn-outline:disabled,
 .btn-outline:focus,
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline-disabled {
 	box-shadow: 0px 0px 0px var(--spacing00) var(--primary-400);
 }
 
-.btn-outline:disabled {
+.btn-outline:disabled,
+.btn-outline-disabled {
 	background-color: var(--neutral-100);
 }
 
 /* Neutral */
-.btn-neutral {
+.btn-neutral,
+.btn-neutral-disabled {
 	background-color: var(--neutral-base);
 	border: var(--neutral-stroke-600-m);
 	color: var(--background-base);
@@ -145,7 +151,8 @@ button {
 	background-color: var(--neutral-600);
 }
 
-.btn-neutral:disabled {
+.btn-neutral:disabled,
+.btn-neutral-disabled {
 	background-color: var(--neutral-100);
 }
 
@@ -160,6 +167,18 @@ button {
 .btn-white:hover {
 	background-color: var(--secondary-050);
 }
+
+.btn-white:disabled,
+.btn-white-disabled {
+	background-color: var(--neutral-100);
+}
+
+/* Disabled */
+
+.btn-disabled {
+	background-color: var(--neutral-100)
+}
+
 
 /* Tab */
 .btn-tab {

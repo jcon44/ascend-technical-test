@@ -1,24 +1,25 @@
 <script>
 	import { ButtonContents } from '$lib/index.js'
 
-	export let classes, disabled, firstIcon, secondIcon, styles, text, url=''
+	export let classes, disabled, firstIcon, secondIcon, styles=[], text, url=''
 </script>
 
 <a
-	href={url}
+	href={disabled ? '#' : url}
 	{disabled}
 	class={`
 		semibold
 		${classes?.includes('btn-full') ? 'btn-full' : 'btn-fit'}
 	`}
-	style={styles?.length ? [...styles] : ''}
+	style={styles.join(';')}
 >
 	<div
 		class={`
 			btn-content-wrapper
 			${classes?.join(' ') ?? ''}
+			${disabled ? 'btn-disabled' : ''}
 		`}
-		style={styles?.length ? [...styles] : ''}
+		style={styles.join(';')}
 	>
 		<ButtonContents {text} {firstIcon} {secondIcon} />
 	</div>
