@@ -129,10 +129,6 @@ export { default as ErrorTag } from '$lib/containers/tags/ErrorTag.svelte'
 export { default as StatusTag } from '$lib/containers/tags/StatusTag.svelte'
 export { default as Tag } from '$lib/containers/tags/Tag.svelte'
 
-// Text
-export { default as TextMessageBubble } from '$lib/containers/text/TextMessageBubble.svelte'
-export { default as TextMessageDisplayBubble } from '$lib/containers/text/TextMessageDisplayBubble.svelte'
-
 // Toasts
 export { default as Toast } from '$lib/containers/toasts/Toast.svelte'
 export { default as ToastArea } from '$lib/containers/toasts/ToastArea.svelte'
