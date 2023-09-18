@@ -1,9 +1,8 @@
 <script>
-	import { Button } from '$lib/index.js';
-	import { page } from '$app/stores';
+	import { Button } from '$lib/index.js'
+	import { page } from '$app/stores'
 
-	export let pageData = undefined,
-		navBarOpen;
+	export let pageData = undefined, navBarOpen
 
 	$: currentPageLink = pageData?.url === $page.url.pathname;
 </script>
@@ -23,6 +22,7 @@
 <style>
 	.navbar-button-wrapper {
 		display: flex;
+		width: 100%;
 	}
 	.nav-button {
 		width: 100%;

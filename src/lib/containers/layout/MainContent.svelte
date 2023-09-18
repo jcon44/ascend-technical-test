@@ -6,7 +6,8 @@
 <style>
 	.main-content {
 		display: flex;
-		min-height: calc(100dvh - 81px); 
 		flex-direction: column;
+		align-items: center;
+		min-height: calc(100dvh - 81px); 
 	}
 </style>

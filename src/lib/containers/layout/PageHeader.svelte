@@ -1,16 +1,15 @@
 <script>
-	import { PageTitle } from '$lib/index.js';
-
 	export let titleText = '',
 		paragraphText = '',
 		headerButton = null,
-		headerPill = null;
+		headerPill = null
 </script>
+
 
 <div class="page-header">
 	<div class="page-header-top-row" style={`justify-content: ${headerButton ? 'space-between' : 'center'}`}>
 		<div class="page-header-left-column">
-			<PageTitle text={titleText} />
+			<h1 class="headline-l-xxl">{titleText}</h1>			
 		</div>
 		{#if headerButton}
 			<div class="page-header-right-column">
@@ -35,10 +34,13 @@
 	</div>
 </div>
 
+
 <style>
 	.page-header {
 		display: flex;
 		flex-direction: column;
+		margin-bottom: var(--spacing10);
+		width: var(--spacing33);
 	}
 	.page-header-top-row {
 		display: flex;

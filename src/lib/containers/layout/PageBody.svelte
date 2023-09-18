@@ -13,6 +13,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing09);
+		margin: 0 auto;
 	}
 	.thin {
 		width: var(--spacing27);

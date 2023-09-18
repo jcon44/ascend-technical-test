@@ -101,9 +101,7 @@ export { default as Page } from '$lib/containers/layout/Page.svelte'
 export { default as PageBody } from '$lib/containers/layout/PageBody.svelte'
 export { default as PageDescription } from '$lib/containers/layout/PageDescription.svelte'
 export { default as PageHeader } from '$lib/containers/layout/PageHeader.svelte'
-export { default as PageTitle } from '$lib/containers/layout/PageTitle.svelte'
 export { default as Shell } from '$lib/containers/layout/Shell.svelte'
-export { default as TitleContainer } from '$lib/containers/layout/TitleContainer.svelte'
 
 // Navbar
 export { default as NavBar } from '$lib/containers/navbar/NavBar.svelte'
