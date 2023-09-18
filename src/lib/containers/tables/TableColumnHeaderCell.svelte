@@ -9,13 +9,10 @@
 	Object.values(columns).forEach(column => sortMap[column.key] = 'none')
 
 	function toggleCheckAll() {
-		console.log('check all')
-		console.log(list)
 		list = list.map(item => {
 			item.selected = allChecked
 			return item
 		})
-		console.log(list)
 	}
 
 	function sortRows(columnKey, columnType) {
