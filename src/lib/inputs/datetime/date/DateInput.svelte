@@ -3,10 +3,10 @@
 </script>
 
 <input
-	type="date"
-	class='date-input'
 	bind:value={date}
+	class='date-input'
 	style={`width:${width}`}
+	type="date"
 	{id}
 	{required}
 />

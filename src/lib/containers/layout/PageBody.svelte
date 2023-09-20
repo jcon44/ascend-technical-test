@@ -19,6 +19,6 @@
 		width: var(--spacing27);
 	}
 	.wide {
-		max-width: var(--spacing33);
+		width: var(--spacing33);
 	}
 </style>

@@ -1,7 +1,7 @@
 <script>
 	import { CheckExtraSmallIcon } from '$lib/index.js'
 
-	export let callback, checked, value
+	export let callback=null, checked=false, value=''
 
 	function checkBox() {
 		checked = !checked;

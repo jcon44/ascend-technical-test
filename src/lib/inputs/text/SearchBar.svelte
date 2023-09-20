@@ -1,7 +1,10 @@
 <script>
 	import { SearchSmallIcon } from '$lib/index.js'
 
-	export let query, callback, placeholder = 'Search'
+	export let callback,
+		placeholder = 'Search',
+		query = '',
+		tabindex = ''
 </script>
 
 <form role="search" class='search-bar-input-control'>
@@ -9,10 +12,11 @@
 		<svelte:component this={SearchSmallIcon} />
 	</button>
 	<input
-		type="search"
 		bind:value={query}
 		class="search-bar"
 		on:input={callback}
+		tabindex={tabindex}
+		type="search"
 		{placeholder} 
 	/>
 </form>

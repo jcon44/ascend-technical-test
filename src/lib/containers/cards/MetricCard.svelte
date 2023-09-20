@@ -1,7 +1,7 @@
 <script>
 	import { Card } from '$lib/index.js'
 
-	export let callback, icon, link, styles, title, value
+	export let callback=null, icon=null, link='', styles=[], title='', value=''
 </script>
 
 <Card classes={[ 'card-s' ]} {callback} {icon} {link} {styles}>

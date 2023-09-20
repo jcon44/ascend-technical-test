@@ -4,4 +4,14 @@
 	export let callback = browserBack, url = ''
 </script>
 
-<Button {callback} classes={['btn-fit', 'btn-l', 'btn-outline', 'btn-rect']} text="Cancel" {url} />
+<Button
+	classes={[
+		'btn-fit',
+		'btn-m',
+		'btn-outline',
+		'btn-rect'
+	]}
+	text="Cancel"
+	{callback}
+	{url}
+/>

@@ -1,16 +1,16 @@
 <script>
 	import { CheckboxInput } from '$lib/index.js'
 
-	export let title, description, status
+	export let title, description, checked
 </script>
 
 
 <div class="checkbox-option">
 	<div class="left-option-column">
-		<CheckboxInput bind:checked={status} />
+		<CheckboxInput bind:checked={checked} />
 	</div>
 	<div class="right-option-column">
-		<div class="option-title semibold">{title}</div>
+		<div class="option-title headline-l-xs semibold">{title}</div>
 		<div class="option-description">{description}</div>
 	</div>
 </div>

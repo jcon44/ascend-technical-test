@@ -7,9 +7,3 @@
 		{label}
 	</label>
 {/if}
-
-<style>
-	label {
-		margin-bottom: var(--spacing03);
-	}
-</style>

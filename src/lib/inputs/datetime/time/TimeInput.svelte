@@ -3,10 +3,10 @@
 </script>
 
 <input
-	type="time"
-	class='time-input'
 	bind:value={time}
+	class='time-input'
 	style={`width:${width}`}
+	type="time"
 	{id}
 	{required}
 />
