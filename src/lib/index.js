@@ -81,7 +81,6 @@ export { default as DialogBody } from '$lib/containers/dialogs/DialogBody.svelte
 export { default as DialogFooter } from '$lib/containers/dialogs/DialogFooter.svelte'
 export { default as DialogHeader } from '$lib/containers/dialogs/DialogHeader.svelte'
 export { default as DialogSection } from '$lib/containers/dialogs/DialogSection.svelte'
-export { default as SampleDialogContent } from '$lib/containers/dialogs/SampleDialogContent.svelte'
 
 // Footers
 export { default as FooterBar } from '$lib/containers/footers/FooterBar.svelte'
@@ -147,6 +146,7 @@ export { default as closeDialog } from '$lib/functions/closeDialog.js'
 export { default as createTimeStamp } from '$lib/functions/createTimeStamp.js'
 export { default as formatDate } from '$lib/functions/formatDate.js'
 export { default as getGlobalColorPalette } from '$lib/functions/getGlobalColorPalette.js'
+export { default as openDialog } from '$lib/functions/openDialog.js'
 export { default as removeToast } from '$lib/functions/removeToast.js'
 export { default as sortArray } from '$lib/functions/sortArray.js'
 export { default as sortByDate } from '$lib/functions/sortByDate.js'
@@ -171,6 +171,7 @@ export { default as ConfirmButton } from '$lib/inputs/buttons/ConfirmButton.svel
 export { default as ContactUsButton } from '$lib/inputs/buttons/ContactUsButton.svelte'
 export { default as ContinueButton } from '$lib/inputs/buttons/ContinueButton.svelte'
 export { default as CreateAccountButton } from '$lib/inputs/buttons/CreateAccountButton.svelte'
+export { default as EditButton } from '$lib/inputs/buttons/EditButton.svelte'
 export { default as ExportCSVButton } from '$lib/inputs/buttons/ExportCSVButton.svelte'
 export { default as FilterAndSortButton } from '$lib/inputs/buttons/FilterAndSortButton.svelte'
 export { default as HomeButton } from '$lib/inputs/buttons/HomeButton.svelte'

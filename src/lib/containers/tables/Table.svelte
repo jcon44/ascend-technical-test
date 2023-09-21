@@ -1,7 +1,7 @@
 <script>
 	import { TableBody, TableHeaders } from '$lib/index.js'
 
-	export let list, callback, columns
+	export let callback=null, columns=[], list=[]
 </script>
 
 

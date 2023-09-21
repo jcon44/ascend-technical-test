@@ -1,5 +1,5 @@
 <script>
-	import { Button, Dialog, Page, SampleDialogContent } from '$lib/index.js'
+	import { Button, Dialog, Page } from '$lib/index.js'
 
 	let button,
 		showDialog = false,

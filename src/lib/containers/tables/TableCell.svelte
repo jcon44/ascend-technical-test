@@ -1,12 +1,13 @@
 <script>
 	import ArrayCell from '$lib/containers/tables/cells/ArrayCell.svelte'
 	import BooleanCell from '$lib/containers/tables/cells/BooleanCell.svelte'
+	import ButtonCell from '$lib/containers/tables/cells/ButtonCell.svelte'
 	import CheckboxCell from '$lib/containers/tables/cells/CheckboxCell.svelte'
 	import DefaultCell from '$lib/containers/tables/cells/DefaultCell.svelte'
 	import EditableCell from '$lib/containers/tables/cells/EditableCell.svelte'
 	import TagCell from '$lib/containers/tables/cells/TagCell.svelte'
 
-	export let callback, column, columnIndex, row
+	export let callback, column, row
 </script>
 
 
@@ -22,6 +23,8 @@
 		<CheckboxCell {callback} bind:row={row} />
 	{:else if column?.type === 'tag'}
 		<TagCell bind:row={row} />
+	{:else if column?.type === 'button'}
+		<ButtonCell bind:column={column} bind:row={row} />
 	{:else if column?.editable}
 		<EditableCell bind:column={column} bind:row={row} />
 	{:else}

@@ -1,12 +1,5 @@
 export default function closeDialog(store) {
-
-	store.dialog = {
-		content: null,
-		data: null,
-		showDialog: false,
-		title: ''
-	}
-
+	store.dialog.content = null
+	store.dialog.showDialog = false
 	return store
-
 }
