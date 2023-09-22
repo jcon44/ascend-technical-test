@@ -5,21 +5,21 @@
 
 	let dialog
 
-	$: if (store.dialog.showDialog === false) dialog.close()
+	$: if (store.dialog.open === false) dialog.close()
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<div class='dialog-container' on:click={() => store.dialog.showDialog = false}>
+<div class="dialog-container" on:click={() => (store.dialog.open = false)}>
 	<dialog bind:this={dialog} on:click|stopPropagation>
 		<DialogHeader>
-			<slot name='dialog-header-slot' />
+			<slot name="dialog-header-slot" />
 		</DialogHeader>
 		<DialogBody>
-			<slot name='dialog-body-slot' />
+			<slot name="dialog-body-slot" />
 		</DialogBody>
 		<DialogFooter>
-			<slot name='dialog-footer-slot' />
+			<slot name="dialog-footer-slot" />
 		</DialogFooter>
 	</dialog>
 </div>
@@ -46,7 +46,7 @@
 		width: var(--spacing30);
 	}
 	dialog:modal {
-		background-color: var(--background-base);		
+		background-color: var(--background-base);
 		flex-direction: column;
 		max-height: 90vh;
 	}

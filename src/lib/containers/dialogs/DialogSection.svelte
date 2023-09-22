@@ -13,7 +13,6 @@
 
 <style>
 	.dialog-section {
-		padding: 0 var(--spacing11);
 		width: 100%;
 	}
 	.dialog-section-heading {

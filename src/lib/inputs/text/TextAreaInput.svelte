@@ -32,6 +32,7 @@
 	.textarea-control {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 	}
 	.textarea-input {
 		background-color: transparent;

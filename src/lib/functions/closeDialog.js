@@ -1,5 +1,5 @@
 export default function closeDialog(store) {
 	store.dialog.content = null
-	store.dialog.showDialog = false
+	store.dialog.open = false
 	return store
 }

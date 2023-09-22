@@ -31,8 +31,6 @@
 	.text-control {
 		display: flex;
 		flex-direction: column;
-		height: var(--spacing12);
-		gap: var(--spacing03);
 		width: 100%;
 	}
 </style>

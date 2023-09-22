@@ -205,6 +205,7 @@ export { default as TimePicker } from '$lib/inputs/datetime/time/TimePicker.svel
 export { default as Pagination } from '$lib/inputs/pagination/Pagination.svelte'
 
 // Radio
+export { default as RadioDetailedList } from '$lib/inputs/radio/RadioDetailedList.svelte'
 export { default as RadioInput } from '$lib/inputs/radio/RadioInput.svelte'
 export { default as RadioList } from '$lib/inputs/radio/RadioList.svelte'
 export { default as RadioOption } from '$lib/inputs/radio/RadioOption.svelte'

@@ -1,18 +1,18 @@
-export default function withinDateRange(subscribers, sub) {
+export default function withinDateRange(start, end, query) {
 
 	let withinRange = true
 
-	if (subscribers.startDate && subscribers.endDate) {
+	if (start && end) {
 
-		const fullStartDate = new Date(subscribers.startDate)
+		const startDate = new Date(start)
 
-		const fullEndDate = new Date(subscribers.endDate)
+		const endDate = new Date(end)
 
-		const subDate = new Date(sub.signup)
+		const queryDate = new Date(query)
 
 		withinRange = (
-			subDate >= fullStartDate &&
-			subDate <= fullEndDate
+			queryDate >= startDate &&
+			queryDate <= endDate
 		)
 
 	}
