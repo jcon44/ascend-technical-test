@@ -29,7 +29,7 @@
 
 <div class="login">
 	<div class="headline-l-xxl">Login</div>
-	<form>
+	<form method='dialog'>
 		<div class="login-input-element">
 			<label for="username" class="body-m-semibold">Username</label>
 			<input
