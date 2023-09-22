@@ -1,14 +1,14 @@
 <script>
-	import {  Label } from '$lib/index.js'
-
-	export let item
+	export let group, value
 </script>
+
 
 <input
 	type='radio'
-	name={item.name}
-	value={item.value}
+	bind:group={group}
+	{value}
 />
+
 
 <style>
 	input {

@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { RadioOption, RadioList } from '$lib/index.js'
 
 	const sampleList = [
@@ -40,4 +40,4 @@
 <h1>RadioOption</h1>
 <RadioOption item={sampleItem1} />
 <RadioOption item={sampleItem2} />
-<RadioOption item={sampleItem3} />
+<RadioOption item={sampleItem3} /> -->

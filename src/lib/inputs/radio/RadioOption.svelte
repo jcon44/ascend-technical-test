@@ -1,15 +1,20 @@
 <script>
 	import { RadioInput } from '$lib/index.js'
 
-	export let item
+	export let group, label, value
 </script>
 
+
 <div class="radio-option">
-	<RadioInput bind:item={item} />
+	<RadioInput
+		bind:group={group}
+		{value}
+	/>
 	<div class="semibold">
-		{item.label}
+		{label}
 	</div>
 </div>
+
 
 <style>
 	.radio-option {
