@@ -1,8 +1,12 @@
 <script>
-	export let title,
+	import { Tag } from '$lib/index.js'
+
+	export let
 		body,
+		button,
 		icon,
-		button = undefined
+		tag,
+		title
 </script>
 
 
@@ -15,6 +19,9 @@
 			<div class="alert-title headline-l-xs">
 				{title}
 			</div>
+			{#if tag}
+				<Tag content={tag} type='neutral-subtle' />
+			{/if}
 			<div class="alert-body body-s">
 				{body}
 			</div>
@@ -41,6 +48,7 @@
 	.alert-content {
 		display: flex;
 		gap: var(--spacing06);
+		width: 90%;
 	}
 	.alert-icon {
 		align-items: center;
@@ -56,9 +64,9 @@
 		color: var(--neutral-base);
 		display: flex;
 		flex-direction: column;
+		gap: var(--spacing03);
 		height: 100%;
 		justify-content: space-between;
-		width: var(--container-max-width-full);
 	}
 	.alert-control {
 		display: flex;
