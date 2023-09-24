@@ -178,3 +178,9 @@ button {
 .btn-disabled {
 	background-color: var(--neutral-100)
 }
+
+/* Tabs */
+
+.btn-tab {
+	padding: var(--spacing05) var(--spacing03);
+}

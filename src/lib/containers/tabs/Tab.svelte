@@ -25,7 +25,6 @@
 	.tab {
 		background-color: var(--background-base);
 		border-radius: 0;
-		padding: var(--spacing05) var(--spacing03);
 	}
 	.tab:active,
 	.tab:hover {
