@@ -178,17 +178,3 @@ button {
 .btn-disabled {
 	background-color: var(--neutral-100)
 }
-
-
-/* Tab */
-.btn-tab {
-	background-color: var(--background-base);
-	border-radius: 0;
-	padding: var(--spacing05) var(--spacing03);
-}
-
-.btn-tab:active,
-.btn-tab:hover {
-	color: var(--neutral-400);
-	border-bottom: var(--spacing00) solid var(--primary-base);
-}

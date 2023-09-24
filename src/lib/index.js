@@ -114,6 +114,7 @@ export { default as ProgressSpinner } from '$lib/containers/progress/ProgressSpi
 export { default as Tab } from '$lib/containers/tabs/Tab.svelte'
 export { default as TabBar } from '$lib/containers/tabs/TabBar.svelte'
 export { default as TabContainer } from '$lib/containers/tabs/TabContainer.svelte'
+export { default as TabContents } from '$lib/containers/tabs/TabContents.svelte'
 
 // Tables
 export { default as Table } from '$lib/containers/tables/Table.svelte'

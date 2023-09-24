@@ -22,7 +22,21 @@
 
 
 <style>
+	.tab {
+		background-color: var(--background-base);
+		border-radius: 0;
+		padding: var(--spacing05) var(--spacing03);
+	}
+	.tab:active,
+	.tab:hover {
+		color: var(--neutral-400);
+		border-bottom: var(--spacing00) solid var(--primary-base);
+	}
 	.selected {
+		border-bottom: var(--spacing01) solid var(--primary-base);
+	}
+	.selected:active,
+	.selected:hover {
 		border-bottom: var(--spacing01) solid var(--primary-base);
 	}
 </style>
