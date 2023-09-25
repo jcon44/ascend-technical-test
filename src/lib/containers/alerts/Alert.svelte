@@ -42,13 +42,13 @@
 		border-radius: var(--spacing09);
 		border: var(--spacing01) solid var(--neutral-050);
 		display: flex;
+		gap: var(--spacing06);
 		justify-content: space-between;
 		padding: var(--spacing09);
 	}
 	.alert-content {
 		display: flex;
 		gap: var(--spacing06);
-		width: 90%;
 	}
 	.alert-icon {
 		align-items: center;
@@ -70,5 +70,6 @@
 	}
 	.alert-control {
 		display: flex;
+		min-width: fit-content;
 	}
 </style>
