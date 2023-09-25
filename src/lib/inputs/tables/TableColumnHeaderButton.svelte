@@ -1,7 +1,7 @@
 <script>
 	import { ArrowDownExtraSmallIcon, ArrowUpExtraSmallIcon } from '$lib/index.js'
 
-	export let text = null, order = 'descending', callback
+	export let callback, order = 'descending', text = null
 </script>
 
 <button
