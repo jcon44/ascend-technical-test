@@ -7,7 +7,7 @@
 <Button
 	classes={[
 		'btn-fit',
-		'btn-m',
+		'btn-l',
 		'btn-outline',
 		'btn-rect'
 	]}
