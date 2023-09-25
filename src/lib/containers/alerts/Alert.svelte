@@ -5,7 +5,7 @@
 		body,
 		button,
 		icon,
-		tag,
+		tag=false,
 		title
 </script>
 
