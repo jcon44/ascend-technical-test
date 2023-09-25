@@ -5,6 +5,8 @@
 		autofocus=false,
 		id='',
 		label='',
+		maxlength='',
+		minlength='',
 		placeholder='',
 		required=false,
 		styles=[],
@@ -21,6 +23,8 @@
 		type='text'
 		{autofocus}
 		{id}
+		{maxlength}
+		{minlength}
 		{placeholder}
 		{required}
 		{tabindex}
