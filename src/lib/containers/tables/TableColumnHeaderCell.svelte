@@ -32,7 +32,7 @@
 		</div>
 	{:else}
 		<TableColumnHeaderButton
-			callback={() => sortTable(column.key, column.type)}
+			callback={() => sortTable(column.key, column.type, list, sortMap)}
 			order={sortMap[column.key]}
 			text={column?.title || ''}
 		/>
