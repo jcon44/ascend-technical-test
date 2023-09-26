@@ -3,7 +3,7 @@
 
 	export let
 		body,
-		button,
+		button=null,
 		icon,
 		tag=false,
 		title
