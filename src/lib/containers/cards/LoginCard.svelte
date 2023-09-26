@@ -1,36 +1,41 @@
 <script>
-	import { InputError, LoginButton } from '$lib/index.js';
+	import { InputError, LoginButton } from '$lib/index.js'
+	import { goto } from '$app/navigation'
 
 	export let username = '', loggedIn = false
 
 	let password = '', validUsername, validPassword
 
 	function validateUsername() {
-		validUsername = username.length > 0;
-		return validUsername;
+		validUsername = username.length > 0
+		return validUsername
 	}
 
 	function validatePassword() {
-		if (validUsername) validPassword = password.length > 0;
-		else validPassword = true;
-		return validPassword;
+		if (validUsername) validPassword = password.length > 0
+		else validPassword = true
+		return validPassword
 	}
 
 	function validateLogin() {
-		validUsername = username.length > 0;
-		validPassword = password.length > 0;
-		return validUsername && validPassword;
+		validUsername = username.length > 0
+		validPassword = password.length > 0
+		return validUsername && validPassword
 	}
 
 	function loginRequest() {
-		if (validateLogin()) loggedIn = true
+		if (validateLogin()) {
+			loggedIn = true
+			goto('/')
+		}
 	}
 </script>
+
 
 <div class="login">
 	<div class="headline-l-xxl">Login</div>
 	<form method='dialog'>
-		<div class="login-input-element">
+		<div class="login-element">
 			<label for="username" class="body-m-semibold">Username</label>
 			<input
 				type="text"
@@ -44,7 +49,7 @@
 				<InputError text="Please enter your username" />
 			{/if}
 		</div>
-		<div class="login-input-element">
+		<div class="login-element">
 			<label for="password" class="body-m-semibold">Password</label>
 			<input
 				type="password"
@@ -64,6 +69,7 @@
 	</form>
 </div>
 
+
 <style>
 	.login {
 		align-items: flex-start;
@@ -78,7 +84,7 @@
 		padding: var(--spacing13);
 		width: var(--spacing27);
 	}
-	.login-input-element {
+	.login-element {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;

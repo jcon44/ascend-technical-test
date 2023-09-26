@@ -4,7 +4,7 @@
 	export let text
 </script>
 
-<div class="input-error">
+<div class="error">
 	<div class="error-icon">
 		<AlertCircleSmallIcon />
 	</div>
@@ -14,7 +14,7 @@
 </div>
 
 <style>
-	.input-error {
+	.error {
 		display: flex;
 		gap: var(--spacing05);
 		width: 100%;
