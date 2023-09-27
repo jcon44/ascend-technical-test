@@ -1,7 +1,7 @@
 <script>
 	import { CheckboxInput } from '$lib/index.js'
 
-	export let title, description, checked
+	export let title='', description='', checked=false
 </script>
 
 
@@ -10,8 +10,10 @@
 		<CheckboxInput bind:checked={checked} />
 	</div>
 	<div class="right-option-column">
-		<div class="option-title headline-l-xs semibold">{title}</div>
-		<div class="option-description">{description}</div>
+		<div class="option-title semibold">{title}</div>
+		{#if description}
+			<div class="option-description">{description}</div>
+		{/if}
 	</div>
 </div>
 

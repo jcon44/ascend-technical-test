@@ -191,8 +191,9 @@ export { default as TermsAndConditionsButton } from '$lib/inputs/buttons/TermsAn
 export { default as ViewModeButton } from '$lib/inputs/buttons/ViewModeButton.svelte'
 
 // Checkboxes
-export { default as CheckboxInput } from '$lib/inputs/checkboxes/CheckboxInput.svelte'
+export { default as CheckList } from '$lib/inputs/checkboxes/CheckList.svelte'
 export { default as CheckOption } from '$lib/inputs/checkboxes/CheckOption.svelte'
+export { default as CheckboxInput } from '$lib/inputs/checkboxes/CheckboxInput.svelte'
 
 // DateTime
 export { default as DateInput } from '$lib/inputs/datetime/date/DateInput.svelte'
