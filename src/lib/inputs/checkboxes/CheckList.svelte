@@ -1,5 +1,5 @@
 <script>
-	import { CheckOption } from 'ascend-ui'
+	import { CheckOption } from '$lib/index.js'
 
 	export let list
 </script>
