@@ -1,5 +1,5 @@
 <script>
-	import { MainContent } from '$lib/index.js';
+	import { MainContent } from '$lib/index.js'
 </script>
 
 <MainContent>

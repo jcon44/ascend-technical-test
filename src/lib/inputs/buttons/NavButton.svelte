@@ -2,14 +2,15 @@
 	import { Button } from '$lib/index.js'
 	import { page } from '$app/stores'
 
-	export let pageData = undefined, navBarOpen
+	export let pageData = undefined,
+		navBarOpen
 
-	$: currentPageLink = pageData?.url === $page.url.pathname;
+	$: currentPageLink = pageData?.url === $page.url.pathname
 </script>
 
-<div class='navbar-button-wrapper'>
+<div class="navbar-button-wrapper">
 	<div class={`current-page-indicator ${currentPageLink ? 'current-page-link' : ''}`} />
-	<div class='nav-button'>
+	<div class="nav-button">
 		<Button
 			classes={['btn-left', 'btn-full', 'btn-l', 'btn-white', 'btn-rect']}
 			firstIcon={pageData?.icon ?? null}

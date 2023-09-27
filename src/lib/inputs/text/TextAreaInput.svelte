@@ -1,27 +1,26 @@
 <script>
-	import {  Label } from '$lib/index.js'
+	import { Label } from '$lib/index.js'
 
-	export let
-		callback=null,
-		cols='',
-		id='',
-		label='',
-		name='',
-		placeholder='',
-		required=false,
-		rows='',
-		text=''
+	export let callback = null,
+		cols = '',
+		id = '',
+		label = '',
+		name = '',
+		placeholder = '',
+		required = false,
+		rows = '',
+		text = ''
 </script>
 
-<div class='textarea-control'>
+<div class="textarea-control">
 	<Label {id} {label} />
 	<textarea
 		bind:value={text}
-		class='textarea-input'
+		class="textarea-input"
 		name={name || label}
 		on:input={callback || ''}
-		cols={cols}
-		rows={rows}
+		{cols}
+		{rows}
 		{id}
 		{placeholder}
 		{required}

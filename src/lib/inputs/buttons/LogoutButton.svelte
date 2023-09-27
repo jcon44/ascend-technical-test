@@ -1,5 +1,5 @@
 <script>
-	import { Button } from '$lib/index.js';
+	import { Button } from '$lib/index.js'
 
 	export let callback
 </script>

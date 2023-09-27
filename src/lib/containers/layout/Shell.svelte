@@ -1,4 +1,4 @@
-<div class='shell'>
+<div class="shell">
 	<slot />
 </div>
 

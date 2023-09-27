@@ -1,12 +1,12 @@
 <script>
-	import { getGlobalColorPalette } from '$lib/index.js';
-	import { onMount } from 'svelte';
+	import { getGlobalColorPalette } from '$lib/index.js'
+	import { onMount } from 'svelte'
 
-	export let type = 'neutral';
+	export let type = 'neutral'
 
-	let palette = {};
+	let palette = {}
 
-	onMount(() => (palette = getGlobalColorPalette()));
+	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
 <div class="progress-spinner-container">

@@ -1,5 +1,5 @@
 <script>
-	import { Button, FilterLinesSmallIcon } from '$lib/index.js';
+	import { Button, FilterLinesSmallIcon } from '$lib/index.js'
 
 	export let callback
 </script>

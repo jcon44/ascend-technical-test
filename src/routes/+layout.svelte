@@ -6,10 +6,10 @@
 		NavBar,
 		ProfileButton,
 		Shell,
-		ToastArea,
-	} from '$lib/index.js';
+		ToastArea
+	} from '$lib/index.js'
 
-	const NavIcon = AscendLogoIcon;
+	const NavIcon = AscendLogoIcon
 
 	const navBarContents = {
 		topPageList: [
@@ -146,7 +146,7 @@
 				url: '/typography'
 			}
 		]
-	};
+	}
 </script>
 
 <Shell>

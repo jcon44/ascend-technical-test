@@ -1,13 +1,12 @@
 <script>
 	import { ArrowDownExtraSmallIcon, ArrowUpExtraSmallIcon } from '$lib/index.js'
 
-	export let callback, order = 'descending', text = null
+	export let callback,
+		order = 'descending',
+		text = null
 </script>
 
-<button
-	on:click={callback}
-	class="semibold"
->
+<button on:click={callback} class="semibold">
 	{text}
 	{#if order === 'descending'}
 		<ArrowDownExtraSmallIcon />

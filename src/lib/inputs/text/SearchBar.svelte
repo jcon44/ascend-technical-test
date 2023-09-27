@@ -7,17 +7,17 @@
 		tabindex = ''
 </script>
 
-<form role="search" class='search-bar-input-control'>
-	<button on:click={callback} class='search-bar-button'>
+<form role="search" class="search-bar-input-control">
+	<button on:click={callback} class="search-bar-button">
 		<svelte:component this={SearchSmallIcon} />
 	</button>
 	<input
 		bind:value={query}
 		class="search-bar"
 		on:input={callback}
-		tabindex={tabindex}
+		{tabindex}
 		type="search"
-		{placeholder} 
+		{placeholder}
 	/>
 </form>
 

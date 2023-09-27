@@ -14,6 +14,7 @@
 		text=''
 </script>
 
+
 <div class='text-control'>
 	<Label {id} {label} />
 	<input
@@ -30,6 +31,7 @@
 		{tabindex}
 	>
 </div>
+
 
 <style>
 	.text-control {

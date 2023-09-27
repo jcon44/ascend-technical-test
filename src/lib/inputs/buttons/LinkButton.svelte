@@ -1,7 +1,13 @@
 <script>
 	import { ButtonContents } from '$lib/index.js'
 
-	export let classes, disabled, firstIcon, secondIcon, styles=[], text, url=''
+	export let classes,
+		disabled,
+		firstIcon,
+		secondIcon,
+		styles = [],
+		text,
+		url = ''
 </script>
 
 <a

@@ -1,8 +1,7 @@
 <script>
 	import { LinkCard, StandardCard } from '$lib/index.js'
 
-	export let
-		callback = undefined,
+	export let callback = undefined,
 		classes = [],
 		icon = undefined,
 		link = '',

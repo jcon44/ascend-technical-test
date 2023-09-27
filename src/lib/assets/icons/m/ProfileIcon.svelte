@@ -1,10 +1,10 @@
 <script>
-	import { getGlobalColorPalette, Icon } from '$lib/index.js';
-	import { onMount } from 'svelte';
+	import { getGlobalColorPalette, Icon } from '$lib/index.js'
+	import { onMount } from 'svelte'
 
-	let palette = {};
+	let palette = {}
 
-	onMount(() => (palette = getGlobalColorPalette()));
+	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
 <Icon size="32">

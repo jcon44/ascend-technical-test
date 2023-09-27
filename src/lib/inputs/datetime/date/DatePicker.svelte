@@ -1,10 +1,14 @@
 <script>
 	import { DateInput, Label } from '$lib/index.js'
 
-	export let date, id='', label='', required=false, width=''
+	export let date,
+		id = '',
+		label = '',
+		required = false,
+		width = ''
 </script>
 
-<div class='date-picker'>
+<div class="date-picker">
 	<Label {id} {label} />
 	<DateInput bind:date {id} {required} {width} />
 </div>

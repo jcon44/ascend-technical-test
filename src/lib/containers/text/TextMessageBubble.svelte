@@ -1,17 +1,20 @@
 <script>
-	export let height='', width='', padding=''
+	export let height = '',
+		width = '',
+		padding = ''
 </script>
 
-<div class='text-bubble'
+<div
+	class="text-bubble"
 	style={`
 		${`height:${height}`}
 		${`width:${width}`}
 	`}
 >
-	<div class='text-content' style={`padding:${padding}`}>
+	<div class="text-content" style={`padding:${padding}`}>
 		<slot />
 	</div>
-	<div class='text-arrow'></div>
+	<div class="text-arrow" />
 </div>
 
 <style>

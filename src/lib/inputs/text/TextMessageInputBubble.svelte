@@ -2,19 +2,14 @@
 	import { TextAreaInput, TextMessageBubble } from '$lib/index.js'
 
 	export let characterLimit = 160,
-		cols='',
-		placeholder='Enter Text Message',
-		rows='',
-		text=''
+		cols = '',
+		placeholder = 'Enter Text Message',
+		rows = '',
+		text = ''
 </script>
 
 <TextMessageBubble>
-	<TextAreaInput
-		bind:text={text}
-		{cols}
-		{placeholder}
-		{rows}
-	/>
+	<TextAreaInput bind:text {cols} {placeholder} {rows} />
 	{#if characterLimit}
 		<div class={`characters-remaining ${text.length > characterLimit ? 'error' : ''}`}>
 			{text.length}/{characterLimit}

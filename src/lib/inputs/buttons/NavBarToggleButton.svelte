@@ -1,7 +1,7 @@
 <script>
-	import { Button, ChevronDoubleLeftSmallIcon, ChevronDoubleRightSmallIcon } from '$lib/index.js';
+	import { Button, ChevronDoubleLeftSmallIcon, ChevronDoubleRightSmallIcon } from '$lib/index.js'
 
-	export let callback, keepOpen;
+	export let callback, keepOpen
 </script>
 
 <Button

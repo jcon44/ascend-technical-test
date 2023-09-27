@@ -1,9 +1,5 @@
 <script>
-	import {
-		ArrowDownExtraSmallIcon,
-		ArrowUpExtraSmallIcon,
-		Button
-	} from '$lib/index.js';
+	import { ArrowDownExtraSmallIcon, ArrowUpExtraSmallIcon, Button } from '$lib/index.js'
 
 	export let text,
 		order,
@@ -12,10 +8,7 @@
 		index
 </script>
 
-<div
-	class="table-header-button"
-	style={index === 0 ? 'margin-left: 40px;' : ''}
->
+<div class="table-header-button" style={index === 0 ? 'margin-left: 40px;' : ''}>
 	<Button
 		{callback}
 		classes={[`column-${index}`, 'semibold', 'table-header']}

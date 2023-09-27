@@ -1,4 +1,4 @@
-<div class='dialog-footer'>
+<div class="dialog-footer">
 	<slot />
 </div>
 

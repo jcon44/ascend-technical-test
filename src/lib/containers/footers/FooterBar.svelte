@@ -4,11 +4,11 @@
 	export let contactUsURL, privacyPolicyURL, termsAndConditionsURL
 </script>
 
-<div class='footer-bar'>
-	<div class='company-signature'>
+<div class="footer-bar">
+	<div class="company-signature">
 		A product by <strong>Ascend Innovations</strong>
 	</div>
-	<div class='link-buttons'>
+	<div class="link-buttons">
 		<TermsAndConditionsButton url={termsAndConditionsURL} />
 		<PrivacyPolicyButton url={privacyPolicyURL} />
 		<ContactUsButton url={contactUsURL} />

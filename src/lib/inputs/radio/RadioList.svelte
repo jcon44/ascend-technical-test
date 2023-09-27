@@ -6,12 +6,7 @@
 
 <div class="radio-list">
 	{#each list as item}
-		<RadioOption
-			bind:group={item.group}
-			label={item.label}
-			name={item.name}
-			value={item.value}
-		/>
+		<RadioOption bind:group={item.group} label={item.label} name={item.name} value={item.value} />
 	{/each}
 </div>
 

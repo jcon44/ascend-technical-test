@@ -1,5 +1,5 @@
 <script>
-	import { Icon } from '$lib/index.js';
+	import { Icon } from '$lib/index.js'
 </script>
 
 <Icon size="31">

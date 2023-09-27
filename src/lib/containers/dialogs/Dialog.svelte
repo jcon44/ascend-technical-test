@@ -10,6 +10,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="dialog-container" on:click={() => (store.dialog.open = false)}>
 	<dialog bind:this={dialog} on:click|stopPropagation>
 		<DialogHeader>

@@ -1,29 +1,20 @@
 <script>
-	import {  Label } from '$lib/index.js'
+	import { Label } from '$lib/index.js'
 
-	export let 
-		callback = null,
-		defaultOptionName='',
-		defaultOptionValue='',
-		id='',
-		label='',
-		optionList=[],
-		selectedValue='',
-		width=''
+	export let callback = null,
+		defaultOptionName = '',
+		defaultOptionValue = '',
+		id = '',
+		label = '',
+		optionList = [],
+		selectedValue = '',
+		width = ''
 </script>
 
-<div class='selector'>
+<div class="selector">
 	<Label {id} {label} />
-	<select
-		bind:value={selectedValue}
-		on:change={callback}
-		style={`width:${width}`}
-		{id}
-	>
-		<option
-			selected
-			value={defaultOptionValue}
-		>
+	<select bind:value={selectedValue} on:change={callback} style={`width:${width}`} {id}>
+		<option selected value={defaultOptionValue}>
 			{defaultOptionName}
 		</option>
 		{#each optionList as optionItem}

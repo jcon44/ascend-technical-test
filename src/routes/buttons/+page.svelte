@@ -14,7 +14,7 @@
 		NavBarToggleButton,
 		NextButton,
 		OkButton,
-		Content,
+		Page,
 		ProfileButton,
 		SampleButton
 	} from '$lib/index.js'

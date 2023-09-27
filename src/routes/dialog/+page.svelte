@@ -1,6 +1,5 @@
 <script>
 	import { Page } from '$lib/index.js'
-
 </script>
 
 <Page>

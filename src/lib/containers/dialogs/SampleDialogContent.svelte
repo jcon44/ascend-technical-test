@@ -1,8 +1,8 @@
 <script>
-	import { OkButton } from '$lib/index.js';
-	import { getContext } from 'svelte';
+	import { OkButton } from '$lib/index.js'
+	import { getContext } from 'svelte'
 
-	const closeDialog = getContext('Dialog');
+	const closeDialog = getContext('Dialog')
 </script>
 
 <div class="sample-dialog">

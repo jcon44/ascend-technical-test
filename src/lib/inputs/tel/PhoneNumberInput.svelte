@@ -1,24 +1,23 @@
 <script>
-	import {  Label } from '$lib/index.js'
+	import { Label } from '$lib/index.js'
 
-	export let
-		id='',
-		label='',
-		phoneNumber='',
-		placeholder='',
-		required=false,
-		tabindex='',
-		width=''
+	export let id = '',
+		label = '',
+		phoneNumber = '',
+		placeholder = '',
+		required = false,
+		tabindex = '',
+		width = ''
 </script>
 
-<div class='phone-number-control'>
+<div class="phone-number-control">
 	<Label {id} {label} />
 	<input
 		bind:value={phoneNumber}
 		class="phone-number-input"
 		maxlength="11"
 		minlength="11"
-		placeholder={placeholder}
+		{placeholder}
 		style={`width:${width}`}
 		type="tel"
 		{id}

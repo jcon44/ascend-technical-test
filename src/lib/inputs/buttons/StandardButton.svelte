@@ -1,11 +1,16 @@
 <script>
 	import { ButtonContents } from '$lib/index.js'
 
-	export let classes, disabled, firstIcon, secondIcon, styles=[], text
+	export let classes,
+		disabled,
+		firstIcon,
+		secondIcon,
+		styles = [],
+		text
 </script>
 
 <button
-	disabled={disabled}
+	{disabled}
 	class={`
 		semibold
 		${classes.includes('btn-full') ? 'btn-full' : 'btn-fit'}

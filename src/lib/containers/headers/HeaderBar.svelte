@@ -2,7 +2,7 @@
 	export let button = ''
 </script>
 
-<div class='header-bar'>
+<div class="header-bar">
 	<svelte:component this={button} />
 </div>
 

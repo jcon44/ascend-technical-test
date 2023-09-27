@@ -7,9 +7,4 @@
 		text = ''
 </script>
 
-<Button
-	{callback}
-	{classes}
-	firstIcon={arrow ? ArrowLeftSmallIcon : null}
-	{text}
-/>
+<Button {callback} {classes} firstIcon={arrow ? ArrowLeftSmallIcon : null} {text} />

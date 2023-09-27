@@ -1,6 +1,5 @@
 <script>
-	export let
-		callback = undefined,
+	export let callback = undefined,
 		classes = [],
 		icon = undefined,
 		styles = [],
@@ -8,22 +7,23 @@
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class={`card-wrapper ${classes?.join(' ') ?? ''}`}
+<div
+	class={`card-wrapper ${classes?.join(' ') ?? ''}`}
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
 	style={`${styles.join(';')}`}
 >
 	{#if icon}
-		<div class='card-icon'>
+		<div class="card-icon">
 			<svelte:component this={icon} />
 		</div>
 	{/if}
 	{#if title}
-		<div class='card-title headline-s-m'>
+		<div class="card-title headline-s-m">
 			{title}
 		</div>
 	{/if}
-	<div class='card-content body-s-s'>
+	<div class="card-content body-s-s">
 		<slot />
 	</div>
 </div>

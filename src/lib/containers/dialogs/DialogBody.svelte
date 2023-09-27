@@ -1,4 +1,4 @@
-<div class='dialog-body'>
+<div class="dialog-body">
 	<slot />
 </div>
 
