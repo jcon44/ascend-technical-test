@@ -2,8 +2,8 @@
 	export let
 		content = '',
 		icon = null,
-		side = null,
-		type
+		side = '',
+		type = ''
 </script>
 
 

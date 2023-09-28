@@ -1,7 +1,8 @@
 <script>
-	import { Label } from '$lib/index.js'
+	import { Label, Tag } from '$lib/index.js'
 
 	export let callback = null,
+		description = '',
 		cols = '',
 		id = '',
 		label = '',
@@ -9,11 +10,25 @@
 		placeholder = '',
 		required = false,
 		rows = '',
+		tag = null,
 		text = ''
 </script>
 
 <div class="textarea-control">
-	<Label {id} {label} />
+	<div class='textarea-title'>
+		<Label {id} {label} />
+		{#if tag !== null}
+			<Tag
+				content={tag?.content || ''}
+				icon={tag?.icon || null}
+				side={tag?.side || ''}
+				type={tag?.type || ''}
+			/>
+		{/if}
+	</div>
+	{#if description}
+		<div class='body-xs'>{description}</div>
+	{/if}
 	<textarea
 		bind:value={text}
 		class="textarea-input"
@@ -28,6 +43,12 @@
 </div>
 
 <style>
+	.textarea-title {
+		display: flex;
+		gap: var(--spacing05);
+		justify-content: flex-start;
+		width: 100%;
+	}
 	.textarea-control {
 		display: flex;
 		flex-direction: column;
