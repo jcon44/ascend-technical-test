@@ -1,11 +1,11 @@
 <script>
 	import { CheckOption } from '$lib/index.js'
 
-	export let list
+	export let list=[], styles=[]
 </script>
 
 
-<div class='check-list'>
+<div class='check-list' style={styles.join(';')}>
 	{#each list as item}
 		<div class='check-item'>
 			<CheckOption
@@ -26,8 +26,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing10);
-		max-height: 50vh;
-		overflow-y: auto;
 	}
 	.check-item {
 		display: flex;
