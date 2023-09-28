@@ -42,9 +42,14 @@ export { default as XCircleSmallIcon } from '$lib/assets/icons/s/XCircleSmallIco
 
 // Icons (Xtra Small)
 export { default as ArrowDownExtraSmallIcon } from '$lib/assets/icons/xs/ArrowDownExtraSmallIcon.svelte'
+export { default as ArrowLeftExtraSmallIcon } from '$lib/assets/icons/xs/ArrowLeftExtraSmallIcon.svelte'
+export { default as ArrowRightExtraSmallIcon } from '$lib/assets/icons/xs/ArrowRightExtraSmallIcon.svelte'
 export { default as ArrowUpExtraSmallIcon } from '$lib/assets/icons/xs/ArrowUpExtraSmallIcon.svelte'
 export { default as CheckExtraSmallIcon } from '$lib/assets/icons/xs/CheckExtraSmallIcon.svelte'
 export { default as NeutralExtraSmallIcon } from '$lib/assets/icons/xs/NeutralExtraSmallIcon.svelte'
+export { default as ProfileExtraSmallIcon } from '$lib/assets/icons/xs/ProfileExtraSmallIcon.svelte'
+export { default as XCircleCloseExtraSmallIcon } from '$lib/assets/icons/xs/XCircleCloseExtraSmallIcon.svelte'
+export { default as XCircleExtraSmallIcon } from '$lib/assets/icons/xs/XCircleExtraSmallIcon.svelte'
 
 // Images
 export { default as AscendLogo } from '$lib/assets/images/AscendLogo.svelte'
