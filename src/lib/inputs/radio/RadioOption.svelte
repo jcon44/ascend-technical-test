@@ -22,6 +22,5 @@
 		display: flex;
 		flex-direction: row;
 		gap: var(--spacing04);
-		margin-bottom: var(--spacing06);
 	}
 </style>
