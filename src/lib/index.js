@@ -74,7 +74,6 @@ export { default as Alert } from '$lib/containers/alerts/Alert.svelte'
 
 // Cards
 export { default as Card } from '$lib/containers/cards/Card.svelte'
-export { default as CardGrid } from '$lib/containers/cards/CardGrid.svelte'
 export { default as LinkCard } from '$lib/containers/cards/LinkCard.svelte'
 export { default as LoginCard } from '$lib/containers/cards/LoginCard.svelte'
 export { default as MetricCard } from '$lib/containers/cards/MetricCard.svelte'
@@ -90,6 +89,10 @@ export { default as DialogSection } from '$lib/containers/dialogs/DialogSection.
 // Footers
 export { default as FooterBar } from '$lib/containers/footers/FooterBar.svelte'
 export { default as FooterNavigation } from '$lib/containers/footers/FooterNavigation.svelte'
+
+// Grids
+export { default as CardGrid } from '$lib/containers/grids/CardGrid.svelte'
+export { default as GridList } from '$lib/containers/grids/GridList.svelte'
 
 // Headers
 export { default as HeaderBar } from '$lib/containers/headers/HeaderBar.svelte'
