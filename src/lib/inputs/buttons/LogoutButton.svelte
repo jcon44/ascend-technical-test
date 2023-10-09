@@ -4,4 +4,13 @@
 	export let callback
 </script>
 
-<Button classes={['btn-fit', 'btn-l', 'btn-neutral', 'btn-rect']} text="Logout" {callback} />
+<Button
+	classes={[
+		'btn-fit',
+		'btn-m',
+		'btn-outline',
+		'btn-rect'
+	]}
+	text="Logout"
+	{callback}
+/>

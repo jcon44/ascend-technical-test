@@ -4,4 +4,9 @@
 	export let callback = undefined
 </script>
 
-<Button {callback} classes={['btn-circle', 'btn-m', 'btn-outline']} firstIcon={ProfileSmallIcon} />
+<Button
+	{callback}
+	classes={['btn-circle', 'btn-m', 'btn-outline']}
+	firstIcon={ProfileSmallIcon}
+	url={'/profile'}
+/>
