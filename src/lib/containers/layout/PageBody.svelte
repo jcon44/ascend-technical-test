@@ -15,6 +15,11 @@
 		gap: var(--spacing09);
 		margin: 0 auto;
 	}
+	.full {
+		align-items: start;
+		padding: 0 var(--spacing14);
+		width: 100%;
+	}
 	.thin {
 		width: var(--spacing27);
 	}

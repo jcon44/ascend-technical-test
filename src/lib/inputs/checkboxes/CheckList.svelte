@@ -1,4 +1,13 @@
 <script>
+	// list = [{
+	// 	component: SvelteComponent,
+	// 	description: String,
+	// 	label: String,
+	// 	name: String,
+	// 	selected: Boolean,
+	// 	value: String
+	// }]
+
 	import { CheckOption } from '$lib/index.js'
 
 	export let list=[], styles=[]
@@ -11,7 +20,8 @@
 			<CheckOption
 				bind:checked={item.selected}
 				description={item.description}
-				title={item.name}
+				name={item.name}
+				value={item.value}
 			/>
 			{#if list.component}
 				<svelte:component class='check-component' this={item.component} />

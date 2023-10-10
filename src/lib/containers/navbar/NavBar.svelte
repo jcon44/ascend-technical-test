@@ -3,7 +3,7 @@
 	import { slide } from 'svelte/transition'
 
 	export let hoverOpen = false,
-		keepOpen = false,
+		keepOpen = true,
 		navBarContents
 
 	$: navBarOpen = hoverOpen || keepOpen
@@ -63,7 +63,7 @@
 
 <style>
 	.navbar {
-		background-color: var(--background-base);
+		background-color: var(--neutral-000);
 		border-radius: 0px var(--spacing05) var(--spacing05) 0px;
 		color: var(--white-900);
 		display: flex;
@@ -73,14 +73,12 @@
 		justify-content: space-between;
 		max-height: var(--spacing33);
 		scrollbar-width: var(--spacing02);
-		width: var(--spacing28);
-		position: fixed;
 		z-index: 10;
 	}
 	.navbar:hover {
 		box-shadow: 0px var(--spacing02) var(--spacing02) var(--neutral-trans-400),
 			0px var(--spacing01) var(--spacing02) calc(-1 * var(--spacing02)) var(--neutral-trans-050);
-		width: var(--container-max-width-s);
+		min-width: var(--container-max-width-s);
 	}
 	.nav-button {
 		width: 100%;
@@ -95,7 +93,7 @@
 		padding: 0 var(--spacing06);
 	}
 	.open {
-		width: var(--container-max-width-s);
+		min-width: var(--container-max-width-s);
 	}
 	.closed {
 		width: var(--spacing15);

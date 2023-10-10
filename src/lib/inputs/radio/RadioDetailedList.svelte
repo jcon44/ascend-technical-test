@@ -1,4 +1,15 @@
 <script>
+	// group: String
+	//
+	// list = [{
+	// 	component: SvelteComponent,
+	// 	description: String,
+	// 	label: String,
+	// 	name: String,
+	// 	selected: Boolean,
+	// 	value: String
+	// }]
+
 	import { RadioInput } from '$lib/index.js'
 
 	export let list, group
@@ -16,7 +27,7 @@
 			</div>
 			<div class='item-right-column'>
 				<div class='item-title primary-headline-l-xs semibold'>
-					{item.title}
+					{item.name}
 				</div>
 				<div class='item-description'>
 					{item.description}

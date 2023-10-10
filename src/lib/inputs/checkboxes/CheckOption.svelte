@@ -1,7 +1,7 @@
 <script>
 	import { CheckboxInput } from '$lib/index.js'
 
-	export let title='', description='', checked=false
+	export let title='', description='', checked=false, value=''
 </script>
 
 

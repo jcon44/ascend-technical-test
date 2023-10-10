@@ -10,6 +10,6 @@
 		flex-direction: column;
 		height: 100%;
 		justify-content: flex-start;
-		width: var(--spacing33);
+		width: 100%;
 	}
 </style>

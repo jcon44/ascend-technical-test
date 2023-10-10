@@ -5,9 +5,10 @@
 
 <style>
 	.main-content {
+		align-items: center;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		min-height: calc(100dvh - 81px); 
+		min-height: calc(100dvh - 81px);
+		width: 100%;
 	}
 </style>

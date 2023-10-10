@@ -1,13 +1,13 @@
 <script>
 	import { RadioOption } from '$lib/index.js'
 
-	export let list, styles=[]
+	export let group, list, styles=[]
 </script>
 
 <div class="radio-list" style={styles.join(';')}>
 	{#each list as item}
 		<RadioOption
-			bind:group={item.group}
+			bind:group={group}
 			label={item.label}
 			name={item.name}
 			value={item.value}

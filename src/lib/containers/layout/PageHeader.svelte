@@ -33,27 +33,3 @@
 		<slot />
 	</div>
 </div>
-
-
-<style>
-	.page-header {
-		display: flex;
-		flex-direction: column;
-		margin-bottom: var(--spacing10);
-		width: var(--spacing33);
-	}
-	.page-header-top-row {
-		display: flex;
-		justify-content: space-between;
-	}
-	.page-header-middle-row {
-		margin: var(--spacing10) 0;
-		gap: var(--spacing10);
-	}
-	.page-header-bottom-row {
-		align-items: center;
-		display: flex;
-		gap: var(--spacing09);
-		justify-content: space-between;
-	}
-</style>
