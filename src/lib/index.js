@@ -211,6 +211,9 @@ export { default as DateTimePicker } from '$lib/inputs/datetime/DateTimePicker.s
 export { default as TimeInput } from '$lib/inputs/datetime/time/TimeInput.svelte'
 export { default as TimePicker } from '$lib/inputs/datetime/time/TimePicker.svelte'
 
+// Number
+export { default as ZipCodeInput } from '$lib/inputs/number/ZipCodeInput.svelte'
+
 // Pagination
 export { default as Pagination } from '$lib/inputs/pagination/Pagination.svelte'
 

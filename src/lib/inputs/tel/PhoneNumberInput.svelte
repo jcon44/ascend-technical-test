@@ -10,6 +10,7 @@
 		width = ''
 </script>
 
+
 <div class="phone-number-control">
 	<Label {id} {label} />
 	<input
@@ -17,14 +18,16 @@
 		class="phone-number-input"
 		maxlength="11"
 		minlength="11"
-		{placeholder}
+		pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
 		style={`width:${width}`}
 		type="tel"
 		{id}
+		{placeholder}
 		{required}
 		{tabindex}
 	/>
 </div>
+
 
 <style>
 	.phone-number-control {
