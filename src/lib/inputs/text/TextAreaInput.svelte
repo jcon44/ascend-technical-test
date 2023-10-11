@@ -31,7 +31,7 @@
 	{/if}
 	<textarea
 		bind:value={text}
-		class="textarea-input"
+		class="textarea-content"
 		name={name || label}
 		on:input={callback || ''}
 		{cols}
@@ -55,8 +55,11 @@
 		gap: var(--spacing03);
 		width: 100%;
 	}
-	.textarea-input {
+	.textarea-content {
 		background-color: transparent;
+		border: none;
+		margin: var(--spacing03) var(--spacing05);
+		padding: var(--spacing03) var(--spacing05);
 		resize: none;
 	}
 </style>
