@@ -12,15 +12,14 @@
 </script>
 
 
-<div class='zip-control'>
+<div class="zip-control">
 	<Label {id} {label} />
 	<input
 		bind:value={zip}
-		class='zip-input'
-		maxlength=5
-		minlength=5
-		pattern="[0-9]{5}"
-		type='text'
+		class="zip-input"
+		maxlength="5"
+		minlength="5"
+		type="text"
 		{autofocus}
 		{id}
 		{placeholder}

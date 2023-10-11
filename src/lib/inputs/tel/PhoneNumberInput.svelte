@@ -16,9 +16,8 @@
 	<input
 		bind:value={phoneNumber}
 		class="phone-number-input"
-		maxlength="11"
-		minlength="11"
-		pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+		maxlength="10"
+		minlength="10"
 		style={`width:${width}`}
 		type="tel"
 		{id}
