@@ -57,7 +57,7 @@
 	}
 	.textarea-content {
 		background-color: transparent;
-		border: none;
+		border: 1px solid var(--neutral-100);
 		margin: var(--spacing03) var(--spacing05);
 		padding: var(--spacing03) var(--spacing05);
 		resize: none;
