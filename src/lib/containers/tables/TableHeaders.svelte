@@ -1,5 +1,5 @@
 <script>
-	import { CheckboxInput, TableColumnHeaderCell, sortArray } from '$lib/index.js'
+	import { TableColumnHeaderCell } from '$lib/index.js'
 
 	export let callback, columns, list
 </script>

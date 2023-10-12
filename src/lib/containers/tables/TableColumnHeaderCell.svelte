@@ -1,5 +1,5 @@
 <script>
-	import { CheckboxInput, TableColumnHeaderButton, sortArray, sortTable } from '$lib/index.js'
+	import { CheckboxInput, TableColumnHeaderButton, sortTable } from '$lib/index.js'
 
 	export let callback, column, columns, list
 
@@ -25,7 +25,7 @@
 	class='table-column-header-cell'
 	style={`${column?.styles?.join(';')}`}
 >
-	{#if column.type === 'checkbox'}
+	{#if column.type === 'checkall'}
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div class="check-all" on:click={toggleCheckAll} on:keyup={toggleCheckAll}>
 			<CheckboxInput {callback} bind:checked={allChecked} />

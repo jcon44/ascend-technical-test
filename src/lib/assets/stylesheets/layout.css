@@ -62,5 +62,4 @@ section {
 	align-items: center;
 	display: flex;
 	gap: var(--spacing09);
-	justify-content: center;
 }

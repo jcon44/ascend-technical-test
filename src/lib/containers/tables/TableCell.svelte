@@ -19,8 +19,17 @@
 		<ArrayCell bind:column={column} bind:row={row} />
 	{:else if column?.type === 'boolean'}
 		<BooleanCell bind:column={column} bind:row={row} />
-	{:else if column?.type === 'checkbox'}
-		<CheckboxCell {callback} bind:row={row} />
+
+
+
+	{:else if column?.type === 'checkbox' || column?.type === 'checkall'}
+		<CheckboxCell {callback} bind:selected={row.selected} />
+	
+	{:else if column?.type === 'checklist'}
+		<CheckboxCell {callback} bind:selected={row[column.key]} />
+	
+	
+	
 	{:else if column?.type === 'tag'}
 		<TagCell bind:row={row} />
 	{:else if column?.type === 'button'}
