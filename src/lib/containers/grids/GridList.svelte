@@ -6,7 +6,7 @@
 
 
 <CardGrid>
-	{#each list as item}
+	{#each list as item (item.id)}
 		<svelte:component
 			this={cardComponent}
 			data={item}
