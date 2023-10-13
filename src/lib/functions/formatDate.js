@@ -1,10 +1,8 @@
-export default function formatDate(date) {
+export default function formatDate(timestamp) {
 
-	const dateObject = new Date(date)
-
-	let day = dateObject.getDate()
-	let month = dateObject.getMonth()
-	let year = dateObject.getYear()
+	let day = timestamp.getDate()
+	let month = timestamp.getMonth() + 1
+	let year = timestamp.getYear()
 
 	if (day.length < 2) day = `0${day}`
 	if (month.length < 2) month = `0${month}`
