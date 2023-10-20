@@ -1,22 +1,15 @@
 <script>
-	import { CheckboxInput, TableColumnHeaderButton, sortTable } from '$lib/index.js'
+	import { CheckboxInput, TableColumnHeaderButton } from '$lib/index.js'
 
-	export let callback, column, columns, list
+	export let callback, column, columns, list, order, sortTable
 
 	let allChecked = false
-
-	const sortMap = {}
-	Object.values(columns).forEach(column => sortMap[column.key] = 'none')
 
 	function toggleCheckAll() {
 		list = list.map(item => {
 			item.selected = allChecked
 			return item
 		})
-	}
-
-	function sortRows(columnKey, columnType) {
-		list = sortTable(columnKey, columnType, list, sortMap)
 	}
 </script>
 
@@ -32,9 +25,9 @@
 		</div>
 	{:else}
 		<TableColumnHeaderButton
-			callback={() => sortTable(column.key, column.type, list, sortMap)}
-			order={sortMap[column.key]}
+			callback={() => sortTable(column.key, column.type)}
 			text={column?.title || ''}
+			{order}
 		/>
 	{/if}
 </div>

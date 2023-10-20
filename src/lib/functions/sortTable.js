@@ -5,7 +5,7 @@ export default function sortTable(columnKey, columnType, list, sortMap) {
 	const previousSortOrder = sortMap[columnKey]
 
 	// reset all sortMap values to 'none'
-	Object.keys(sortMap).forEach((sortKey) => (sortMap[sortKey] = 'none'))
+	Object.keys(sortMap).forEach((sortKey) => (sortMap[sortKey] = ''))
 
 	// set the new sorting order for this column as 'descending' (default) or flip to ascending
 	if (previousSortOrder === 'descending') sortMap[columnKey] = 'ascending'

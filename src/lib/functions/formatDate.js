@@ -1,8 +1,8 @@
 export default function formatDate(timestamp) {
 
-	let day = timestamp.getDate()
+	let day = timestamp.getDate() + 1
 	let month = timestamp.getMonth() + 1
-	let year = timestamp.getYear()
+	let year = timestamp.getYear() + 1900
 
 	if (day.length < 2) day = `0${day}`
 	if (month.length < 2) month = `0${month}`

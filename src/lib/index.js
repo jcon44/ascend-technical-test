@@ -195,6 +195,7 @@ export { default as PrivacyPolicyButton } from '$lib/inputs/buttons/PrivacyPolic
 export { default as ProfileButton } from '$lib/inputs/buttons/ProfileButton.svelte'
 export { default as SampleButton } from '$lib/inputs/buttons/SampleButton.svelte'
 export { default as StandardButton } from '$lib/inputs/buttons/StandardButton.svelte'
+export { default as TableColumnHeaderButton } from '$lib/inputs/buttons/TableColumnHeaderButton.svelte'
 export { default as TermsAndConditionsButton } from '$lib/inputs/buttons/TermsAndConditionsButton.svelte'
 export { default as ViewModeButton } from '$lib/inputs/buttons/ViewModeButton.svelte'
 
@@ -225,9 +226,6 @@ export { default as RadioOption } from '$lib/inputs/radio/RadioOption.svelte'
 
 // Selectors
 export { default as SelectorInput } from '$lib/inputs/selectors/SelectorInput.svelte'
-
-// Table
-export { default as TableColumnHeaderButton } from '$lib/inputs/tables/TableColumnHeaderButton.svelte'
 
 // Tel
 export { default as PhoneNumberInput } from '$lib/inputs/tel/PhoneNumberInput.svelte'

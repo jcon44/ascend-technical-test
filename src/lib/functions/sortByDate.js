@@ -1,10 +1,10 @@
 export default function sortByDate(dateList, sortOrder) {
 
-	if (sortOrder === 'newest') {
+	if (sortOrder === 'ascending') {
 
 		dateList.sort((a, b) => (new Date(b) - new Date(a)))
 
-	} else {
+	} else if (sortOrder === 'descending') {
 
 		dateList.sort((a, b) => (new Date(a) - new Date(b)))
 
