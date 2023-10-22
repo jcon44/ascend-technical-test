@@ -1,8 +1,8 @@
 <script>
 	import { RadioOption } from '$lib/index.js'
 
-	export let group,
-		list,
+	export let group = '',
+		list = [],
 		styles = []
 </script>
 
@@ -14,7 +14,6 @@
 		<RadioOption
 			bind:group
 			label={item.label}
-			name={item.name}
 			value={item.value}
 		/>
 	{/each}

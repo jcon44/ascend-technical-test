@@ -6,8 +6,8 @@
 		value = ''
 
 	function checkBox() {
-			checked = !checked
-			if (callback) callback(checked, value)
+		checked = !checked
+		if (callback) callback(checked, value)
 	}
 </script>
 
@@ -16,7 +16,7 @@
 <div
 	class="checkbox-container"
 	on:click|stopPropagation={checkBox}
-	on:keyUp={checkBox}
+	on:keyup|stopPropagation={checkBox}
 >
 	<input
 		type="checkbox"

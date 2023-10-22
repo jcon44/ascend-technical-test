@@ -1,43 +1,85 @@
-<!-- <script>
-	import { RadioOption, RadioList } from '$lib/index.js'
+<script>
+	import { MainContent, RadioOption, RadioList } from '$lib/index.js'
+	import RadioDetailedList from '$lib/inputs/radio/RadioDetailedList.svelte'
 
-	const sampleList = [
+	const sampleRadioList = [
 		{
-			name: 'sort-order',
+			label: 'Newest On Top',
 			value: 'newest',
-			label: 'Newest On Top'
 		},
 		{
-			name: 'sort-order',
+			label: 'Oldest On Top',
 			value: 'oldest',
-			label: 'Oldest On Top'
-		}
+		},
+	]
+
+	const sampleDetailedRadioList = [
+		{
+			description: 'Newest description',
+			label: 'Detailed Newest On Top',
+			name: 'Newest Name',
+			value: 'detailed-newest',
+		},
+		{
+			description: 'Oldest description',
+			label: 'Detailed Oldest On Top',
+			name: 'Oldest Name',
+			value: 'detailed-oldest',
+		},
 	]
 
 	const sampleItem1 = {
-		name: 'sample-item-1-name',
-		value: 'sample-item-1-value',
-		label: 'sample-item-1-label'
+		label: 'sample-item-1-label',
+		value: 'sample 1',
 	}
 
 	const sampleItem2 = {
-		name: 'sample-item-1-name',
-		value: 'sample-item-2-value',
-		label: 'sample-item-2-label'
+		label: 'sample-item-2-label',
+		value: 'sample 2',
 	}
 
 	const sampleItem3 = {
-		name: 'sample-item-1-name',
-		value: 'sample-item-3-value',
-		label: 'sample-item-3-label'
+		label: 'sample-item-3-label',
+		value: 'sample 3',
 	}
+
+	let radioListGroup = ''
+
+	let radioDetailedListGroup = ''
+
+	let radioOptionGroup = ''
 </script>
 
-
-<h1>RadioList</h1>
-<RadioList list={sampleList}/>
-<hr>
-<h1>RadioOption</h1>
-<RadioOption item={sampleItem1} />
-<RadioOption item={sampleItem2} />
-<RadioOption item={sampleItem3} /> -->
+<MainContent>
+	<h1>RadioList</h1>
+	<div>RadioList Group: {radioListGroup}</div>
+	<RadioList
+		bind:group={radioListGroup}
+		list={sampleRadioList}
+	/>
+	<hr />
+	<h1>RadioDetailedList</h1>
+	<div>RadioDetailedList Group: {radioDetailedListGroup}</div>
+	<RadioDetailedList
+		bind:group={radioDetailedListGroup}
+		list={sampleDetailedRadioList}
+	/>
+	<hr />
+	<h1>RadioOption</h1>
+	<div>RadioOption Group: {radioOptionGroup}</div>
+	<RadioOption
+		bind:group={radioOptionGroup}
+		label={sampleItem1.label}
+		value={sampleItem1.value}
+	/>
+	<RadioOption
+		bind:group={radioOptionGroup}
+		label={sampleItem2.label}
+		value={sampleItem2.value}
+	/>
+	<RadioOption
+		bind:group={radioOptionGroup}
+		label={sampleItem3.label}
+		value={sampleItem3.value}
+	/>
+</MainContent>

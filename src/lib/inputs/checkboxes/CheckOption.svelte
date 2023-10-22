@@ -5,7 +5,6 @@
 		description = '',
 		checked = false
 
-
 	function checkBox() {
 		checked = !checked
 		if (callback) callback(checked, value)

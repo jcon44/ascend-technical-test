@@ -7,15 +7,15 @@
 			label: 'test label',
 			name: 'test-name',
 			selected: false,
-			value: 'test-a'
+			value: 'test-a',
 		},
 		{
 			description: 'test desc',
 			label: 'test label',
 			name: 'test-name',
 			selected: false,
-			value: 'test-b'
-		}
+			value: 'test-b',
+		},
 	]
 </script>
 
