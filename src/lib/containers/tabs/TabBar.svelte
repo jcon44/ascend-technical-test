@@ -4,13 +4,16 @@
 	export let currentTab, tabList
 </script>
 
-
-<div class='tab-bar'>
+<div class="tab-bar">
 	{#each tabList as tab, tabIndex}
-		<Tab bind:tab={tab} {tabIndex} {currentTab} on:tabselect />
+		<Tab
+			bind:tab
+			{tabIndex}
+			{currentTab}
+			on:tabselect
+		/>
 	{/each}
 </div>
-
 
 <style>
 	.tab-bar {

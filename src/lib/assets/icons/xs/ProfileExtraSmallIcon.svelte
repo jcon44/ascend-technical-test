@@ -7,7 +7,6 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-
 <Icon size="16">
 	<path
 		clip-rule="evenodd"

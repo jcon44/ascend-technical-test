@@ -1,7 +1,6 @@
-<div class='tab-contents'>
+<div class="tab-contents">
 	<slot />
 </div>
-
 
 <style>
 	.tab-contents {

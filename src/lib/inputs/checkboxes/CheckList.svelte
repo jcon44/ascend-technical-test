@@ -10,13 +10,16 @@
 
 	import { CheckOption } from '$lib/index.js'
 
-	export let list=[], styles=[]
+	export let list = [],
+		styles = []
 </script>
 
-
-<div class='check-list' style={styles.join(';')}>
+<div
+	class="check-list"
+	style={styles.join(';')}
+>
 	{#each list as item}
-		<div class='check-item'>
+		<div class="check-item">
 			<CheckOption
 				bind:checked={item.selected}
 				description={item.description}
@@ -24,12 +27,14 @@
 				value={item.value}
 			/>
 			{#if list.component}
-				<svelte:component class='check-component' this={item.component} />
+				<svelte:component
+					this={item.component}
+					class="check-component"
+				/>
 			{/if}
 		</div>
 	{/each}
 </div>
-
 
 <style>
 	.check-list {

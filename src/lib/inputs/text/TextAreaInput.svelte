@@ -15,8 +15,11 @@
 </script>
 
 <div class="textarea-control">
-	<div class='textarea-title'>
-		<Label {id} {label} />
+	<div class="textarea-title">
+		<Label
+			{id}
+			{label}
+		/>
 		{#if tag !== null}
 			<Tag
 				content={tag?.content || ''}
@@ -27,7 +30,7 @@
 		{/if}
 	</div>
 	{#if description}
-		<div class='body-xs'>{description}</div>
+		<div class="body-xs">{description}</div>
 	{/if}
 	<textarea
 		bind:value={text}

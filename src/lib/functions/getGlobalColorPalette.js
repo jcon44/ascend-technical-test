@@ -1,5 +1,4 @@
 export default function getGlobalColorPalette() {
-
 	const palette = {
 		background: 'var(--background-base)',
 		error: 'var(--error-base)',
@@ -19,5 +18,4 @@ export default function getGlobalColorPalette() {
 	}
 
 	return palette
-
 }

@@ -2,11 +2,9 @@
 	export let size = 'thin'
 </script>
 
-
 <div class={`page-body ${size}`}>
 	<slot />
 </div>
-
 
 <style>
 	.page-body {

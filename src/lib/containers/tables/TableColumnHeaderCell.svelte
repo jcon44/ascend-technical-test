@@ -1,27 +1,33 @@
 <script>
 	import { CheckboxInput, TableColumnHeaderButton } from '$lib/index.js'
 
-	export let callback, column, columns, list, order, sortTable
+	export let callback, column, list, order, sortTable
 
 	let allChecked = false
 
 	function toggleCheckAll() {
-		list = list.map(item => {
+		list = list.map((item) => {
 			item.selected = allChecked
 			return item
 		})
 	}
 </script>
 
-
 <div
-	class='table-column-header-cell'
+	class="table-column-header-cell"
 	style={`${column?.styles?.join(';')}`}
 >
 	{#if column.type === 'checkall'}
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="check-all" on:click={toggleCheckAll} on:keyup={toggleCheckAll}>
-			<CheckboxInput {callback} bind:checked={allChecked} />
+		<div
+			class="check-all"
+			on:click={toggleCheckAll}
+			on:keyup={toggleCheckAll}
+		>
+			<CheckboxInput
+				{callback}
+				bind:checked={allChecked}
+			/>
 		</div>
 	{:else}
 		<TableColumnHeaderButton
@@ -31,7 +37,6 @@
 		/>
 	{/if}
 </div>
-
 
 <style>
 	.table-column-header-cell {

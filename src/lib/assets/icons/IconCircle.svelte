@@ -2,7 +2,10 @@
 	export let color
 </script>
 
-<div class="icon-circle" style={`background-color: ${color};`}>
+<div
+	class="icon-circle"
+	style={`background-color: ${color};`}
+>
 	<slot />
 </div>
 

@@ -6,8 +6,7 @@
 	}
 </script>
 
-
-<div class='view-mode'>
+<div class="view-mode">
 	<button
 		on:click={toggle}
 		class={`view-mode-btn ${listView ? 'list-view-selected' : ''}`}
@@ -21,7 +20,6 @@
 		G
 	</button>
 </div>
-
 
 <style>
 	.view-mode {

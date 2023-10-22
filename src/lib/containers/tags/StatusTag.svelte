@@ -1,9 +1,10 @@
 <script>
 	import { Tag } from '$lib/index.js'
 
-	export let status = '', time = ''
+	export let status = '',
+		time = ''
 
-	const statusKey = status ? status.replace(' ','').toLowerCase() : ''
+	const statusKey = status ? status.replace(' ', '').toLowerCase() : ''
 
 	const statusColorMap = {
 		draft: 'neutral',
@@ -11,7 +12,7 @@
 		inprogress: 'warning',
 		scheduled: 'neutral',
 		sent: 'success',
-		subscribed: 'success'
+		subscribed: 'success',
 	}
 
 	const statusType = statusColorMap[statusKey]
@@ -22,7 +23,6 @@
 		else return status
 	}
 </script>
-
 
 <Tag
 	type={`${statusType}-subtle`}

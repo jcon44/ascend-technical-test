@@ -2,6 +2,9 @@
 	export let column, row
 </script>
 
-<div class={`${column?.classes?.join(' ')}`} style={column?.styles?.join(';')}>
+<div
+	class={`${column?.classes?.join(' ')}`}
+	style={column?.styles?.join(';')}
+>
 	{row[column.key]?.join(', ')}
 </div>

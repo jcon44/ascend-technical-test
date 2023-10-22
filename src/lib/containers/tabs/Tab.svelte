@@ -11,7 +11,6 @@
 	}
 </script>
 
-
 <div class={`tab ${tabIndex === currentTab ? 'selected' : ''}`}>
 	<Button
 		callback={selectTab}
@@ -19,7 +18,6 @@
 		text={tab?.name}
 	/>
 </div>
-
 
 <style>
 	.tab {

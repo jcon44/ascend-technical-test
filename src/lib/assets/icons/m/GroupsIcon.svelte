@@ -8,7 +8,13 @@
 </script>
 
 <Icon size="32">
-	<circle cx="16" cy="16" r="14" stroke={palette.neutral} stroke-width="2" />
+	<circle
+		cx="16"
+		cy="16"
+		r="14"
+		stroke={palette.neutral}
+		stroke-width="2"
+	/>
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"

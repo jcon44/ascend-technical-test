@@ -4,4 +4,8 @@
 	export let url = ''
 </script>
 
-<Button classes={['btn-m', 'btn-neutral', 'btn-square']} text="Continue" {url} />
+<Button
+	classes={['btn-m', 'btn-neutral', 'btn-square']}
+	text="Continue"
+	{url}
+/>

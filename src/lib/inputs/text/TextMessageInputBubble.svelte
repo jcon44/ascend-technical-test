@@ -9,7 +9,12 @@
 </script>
 
 <TextMessageBubble>
-	<TextAreaInput bind:text {cols} {placeholder} {rows} />
+	<TextAreaInput
+		bind:text
+		{cols}
+		{placeholder}
+		{rows}
+	/>
 	{#if characterLimit}
 		<div class={`characters-remaining ${text.length > characterLimit ? 'error' : ''}`}>
 			{text.length}/{characterLimit}

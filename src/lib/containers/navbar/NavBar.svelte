@@ -21,7 +21,6 @@
 	}
 </script>
 
-
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	class={`navbar ${navBarOpen ? 'open' : 'closed'}`}
@@ -33,12 +32,19 @@
 >
 	<div class="navbar-content">
 		<div class="navbar-upper-content">
-			<NavBarHeader {keepOpen} {navBarOpen} {toggleNavbar} />
+			<NavBarHeader
+				{keepOpen}
+				{navBarOpen}
+				{toggleNavbar}
+			/>
 			<div class="page-list">
 				{#if navBarContents?.primaryPageList?.length}
 					{#each navBarContents.primaryPageList as pageData}
 						<div class="nav-button">
-							<NavButton {pageData} {navBarOpen} />
+							<NavButton
+								{pageData}
+								{navBarOpen}
+							/>
 						</div>
 					{/each}
 				{/if}
@@ -46,7 +52,10 @@
 					<div class="separator" />
 					{#each navBarContents?.secondaryPageList as pageData}
 						<div class="nav-button">
-							<NavButton {pageData} {navBarOpen} />
+							<NavButton
+								{pageData}
+								{navBarOpen}
+							/>
 						</div>
 					{/each}
 				{/if}
@@ -64,7 +73,6 @@
 	</div>
 </div>
 
-
 <style>
 	.navbar {
 		background-color: var(--neutral-000);
@@ -77,7 +85,8 @@
 		z-index: 10;
 	}
 	.navbar:hover {
-		box-shadow: 0px var(--spacing02) var(--spacing02) var(--neutral-trans-400),
+		box-shadow:
+			0px var(--spacing02) var(--spacing02) var(--neutral-trans-400),
 			0px var(--spacing01) var(--spacing02) calc(-1 * var(--spacing02)) var(--neutral-trans-050);
 		min-width: var(--container-max-width-s);
 	}

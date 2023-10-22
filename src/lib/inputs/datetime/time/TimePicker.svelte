@@ -9,8 +9,16 @@
 </script>
 
 <div class="time-picker">
-	<Label {id} {label} />
-	<TimeInput bind:time {id} {required} {width} />
+	<Label
+		{id}
+		{label}
+	/>
+	<TimeInput
+		bind:time
+		{id}
+		{required}
+		{width}
+	/>
 </div>
 
 <style>

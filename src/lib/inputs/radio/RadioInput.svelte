@@ -2,13 +2,11 @@
 	export let group, value
 </script>
 
-
 <input
-	type='radio'
-	bind:group={group}
+	type="radio"
+	bind:group
 	{value}
 />
-
 
 <style>
 	input {

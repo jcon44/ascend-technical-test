@@ -62,8 +62,6 @@ export { default as GlobalCSS } from '$lib/assets/stylesheets/global.css?inline'
 // Filler
 export { default as LoremIpsum } from '$lib/assets/filler/LoremIpsum.svelte'
 
-
-
 // --- CONTAINERS --- //
 
 // Action Bars
@@ -145,8 +143,6 @@ export { default as TextMessageDisplayBubble } from '$lib/containers/text/TextMe
 export { default as Toast } from '$lib/containers/toasts/Toast.svelte'
 export { default as ToastArea } from '$lib/containers/toasts/ToastArea.svelte'
 
-
-
 // --- FUNCTIONS --- //
 
 export { default as browserBack } from '$lib/functions/browserBack.js'
@@ -162,8 +158,6 @@ export { default as sortByDate } from '$lib/functions/sortByDate.js'
 export { default as sortTable } from '$lib/functions/sortTable.js'
 export { default as todaysDate } from '$lib/functions/todaysDate.js'
 export { default as withinDateRange } from '$lib/functions/withinDateRange.js'
-
-
 
 // --- INPUTS --- //
 

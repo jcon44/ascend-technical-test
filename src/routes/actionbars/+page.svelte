@@ -10,4 +10,7 @@
 	<h1>Action Bars</h1>
 	<LoremIpsum />
 </Page>
-<ActionBar {leftContent} {rightContent} />
+<ActionBar
+	{leftContent}
+	{rightContent}
+/>

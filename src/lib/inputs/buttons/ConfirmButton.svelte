@@ -6,4 +6,9 @@
 		url = ''
 </script>
 
-<Button {callback} {classes} text="Confirm" {url} />
+<Button
+	{callback}
+	{classes}
+	text="Confirm"
+	{url}
+/>

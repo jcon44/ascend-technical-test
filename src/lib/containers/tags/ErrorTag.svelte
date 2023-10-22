@@ -4,4 +4,7 @@
 	export let errorCount
 </script>
 
-<Tag content={`${errorCount} Errors`} type="error-subtle" />
+<Tag
+	content={`${errorCount} Errors`}
+	type="error-subtle"
+/>

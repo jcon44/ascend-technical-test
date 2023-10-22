@@ -1,7 +1,6 @@
-<div class='main-content'>
+<div class="main-content">
 	<slot />
 </div>
-
 
 <style>
 	.main-content {

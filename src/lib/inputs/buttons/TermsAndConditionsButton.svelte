@@ -5,4 +5,8 @@
 		classes = ['btn-fit', 'btn-l', 'btn-white', 'btn-rect']
 </script>
 
-<Button text="Terms & Conditions" {classes} {url} />
+<Button
+	text="Terms & Conditions"
+	{classes}
+	{url}
+/>

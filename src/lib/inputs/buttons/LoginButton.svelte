@@ -4,4 +4,8 @@
 	export let callback
 </script>
 
-<Button {callback} classes={['btn-full', 'btn-l', 'btn-primary', 'btn-rect']} text="Login" />
+<Button
+	{callback}
+	classes={['btn-full', 'btn-l', 'btn-primary', 'btn-rect']}
+	text="Login"
+/>

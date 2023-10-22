@@ -5,8 +5,18 @@
 </script>
 
 <div class="date-time-selector">
-	<DatePicker bind:date id={dateId} label="Enter Date" {required} />
-	<TimePicker bind:time id={timeId} label="Enter Time" {required} />
+	<DatePicker
+		bind:date
+		id={dateId}
+		label="Enter Date"
+		{required}
+	/>
+	<TimePicker
+		bind:time
+		id={timeId}
+		label="Enter Time"
+		{required}
+	/>
 </div>
 
 <style>

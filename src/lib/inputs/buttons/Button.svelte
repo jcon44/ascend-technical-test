@@ -18,8 +18,23 @@
 	class={`button-wrapper ${classes.includes('btn-full') ? 'btn-full' : 'btn-fit'}`}
 >
 	{#if url?.length}
-		<LinkButton {classes} {disabled} {firstIcon} {secondIcon} {styles} {text} {url} />
+		<LinkButton
+			{classes}
+			{disabled}
+			{firstIcon}
+			{secondIcon}
+			{styles}
+			{text}
+			{url}
+		/>
 	{:else}
-		<StandardButton {classes} {disabled} {firstIcon} {secondIcon} {styles} {text} />
+		<StandardButton
+			{classes}
+			{disabled}
+			{firstIcon}
+			{secondIcon}
+			{styles}
+			{text}
+		/>
 	{/if}
 </div>

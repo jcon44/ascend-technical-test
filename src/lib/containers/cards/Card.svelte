@@ -11,11 +11,24 @@
 
 <div style={`${styles.join(';')}`}>
 	{#if link}
-		<LinkCard {callback} {classes} {icon} {link} {styles} {title}>
+		<LinkCard
+			{callback}
+			{classes}
+			{icon}
+			{link}
+			{styles}
+			{title}
+		>
 			<slot />
 		</LinkCard>
 	{:else}
-		<StandardCard {callback} {classes} {icon} {styles} {title}>
+		<StandardCard
+			{callback}
+			{classes}
+			{icon}
+			{styles}
+			{title}
+		>
 			<slot />
 		</StandardCard>
 	{/if}

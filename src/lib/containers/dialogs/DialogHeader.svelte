@@ -2,7 +2,6 @@
 	<slot />
 </div>
 
-
 <style>
 	.dialog-header {
 		border-bottom: var(--spacing00) solid var(--neutral-050);

@@ -18,8 +18,18 @@
 		fill={palette.secondary}
 		class="test"
 	/>
-	<path d="M16 20V12" stroke={palette.neutral} stroke-width="2" stroke-linecap="round" />
-	<path d="M12 16L20 16" stroke={palette.neutral} stroke-width="2" stroke-linecap="round" />
+	<path
+		d="M16 20V12"
+		stroke={palette.neutral}
+		stroke-width="2"
+		stroke-linecap="round"
+	/>
+	<path
+		d="M12 16L20 16"
+		stroke={palette.neutral}
+		stroke-width="2"
+		stroke-linecap="round"
+	/>
 </Icon>
 
 <style>

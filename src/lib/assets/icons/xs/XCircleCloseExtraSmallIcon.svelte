@@ -7,7 +7,6 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-
 <Icon size="16">
 	<path
 		d="M3 3.00003L12.9999 13"

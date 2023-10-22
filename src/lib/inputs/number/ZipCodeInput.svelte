@@ -1,19 +1,20 @@
 <script>
 	import { Label } from '$lib/index.js'
 
-	export let
-		autofocus=false,
-		id='zip-code',
-		label='Zip Code',
-		placeholder='',
-		required=false,
-		tabindex='',
-		zip=''
+	export let autofocus = false,
+		id = 'zip-code',
+		label = 'Zip Code',
+		placeholder = '',
+		required = false,
+		tabindex = '',
+		zip = ''
 </script>
 
-
 <div class="zip-control">
-	<Label {id} {label} />
+	<Label
+		{id}
+		{label}
+	/>
 	<input
 		bind:value={zip}
 		class="zip-input"
@@ -25,9 +26,8 @@
 		{placeholder}
 		{required}
 		{tabindex}
-	>
+	/>
 </div>
-
 
 <style>
 	.zip-control {

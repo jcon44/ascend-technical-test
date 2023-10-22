@@ -1,12 +1,11 @@
-<div class='action-bar'>
-	<div class='left-actions'>
-		<slot name='leftSide' />
+<div class="action-bar">
+	<div class="left-actions">
+		<slot name="leftSide" />
 	</div>
-	<div class='right-actions'>
-		<slot name='rightSide' />
+	<div class="right-actions">
+		<slot name="rightSide" />
 	</div>
 </div>
-
 
 <style>
 	.action-bar {

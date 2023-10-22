@@ -4,7 +4,6 @@
 	export let cardComponent, list
 </script>
 
-
 <CardGrid>
 	{#each list as item (item.id)}
 		<svelte:component

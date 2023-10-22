@@ -12,9 +12,20 @@
 </script>
 
 <div class="selector">
-	<Label {id} {label} />
-	<select bind:value={selectedValue} on:change={callback} style={`width:${width}`} {id}>
-		<option selected value={defaultOptionValue}>
+	<Label
+		{id}
+		{label}
+	/>
+	<select
+		bind:value={selectedValue}
+		on:change={callback}
+		style={`width:${width}`}
+		{id}
+	>
+		<option
+			selected
+			value={defaultOptionValue}
+		>
 			{defaultOptionName}
 		</option>
 		{#each optionList as optionItem}

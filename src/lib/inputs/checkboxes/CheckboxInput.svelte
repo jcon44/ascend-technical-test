@@ -1,25 +1,36 @@
 <script>
 	import { CheckExtraSmallIcon } from '$lib/index.js'
 
-	export let callback=null, checked=false, value=''
+	export let callback = null,
+		checked = false,
+		value = ''
 
 	function checkBox() {
-		checked = !checked;
+		checked = !checked
 		if (callback) callback(checked, value)
 	}
 </script>
 
-
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="checkbox-container" on:click={checkBox} on:keyup={checkBox}>
-	<input type="checkbox" bind:checked={checked} {value} />
-	<div class="checkmark" style={`background-color: ${checked ? 'var(--primary-500);' : ''}`}>
+<div
+	class="checkbox-container"
+	on:click={checkBox}
+	on:keyup={checkBox}
+>
+	<input
+		type="checkbox"
+		bind:checked
+		{value}
+	/>
+	<div
+		class="checkmark"
+		style={`background-color: ${checked ? 'var(--primary-500);' : ''}`}
+	>
 		{#if checked}
 			<CheckExtraSmallIcon />
 		{/if}
 	</div>
 </div>
-
 
 <style>
 	.checkbox-container {

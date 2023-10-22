@@ -48,7 +48,8 @@
 		align-items: center;
 		background-color: white;
 		bottom: 0;
-		box-shadow: 0px var(--spacing05) var(--spacing10) rgba(20, 13, 49, 0.1),
+		box-shadow:
+			0px var(--spacing05) var(--spacing10) rgba(20, 13, 49, 0.1),
 			0px var(--spacing02) var(--spacing03) rgba(20, 13, 49, 0.2);
 		display: flex;
 		height: var(--spacing15);

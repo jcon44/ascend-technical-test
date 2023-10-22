@@ -11,7 +11,10 @@
 		${`width:${width}`}
 	`}
 >
-	<div class="text-content" style={`padding:${padding}`}>
+	<div
+		class="text-content"
+		style={`padding:${padding}`}
+	>
 		<slot />
 	</div>
 	<div class="text-arrow" />

@@ -4,7 +4,7 @@
 	export let callback, columns, list
 
 	const sortMap = {}
-	Object.values(columns).forEach(column => {
+	Object.values(columns).forEach((column) => {
 		if (column.key !== undefined) sortMap[column.key] = ''
 	})
 
@@ -24,11 +24,10 @@
 	}
 </script>
 
-
 <div class="table-header-row">
 	{#each columns as column, columnIndex}
 		<TableColumnHeaderCell
-			bind:list={list}
+			bind:list
 			order={sortMap[column.key]}
 			{callback}
 			{columns}
@@ -37,7 +36,6 @@
 		/>
 	{/each}
 </div>
-
 
 <style>
 	.table-header-row {

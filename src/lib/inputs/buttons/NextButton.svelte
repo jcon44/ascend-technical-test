@@ -18,4 +18,11 @@
 	})
 </script>
 
-<Button {callback} {classes} {disabled} secondIcon={icon} {text} {url} />
+<Button
+	{callback}
+	{classes}
+	{disabled}
+	secondIcon={icon}
+	{text}
+	{url}
+/>

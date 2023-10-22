@@ -176,7 +176,7 @@ button {
 /* Disabled */
 
 .btn-disabled {
-	background-color: var(--neutral-100)
+	background-color: var(--neutral-100);
 }
 
 /* Tabs */

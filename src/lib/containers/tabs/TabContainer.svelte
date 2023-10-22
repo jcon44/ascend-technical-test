@@ -8,14 +8,16 @@
 	}
 </script>
 
-
-<div class='tab-container'>
-	<TabBar {currentTab} {tabList} on:tabselect={(event) => handleTabSelection(event)} />
-	<div class='tab-content'>
+<div class="tab-container">
+	<TabBar
+		{currentTab}
+		{tabList}
+		on:tabselect={(event) => handleTabSelection(event)}
+	/>
+	<div class="tab-content">
 		<svelte:component this={tabList[currentTab].content} />
 	</div>
 </div>
-
 
 <style>
 	.tab-container {

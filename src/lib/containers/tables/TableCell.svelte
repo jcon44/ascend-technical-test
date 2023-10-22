@@ -11,32 +11,55 @@
 	export let callback, column, row
 </script>
 
-
 <div
-	class='table-column-body-cell'
+	class="table-column-body-cell"
 	style={`${column?.styles?.join(';')}`}
 >
 	{#if column?.type === 'array'}
-		<ArrayCell bind:column={column} bind:row={row} />
+		<ArrayCell
+			bind:column
+			bind:row
+		/>
 	{:else if column?.type === 'boolean'}
-		<BooleanCell bind:column={column} bind:row={row} />
+		<BooleanCell
+			bind:column
+			bind:row
+		/>
 	{:else if column?.type === 'button'}
-		<ButtonCell bind:column={column} bind:row={row} />
+		<ButtonCell
+			bind:column
+			bind:row
+		/>
 	{:else if column?.type === 'checkbox' || column?.type === 'checkall'}
-		<CheckboxCell {callback} bind:selected={row.selected} />
+		<CheckboxCell
+			{callback}
+			bind:selected={row.selected}
+		/>
 	{:else if column?.type === 'checklist'}
-		<CheckboxCell {callback} bind:selected={row[column.key]} />
+		<CheckboxCell
+			{callback}
+			bind:selected={row[column.key]}
+		/>
 	{:else if column?.type === 'date'}
-		<DateCell {callback} bind:column={column} bind:row={row} />
+		<DateCell
+			{callback}
+			bind:column
+			bind:row
+		/>
 	{:else if column?.type === 'tag'}
-		<TagCell bind:row={row} />
+		<TagCell bind:row />
 	{:else if column?.editable}
-		<EditableCell bind:column={column} bind:row={row} />
+		<EditableCell
+			bind:column
+			bind:row
+		/>
 	{:else}
-		<DefaultCell bind:column={column} bind:row={row} />
+		<DefaultCell
+			bind:column
+			bind:row
+		/>
 	{/if}
 </div>
-
 
 <style>
 	.table-column-body-cell {

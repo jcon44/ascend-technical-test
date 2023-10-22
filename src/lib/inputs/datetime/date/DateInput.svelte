@@ -5,4 +5,11 @@
 		width = ''
 </script>
 
-<input bind:value={date} class="date-input" style={`width:${width}`} type="date" {id} {required} />
+<input
+	bind:value={date}
+	class="date-input"
+	style={`width:${width}`}
+	type="date"
+	{id}
+	{required}
+/>

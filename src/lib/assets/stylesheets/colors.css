@@ -95,7 +95,7 @@
 	--primary-trans-600: rgba(255, 212, 73, 0.7);
 	--primary-trans-700: rgba(255, 212, 73, 0.8);
 	--primary-trans-800: rgba(255, 212, 73, 0.9);
-	--primary-trans-900: rgba(255, 212, 73, 1.0);
+	--primary-trans-900: rgba(255, 212, 73, 1);
 
 	--secondary-trans-000: rgba(251, 117, 87, 0.02);
 	--secondary-trans-025: rgba(251, 117, 87, 0.05);
@@ -109,7 +109,7 @@
 	--secondary-trans-600: rgba(251, 117, 87, 0.7);
 	--secondary-trans-700: rgba(251, 117, 87, 0.8);
 	--secondary-trans-800: rgba(251, 117, 87, 0.9);
-	--secondary-trans-900: rgba(251, 117, 87, 1.0);
+	--secondary-trans-900: rgba(251, 117, 87, 1);
 
 	--neutral-trans-000: rgba(13, 7, 37, 0.02);
 	--neutral-trans-025: rgba(13, 7, 37, 0.05);
@@ -122,7 +122,7 @@
 	--neutral-trans-600: rgba(13, 7, 37, 0.7);
 	--neutral-trans-700: rgba(13, 7, 37, 0.8);
 	--neutral-trans-800: rgba(13, 7, 37, 0.9);
-	--neutral-trans-900: rgba(13, 7, 37, 1.0);
+	--neutral-trans-900: rgba(13, 7, 37, 1);
 
 	--white-trans-000: rgba(255, 255, 255, 0.02);
 	--white-trans-025: rgba(255, 255, 255, 0.05);
@@ -135,7 +135,7 @@
 	--white-trans-600: rgba(255, 255, 255, 0.7);
 	--white-trans-700: rgba(255, 255, 255, 0.8);
 	--white-trans-800: rgba(255, 255, 255, 0.9);
-	--white-trans-900: rgba(255, 255, 255, 1.0);
+	--white-trans-900: rgba(255, 255, 255, 1);
 
 	--background-base: white;
 	--error-base: var(--error-500);
@@ -154,7 +154,7 @@
 	--white-trans-base: var(--white-trans-900);
 
 	--gradiant-100: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 4.13%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%);
-	--gradiant-200: linear-gradient(58.7deg, #2A2737 3.84%, #3F3D4B 107.29%);
+	--gradiant-200: linear-gradient(58.7deg, #2a2737 3.84%, #3f3d4b 107.29%);
 	--gradiant-300: linear-gradient(82.66deg, rgba(0, 0, 0, 0.46) 32.47%, rgba(0, 0, 0, 0) 83.34%);
 	--gradiant-400: linear-gradient(248.95deg, rgba(255, 221, 71, 0.06) 0.95%, rgba(42, 39, 55, 0.6) 65.49%);
 	--gradiant-500: linear-gradient(233.57deg, var(--secondary-base) 20.21%, var(--primary-base) 71.15%);

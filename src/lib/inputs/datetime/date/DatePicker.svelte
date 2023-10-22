@@ -9,8 +9,16 @@
 </script>
 
 <div class="date-picker">
-	<Label {id} {label} />
-	<DateInput bind:date {id} {required} {width} />
+	<Label
+		{id}
+		{label}
+	/>
+	<DateInput
+		bind:date
+		{id}
+		{required}
+		{width}
+	/>
 </div>
 
 <style>

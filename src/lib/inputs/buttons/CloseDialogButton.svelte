@@ -4,4 +4,8 @@
 	export let callback
 </script>
 
-<Button {callback} classes={['btn-m', 'btn-outline', 'btn-square']} firstIcon={CloseSmallIcon} />
+<Button
+	{callback}
+	classes={['btn-m', 'btn-outline', 'btn-square']}
+	firstIcon={CloseSmallIcon}
+/>

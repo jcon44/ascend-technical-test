@@ -1,14 +1,12 @@
 <script>
 	import { Tag } from '$lib/index.js'
 
-	export let
-		body,
-		button=null,
+	export let body,
+		button = null,
 		icon,
-		tag=false,
+		tag = false,
 		title
 </script>
-
 
 <div class="alert">
 	<div class="alert-content">
@@ -20,7 +18,10 @@
 				{title}
 			</div>
 			{#if tag}
-				<Tag content={tag} type='neutral-subtle' />
+				<Tag
+					content={tag}
+					type="neutral-subtle"
+				/>
 			{/if}
 			<div class="alert-body body-s">
 				{body}
@@ -35,7 +36,6 @@
 		{/if}
 	</div>
 </div>
-
 
 <style>
 	.alert {

@@ -9,8 +9,17 @@
 		title = ''
 </script>
 
-<a href={link} class="link-card">
-	<StandardCard {callback} classes={[...classes, 'hover-link']} {icon} {styles} {title}>
+<a
+	href={link}
+	class="link-card"
+>
+	<StandardCard
+		{callback}
+		classes={[...classes, 'hover-link']}
+		{icon}
+		{styles}
+		{title}
+	>
 		<slot />
 	</StandardCard>
 </a>

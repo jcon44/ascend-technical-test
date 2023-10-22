@@ -1,9 +1,5 @@
 <script>
-	import {
-		AlertCircleSmallIcon,
-		CloseToastButton,
-		SuccessCheckCircleSmallIcon
-	} from '$lib/index.js'
+	import { AlertCircleSmallIcon, CloseToastButton, SuccessCheckCircleSmallIcon } from '$lib/index.js'
 	import { createEventDispatcher, onMount } from 'svelte'
 	import { fade } from 'svelte/transition'
 
@@ -22,7 +18,10 @@
 	})
 </script>
 
-<div class="toast-container" out:fade>
+<div
+	class="toast-container"
+	out:fade
+>
 	<div class="toast-body">
 		<div class="icon-column">
 			{#if toast.purpose === 'success'}
@@ -53,7 +52,8 @@
 		color: white;
 		background-color: var(--neutral-800);
 		border-radius: var(--spacing09);
-		box-shadow: 0px var(--spacing04) var(--spacing10) var(--neutral-trans-050),
+		box-shadow:
+			0px var(--spacing04) var(--spacing10) var(--neutral-trans-050),
 			0px var(--spacing02) var(--spacing03) var(--spacing02) var(--neutral-trans-100);
 		gap: var(--spacing11);
 		padding: var(--spacing09);

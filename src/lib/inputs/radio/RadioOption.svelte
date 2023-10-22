@@ -4,17 +4,15 @@
 	export let group, label, value
 </script>
 
-
 <div class="radio-option">
 	<RadioInput
-		bind:group={group}
+		bind:group
 		{value}
 	/>
 	<div class="semibold">
 		{label}
 	</div>
 </div>
-
 
 <style>
 	.radio-option {

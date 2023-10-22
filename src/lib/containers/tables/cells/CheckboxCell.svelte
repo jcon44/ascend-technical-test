@@ -4,4 +4,7 @@
 	export let callback, selected
 </script>
 
-<CheckboxInput {callback} bind:checked={selected} />
+<CheckboxInput
+	{callback}
+	bind:checked={selected}
+/>

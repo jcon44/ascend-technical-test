@@ -6,13 +6,15 @@
 	$: row = list[rowIndex]
 </script>
 
-
 <div class="table-body-row">
 	{#each columns as column, columnIndex}
-		<TableCell {callback} bind:column={column} bind:row={row} />
+		<TableCell
+			{callback}
+			bind:column
+			bind:row
+		/>
 	{/each}
 </div>
-
 
 <style>
 	.table-body-row {

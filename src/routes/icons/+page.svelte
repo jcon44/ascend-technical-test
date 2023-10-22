@@ -1,16 +1,5 @@
 <script>
-	import {
-		AdministratorsIcon,
-		GroupsIcon,
-		MetricsIcon,
-		NewNotificationIcon,
-		NotificationsIcon,
-		Content,
-		Page,
-		ProfileIcon,
-		SubscribersIcon,
-		TemplatesIcon
-	} from '$lib/index.js'
+	import { AdministratorsIcon, GroupsIcon, MetricsIcon, NewNotificationIcon, NotificationsIcon, Content, Page, ProfileIcon, SubscribersIcon, TemplatesIcon } from '$lib/index.js'
 </script>
 
 <Page>

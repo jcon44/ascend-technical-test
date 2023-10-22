@@ -5,9 +5,11 @@
 		headerPill = null
 </script>
 
-
 <div class="page-header">
-	<div class="page-header-top-row" style={`justify-content: ${headerButton ? 'space-between' : 'center'}`}>
+	<div
+		class="page-header-top-row"
+		style={`justify-content: ${headerButton ? 'space-between' : 'center'}`}
+	>
 		<div class="page-header-left-column">
 			<h1 class="headline-l-xxl">{titleText}</h1>
 		</div>

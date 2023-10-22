@@ -1,23 +1,5 @@
 <script>
-	import {
-		BackButton,
-		CancelButton,
-		ClearButton,
-		CloseDialogButton,
-		CloseToastButton,
-		ContactUsButton,
-		ContinueButton,
-		ExportCSVButton,
-		HomeButton,
-		LoginButton,
-		LogoutButton,
-		NavBarToggleButton,
-		NextButton,
-		OkButton,
-		Page,
-		ProfileButton,
-		SampleButton
-	} from '$lib/index.js'
+	import { BackButton, CancelButton, ClearButton, CloseDialogButton, CloseToastButton, ContactUsButton, ContinueButton, ExportCSVButton, HomeButton, LoginButton, LogoutButton, NavBarToggleButton, NextButton, OkButton, Page, ProfileButton, SampleButton } from '$lib/index.js'
 </script>
 
 <Page>

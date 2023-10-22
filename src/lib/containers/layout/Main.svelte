@@ -2,7 +2,6 @@
 	<slot />
 </main>
 
-
 <style>
 	main {
 		flex-grow: 1;

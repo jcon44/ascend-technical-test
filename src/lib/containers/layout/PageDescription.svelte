@@ -1,7 +1,6 @@
-<div class='description'>
+<div class="description">
 	<slot />
 </div>
-
 
 <style>
 	.description {

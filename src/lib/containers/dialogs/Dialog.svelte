@@ -11,8 +11,14 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="dialog-container" on:click={() => (store.dialog.open = false)}>
-	<dialog bind:this={dialog} on:click|stopPropagation>
+<div
+	class="dialog-container"
+	on:click={() => (store.dialog.open = false)}
+>
+	<dialog
+		bind:this={dialog}
+		on:click|stopPropagation
+	>
 		<DialogHeader>
 			<slot name="dialog-header-slot" />
 		</DialogHeader>
@@ -40,7 +46,8 @@
 	dialog {
 		border-radius: var(--border-radius-xl);
 		border: none;
-		box-shadow: 0px var(--spacing04) var(--spacing10) var(--neutral-trans-050),
+		box-shadow:
+			0px var(--spacing04) var(--spacing10) var(--neutral-trans-050),
 			0px var(--spacing02) var(--spacing03) var(--spacing02) var(--neutral-trans-100);
 		display: block;
 		margin: auto;

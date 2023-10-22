@@ -7,5 +7,9 @@
 </script>
 
 <Page>
-	<Button bind:this={button} callback={() => (open = true)} text="Show Dialog" />
+	<Button
+		bind:this={button}
+		callback={() => (open = true)}
+		text="Show Dialog"
+	/>
 </Page>

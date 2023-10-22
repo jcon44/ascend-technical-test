@@ -7,8 +7,14 @@
 		tabindex = ''
 </script>
 
-<form role="search" class="search-bar-input-control">
-	<button on:click={callback} class="search-bar-button">
+<form
+	role="search"
+	class="search-bar-input-control"
+>
+	<button
+		on:click={callback}
+		class="search-bar-button"
+	>
 		<svelte:component this={SearchSmallIcon} />
 	</button>
 	<input

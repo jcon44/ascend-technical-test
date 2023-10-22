@@ -1,11 +1,9 @@
 <script>
-	export let
-		content = '',
+	export let content = '',
 		icon = null,
 		side = '',
 		type = ''
 </script>
-
 
 <div class={`tag semibold ${type}`}>
 	{#if icon && side === 'left'}
@@ -16,7 +14,6 @@
 		<svelte:component this={icon} />
 	{/if}
 </div>
-
 
 <style>
 	.tag {
@@ -33,7 +30,7 @@
 	*[class*='prominent'] {
 		color: var(--neutral-base);
 	}
-	
+
 	.error-prominent {
 		background-color: var(--error-base);
 	}

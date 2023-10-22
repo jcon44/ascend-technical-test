@@ -1,14 +1,17 @@
 <script>
-	import { Toast, removeToast } from '$lib/index.js';
+	import { Toast, removeToast } from '$lib/index.js'
 
-	export let toastList = undefined;
+	export let toastList = undefined
 </script>
 
 {#if toastList?.length > 0}
 	<div class="toast-area">
 		<div class="toast-list">
 			{#each toastList as toast}
-				<Toast {toast} on:timer={(e) => (toastList = removeToast(e, toastList))} />
+				<Toast
+					{toast}
+					on:timer={(e) => (toastList = removeToast(e, toastList))}
+				/>
 			{/each}
 		</div>
 	</div>

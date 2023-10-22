@@ -1,5 +1,3 @@
 export default function removeToast(event, toastList) {
-
-	return toastList.filter(t => t._id !== event.detail.id)
-
+	return toastList.filter((t) => t._id !== event.detail.id)
 }

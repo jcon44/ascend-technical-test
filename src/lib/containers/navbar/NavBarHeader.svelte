@@ -9,7 +9,10 @@
 		<a href="/">
 			<AscendLogo />
 		</a>
-		<NavBarToggleButton callback={toggleNavbar} {keepOpen} />
+		<NavBarToggleButton
+			callback={toggleNavbar}
+			{keepOpen}
+		/>
 	{:else}
 		<AscendLogoIcon />
 	{/if}

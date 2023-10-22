@@ -9,13 +9,19 @@
 
 <div class="pagination-bar">
 	<div class="back-button">
-		<BackButton arrow={true} callback={leftClickCallback} />
+		<BackButton
+			arrow={true}
+			callback={leftClickCallback}
+		/>
 	</div>
 	<div class="page-number">
 		Page {currentPage} of {totalPages}
 	</div>
 	<div class="next-button">
-		<NextButton arrow={true} callback={rightClickCallback} />
+		<NextButton
+			arrow={true}
+			callback={rightClickCallback}
+		/>
 	</div>
 </div>
 

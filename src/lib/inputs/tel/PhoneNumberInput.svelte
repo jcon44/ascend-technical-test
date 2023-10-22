@@ -10,9 +10,11 @@
 		width = ''
 </script>
 
-
 <div class="phone-number-control">
-	<Label {id} {label} />
+	<Label
+		{id}
+		{label}
+	/>
 	<input
 		bind:value={phoneNumber}
 		class="phone-number-input"
@@ -26,7 +28,6 @@
 		{tabindex}
 	/>
 </div>
-
 
 <style>
 	.phone-number-control {

@@ -25,7 +25,11 @@
 		`}
 		style={styles.join(';')}
 	>
-		<ButtonContents {text} {firstIcon} {secondIcon} />
+		<ButtonContents
+			{text}
+			{firstIcon}
+			{secondIcon}
+		/>
 	</div>
 </button>
 

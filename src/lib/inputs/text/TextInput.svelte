@@ -1,27 +1,28 @@
 <script>
-	import {  Label } from '$lib/index.js'
+	import { Label } from '$lib/index.js'
 
-	export let
-		autofocus=false,
-		id='',
-		label='',
-		maxlength='',
-		minlength='',
-		placeholder='',
-		required=false,
-		styles=[],
-		tabindex='',
-		text=''
+	export let autofocus = false,
+		id = '',
+		label = '',
+		maxlength = '',
+		minlength = '',
+		placeholder = '',
+		required = false,
+		styles = [],
+		tabindex = '',
+		text = ''
 </script>
 
-
-<div class='text-control'>
-	<Label {id} {label} />
+<div class="text-control">
+	<Label
+		{id}
+		{label}
+	/>
 	<input
 		bind:value={text}
-		class='text-input'
+		class="text-input"
 		style={styles.join(';')}
-		type='text'
+		type="text"
 		{autofocus}
 		{id}
 		{maxlength}
@@ -29,9 +30,8 @@
 		{placeholder}
 		{required}
 		{tabindex}
-	>
+	/>
 </div>
-
 
 <style>
 	.text-control {

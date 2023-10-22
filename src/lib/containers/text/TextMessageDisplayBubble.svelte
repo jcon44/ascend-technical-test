@@ -7,6 +7,10 @@
 		padding = ''
 </script>
 
-<TextMessageBubble {height} {width} {padding}>
+<TextMessageBubble
+	{height}
+	{width}
+	{padding}
+>
 	{text}
 </TextMessageBubble>

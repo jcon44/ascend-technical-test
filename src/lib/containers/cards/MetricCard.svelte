@@ -8,7 +8,13 @@
 		styles = []
 </script>
 
-<Card classes={['card-s']} {callback} {icon} {link} {styles}>
+<Card
+	classes={['card-s']}
+	{callback}
+	{icon}
+	{link}
+	{styles}
+>
 	<div class="body-s semibold">{data.title}</div>
 	<div class="headline-l-xl semibold">{data.value}</div>
 </Card>

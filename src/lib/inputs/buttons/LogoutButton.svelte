@@ -5,12 +5,7 @@
 </script>
 
 <Button
-	classes={[
-		'btn-fit',
-		'btn-m',
-		'btn-outline',
-		'btn-rect'
-	]}
+	classes={['btn-fit', 'btn-m', 'btn-outline', 'btn-rect']}
 	text="Logout"
 	{callback}
 />

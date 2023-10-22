@@ -2,9 +2,12 @@
 	import { InputError, LoginButton } from '$lib/index.js'
 	import { goto } from '$app/navigation'
 
-	export let username = '', loggedIn = false
+	export let username = '',
+		loggedIn = false
 
-	let password = '', validUsername, validPassword
+	let password = '',
+		validUsername,
+		validPassword
 
 	function validateUsername() {
 		validUsername = username.length > 0
@@ -31,12 +34,14 @@
 	}
 </script>
 
-
 <div class="login">
 	<div class="headline-l-xxl">Login</div>
-	<form method='dialog'>
+	<form method="dialog">
 		<div class="login-element">
-			<label for="username" class="body-m-semibold">Username</label>
+			<label
+				for="username"
+				class="body-m-semibold">Username</label
+			>
 			<input
 				type="text"
 				id="username"
@@ -50,7 +55,10 @@
 			{/if}
 		</div>
 		<div class="login-element">
-			<label for="password" class="body-m-semibold">Password</label>
+			<label
+				for="password"
+				class="body-m-semibold">Password</label
+			>
 			<input
 				type="password"
 				id="password"
@@ -68,7 +76,6 @@
 		</div>
 	</form>
 </div>
-
 
 <style>
 	.login {

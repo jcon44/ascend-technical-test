@@ -1,6 +1,5 @@
 <script>
-	export let
-		value = 0,
+	export let value = 0,
 		min = 0,
 		max = 100,
 		type = ''
@@ -12,14 +11,12 @@
 	}
 </script>
 
-
-<div class='progress-bar'>
+<div class="progress-bar">
 	<div
 		class={`progress-bar-fill ${type}`}
 		style={`width: ${getPercentage()}%`}
 	/>
 </div>
-
 
 <style>
 	.progress-bar {

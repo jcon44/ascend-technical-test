@@ -2,5 +2,4 @@
 	import { DateRange } from '$lib/index.js'
 </script>
 
-
-<DateRange width='25%'/>
+<DateRange width="25%" />

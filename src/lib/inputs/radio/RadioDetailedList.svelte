@@ -15,28 +15,26 @@
 	export let list, group
 </script>
 
-
 <div class="radio-list">
 	{#each list as item}
-		<div class='list-item'>
-			<div class='item-left-column'>
+		<div class="list-item">
+			<div class="item-left-column">
 				<RadioInput
-					bind:group={group}
+					bind:group
 					value={item.value}
 				/>
 			</div>
-			<div class='item-right-column'>
-				<div class='item-title primary-headline-l-xs semibold'>
+			<div class="item-right-column">
+				<div class="item-title primary-headline-l-xs semibold">
 					{item.name}
 				</div>
-				<div class='item-description'>
+				<div class="item-description">
 					{item.description}
 				</div>
 			</div>
 		</div>
 	{/each}
 </div>
-
 
 <style>
 	.radio-list {

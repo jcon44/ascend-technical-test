@@ -5,4 +5,9 @@
 		url = ''
 </script>
 
-<Button classes={['btn-fit', 'btn-l', 'btn-outline', 'btn-rect']} text="Cancel" {callback} {url} />
+<Button
+	classes={['btn-fit', 'btn-l', 'btn-outline', 'btn-rect']}
+	text="Cancel"
+	{callback}
+	{url}
+/>

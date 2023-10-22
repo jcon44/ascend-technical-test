@@ -1,9 +1,9 @@
 :root {
-	--scrollbar-m-height: 10var(--spacing01);
+	--scrollbar-m-height: 10var (--spacing01);
 	--scrollbar-m-radius: var(--spacing08);
 	--scrollbar-m-width: var(--spacing03);
 
-	--scrollbar-s-height: 10var(--spacing01);
+	--scrollbar-s-height: 10var (--spacing01);
 	--scrollbar-s-radius: var(--spacing08);
 	--scrollbar-s-width: var(--spacing02);
 }
