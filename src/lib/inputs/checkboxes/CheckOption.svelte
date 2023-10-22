@@ -4,9 +4,21 @@
 	export let name = '',
 		description = '',
 		checked = false
+
+
+	function checkBox() {
+		checked = !checked
+		if (callback) callback(checked, value)
+	}
 </script>
 
-<div class="checkbox-option">
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div
+	class="checkbox-option"
+	on:click={checkBox}
+	on:keyUp={checkBox}
+>
 	<div class="left-option-column">
 		<CheckboxInput bind:checked />
 	</div>

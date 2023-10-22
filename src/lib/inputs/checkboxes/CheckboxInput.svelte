@@ -6,16 +6,17 @@
 		value = ''
 
 	function checkBox() {
-		checked = !checked
-		if (callback) callback(checked, value)
+			checked = !checked
+			if (callback) callback(checked, value)
 	}
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	class="checkbox-container"
-	on:click={checkBox}
-	on:keyup={checkBox}
+	on:click|stopPropagation={checkBox}
+	on:keyUp={checkBox}
 >
 	<input
 		type="checkbox"
