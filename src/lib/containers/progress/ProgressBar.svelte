@@ -21,6 +21,7 @@
 <style>
 	.progress-bar {
 		background-color: transparent;
+		border-radius: var(--spacing04);
 		height: var(--spacing02);
 		overflow: hidden;
 		width: 100%;
