@@ -40,7 +40,7 @@
 	select {
 		background: none;
 		border-radius: var(--spacing05);
-		border: var(--spacing01) solid var(--neutral-100);
+		border: var(--spacing00) solid var(--neutral-100);
 		padding: var(--spacing05) var(--spacing09);
 	}
 	select:hover {
