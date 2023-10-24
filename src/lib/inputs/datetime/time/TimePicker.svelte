@@ -3,12 +3,12 @@
 
 	export let id = '',
 		label = '',
-		time = '',
 		required = false,
-		width = ''
+		styles = [],
+		time = ''
 </script>
 
-<div class="time-picker">
+<div class="time-picker" style={styles.join(';')}>
 	<Label
 		{id}
 		{label}
@@ -17,7 +17,6 @@
 		bind:time
 		{id}
 		{required}
-		{width}
 	/>
 </div>
 
@@ -26,5 +25,6 @@
 		display: flex;
 		gap: var(--spacing03);
 		flex-direction: column;
+		width: 100%;
 	}
 </style>

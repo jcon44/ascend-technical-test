@@ -6,8 +6,8 @@
 		phoneNumber = '',
 		placeholder = '',
 		required = false,
-		tabindex = '',
-		width = ''
+		styles = [],
+		tabindex = ''
 </script>
 
 <div class="phone-number-control">
@@ -20,7 +20,7 @@
 		class="phone-number-input"
 		maxlength="10"
 		minlength="10"
-		style={`width:${width}`}
+		style={styles.join(';')}
 		type="tel"
 		{id}
 		{placeholder}
@@ -34,5 +34,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing03);
+		width: 100%;
 	}
 </style>

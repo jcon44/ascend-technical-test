@@ -22,19 +22,23 @@
 		{#if content?.right?.first}
 			<Button
 				classes={content?.right?.first?.classes}
-				height={content?.right?.first?.height ?? ''}
 				text={content?.right?.first?.text ?? ''}
 				url={content?.right?.first?.url ?? ''}
-				width={content?.right?.first?.width ?? ''}
+				styles={[
+					`height: ${content?.right?.first?.height ?? ''}`,
+					`width: ${content?.right?.first?.width ?? ''}`
+				]}
 			/>
 		{/if}
 		{#if content?.right?.second}
 			<Button
 				classes={content?.right?.second?.classes}
-				height={content?.right?.second?.height ?? ''}
 				text={content?.right?.second?.text ?? ''}
 				url={content?.right?.second?.url ?? ''}
-				width={content?.right?.second?.width ?? ''}
+				styles={[
+					`height: ${content?.right?.second?.height ?? ''}`,
+					`width: ${content?.right?.second?.width ?? ''}`
+				]}
 			/>
 		{/if}
 		{#if content?.right?.next}

@@ -8,10 +8,10 @@
 		label = '',
 		optionList = [],
 		selectedValue = '',
-		width = ''
+		styles = []
 </script>
 
-<div class="selector">
+<div class="selector-control">
 	<Label
 		{id}
 		{label}
@@ -19,7 +19,7 @@
 	<select
 		bind:value={selectedValue}
 		on:change={callback}
-		style={`width:${width}`}
+		style={styles.join(';')}
 		{id}
 	>
 		<option
@@ -37,6 +37,12 @@
 </div>
 
 <style>
+	.selector-control {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing03);
+		width: 100%;
+	}
 	select {
 		background: none;
 		border-radius: var(--spacing05);

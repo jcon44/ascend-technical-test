@@ -2,14 +2,20 @@
 	export let date,
 		id = '',
 		required = false,
-		width = ''
+		styles = []
 </script>
 
 <input
 	bind:value={date}
 	class="date-input"
-	style={`width:${width}`}
+	style={styles.join(';')}
 	type="date"
 	{id}
 	{required}
 />
+
+<style>
+	.data-input {
+		width: 100%;
+	}
+</style>

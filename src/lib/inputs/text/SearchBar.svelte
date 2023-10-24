@@ -4,6 +4,7 @@
 	export let callback,
 		placeholder = 'Search',
 		query = '',
+		styles = [],
 		tabindex = ''
 </script>
 
@@ -21,6 +22,7 @@
 		bind:value={query}
 		class="search-bar"
 		on:input={callback}
+		style={styles.join(';')}
 		type="search"
 		{placeholder}
 		{tabindex}

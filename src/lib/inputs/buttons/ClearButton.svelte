@@ -5,10 +5,10 @@
 </script>
 
 <Button
-	{callback}
 	classes={['btn-outline', 'btn-rect', 'btn-m']}
-	height="48px"
-	text="Clear"
 	icon={XCircleSmallIcon}
 	iconSide="left"
+	styles={['height: 48px']}
+	text="Clear"
+	{callback}
 />

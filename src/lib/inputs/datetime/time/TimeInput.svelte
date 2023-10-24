@@ -1,15 +1,21 @@
 <script>
 	export let id = '',
 		required = false,
-		time,
-		width = ''
+		styles = [],
+		time
 </script>
 
 <input
 	bind:value={time}
 	class="time-input"
-	style={`width:${width}`}
+	style={styles.join(';')}
 	type="time"
 	{id}
 	{required}
 />
+
+<style>
+	.time-input {
+		width: 100%;
+	}
+</style>
