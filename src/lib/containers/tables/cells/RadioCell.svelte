@@ -1,0 +1,11 @@
+<script>
+	import RadioInput from '$lib/inputs/radio/RadioInput.svelte'
+
+	export let callback, group, value
+</script>
+
+<RadioInput
+	bind:group
+	{callback}
+	{value}
+/>

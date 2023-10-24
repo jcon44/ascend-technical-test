@@ -1,10 +1,11 @@
 <script>
-	export let group, value
+	export let callback, group, value
 </script>
 
 <input
-	type="radio"
 	bind:group
+	on:change={callback}
+	type="radio"
 	{value}
 />
 

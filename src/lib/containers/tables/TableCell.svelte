@@ -6,6 +6,7 @@
 	import DateCell from '$lib/containers/tables/cells/DateCell.svelte'
 	import DefaultCell from '$lib/containers/tables/cells/DefaultCell.svelte'
 	import EditableCell from '$lib/containers/tables/cells/EditableCell.svelte'
+	import RadioCell from '$lib/containers/tables/cells/RadioCell.svelte'
 	import TagCell from '$lib/containers/tables/cells/TagCell.svelte'
 
 	export let callback, column, row
@@ -45,6 +46,12 @@
 			{callback}
 			bind:column
 			bind:row
+		/>
+	{:else if column?.type === 'radiolist'}
+		<RadioCell
+			{callback}
+			bind:group={row.group}
+			value={column.key}
 		/>
 	{:else if column?.type === 'tag'}
 		<TagCell bind:row />
