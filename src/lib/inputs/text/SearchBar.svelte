@@ -21,9 +21,9 @@
 		bind:value={query}
 		class="search-bar"
 		on:input={callback}
-		{tabindex}
 		type="search"
 		{placeholder}
+		{tabindex}
 	/>
 </form>
 

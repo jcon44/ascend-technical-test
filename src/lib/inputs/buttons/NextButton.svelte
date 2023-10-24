@@ -19,10 +19,10 @@
 </script>
 
 <Button
+	secondIcon={icon}
 	{callback}
 	{classes}
 	{disabled}
-	secondIcon={icon}
 	{text}
 	{url}
 />
