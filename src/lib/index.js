@@ -207,6 +207,7 @@ export { default as TimeInput } from '$lib/inputs/datetime/time/TimeInput.svelte
 export { default as TimePicker } from '$lib/inputs/datetime/time/TimePicker.svelte'
 
 // Number
+export { default as CharacterCounter } from '$lib/inputs/number/CharacterCounter.svelte'
 export { default as ZipCodeInput } from '$lib/inputs/number/ZipCodeInput.svelte'
 
 // Pagination

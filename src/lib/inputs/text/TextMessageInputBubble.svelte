@@ -1,5 +1,5 @@
 <script>
-	import { TextAreaInput, TextMessageBubble } from '$lib/index.js'
+	import { CharacterCounter, TextAreaInput, TextMessageBubble } from '$lib/index.js'
 
 	export let characterLimit = 160,
 		cols = '',
@@ -8,30 +8,32 @@
 		text = ''
 </script>
 
-<TextMessageBubble>
-	<TextAreaInput
-		bind:text
-		{cols}
-		{placeholder}
-		{rows}
-	/>
+
+<div class='text-message-bubble'>
+	<TextMessageBubble>
+		<TextAreaInput
+			bind:text
+			{cols}
+			{placeholder}
+			{rows}
+		/>
+	</TextMessageBubble>
 	{#if characterLimit}
-		<div class={`characters-remaining ${text.length > characterLimit ? 'error' : ''}`}>
-			{text.length}/{characterLimit}
+		<div class='text-counter'>
+			<CharacterCounter {characterLimit} {text} />
 		</div>
 	{/if}
-</TextMessageBubble>
+</div>
+
 
 <style>
-	.characters-remaining {
-		color: var(--neutral-400);
-		font-size: var(--body-small-xs-font-size);
-		font-weight: 600;
-		line-height: 150%;
-		text-align: right;
-		width: 100%;
+	.text-message-bubble {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing);
 	}
-	.error {
-		color: var(--error-700);
+	.text-counter {
+		position: relative;
+		top: calc(var(--spacing03) * -1);
 	}
 </style>

@@ -1,7 +1,8 @@
 <script>
-	import { Label, Tag } from '$lib/index.js'
+	import { CharacterCounter, Label, Tag } from '$lib/index.js'
 
 	export let callback = null,
+		characterLimit,
 		description = '',
 		cols = '',
 		id = '',
@@ -10,25 +11,31 @@
 		placeholder = '',
 		required = false,
 		rows = '',
+		styles = [],
 		tag = null,
 		text = ''
 </script>
 
+
 <div class="textarea-control">
-	<div class="textarea-title">
-		<Label
-			{id}
-			{label}
-		/>
-		{#if tag !== null}
-			<Tag
-				content={tag?.content || ''}
-				icon={tag?.icon || null}
-				side={tag?.side || ''}
-				type={tag?.type || ''}
-			/>
-		{/if}
-	</div>
+	{#if label || tag}
+		<div class="textarea-title">
+			{#if label}
+				<Label
+					{id}
+					{label}
+				/>
+			{/if}
+			{#if tag !== null}
+				<Tag
+					content={tag?.content || ''}
+					icon={tag?.icon || null}
+					side={tag?.side || ''}
+					type={tag?.type || ''}
+				/>
+			{/if}
+		</div>
+	{/if}
 	{#if description}
 		<div class="body-xs">{description}</div>
 	{/if}
@@ -37,13 +44,18 @@
 		class="textarea-content border-neutral-100-s border-radius-s"
 		name={name || label}
 		on:input={callback || ''}
+		style={styles.join(';')}
 		{cols}
 		{rows}
 		{id}
 		{placeholder}
 		{required}
 	/>
+	{#if characterLimit}
+		<CharacterCounter {characterLimit} {text} />
+	{/if}
 </div>
+
 
 <style>
 	.textarea-title {
