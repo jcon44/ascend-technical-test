@@ -10,8 +10,7 @@
 
 	import { CheckOption } from '$lib/index.js'
 
-	export let list = [],
-		styles = []
+	export let callback, list = [], styles = []
 </script>
 
 <div
@@ -25,6 +24,7 @@
 				description={item.description}
 				name={item.name}
 				value={item.value}
+				{callback}
 			/>
 			{#if list.component}
 				<svelte:component

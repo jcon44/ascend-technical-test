@@ -1,7 +1,9 @@
 <script>
 	import { CheckboxInput } from '$lib/index.js'
 
-	export let name = '',
+	export let 
+		callback,
+		name = '',
 		description = '',
 		checked = false
 
