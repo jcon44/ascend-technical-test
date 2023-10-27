@@ -15,7 +15,7 @@
 />
 
 <style>
-	.data-input {
+	.date-input {
 		width: 100%;
 	}
 </style>
