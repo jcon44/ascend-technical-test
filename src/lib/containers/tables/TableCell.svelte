@@ -9,7 +9,7 @@
 	import RadioCell from '$lib/containers/tables/cells/RadioCell.svelte'
 	import TagCell from '$lib/containers/tables/cells/TagCell.svelte'
 
-	export let callback, column, row
+	export let column, row
 </script>
 
 <div
@@ -18,6 +18,7 @@
 >
 	{#if column?.type === 'array'}
 		<ArrayCell
+			callback={column.callback}
 			bind:column
 			bind:row
 		/>
@@ -33,23 +34,23 @@
 		/>
 	{:else if column?.type === 'checkbox' || column?.type === 'checkall'}
 		<CheckboxCell
-			{callback}
+			callback={column.callback}
 			bind:selected={row.selected}
 		/>
 	{:else if column?.type === 'checklist'}
 		<CheckboxCell
-			{callback}
+			callback={column.callback}
 			bind:selected={row[column.key]}
 		/>
 	{:else if column?.type === 'date'}
 		<DateCell
-			{callback}
+			callback={column.callback}
 			bind:column
 			bind:row
 		/>
 	{:else if column?.type === 'radiolist'}
 		<RadioCell
-			{callback}
+			callback={column.callback}
 			bind:group={row.group}
 			value={column.key}
 		/>

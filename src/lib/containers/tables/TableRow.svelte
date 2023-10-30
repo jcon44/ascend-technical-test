@@ -1,7 +1,7 @@
 <script>
 	import { TableCell } from '$lib/index.js'
 
-	export let callback, columns, list, rowIndex
+	export let columns, list, rowIndex
 
 	$: row = list[rowIndex]
 </script>
@@ -9,7 +9,6 @@
 <div class="table-body-row">
 	{#each columns as column, columnIndex}
 		<TableCell
-			{callback}
 			bind:column
 			bind:row
 		/>

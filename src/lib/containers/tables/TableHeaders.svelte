@@ -1,7 +1,7 @@
 <script>
 	import { TableColumnHeaderCell, sortArray } from '$lib/index.js'
 
-	export let callback, columns, list
+	export let columns, list
 
 	const sortMap = {}
 	Object.values(columns).forEach((column) => {
@@ -29,7 +29,6 @@
 		<TableColumnHeaderCell
 			bind:list
 			order={sortMap[column.key]}
-			{callback}
 			{columns}
 			{column}
 			{sortTable}
