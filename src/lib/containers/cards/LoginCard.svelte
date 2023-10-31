@@ -2,8 +2,7 @@
 	import { InputError, LoginButton } from '$lib/index.js'
 	import { goto } from '$app/navigation'
 
-	export let username = '',
-		loggedIn = false
+	export let callback, loggedIn = false, username = ''
 
 	let password = '',
 		validUsername,
@@ -28,7 +27,7 @@
 
 	function loginRequest() {
 		if (validateLogin()) {
-			loggedIn = true
+			loggedIn = callback()
 			goto('/')
 		}
 	}
