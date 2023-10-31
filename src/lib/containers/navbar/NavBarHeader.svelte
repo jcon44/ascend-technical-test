@@ -1,20 +1,20 @@
 <script>
-	import { AscendLogo, AscendLogoIcon, Button, NavBarToggleButton } from '$lib/index.js'
+	import { Button, NavBarToggleButton } from '$lib/index.js'
 
-	export let keepOpen, navBarOpen, toggleNavbar
+	export let closedHeaderComponent, openHeaderComponent, keepOpen, navBarOpen, toggleNavbar
 </script>
 
 <div class="nav-header">
 	{#if navBarOpen}
 		<a href="/">
-			<AscendLogo />
+			<svelte:component this={openHeaderComponent} />
 		</a>
 		<NavBarToggleButton
 			callback={toggleNavbar}
 			{keepOpen}
 		/>
 	{:else}
-		<AscendLogoIcon />
+		<svelte:component this={closedHeaderComponent} />
 	{/if}
 </div>
 
