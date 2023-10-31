@@ -74,6 +74,7 @@
 			<LoginButton callback={loginRequest} />
 		</div>
 	</form>
+	<slot />
 </div>
 
 <style>
