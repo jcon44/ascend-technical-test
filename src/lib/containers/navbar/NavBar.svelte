@@ -4,7 +4,9 @@
 
 	export let hoverOpen = false,
 		keepOpen = true,
-		navBarContents
+		navBarContents,
+		closedHeaderComponent,
+		openHeaderComponent
 
 	$: navBarOpen = hoverOpen || keepOpen
 
@@ -36,6 +38,8 @@
 				{keepOpen}
 				{navBarOpen}
 				{toggleNavbar}
+				{closedHeaderComponent}
+				{openHeaderComponent}
 			/>
 			<div class="page-list">
 				{#if navBarContents?.primaryPageList?.length}
