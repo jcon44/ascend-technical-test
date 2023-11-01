@@ -7,9 +7,11 @@
 	const statusKey = status ? status.replace(' ', '').toLowerCase() : ''
 
 	const statusColorMap = {
+		approved: 'success-subtle',
 		draft: 'neutral',
 		failed: 'error',
 		inprogress: 'warning',
+		pending: 'neutral-subtle',
 		scheduled: 'neutral',
 		sent: 'success',
 		subscribed: 'success',
