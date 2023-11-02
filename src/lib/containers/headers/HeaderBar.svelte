@@ -1,9 +1,5 @@
-<script>
-	export let button = ''
-</script>
-
 <div class="header-bar">
-	<svelte:component this={button} />
+	<slot />
 </div>
 
 <style>

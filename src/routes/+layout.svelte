@@ -147,7 +147,9 @@
 		{navBarContents}
 	/>
 	<Main>
-		<HeaderBar button={ProfileButton} />
+		<HeaderBar>
+			<ProfileButton url='/' />
+		</HeaderBar>
 		<slot />
 	</Main>
 	<ToastArea />
