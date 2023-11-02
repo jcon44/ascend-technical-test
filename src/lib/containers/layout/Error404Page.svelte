@@ -1,7 +1,10 @@
 <script>
 	import { ContactUsButton, Error404Graphic } from '$lib/index.js'
 
-	export let redirectButton, emailString = 'contact@ascend-innovations.com', emailAddress = 'contact@ascend-innovations.com'
+	export let
+		emailAddress = 'mailto:contact@ascend-innovations.com',
+		emailString = 'contact@ascend-innovations.com',
+		redirectButton
 </script>
 
 <svelte:head>
@@ -15,13 +18,13 @@
 		<h1 class="primary-headline-l-xxl">Page Not Found</h1>
 		<div class="error-404-text-row">
 			<p>
-				The page you are trying to visit doesn't exist or was removed. If you are unable to find what you're looking for, please contact us at <a href="mailto:{emailAddress}">{emailString}</a>
+				The page you are trying to visit doesn't exist or was removed. If you are unable to find what you're looking for, please contact us at <a href="{emailAddress}">{emailString}</a>
 			</p>
 		</div>
 		<div class="error-404-button-row">
 			<svelte:component this={redirectButton} />
 			<ContactUsButton
-				{emailAddress}
+				url={emailAddress}
 				classes={['btn-full', 'btn-m', 'btn-outline', 'btn-rect']}
 			/>
 		</div>

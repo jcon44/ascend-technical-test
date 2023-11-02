@@ -19,15 +19,21 @@
 		bind:this={dialog}
 		on:click|stopPropagation
 	>
-		<DialogHeader>
-			<slot name="dialog-header-slot" />
-		</DialogHeader>
-		<DialogBody>
-			<slot name="dialog-body-slot" />
-		</DialogBody>
-		<DialogFooter>
-			<slot name="dialog-footer-slot" />
-		</DialogFooter>
+		{#if $$slots.header}
+			<DialogHeader>
+				<slot name="header" />
+			</DialogHeader>
+		{/if}
+		{#if $$slots.body}
+			<DialogBody>
+				<slot name="body" />
+			</DialogBody>
+		{/if}
+		{#if $$slots.footer}
+			<DialogFooter>
+				<slot name="footer" />
+			</DialogFooter>
+		{/if}
 	</dialog>
 </div>
 
