@@ -24,12 +24,12 @@
 
 @font-face {
 	font-family: 'VentiCF';
-	src: url('../fonts/VentiCF-Regular.otf');
+	src: url('../assets/fonts/VentiCF-Regular.otf');
 }
 
 @font-face {
 	font-family: 'Manrope';
-	src: url('../fonts/Manrope-VariableFont_wght.ttf');
+	src: url('../assets/fonts/Manrope-VariableFont_wght.ttf');
 }
 
 * {
