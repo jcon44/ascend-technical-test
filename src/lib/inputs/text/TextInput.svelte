@@ -2,6 +2,7 @@
 	import { Label } from '$lib/index.js'
 
 	export let autofocus = false,
+		description = '',
 		id = '',
 		label = '',
 		maxlength = '',
@@ -18,6 +19,9 @@
 		{id}
 		{label}
 	/>
+	{#if description}
+		<div class="body-xs">{description}</div>
+	{/if}
 	<input
 		bind:value={text}
 		class="text-input"
