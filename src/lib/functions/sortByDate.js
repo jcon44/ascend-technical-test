@@ -1,7 +1,7 @@
 export default function sortByDate(dateList, sortOrder) {
-	if (sortOrder === 'ascending') {
+	if (sortOrder === 'newest') {
 		dateList.sort((a, b) => new Date(b) - new Date(a))
-	} else if (sortOrder === 'descending') {
+	} else if (sortOrder === 'oldest') {
 		dateList.sort((a, b) => new Date(a) - new Date(b))
 	}
 

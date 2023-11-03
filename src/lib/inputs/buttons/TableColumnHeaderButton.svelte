@@ -11,9 +11,9 @@
 	class="semibold"
 >
 	{text}
-	{#if order === 'ascending'}
+	{#if order === 'newest'}
 		<ArrowUpExtraSmallIcon />
-	{:else if order === 'descending'}
+	{:else if order === 'oldest'}
 		<ArrowDownExtraSmallIcon />
 	{/if}
 </button>

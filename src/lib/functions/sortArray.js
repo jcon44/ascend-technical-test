@@ -13,10 +13,10 @@ export default function sortArray(unsortedArray, columnKey, columnType, sortOrde
 			}
 
 			// return based on sort order
-			if (sortOrder === 'ascending') {
+			if (sortOrder === 'newest') {
 				if (aItem > bItem) return -1
 				else if (aItem < bItem) return 1
-			} else if (sortOrder === 'descending') {
+			} else if (sortOrder === 'oldest') {
 				if (aItem < bItem) return -1
 				else if (aItem > bItem) return 1
 			}
@@ -37,8 +37,8 @@ export default function sortArray(unsortedArray, columnKey, columnType, sortOrde
 			}
 
 			// return based on sort order
-			if (sortOrder === 'ascending') return aItem - bItem
-			else if (sortOrder === 'descending') return bItem - aItem
+			if (sortOrder === 'newest') return aItem - bItem
+			else if (sortOrder === 'oldest') return bItem - aItem
 		}
 	})
 }
