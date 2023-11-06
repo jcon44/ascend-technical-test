@@ -1,8 +1,7 @@
 <script>
 	import { InputError, LoginButton } from '$lib/index.js'
-	import { goto } from '$app/navigation'
 
-	export let callback, loggedIn = false, username = ''
+	export let callback, username = ''
 
 	let password = '',
 		validUsername,
@@ -22,14 +21,8 @@
 	function validateLogin() {
 		validUsername = username.length > 0
 		validPassword = password.length > 0
-		return validUsername && validPassword
-	}
-
-	function loginRequest() {
-		if (validateLogin()) {
-			loggedIn = callback()
-			goto('/')
-		}
+		const valid = validUsername && validPassword
+		return valid
 	}
 </script>
 
@@ -71,7 +64,7 @@
 			{/if}
 		</div>
 		<div class="login-button-row">
-			<LoginButton callback={loginRequest} />
+			<LoginButton callback={() => callback(validateLogin())} />
 		</div>
 	</form>
 	<slot />
