@@ -2,7 +2,6 @@
 	export let callback = undefined,
 		classes = [],
 		icon = undefined,
-		styles = [],
 		title = ''
 </script>
 
@@ -11,7 +10,6 @@
 	class={`card-wrapper ${classes?.join(' ') ?? ''}`}
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
-	style={`${styles.join(';')}`}
 >
 	{#if icon}
 		<div class="card-icon">
