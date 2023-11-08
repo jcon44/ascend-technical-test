@@ -2,11 +2,12 @@
 	import { CharacterCounter, Label, Tag } from '$lib/index.js'
 
 	export let callback = null,
-		characterLimit,
-		description = '',
 		cols = '',
+		description = '',
 		id = '',
 		label = '',
+		maxlength = '',
+		minlength = '',
 		name = '',
 		placeholder = '',
 		required = false,
@@ -46,13 +47,15 @@
 		on:input={callback || ''}
 		style={styles.join(';')}
 		{cols}
-		{rows}
 		{id}
+		{maxlength}
+		{minlength}
 		{placeholder}
 		{required}
+		{rows}
 	/>
-	{#if characterLimit}
-		<CharacterCounter {characterLimit} {text} />
+	{#if maxlength}
+		<CharacterCounter {maxlength} {text} />
 	{/if}
 </div>
 

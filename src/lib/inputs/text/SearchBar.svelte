@@ -2,6 +2,9 @@
 	import { SearchSmallIcon } from '$lib/index.js'
 
 	export let callback,
+		id = '',
+		maxlength = '',
+		minlength = '',
 		placeholder = 'Search',
 		query = '',
 		styles = [],
@@ -24,6 +27,9 @@
 		on:input={callback}
 		style={styles.join(';')}
 		type="search"
+		{id}
+		{maxlength}
+		{minlength}
 		{placeholder}
 		{tabindex}
 	/>

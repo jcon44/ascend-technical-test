@@ -3,6 +3,8 @@
 
 	export let id = '',
 		label = '',
+		maxlength = '10',
+		minlength = '10',
 		phoneNumber = '',
 		placeholder = '',
 		required = false,
@@ -18,11 +20,11 @@
 	<input
 		bind:value={phoneNumber}
 		class="phone-number-input"
-		maxlength="10"
-		minlength="10"
 		style={styles.join(';')}
 		type="tel"
 		{id}
+		{maxlength}
+		{minlength}
 		{placeholder}
 		{required}
 		{tabindex}
