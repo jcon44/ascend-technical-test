@@ -4,13 +4,13 @@
 	export let callback = undefined,
 		classes = [],
 		icon = undefined,
-		link = '',
 		styles = [],
-		title = ''
+		title = '',
+		url = ''
 </script>
 
 <a
-	href={link}
+	href={url}
 	class="link-card"
 >
 	<StandardCard
