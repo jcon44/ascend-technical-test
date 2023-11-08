@@ -4,20 +4,20 @@
 	export let callback = undefined,
 		classes = [],
 		icon = undefined,
-		link = '',
 		styles = [],
-		title = ''
+		title = '',
+		url = ''
 </script>
 
 <div style={`${styles.join(';')}`}>
-	{#if link}
+	{#if url}
 		<LinkCard
 			{callback}
 			{classes}
 			{icon}
-			{link}
 			{styles}
 			{title}
+			{url}
 		>
 			<slot />
 		</LinkCard>
