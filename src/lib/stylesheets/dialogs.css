@@ -5,3 +5,11 @@
 	justify-content: space-between;
 	width: 100%;
 }
+.dialog-header,
+.dialog-footer {
+	height: 105px;
+}
+.dialog-body {
+	max-height: calc(80vh - 210px);
+	overflow-y: scroll;
+}
