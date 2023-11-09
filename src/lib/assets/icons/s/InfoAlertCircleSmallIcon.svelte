@@ -1,12 +1,14 @@
 <script>
-	import { EyeSmallIcon, IconCircle, getGlobalColorPalette } from '$lib/index.js'
+	import { EyeSmallIcon, Icon, getGlobalColorPalette } from '$lib/index.js'
 	import { onMount } from 'svelte'
+
+	export let styles = ['border-radius: 50%;']
 
 	let palette = {}
 
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<IconCircle color={palette.info}>
+<Icon color={palette.info} {styles}>
 	<EyeSmallIcon />
-</IconCircle>
+</Icon>

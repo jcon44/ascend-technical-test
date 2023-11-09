@@ -1,8 +1,10 @@
 <script>
 	import { Icon } from '$lib/index.js'
+
+	export let styles
 </script>
 
-<Icon size="31">
+<Icon size="31" {styles}>
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"

@@ -1,8 +1,10 @@
 <script>
 	import { Icon } from '$lib/index.js'
+
+	export let styles
 </script>
 
-<Icon size="103">
+<Icon size="103" {styles}>
 	<path
 		d="M67.8078 71.2795L46.8966 24.8158H46.8613H30.0759H28.8417H28.8064L7.82471 71.4555H26.2675L37.8339 45.2317L49.4355 71.4555H67.4199H67.8783V71.2443L67.8078 71.2795Z"
 		fill="#F9F9F9"

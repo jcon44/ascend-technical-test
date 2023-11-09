@@ -2,12 +2,14 @@
 	import { getGlobalColorPalette, Icon } from '$lib/index.js'
 	import { onMount } from 'svelte'
 
+	export let styles
+
 	let palette = {}
 
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="24">
+<Icon size="24" {styles}>
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"

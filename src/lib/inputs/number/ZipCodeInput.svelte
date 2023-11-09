@@ -7,6 +7,7 @@
 		placeholder = '',
 		required = false,
 		tabindex = '',
+		valid = true,
 		zip = ''
 </script>
 

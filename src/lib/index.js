@@ -1,8 +1,5 @@
 // --- ASSETS --- //
 
-export { default as Icon } from '$lib/assets/icons/Icon.svelte'
-export { default as IconCircle } from '$lib/assets/icons/IconCircle.svelte'
-
 // Icons (Medium)
 export { default as AdministratorsIcon } from '$lib/assets/icons/m/AdministratorsIcon.svelte'
 export { default as AscendLogoIcon } from '$lib/assets/icons/m/AscendLogoIcon.svelte'
@@ -94,6 +91,9 @@ export { default as GridList } from '$lib/containers/grids/GridList.svelte'
 
 // Headers
 export { default as HeaderBar } from '$lib/containers/headers/HeaderBar.svelte'
+
+// Icons
+export { default as Icon } from '$lib/containers/icons/Icon.svelte'
 
 //Labels
 export { default as Label } from '$lib/containers/labels/Label.svelte'

@@ -2,12 +2,14 @@
 	import { getGlobalColorPalette, Icon } from '$lib/index.js'
 	import { onMount } from 'svelte'
 
+	export let styles
+
 	let palette = {}
 
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="32">
+<Icon size="32" {styles}>
 	<path
 		d="M31 21C31 19.8954 30.1046 19 29 19H13C11.8954 19 11 19.8954 11 21V25C11 26.1046 11.8954 27 13 27H25L29.4453 29.9635C30.1099 30.4066 31 29.9302 31 29.1315V21Z"
 		stroke={palette.neutral}

@@ -2,12 +2,14 @@
 	import { getGlobalColorPalette, Icon } from '$lib/index.js'
 	import { onMount } from 'svelte'
 
+	export let styles
+
 	let palette = {}
 
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="16">
+<Icon size="16" {styles}>
 	<g clip-path="url(#clip0_4408_11755)">
 		<circle
 			cx="8"
