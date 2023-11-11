@@ -7,5 +7,5 @@
 <Button
 	{callback}
 	classes={['btn-m', 'btn-outline', 'btn-square']}
-	firstIcon={CloseSmallIcon}
+	leftIcon={CloseSmallIcon}
 />

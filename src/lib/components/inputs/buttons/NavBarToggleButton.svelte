@@ -7,5 +7,5 @@
 <Button
 	{callback}
 	classes={['btn-fit', 'btn-m', 'btn-square', 'btn-white']}
-	firstIcon={keepOpen ? ChevronDoubleLeftSmallIcon : ChevronDoubleRightSmallIcon}
+	leftIcon={keepOpen ? ChevronDoubleLeftSmallIcon : ChevronDoubleRightSmallIcon}
 />

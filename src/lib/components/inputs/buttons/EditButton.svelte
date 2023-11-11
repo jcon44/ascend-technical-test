@@ -6,7 +6,7 @@
 </script>
 
 <Button
-	firstIcon={Edit01SmallIcon}
+	leftIcon={Edit01SmallIcon}
 	{callback}
 	{classes}
 />

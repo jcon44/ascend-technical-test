@@ -10,6 +10,6 @@
 <Button
 	{callback}
 	{classes}
-	firstIcon={arrow ? ArrowLeftSmallIcon : null}
+	leftIcon={arrow ? ArrowLeftSmallIcon : null}
 	{text}
 />

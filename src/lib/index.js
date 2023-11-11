@@ -62,86 +62,86 @@ export { default as LoremIpsum } from '$lib/assets/filler/LoremIpsum.svelte'
 // --- CONTAINERS --- //
 
 // Action Bars
-export { default as ActionBar } from '$lib/containers/actionbars/ActionBar.svelte'
+export { default as ActionBar } from '$lib/components/containers/actionbars/ActionBar.svelte'
 
 // Alerts
-export { default as Alert } from '$lib/containers/alerts/Alert.svelte'
+export { default as Alert } from '$lib/components/containers/alerts/Alert.svelte'
 
 // Cards
-export { default as Card } from '$lib/containers/cards/Card.svelte'
-export { default as LinkCard } from '$lib/containers/cards/LinkCard.svelte'
-export { default as LoginCard } from '$lib/containers/cards/LoginCard.svelte'
-export { default as MetricCard } from '$lib/containers/cards/MetricCard.svelte'
-export { default as StandardCard } from '$lib/containers/cards/StandardCard.svelte'
+export { default as Card } from '$lib/components/containers/cards/Card.svelte'
+export { default as LinkCard } from '$lib/components/containers/cards/LinkCard.svelte'
+export { default as LoginCard } from '$lib/components/containers/cards/LoginCard.svelte'
+export { default as MetricCard } from '$lib/components/containers/cards/MetricCard.svelte'
+export { default as StandardCard } from '$lib/components/containers/cards/StandardCard.svelte'
 
 // Dialogs
-export { default as Dialog } from '$lib/containers/dialogs/Dialog.svelte'
-export { default as DialogBody } from '$lib/containers/dialogs/DialogBody.svelte'
-export { default as DialogFooter } from '$lib/containers/dialogs/DialogFooter.svelte'
-export { default as DialogHeader } from '$lib/containers/dialogs/DialogHeader.svelte'
-export { default as DialogSection } from '$lib/containers/dialogs/DialogSection.svelte'
+export { default as Dialog } from '$lib/components/containers/dialogs/Dialog.svelte'
+export { default as DialogBody } from '$lib/components/containers/dialogs/DialogBody.svelte'
+export { default as DialogFooter } from '$lib/components/containers/dialogs/DialogFooter.svelte'
+export { default as DialogHeader } from '$lib/components/containers/dialogs/DialogHeader.svelte'
+export { default as DialogSection } from '$lib/components/containers/dialogs/DialogSection.svelte'
 
 // Footers
-export { default as FooterBar } from '$lib/containers/footers/FooterBar.svelte'
-export { default as FooterNavigation } from '$lib/containers/footers/FooterNavigation.svelte'
+export { default as FooterBar } from '$lib/components/containers/footers/FooterBar.svelte'
+export { default as FooterNavigation } from '$lib/components/containers/footers/FooterNavigation.svelte'
 
 // Grids
-export { default as CardGrid } from '$lib/containers/grids/CardGrid.svelte'
-export { default as GridList } from '$lib/containers/grids/GridList.svelte'
+export { default as CardGrid } from '$lib/components/containers/grids/CardGrid.svelte'
+export { default as GridList } from '$lib/components/containers/grids/GridList.svelte'
 
 // Headers
-export { default as HeaderBar } from '$lib/containers/headers/HeaderBar.svelte'
+export { default as HeaderBar } from '$lib/components/containers/headers/HeaderBar.svelte'
 
 // Icons
-export { default as Icon } from '$lib/containers/icons/Icon.svelte'
+export { default as Icon } from '$lib/components/containers/icons/Icon.svelte'
 
 //Labels
-export { default as Label } from '$lib/containers/labels/Label.svelte'
+export { default as Label } from '$lib/components/containers/labels/Label.svelte'
 
 // Layout
-export { default as Error404Page } from '$lib/containers/layout/Error404Page.svelte'
-export { default as Main } from '$lib/containers/layout/Main.svelte'
-export { default as MainContent } from '$lib/containers/layout/MainContent.svelte'
-export { default as Page } from '$lib/containers/layout/Page.svelte'
-export { default as PageBody } from '$lib/containers/layout/PageBody.svelte'
-export { default as PageDescription } from '$lib/containers/layout/PageDescription.svelte'
-export { default as PageHeader } from '$lib/containers/layout/PageHeader.svelte'
-export { default as Shell } from '$lib/containers/layout/Shell.svelte'
+export { default as Error404Page } from '$lib/components/containers/layout/Error404Page.svelte'
+export { default as Main } from '$lib/components/containers/layout/Main.svelte'
+export { default as MainContent } from '$lib/components/containers/layout/MainContent.svelte'
+export { default as Page } from '$lib/components/containers/layout/Page.svelte'
+export { default as PageBody } from '$lib/components/containers/layout/PageBody.svelte'
+export { default as PageDescription } from '$lib/components/containers/layout/PageDescription.svelte'
+export { default as PageHeader } from '$lib/components/containers/layout/PageHeader.svelte'
+export { default as Shell } from '$lib/components/containers/layout/Shell.svelte'
 
 // Navbar
-export { default as NavBar } from '$lib/containers/navbar/NavBar.svelte'
-export { default as NavBarHeader } from '$lib/containers/navbar/NavBarHeader.svelte'
+export { default as NavBar } from '$lib/components/containers/navbar/NavBar.svelte'
+export { default as NavBarHeader } from '$lib/components/containers/navbar/NavBarHeader.svelte'
 
 // Progress
-export { default as ProgressBar } from '$lib/containers/progress/ProgressBar.svelte'
-export { default as ProgressSpinner } from '$lib/containers/progress/ProgressSpinner.svelte'
+export { default as ProgressBar } from '$lib/components/containers/progress/ProgressBar.svelte'
+export { default as ProgressSpinner } from '$lib/components/containers/progress/ProgressSpinner.svelte'
 
 // Tab
-export { default as Tab } from '$lib/containers/tabs/Tab.svelte'
-export { default as TabBar } from '$lib/containers/tabs/TabBar.svelte'
-export { default as TabContainer } from '$lib/containers/tabs/TabContainer.svelte'
-export { default as TabContents } from '$lib/containers/tabs/TabContents.svelte'
+export { default as Tab } from '$lib/components/containers/tabs/Tab.svelte'
+export { default as TabBar } from '$lib/components/containers/tabs/TabBar.svelte'
+export { default as TabContainer } from '$lib/components/containers/tabs/TabContainer.svelte'
+export { default as TabContents } from '$lib/components/containers/tabs/TabContents.svelte'
 
 // Tables
-export { default as Table } from '$lib/containers/tables/Table.svelte'
-export { default as TableBody } from '$lib/containers/tables/TableBody.svelte'
-export { default as TableCell } from '$lib/containers/tables/TableCell.svelte'
-export { default as TableColumnHeaderCell } from '$lib/containers/tables/TableColumnHeaderCell.svelte'
-export { default as TableHeaders } from '$lib/containers/tables/TableHeaders.svelte'
-export { default as TableRow } from '$lib/containers/tables/TableRow.svelte'
+export { default as Table } from '$lib/components/containers/tables/Table.svelte'
+export { default as TableBody } from '$lib/components/containers/tables/TableBody.svelte'
+export { default as TableCell } from '$lib/components/containers/tables/TableCell.svelte'
+export { default as TableColumnHeaderCell } from '$lib/components/containers/tables/TableColumnHeaderCell.svelte'
+export { default as TableHeaders } from '$lib/components/containers/tables/TableHeaders.svelte'
+export { default as TableRow } from '$lib/components/containers/tables/TableRow.svelte'
 
 // Tags
-export { default as ErrorTag } from '$lib/containers/tags/ErrorTag.svelte'
-export { default as StatusTag } from '$lib/containers/tags/StatusTag.svelte'
-export { default as Tag } from '$lib/containers/tags/Tag.svelte'
+export { default as ErrorTag } from '$lib/components/containers/tags/ErrorTag.svelte'
+export { default as StatusTag } from '$lib/components/containers/tags/StatusTag.svelte'
+export { default as Tag } from '$lib/components/containers/tags/Tag.svelte'
 
 // Text
-export { default as TextMessageBubble } from '$lib/containers/text/TextMessageBubble.svelte'
-export { default as TextMessageDisplayBubble } from '$lib/containers/text/TextMessageDisplayBubble.svelte'
+export { default as TextMessageBubble } from '$lib/components/containers/text/TextMessageBubble.svelte'
+export { default as TextMessageDisplayBubble } from '$lib/components/containers/text/TextMessageDisplayBubble.svelte'
 
 // Toasts
-export { default as Toast } from '$lib/containers/toasts/Toast.svelte'
-export { default as ToastArea } from '$lib/containers/toasts/ToastArea.svelte'
+export { default as Toast } from '$lib/components/containers/toasts/Toast.svelte'
+export { default as ToastArea } from '$lib/components/containers/toasts/ToastArea.svelte'
 
 // --- FUNCTIONS --- //
 
@@ -162,74 +162,74 @@ export { default as withinDateRange } from '$lib/functions/withinDateRange.js'
 // --- INPUTS --- //
 
 // Buttons
-export { default as BackButton } from '$lib/inputs/buttons/BackButton.svelte'
-export { default as Button } from '$lib/inputs/buttons/Button.svelte'
-export { default as ButtonContents } from '$lib/inputs/buttons/ButtonContents.svelte'
-export { default as CancelButton } from '$lib/inputs/buttons/CancelButton.svelte'
-export { default as ClearButton } from '$lib/inputs/buttons/ClearButton.svelte'
-export { default as ClearFiltersButton } from '$lib/inputs/buttons/ClearFiltersButton.svelte'
-export { default as CloseDialogButton } from '$lib/inputs/buttons/CloseDialogButton.svelte'
-export { default as CloseToastButton } from '$lib/inputs/buttons/CloseToastButton.svelte'
-export { default as ConfirmButton } from '$lib/inputs/buttons/ConfirmButton.svelte'
-export { default as ContactUsButton } from '$lib/inputs/buttons/ContactUsButton.svelte'
-export { default as ContinueButton } from '$lib/inputs/buttons/ContinueButton.svelte'
-export { default as CreateAccountButton } from '$lib/inputs/buttons/CreateAccountButton.svelte'
-export { default as EditButton } from '$lib/inputs/buttons/EditButton.svelte'
-export { default as ExportCSVButton } from '$lib/inputs/buttons/ExportCSVButton.svelte'
-export { default as FilterAndSortButton } from '$lib/inputs/buttons/FilterAndSortButton.svelte'
-export { default as HomeButton } from '$lib/inputs/buttons/HomeButton.svelte'
-export { default as LinkButton } from '$lib/inputs/buttons/LinkButton.svelte'
-export { default as LoginButton } from '$lib/inputs/buttons/LoginButton.svelte'
-export { default as LogoutButton } from '$lib/inputs/buttons/LogoutButton.svelte'
-export { default as NavBarToggleButton } from '$lib/inputs/buttons/NavBarToggleButton.svelte'
-export { default as NavButton } from '$lib/inputs/buttons/NavButton.svelte'
-export { default as NextButton } from '$lib/inputs/buttons/NextButton.svelte'
-export { default as OkButton } from '$lib/inputs/buttons/OkButton.svelte'
-export { default as PrivacyPolicyButton } from '$lib/inputs/buttons/PrivacyPolicyButton.svelte'
-export { default as ProfileButton } from '$lib/inputs/buttons/ProfileButton.svelte'
-export { default as SampleButton } from '$lib/inputs/buttons/SampleButton.svelte'
-export { default as StandardButton } from '$lib/inputs/buttons/StandardButton.svelte'
-export { default as TableColumnHeaderButton } from '$lib/inputs/buttons/TableColumnHeaderButton.svelte'
-export { default as TermsAndConditionsButton } from '$lib/inputs/buttons/TermsAndConditionsButton.svelte'
-export { default as ViewModeButton } from '$lib/inputs/buttons/ViewModeButton.svelte'
+export { default as BackButton } from '$lib/components/inputs/buttons/BackButton.svelte'
+export { default as Button } from '$lib/components/inputs/buttons/Button.svelte'
+export { default as ButtonContents } from '$lib/components/inputs/buttons/ButtonContents.svelte'
+export { default as CancelButton } from '$lib/components/inputs/buttons/CancelButton.svelte'
+export { default as ClearButton } from '$lib/components/inputs/buttons/ClearButton.svelte'
+export { default as ClearFiltersButton } from '$lib/components/inputs/buttons/ClearFiltersButton.svelte'
+export { default as CloseDialogButton } from '$lib/components/inputs/buttons/CloseDialogButton.svelte'
+export { default as CloseToastButton } from '$lib/components/inputs/buttons/CloseToastButton.svelte'
+export { default as ConfirmButton } from '$lib/components/inputs/buttons/ConfirmButton.svelte'
+export { default as ContactUsButton } from '$lib/components/inputs/buttons/ContactUsButton.svelte'
+export { default as ContinueButton } from '$lib/components/inputs/buttons/ContinueButton.svelte'
+export { default as CreateAccountButton } from '$lib/components/inputs/buttons/CreateAccountButton.svelte'
+export { default as EditButton } from '$lib/components/inputs/buttons/EditButton.svelte'
+export { default as ExportCSVButton } from '$lib/components/inputs/buttons/ExportCSVButton.svelte'
+export { default as FilterAndSortButton } from '$lib/components/inputs/buttons/FilterAndSortButton.svelte'
+export { default as HomeButton } from '$lib/components/inputs/buttons/HomeButton.svelte'
+export { default as LinkButton } from '$lib/components/inputs/buttons/LinkButton.svelte'
+export { default as LoginButton } from '$lib/components/inputs/buttons/LoginButton.svelte'
+export { default as LogoutButton } from '$lib/components/inputs/buttons/LogoutButton.svelte'
+export { default as NavBarToggleButton } from '$lib/components/inputs/buttons/NavBarToggleButton.svelte'
+export { default as NavButton } from '$lib/components/inputs/buttons/NavButton.svelte'
+export { default as NextButton } from '$lib/components/inputs/buttons/NextButton.svelte'
+export { default as OkButton } from '$lib/components/inputs/buttons/OkButton.svelte'
+export { default as PrivacyPolicyButton } from '$lib/components/inputs/buttons/PrivacyPolicyButton.svelte'
+export { default as ProfileButton } from '$lib/components/inputs/buttons/ProfileButton.svelte'
+export { default as SampleButton } from '$lib/components/inputs/buttons/SampleButton.svelte'
+export { default as StandardButton } from '$lib/components/inputs/buttons/StandardButton.svelte'
+export { default as TableColumnHeaderButton } from '$lib/components/inputs/buttons/TableColumnHeaderButton.svelte'
+export { default as TermsAndConditionsButton } from '$lib/components/inputs/buttons/TermsAndConditionsButton.svelte'
+export { default as ViewModeButton } from '$lib/components/inputs/buttons/ViewModeButton.svelte'
 
 // Checkboxes
-export { default as CheckList } from '$lib/inputs/checkboxes/CheckList.svelte'
-export { default as CheckOption } from '$lib/inputs/checkboxes/CheckOption.svelte'
-export { default as CheckboxInput } from '$lib/inputs/checkboxes/CheckboxInput.svelte'
+export { default as CheckList } from '$lib/components/inputs/checkboxes/CheckList.svelte'
+export { default as CheckOption } from '$lib/components/inputs/checkboxes/CheckOption.svelte'
+export { default as CheckboxInput } from '$lib/components/inputs/checkboxes/CheckboxInput.svelte'
 
 // DateTime
-export { default as DateInput } from '$lib/inputs/datetime/date/DateInput.svelte'
-export { default as DatePicker } from '$lib/inputs/datetime/date/DatePicker.svelte'
-export { default as DateRange } from '$lib/inputs/datetime/date/DateRange.svelte'
-export { default as DateTimePicker } from '$lib/inputs/datetime/DateTimePicker.svelte'
-export { default as TimeInput } from '$lib/inputs/datetime/time/TimeInput.svelte'
-export { default as TimePicker } from '$lib/inputs/datetime/time/TimePicker.svelte'
+export { default as DateInput } from '$lib/components/inputs/datetime/date/DateInput.svelte'
+export { default as DatePicker } from '$lib/components/inputs/datetime/date/DatePicker.svelte'
+export { default as DateRange } from '$lib/components/inputs/datetime/date/DateRange.svelte'
+export { default as DateTimePicker } from '$lib/components/inputs/datetime/DateTimePicker.svelte'
+export { default as TimeInput } from '$lib/components/inputs/datetime/time/TimeInput.svelte'
+export { default as TimePicker } from '$lib/components/inputs/datetime/time/TimePicker.svelte'
 
 // Number
-export { default as CharacterCounter } from '$lib/inputs/number/CharacterCounter.svelte'
-export { default as ZipCodeInput } from '$lib/inputs/number/ZipCodeInput.svelte'
+export { default as CharacterCounter } from '$lib/components/inputs/number/CharacterCounter.svelte'
+export { default as ZipCodeInput } from '$lib/components/inputs/number/ZipCodeInput.svelte'
 
 // Pagination
-export { default as Pagination } from '$lib/inputs/pagination/Pagination.svelte'
+export { default as Pagination } from '$lib/components/inputs/pagination/Pagination.svelte'
 
 // Radio
-export { default as RadioDetailedList } from '$lib/inputs/radio/RadioDetailedList.svelte'
-export { default as RadioInput } from '$lib/inputs/radio/RadioInput.svelte'
-export { default as RadioList } from '$lib/inputs/radio/RadioList.svelte'
-export { default as RadioOption } from '$lib/inputs/radio/RadioOption.svelte'
+export { default as RadioDetailedList } from '$lib/components/inputs/radio/RadioDetailedList.svelte'
+export { default as RadioInput } from '$lib/components/inputs/radio/RadioInput.svelte'
+export { default as RadioList } from '$lib/components/inputs/radio/RadioList.svelte'
+export { default as RadioOption } from '$lib/components/inputs/radio/RadioOption.svelte'
 
 // Selectors
-export { default as SelectorInput } from '$lib/inputs/selectors/SelectorInput.svelte'
+export { default as SelectorInput } from '$lib/components/inputs/selectors/SelectorInput.svelte'
 
 // Tel
-export { default as PhoneNumberInput } from '$lib/inputs/tel/PhoneNumberInput.svelte'
+export { default as PhoneNumberInput } from '$lib/components/inputs/tel/PhoneNumberInput.svelte'
 
 // Text
-export { default as SearchBar } from '$lib/inputs/text/SearchBar.svelte'
-export { default as TextAreaInput } from '$lib/inputs/text/TextAreaInput.svelte'
-export { default as TextInput } from '$lib/inputs/text/TextInput.svelte'
-export { default as TextMessageInputBubble } from '$lib/inputs/text/TextMessageInputBubble.svelte'
+export { default as SearchBar } from '$lib/components/inputs/text/SearchBar.svelte'
+export { default as TextAreaInput } from '$lib/components/inputs/text/TextAreaInput.svelte'
+export { default as TextInput } from '$lib/components/inputs/text/TextInput.svelte'
+export { default as TextMessageInputBubble } from '$lib/components/inputs/text/TextMessageInputBubble.svelte'
 
 // Validation
-export { default as InputError } from '$lib/inputs/validation/InputError.svelte'
+export { default as InputError } from '$lib/components/inputs/validation/InputError.svelte'

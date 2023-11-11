@@ -13,7 +13,7 @@
 	<div class="nav-button">
 		<Button
 			classes={['btn-left', 'btn-full', 'btn-l', 'btn-white', 'btn-rect']}
-			firstIcon={pageData?.icon ?? null}
+			leftIcon={pageData?.icon ?? null}
 			text={navBarOpen ? pageData?.text : ''}
 			url={pageData?.url ?? ''}
 		/>

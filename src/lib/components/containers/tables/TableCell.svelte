@@ -1,13 +1,13 @@
 <script>
-	import ArrayCell from '$lib/containers/tables/cells/ArrayCell.svelte'
-	import BooleanCell from '$lib/containers/tables/cells/BooleanCell.svelte'
-	import ButtonCell from '$lib/containers/tables/cells/ButtonCell.svelte'
-	import CheckboxCell from '$lib/containers/tables/cells/CheckboxCell.svelte'
-	import DateCell from '$lib/containers/tables/cells/DateCell.svelte'
-	import DefaultCell from '$lib/containers/tables/cells/DefaultCell.svelte'
-	import EditableCell from '$lib/containers/tables/cells/EditableCell.svelte'
-	import RadioCell from '$lib/containers/tables/cells/RadioCell.svelte'
-	import TagCell from '$lib/containers/tables/cells/TagCell.svelte'
+	import ArrayCell from '$lib/components/containers/tables/cells/ArrayCell.svelte'
+	import BooleanCell from '$lib/components/containers/tables/cells/BooleanCell.svelte'
+	import ButtonCell from '$lib/components/containers/tables/cells/ButtonCell.svelte'
+	import CheckboxCell from '$lib/components/containers/tables/cells/CheckboxCell.svelte'
+	import DateCell from '$lib/components/containers/tables/cells/DateCell.svelte'
+	import DefaultCell from '$lib/components/containers/tables/cells/DefaultCell.svelte'
+	import EditableCell from '$lib/components/containers/tables/cells/EditableCell.svelte'
+	import RadioCell from '$lib/components/containers/tables/cells/RadioCell.svelte'
+	import TagCell from '$lib/components/containers/tables/cells/TagCell.svelte'
 
 	export let column, row
 </script>

@@ -1,6 +1,6 @@
 <script>
-	import ErrorTag from '$lib/containers/tags/ErrorTag.svelte'
-	import StatusTag from '$lib/containers/tags/StatusTag.svelte'
+	import ErrorTag from '$lib/components/containers/tags/ErrorTag.svelte'
+	import StatusTag from '$lib/components/containers/tags/StatusTag.svelte'
 
 	export let row
 </script>

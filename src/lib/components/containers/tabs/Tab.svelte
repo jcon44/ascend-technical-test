@@ -2,7 +2,7 @@
 	import { Button } from '$lib/index.js'
 	import { createEventDispatcher } from 'svelte'
 
-	export let tab, tabIndex, currentTab
+	export let currentTab, icon, tab, tabIndex
 
 	const dispatch = createEventDispatcher()
 
@@ -14,15 +14,20 @@
 <div class={`tab ${tabIndex === currentTab ? 'selected' : ''}`}>
 	<Button
 		callback={selectTab}
-		classes={['btn-tab']}
+		classes={['btn-tab', 'btn-full']}
 		text={tab?.name}
+		topIcon={icon}
 	/>
 </div>
 
 <style>
 	.tab {
+		align-items: center;
 		background-color: var(--background-base);
 		border-radius: 0;
+		display: flex;
+		justify-content: center;
+		min-width: var(--spacing16);
 	}
 	.tab:active,
 	.tab:hover {

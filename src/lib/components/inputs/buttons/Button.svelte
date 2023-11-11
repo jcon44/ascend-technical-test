@@ -1,13 +1,16 @@
 <script>
 	import { LinkButton, StandardButton } from '$lib/index.js'
 
-	export let callback = undefined,
+	export let
+		bottomIcon = null,	
+		callback = null,
 		classes = ['btn-fit', 'btn-m', 'btn-primary', 'btn-rect'],
 		disabled = false,
-		firstIcon = undefined,
-		secondIcon = undefined,
+		leftIcon = null,
+		rightIcon = null,
 		styles = [],
 		text = '',
+		topIcon = null,
 		url = ''
 </script>
 
@@ -19,22 +22,26 @@
 >
 	{#if url?.length}
 		<LinkButton
+			{bottomIcon}
 			{classes}
 			{disabled}
-			{firstIcon}
-			{secondIcon}
+			{leftIcon}
+			{rightIcon}
 			{styles}
 			{text}
+			{topIcon}
 			{url}
 		/>
 	{:else}
 		<StandardButton
+			{bottomIcon}
 			{classes}
 			{disabled}
-			{firstIcon}
-			{secondIcon}
+			{leftIcon}
+			{rightIcon}
 			{styles}
 			{text}
+			{topIcon}
 		/>
 	{/if}
 </div>

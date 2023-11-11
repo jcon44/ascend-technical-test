@@ -19,7 +19,7 @@
 </script>
 
 <Button
-	secondIcon={icon}
+	rightIcon={icon}
 	{callback}
 	{classes}
 	{disabled}

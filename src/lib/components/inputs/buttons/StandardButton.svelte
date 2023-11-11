@@ -1,12 +1,15 @@
 <script>
 	import { ButtonContents } from '$lib/index.js'
 
-	export let classes,
+	export let 
+		bottomIcon,
+		classes,
 		disabled,
-		firstIcon,
-		secondIcon,
+		leftIcon,
+		rightIcon,
 		styles = [],
-		text
+		text,
+		topIcon
 </script>
 
 <button
@@ -26,9 +29,11 @@
 		style={styles.join(';')}
 	>
 		<ButtonContents
+			{bottomIcon}
+			{leftIcon}
+			{rightIcon}
 			{text}
-			{firstIcon}
-			{secondIcon}
+			{topIcon}
 		/>
 	</div>
 </button>

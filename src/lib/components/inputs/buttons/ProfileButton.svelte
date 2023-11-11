@@ -6,7 +6,7 @@
 
 <Button
 	classes={['btn-circle', 'btn-m', 'btn-outline']}
-	firstIcon={ProfileSmallIcon}
+	leftIcon={ProfileSmallIcon}
 	{callback}
 	{url}
 />

@@ -7,6 +7,6 @@
 <Button
 	{callback}
 	classes={['btn-outline', 'semibold', 'btn-m', 'btn-rect', 'btn-inline']}
-	firstIcon={FilterLinesSmallIcon}
+	leftIcon={FilterLinesSmallIcon}
 	text="Filter & Sort"
 />

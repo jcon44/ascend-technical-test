@@ -4,6 +4,6 @@
 
 <Button
 	classes={['btn-fit']}
-	firstIcon={AscendSymbol}
+	leftIcon={AscendSymbol}
 	url="https://www.ascend-innovations.com"
 />
