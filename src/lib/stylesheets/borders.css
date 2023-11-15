@@ -6,6 +6,16 @@
 	--border-radius-xl: var(--spacing11);
 	--border-radius-full: 100%;
 	--btn-border-radius: var(--border-radius-s);
+	--border-neutral-000-s: var(--neutral-stroke-000-s) solid var(--neutral-100);
+	--border-neutral-100-s: var(--neutral-stroke-100-s) solid var(--neutral-100);
+	--border-neutral-200-s: var(--neutral-stroke-200-s) solid var(--neutral-100);
+	--border-neutral-600-s: var(--neutral-stroke-600-s) solid var(--neutral-100);
+	--border-neutral-700-s: var(--neutral-stroke-700-s) solid var(--neutral-100);
+	--border-neutral-000-m: var(--neutral-stroke-000-m) solid var(--neutral-100);
+	--border-neutral-100-m: var(--neutral-stroke-100-m) solid var(--neutral-100);
+	--border-neutral-200-m: var(--neutral-stroke-200-m) solid var(--neutral-100);
+	--border-neutral-600-m: var(--neutral-stroke-600-m) solid var(--neutral-100);
+	--border-neutral-700-m: var(--neutral-stroke-700-m) solid var(--neutral-100);
 }
 
 *[class*='border-radius-xs'] {
@@ -32,58 +42,6 @@
 	border-radius: var(--border-radius-full);
 }
 
-*[class*='border-neutral-000-s'] {
-	border: var(--neutral-stroke-000-s) solid var(--neutral-100);
-}
-
 *[class*='border-neutral-100-s'] {
 	border: var(--neutral-stroke-100-s) solid var(--neutral-100);
-}
-
-*[class*='border-neutral-200-s'] {
-	border: var(--neutral-stroke-200-s) solid var(--neutral-100);
-}
-
-*[class*='border-neutral-600-s'] {
-	border: var(--neutral-stroke-600-s) solid var(--neutral-100);
-}
-
-*[class*='border-neutral-700-s'] {
-	border: var(--neutral-stroke-700-s) solid var(--neutral-100);
-}
-
-*[class*='border-neutral-000-m'] {
-	border: var(--neutral-stroke-000-m) solid var(--neutral-100);
-}
-
-*[class*='border-neutral-100-m'] {
-	border: var(--neutral-stroke-100-m) solid var(--neutral-100);
-}
-
-*[class*='border-neutral-200-m'] {
-	border: var(--neutral-stroke-200-m) solid var(--neutral-100);
-}
-
-*[class*='border-neutral-600-m'] {
-	border: var(--neutral-stroke-600-m) solid var(--neutral-100);
-}
-
-*[class*='border-neutral-700-m'] {
-	border: var(--neutral-stroke-700-m) solid var(--neutral-100);
-}
-
-*[class*='border-secondary-500-s'] {
-	border: var(--secondary-stroke-500-s);
-}
-
-*[class*='border-secondary-500-m'] {
-	border: var(--secondary-stroke-500-m);
-}
-
-*[class*='border-white-900-s'] {
-	border: var(--white-stroke-900-s);
-}
-
-*[class*='border-white-900-m'] {
-	border: var(--white-stroke-900-m);
 }
