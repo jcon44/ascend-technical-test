@@ -1,5 +1,5 @@
 <script>
-	import { Button, NavBarToggleButton } from '$lib/index.js'
+	import { NavBarToggleButton } from '$lib/index.js'
 
 	export let closedHeaderComponent, openHeaderComponent, keepOpen, navBarOpen, toggleNavbar
 </script>
