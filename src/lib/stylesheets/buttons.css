@@ -159,7 +159,6 @@ button {
 /* White */
 .btn-white {
 	background-color: var(--background-base);
-	border-radius: var(--spacing05);
 }
 
 .btn-white:active,
