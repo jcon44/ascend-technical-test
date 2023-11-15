@@ -4,8 +4,7 @@
 	export let date,
 		id = '',
 		label = '',
-		required = false,
-		width = ''
+		required = false
 </script>
 
 <div class="date-picker">
@@ -17,7 +16,6 @@
 		bind:date
 		{id}
 		{required}
-		{width}
 	/>
 </div>
 

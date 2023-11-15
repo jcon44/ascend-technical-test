@@ -3,8 +3,7 @@
 
 	export let start,
 		end,
-		required = false,
-		width = ''
+		required = false
 </script>
 
 <div class="date-range">
@@ -13,14 +12,12 @@
 		id="start-date"
 		label="Start Date"
 		{required}
-		{width}
 	/>
 	<DatePicker
 		bind:date={end}
 		id="end-date"
 		label="End Date"
 		{required}
-		{width}
 	/>
 </div>
 

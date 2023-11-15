@@ -9,7 +9,7 @@
 		<svelte:component
 			this={cardComponent}
 			data={item}
-			link={item?.link || ''}
+			url={item?.link || ''}
 		/>
 	{/each}
 </CardGrid>

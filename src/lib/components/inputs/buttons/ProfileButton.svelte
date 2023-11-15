@@ -1,7 +1,7 @@
 <script>
 	import { Button, ProfileSmallIcon } from '$lib/index.js'
 
-	export let callback = undefined, url
+	export let callback = undefined, url = ''
 </script>
 
 <Button

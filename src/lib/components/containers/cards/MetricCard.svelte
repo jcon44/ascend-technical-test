@@ -4,7 +4,7 @@
 	export let callback = null,
 		data = null,
 		icon = null,
-		link = '',
+		url = '',
 		styles = []
 </script>
 
@@ -12,8 +12,8 @@
 	classes={['card-s']}
 	{callback}
 	{icon}
-	{link}
 	{styles}
+	{url}
 >
 	<div class="body-s semibold">{data.title}</div>
 	<div class="headline-l-xl semibold">{data.value}</div>

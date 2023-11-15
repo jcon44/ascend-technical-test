@@ -2,12 +2,14 @@
 	export let callback = undefined,
 		classes = [],
 		icon = undefined,
+		styles = [],
 		title = ''
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	class={`card-wrapper ${classes?.join(' ') ?? ''}`}
+	style={styles?.join('; ')}
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
 >

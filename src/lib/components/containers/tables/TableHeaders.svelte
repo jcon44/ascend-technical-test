@@ -29,7 +29,6 @@
 		<TableColumnHeaderCell
 			bind:list
 			order={sortMap[column.key]}
-			{columns}
 			{column}
 			{sortTable}
 		/>

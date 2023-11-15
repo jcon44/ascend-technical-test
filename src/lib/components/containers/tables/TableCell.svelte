@@ -44,7 +44,6 @@
 		/>
 	{:else if column?.type === 'date'}
 		<DateCell
-			callback={column.callback}
 			bind:column
 			bind:row
 		/>
