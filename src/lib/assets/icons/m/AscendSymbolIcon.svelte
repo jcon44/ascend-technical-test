@@ -1,7 +1,7 @@
 <script>
 	import { Icon } from '$lib/index.js'
 
-	export let styles
+	export let styles = []
 </script>
 
 <Icon size="103" {styles}>
