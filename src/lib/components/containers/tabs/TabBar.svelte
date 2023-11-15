@@ -37,7 +37,7 @@
 <div class='tab-bar'>
 	{#if tabOverflow}
 		<div class='tab-nav-left-button'>
-			<Button callback={scrollLeft} classes={['btn-circle', 'btn-white']} topIcon={ArrowLeftSmallIcon} />
+			<Button callback={scrollLeft} classes={['btn-fit', 'btn-l', 'btn-square', 'btn-white']} topIcon={ArrowLeftSmallIcon} />
 		</div>
 	{/if}
 	<div class="tab-list">
@@ -53,7 +53,7 @@
 	</div>
 	{#if tabOverflow}
 		<div class='tab-nav-right-button'>
-			<Button callback={scrollRight} classes={['btn-circle', 'btn-white']} topIcon={ArrowRightSmallIcon} />
+			<Button callback={scrollRight} classes={['btn-fit', 'btn-l', 'btn-square', 'btn-white']} topIcon={ArrowRightSmallIcon} />
 		</div>
 	{/if}
 </div>
@@ -66,7 +66,7 @@
 	}
 	.tab-list {
 		align-items: center;
-		border-bottom: var(--spacing00) solid var(--neutral-100);
+		border-bottom: var(--border-neutral);
 		display: flex;
 		gap: var(--spacing09);
 		overflow-x: hidden;
@@ -74,8 +74,6 @@
 	}
 	.tab-nav-left-button,
 	.tab-nav-right-button {
-		border-radius: 50%;
-		border: 1px solid var(--neutral-100);
 		position: relative;
 	}
 	.tab-nav-left-button {
