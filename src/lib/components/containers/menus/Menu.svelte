@@ -45,7 +45,6 @@
 
 <style>
 	.open-overlay {
-		background: rgba(100,0,0,.5);
 		bottom: 0;
 		display: block;
 		left: 0;
