@@ -57,6 +57,7 @@
 		display: none;
 	}
 	.menu {
+		background-color: var(--white-base);
 		border-radius: 0 0 var(--spacing11) var(--spacing11);
 		border: var(--spacing00) solid var(--neutral-100);
 		color: var(--white-900);
