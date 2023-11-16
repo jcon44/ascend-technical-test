@@ -5,9 +5,9 @@
 	export let hoverOpen = false,
 		keepOpen = true,
 		navBarContents,
-		url,
-		closedHeaderComponent,
-		openHeaderComponent
+		url = '/',
+		closedHeaderComponent = undefined,
+		openHeaderComponent = undefined
 
 	$: navBarOpen = hoverOpen || keepOpen
 
