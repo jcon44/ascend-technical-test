@@ -45,7 +45,6 @@
 
 *[class*='headline-l-xxl'] {
 	font-size: var(--heading-l-xxl-font-size);
-	margin-bottom: var(--spacing10);
 }
 
 *[class*='headline-l-xl'] {
