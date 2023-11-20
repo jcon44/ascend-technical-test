@@ -7,9 +7,8 @@
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		height: calc(100vh - var(--spacing14) - var(--spacing15));
 		justify-content: flex-start;
-		max-height: 100vh;
 		overflow: auto;
 		width: 100%;
 	}
