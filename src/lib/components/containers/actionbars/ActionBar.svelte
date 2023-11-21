@@ -17,7 +17,7 @@
 		height: var(--spacing15);
 		justify-content: space-between;
 		padding: var(--spacing09);
-		position: absolute;
+		position: sticky;
 		width: 100%;
 	}
 </style>

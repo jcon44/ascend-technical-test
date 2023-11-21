@@ -11,7 +11,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing09);
-		height: 100%;
 		margin: 0 auto;
 		padding-bottom: var(--spacing15);
 	}
