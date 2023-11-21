@@ -9,27 +9,25 @@
 		url = ''
 </script>
 
-<div style={`${styles.join(';')}`}>
-	{#if url}
-		<LinkCard
-			{callback}
-			{classes}
-			{icon}
-			{styles}
-			{title}
-			{url}
-		>
-			<slot />
-		</LinkCard>
-	{:else}
-		<StandardCard
-			{callback}
-			{classes}
-			{icon}
-			{styles}
-			{title}
-		>
-			<slot />
-		</StandardCard>
-	{/if}
-</div>
+{#if url}
+	<LinkCard
+		{callback}
+		{classes}
+		{icon}
+		{styles}
+		{title}
+		{url}
+	>
+		<slot />
+	</LinkCard>
+{:else}
+	<StandardCard
+		{callback}
+		{classes}
+		{icon}
+		{styles}
+		{title}
+	>
+		<slot />
+	</StandardCard>
+{/if}
