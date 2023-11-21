@@ -49,6 +49,7 @@ export { default as XCircleCloseExtraSmallIcon } from '$lib/assets/icons/xs/XCir
 export { default as XCircleExtraSmallIcon } from '$lib/assets/icons/xs/XCircleExtraSmallIcon.svelte'
 
 // Images
+export { default as AscendLoginBackgroundImage } from '$lib/assets/images/AscendLoginBackgroundImage.png'
 export { default as AscendLogo } from '$lib/assets/images/AscendLogo.svelte'
 export { default as AscendSymbol } from '$lib/assets/images/AscendSymbol.svelte'
 export { default as Error404Graphic } from '$lib/assets/images/Error404Graphic.svelte'
@@ -95,16 +96,18 @@ export { default as HeaderBar } from '$lib/components/containers/headers/HeaderB
 // Icons
 export { default as Icon } from '$lib/components/containers/icons/Icon.svelte'
 
-//Labels
+// Labels
 export { default as Label } from '$lib/components/containers/labels/Label.svelte'
 
 // Layout
 export { default as Error404Page } from '$lib/components/containers/layout/Error404Page.svelte'
+export { default as LoginPage } from '$lib/components/containers/layout/LoginPage.svelte'
 export { default as Main } from '$lib/components/containers/layout/Main.svelte'
 export { default as MainContent } from '$lib/components/containers/layout/MainContent.svelte'
 export { default as Page } from '$lib/components/containers/layout/Page.svelte'
 export { default as PageBody } from '$lib/components/containers/layout/PageBody.svelte'
 export { default as PageDescription } from '$lib/components/containers/layout/PageDescription.svelte'
+export { default as PageFooter } from '$lib/components/containers/layout/PageFooter.svelte'
 export { default as PageHeader } from '$lib/components/containers/layout/PageHeader.svelte'
 export { default as Shell } from '$lib/components/containers/layout/Shell.svelte'
 
