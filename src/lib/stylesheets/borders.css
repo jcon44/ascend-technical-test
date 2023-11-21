@@ -43,5 +43,5 @@
 }
 
 *[class*='border-neutral-100-s'] {
-	border: var(--neutral-stroke-100-s) solid var(--neutral-100);
+	border: var(--neutral-stroke-100-s);
 }
