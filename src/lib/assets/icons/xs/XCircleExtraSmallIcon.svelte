@@ -9,7 +9,10 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="16" {styles}>
+<Icon
+	size="16"
+	{styles}
+>
 	<g clip-path="url(#clip0_4408_11755)">
 		<circle
 			cx="8"

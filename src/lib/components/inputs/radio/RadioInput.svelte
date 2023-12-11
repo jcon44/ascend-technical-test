@@ -1,5 +1,7 @@
 <script>
-	export let callback = null, group, value
+	export let callback = null,
+		group,
+		value
 </script>
 
 <input

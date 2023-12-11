@@ -9,6 +9,9 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon color={palette.info} {styles}>
+<Icon
+	color={palette.info}
+	{styles}
+>
 	<EyeSmallIcon />
 </Icon>

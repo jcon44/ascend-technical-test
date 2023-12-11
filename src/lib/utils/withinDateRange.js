@@ -1,5 +1,4 @@
 export default function withinDateRange(start, end, query) {
-
 	const startDate = new Date(start)
 	const endDate = new Date(end)
 	const queryDate = new Date(query)
@@ -9,5 +8,4 @@ export default function withinDateRange(start, end, query) {
 	} else {
 		return queryDate >= startDate || queryDate <= endDate
 	}
-
 }

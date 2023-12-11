@@ -1,8 +1,7 @@
 <script>
 	import { CharacterCounter, TextAreaInput, TextMessageBubble } from '$lib/index.js'
 
-	export let
-		callback = null,
+	export let callback = null,
 		cols = '',
 		id = '',
 		label = '',
@@ -16,8 +15,7 @@
 		text = ''
 </script>
 
-
-<div class='text-message-bubble'>
+<div class="text-message-bubble">
 	<TextMessageBubble>
 		<TextAreaInput
 			bind:text
@@ -34,12 +32,14 @@
 		/>
 	</TextMessageBubble>
 	{#if maxlength}
-		<div class='text-counter'>
-			<CharacterCounter {maxlength} {text} />
+		<div class="text-counter">
+			<CharacterCounter
+				{maxlength}
+				{text}
+			/>
 		</div>
 	{/if}
 </div>
-
 
 <style>
 	.text-message-bubble {

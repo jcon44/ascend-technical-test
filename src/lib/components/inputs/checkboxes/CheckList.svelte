@@ -10,7 +10,9 @@
 
 	import { CheckOption } from '$lib/index.js'
 
-	export let callback, list = [], styles = []
+	export let callback,
+		list = [],
+		styles = []
 </script>
 
 <div

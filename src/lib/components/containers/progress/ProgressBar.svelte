@@ -12,7 +12,10 @@
 	}
 </script>
 
-<div class="progress-bar" style={styles.join(';')}>
+<div
+	class="progress-bar"
+	style={styles.join(';')}
+>
 	<div
 		class={`progress-bar-fill ${type}`}
 		style={`width: ${getPercentage()}%`}

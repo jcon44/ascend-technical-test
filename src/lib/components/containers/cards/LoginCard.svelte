@@ -1,7 +1,8 @@
 <script>
 	import { InputError, LoginButton } from '$lib/index.js'
 
-	export let callback, username = ''
+	export let callback,
+		username = ''
 
 	let password = '',
 		validUsername,

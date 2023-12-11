@@ -9,7 +9,10 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="32" {styles}>
+<Icon
+	size="32"
+	{styles}
+>
 	<circle
 		cx="16"
 		cy="16"

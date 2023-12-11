@@ -9,7 +9,10 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="24" {styles}>
+<Icon
+	size="24"
+	{styles}
+>
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"

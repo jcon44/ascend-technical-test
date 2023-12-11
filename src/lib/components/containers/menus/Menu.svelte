@@ -3,13 +3,14 @@
 	import { slide } from 'svelte/transition'
 	import { beforeNavigate } from '$app/navigation'
 
-	export let menuOpen = false, menuList = []
+	export let menuOpen = false,
+		menuList = []
 
 	function closeMenu() {
 		menuOpen = false
 	}
 
-	beforeNavigate(() => menuOpen = false)
+	beforeNavigate(() => (menuOpen = false))
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -25,7 +26,7 @@
 	transition:slide={{ axis: 'y' }}
 >
 	<div class="menu-header">
-		<slot name='menu-header' />
+		<slot name="menu-header" />
 	</div>
 	<div class="menu-list">
 		{#each menuList as menuItem}
@@ -39,7 +40,7 @@
 		{/each}
 	</div>
 	<div class="menu-footer">
-		<slot name='menu-footer' />
+		<slot name="menu-footer" />
 	</div>
 </div>
 

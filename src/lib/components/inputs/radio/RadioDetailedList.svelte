@@ -12,7 +12,8 @@
 
 	import { RadioInput } from '$lib/index.js'
 
-	export let list = [], group = ''
+	export let list = [],
+		group = ''
 
 	function selectValue(value) {
 		group = value
@@ -25,8 +26,8 @@
 	{#each list as item}
 		<div
 			class="list-item"
-			on:click|stopPropagation={()=>selectValue(item.value)}
-			on:keyup|stopPropagation={()=>selectValue(item.value)}
+			on:click|stopPropagation={() => selectValue(item.value)}
+			on:keyup|stopPropagation={() => selectValue(item.value)}
 		>
 			<div class="item-left-column">
 				<RadioInput

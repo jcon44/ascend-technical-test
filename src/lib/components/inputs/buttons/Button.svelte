@@ -1,8 +1,7 @@
 <script>
 	import { LinkButton, StandardButton } from '$lib/index.js'
 
-	export let
-		bottomIcon = null,	
+	export let bottomIcon = null,
 		callback = null,
 		classes = ['btn-fit', 'btn-m', 'btn-primary', 'btn-rect'],
 		disabled = false,

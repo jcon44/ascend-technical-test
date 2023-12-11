@@ -9,7 +9,10 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="16" {styles}>
+<Icon
+	size="16"
+	{styles}
+>
 	<path
 		d="M3 3.00003L12.9999 13"
 		stroke-linecap="round"

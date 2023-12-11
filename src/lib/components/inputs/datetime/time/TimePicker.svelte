@@ -8,7 +8,10 @@
 		time = ''
 </script>
 
-<div class="time-picker" style={styles.join(';')}>
+<div
+	class="time-picker"
+	style={styles.join(';')}
+>
 	<Label
 		{id}
 		{label}

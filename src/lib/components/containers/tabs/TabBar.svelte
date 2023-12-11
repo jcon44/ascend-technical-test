@@ -5,9 +5,9 @@
 	export let currentTab, tabList
 
 	let tabThing, tabBarMaxWidth, tabListWidth, tabOverflow, maxVisibleTabs, visibleTabsWidth
-	
-	const tabWidth = 144	// Tab.svelte min-width var(--spacing16) + .tab-list gap var(--spacing09)
-	
+
+	const tabWidth = 144 // Tab.svelte min-width var(--spacing16) + .tab-list gap var(--spacing09)
+
 	onMount(() => {
 		tabThing = document.getElementsByClassName('tab-list')[0]
 		tabBarMaxWidth = tabThing.clientWidth
@@ -26,7 +26,7 @@
 	}
 
 	function scrollRight() {
-		if (tabThing.scrollLeft > (tabListWidth - visibleTabsWidth)) {
+		if (tabThing.scrollLeft > tabListWidth - visibleTabsWidth) {
 			tabThing.scrollLeft = 0
 		} else {
 			tabThing.scrollLeft += tabWidth
@@ -34,10 +34,14 @@
 	}
 </script>
 
-<div class='tab-bar'>
+<div class="tab-bar">
 	{#if tabOverflow}
-		<div class='tab-nav-left-button'>
-			<Button callback={scrollLeft} classes={['btn-fit', 'btn-l', 'btn-square', 'btn-white']} topIcon={ArrowLeftSmallIcon} />
+		<div class="tab-nav-left-button">
+			<Button
+				callback={scrollLeft}
+				classes={['btn-fit', 'btn-l', 'btn-square', 'btn-white']}
+				topIcon={ArrowLeftSmallIcon}
+			/>
 		</div>
 	{/if}
 	<div class="tab-list">
@@ -52,8 +56,12 @@
 		{/each}
 	</div>
 	{#if tabOverflow}
-		<div class='tab-nav-right-button'>
-			<Button callback={scrollRight} classes={['btn-fit', 'btn-l', 'btn-square', 'btn-white']} topIcon={ArrowRightSmallIcon} />
+		<div class="tab-nav-right-button">
+			<Button
+				callback={scrollRight}
+				classes={['btn-fit', 'btn-l', 'btn-square', 'btn-white']}
+				topIcon={ArrowRightSmallIcon}
+			/>
 		</div>
 	{/if}
 </div>

@@ -9,7 +9,10 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="32" {styles}>
+<Icon
+	size="32"
+	{styles}
+>
 	<path
 		d="M21 8V4C21 2.89543 21.8954 2 23 2H24C25.1046 2 26 2.89543 26 4V11L21 8Z"
 		stroke={palette.whiteTrans}

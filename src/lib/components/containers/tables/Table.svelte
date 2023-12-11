@@ -1,7 +1,8 @@
 <script>
 	import { TableBody, TableHeaders } from '$lib/index.js'
 
-	export let columns = [], list = []
+	export let columns = [],
+		list = []
 </script>
 
 <section class="table-container">

@@ -1,8 +1,7 @@
 <script>
 	import { ButtonContents } from '$lib/index.js'
 
-	export let 
-		bottomIcon,
+	export let bottomIcon,
 		classes,
 		disabled,
 		leftIcon,

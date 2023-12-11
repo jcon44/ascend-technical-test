@@ -17,7 +17,6 @@
 		text = ''
 </script>
 
-
 <div class="textarea-control">
 	{#if label || tag}
 		<div class="textarea-title">
@@ -55,10 +54,12 @@
 		{rows}
 	/>
 	{#if maxlength}
-		<CharacterCounter {maxlength} {text} />
+		<CharacterCounter
+			{maxlength}
+			{text}
+		/>
 	{/if}
 </div>
-
 
 <style>
 	.textarea-title {

@@ -4,7 +4,10 @@
 	export let styles = []
 </script>
 
-<Icon size="31" {styles}>
+<Icon
+	size="31"
+	{styles}
+>
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"

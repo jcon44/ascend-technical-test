@@ -148,7 +148,7 @@
 	/>
 	<Main>
 		<HeaderBar>
-			<ProfileButton url='/' />
+			<ProfileButton url="/" />
 		</HeaderBar>
 		<slot />
 	</Main>

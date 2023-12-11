@@ -1,9 +1,10 @@
 <script>
-	export let size, styles = []
+	export let size,
+		styles = []
 </script>
 
 <div
-	class='icon-wrapper'
+	class="icon-wrapper"
 	style={`${styles.join('; ')}`}
 >
 	<svg

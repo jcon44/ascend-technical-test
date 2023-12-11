@@ -152,19 +152,19 @@ export { default as ToastArea } from '$lib/components/containers/toasts/ToastAre
 
 // --- FUNCTIONS --- //
 
-export { default as browserBack } from '$lib/functions/browserBack.js'
-export { default as capitalize } from '$lib/functions/capitalize.js'
-export { default as closeDialog } from '$lib/functions/closeDialog.js'
-export { default as formatTimeStamp } from '$lib/functions/formatTimeStamp.js'
-export { default as formatDate } from '$lib/functions/formatDate.js'
-export { default as getGlobalColorPalette } from '$lib/functions/getGlobalColorPalette.js'
-export { default as openDialog } from '$lib/functions/openDialog.js'
-export { default as removeToast } from '$lib/functions/removeToast.js'
-export { default as sortArray } from '$lib/functions/sortArray.js'
-export { default as sortByDate } from '$lib/functions/sortByDate.js'
-export { default as sortTable } from '$lib/functions/sortTable.js'
-export { default as todaysDate } from '$lib/functions/todaysDate.js'
-export { default as withinDateRange } from '$lib/functions/withinDateRange.js'
+export { default as browserBack } from '$lib/utils/browserBack.js'
+export { default as capitalize } from '$lib/utils/capitalize.js'
+export { default as closeDialog } from '$lib/utils/closeDialog.js'
+export { default as formatTimeStamp } from '$lib/utils/formatTimeStamp.js'
+export { default as formatDate } from '$lib/utils/formatDate.js'
+export { default as getGlobalColorPalette } from '$lib/utils/getGlobalColorPalette.js'
+export { default as openDialog } from '$lib/utils/openDialog.js'
+export { default as removeToast } from '$lib/utils/removeToast.js'
+export { default as sortArray } from '$lib/utils/sortArray.js'
+export { default as sortByDate } from '$lib/utils/sortByDate.js'
+export { default as sortTable } from '$lib/utils/sortTable.js'
+export { default as todaysDate } from '$lib/utils/todaysDate.js'
+export { default as withinDateRange } from '$lib/utils/withinDateRange.js'
 
 // --- INPUTS --- //
 

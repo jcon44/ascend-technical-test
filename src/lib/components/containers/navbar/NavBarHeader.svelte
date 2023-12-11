@@ -1,7 +1,12 @@
 <script>
 	import { NavBarToggleButton } from '$lib/index.js'
 
-	export let closedHeaderComponent, openHeaderComponent, keepOpen, navBarOpen, toggleNavbar, url = '/'
+	export let closedHeaderComponent,
+		openHeaderComponent,
+		keepOpen,
+		navBarOpen,
+		toggleNavbar,
+		url = '/'
 </script>
 
 <div class="nav-header">

@@ -1,34 +1,43 @@
 <script>
 	import { LogoutMenuButton, Menu, ProfileIcon } from '$lib/index.js'
 
-	export let user, logoutCallback, menuOpen, menuList = [
-		{
-			name: 'Profile',
-			url: '/profile'
-		},
-		{
-			name: 'Terms & Conditions',
-			url: '/terms-and-conditions'
-		},
-		{
-			name: 'Privacy Policy',
-			url: '/privacy-policy'
-		}
-	]
+	export let user,
+		logoutCallback,
+		menuOpen,
+		menuList = [
+			{
+				name: 'Profile',
+				url: '/profile',
+			},
+			{
+				name: 'Terms & Conditions',
+				url: '/terms-and-conditions',
+			},
+			{
+				name: 'Privacy Policy',
+				url: '/privacy-policy',
+			},
+		]
 </script>
 
 <Menu
-	bind:menuOpen={menuOpen}
+	bind:menuOpen
 	{menuList}
 >
-	<div class='menu-header' slot='menu-header'>
+	<div
+		class="menu-header"
+		slot="menu-header"
+	>
 		<ProfileIcon />
-		<div class='user-info'>
+		<div class="user-info">
 			{user.name}
 			{user.role}
 		</div>
 	</div>
-	<div class='menu-footer' slot='menu-footer'>
+	<div
+		class="menu-footer"
+		slot="menu-footer"
+	>
 		<LogoutMenuButton callback={logoutCallback} />
 	</div>
 </Menu>

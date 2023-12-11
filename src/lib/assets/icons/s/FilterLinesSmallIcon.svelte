@@ -9,7 +9,10 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon size="24" {styles}>
+<Icon
+	size="24"
+	{styles}
+>
 	<path
 		d="M6 12H18M3 6H21M9 18H15"
 		stroke={palette.neutral}
