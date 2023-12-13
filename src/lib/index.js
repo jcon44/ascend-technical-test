@@ -1,5 +1,5 @@
 // --- DEFAULT --- //
-export default '$lib/stylesheets/global.css'
+export default './stylesheets/global.css'
 
 // --- ASSETS --- //
 
@@ -168,6 +168,7 @@ export { default as sortByDate } from '$lib/utils/sortByDate.js'
 export { default as sortTable } from '$lib/utils/sortTable.js'
 export { default as todaysDate } from '$lib/utils/todaysDate.js'
 export { default as withinDateRange } from '$lib/utils/withinDateRange.js'
+export { default as withinTimeRange } from '$lib/utils/withinTimeRange.js'
 
 // --- INPUTS --- //
 
