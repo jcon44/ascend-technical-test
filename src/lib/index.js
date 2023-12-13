@@ -1,3 +1,6 @@
+// --- DEFAULT --- //
+export default '$lib/stylesheets/global.css'
+
 // --- ASSETS --- //
 
 // Icons (Medium)
