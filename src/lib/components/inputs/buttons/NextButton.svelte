@@ -6,15 +6,15 @@
 		callback = null,
 		classes = ['btn-fit', 'btn-l', 'btn-square'],
 		disabled = false,
+		icon = arrow ? ArrowRightSmallIcon : null,
 		loading = false,
+		loadingIcon = ProgressSpinner,
 		text = '',
 		url = ''
 
-	let icon
-
 	onMount(() => {
-		if (loading) icon = ProgressSpinner
-		else if (arrow) icon = ArrowRightSmallIcon
+		if (loading) icon = loadingIcon
+		else icon = arrow ? ArrowRightSmallIcon : null
 	})
 </script>
 
