@@ -16,7 +16,6 @@
 <div
 	class="checkbox-container"
 	on:click|stopPropagation={checkBox}
-	on:keyup|stopPropagation={checkBox}
 >
 	<input
 		type="checkbox"
@@ -47,7 +46,6 @@
 	}
 	.checkbox-container:focus {
 		border: 3px solid var(--primary-500);
-		background-color: red;
 	}
 	.checkbox-container:hover {
 		box-shadow: 0px 0px 0px var(--spacing00) var(--primary-400);

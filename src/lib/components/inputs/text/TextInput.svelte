@@ -7,6 +7,7 @@
 		label = '',
 		maxlength = '',
 		minlength = '',
+		name = '',
 		placeholder = '',
 		required = false,
 		styles = [],
@@ -22,6 +23,7 @@
 	{#if description}
 		<div class="body-xs">{description}</div>
 	{/if}
+	<!-- svelte-ignore a11y-autofocus -->
 	<input
 		bind:value={text}
 		class="text-input"
@@ -29,6 +31,7 @@
 		type="text"
 		{autofocus}
 		{id}
+		{name}
 		{maxlength}
 		{minlength}
 		{placeholder}

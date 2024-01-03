@@ -78,6 +78,8 @@
 		display: flex;
 		gap: var(--spacing09);
 		overflow-x: hidden;
+		padding-left: 1px;
+		padding-top: 1px;
 		width: 100%;
 	}
 	.tab-nav-left-button,

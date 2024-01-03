@@ -3,7 +3,7 @@
 
 	export let body,
 		button = null,
-		icon,
+		icon = null,
 		tag = false,
 		title
 </script>
@@ -11,7 +11,9 @@
 <div class="alert">
 	<div class="alert-content">
 		<div class="alert-icon">
-			<svelte:component this={icon} />
+			{#if icon}
+				<svelte:component this={icon} />
+			{/if}
 		</div>
 		<div class="alert-text">
 			<div class="alert-title headline-l-xs">
@@ -28,13 +30,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="alert-control">
-		{#if button}
+	{#if button}
+		<div class="alert-control">
 			<div class="alert-button">
 				<svelte:component this={button} />
 			</div>
-		{/if}
-	</div>
+		</div>
+	{/if}
 </div>
 
 <style>

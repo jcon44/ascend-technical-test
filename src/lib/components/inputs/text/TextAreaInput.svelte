@@ -1,7 +1,9 @@
 <script>
 	import { CharacterCounter, Label, Tag } from '$lib/index.js'
 
-	export let callback = null,
+	export let
+		autofocus = false,
+		callback = null,
 		cols = '',
 		description = '',
 		id = '',
@@ -13,6 +15,7 @@
 		required = false,
 		rows = '',
 		styles = [],
+		tabindex = null,
 		tag = null,
 		text = ''
 </script>
@@ -45,6 +48,7 @@
 		name={name || label}
 		on:input={callback || ''}
 		style={styles.join(';')}
+		{autofocus}
 		{cols}
 		{id}
 		{maxlength}
@@ -52,6 +56,7 @@
 		{placeholder}
 		{required}
 		{rows}
+		{tabindex}
 	/>
 	{#if maxlength}
 		<CharacterCounter
