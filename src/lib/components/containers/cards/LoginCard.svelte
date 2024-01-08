@@ -19,17 +19,21 @@
 		return validPassword
 	}
 
-	function validateLogin() {
+	function validateLogin(event) {
 		validUsername = username.length > 0
 		validPassword = password.length > 0
 		const valid = validUsername && validPassword
-		return valid
+		if (valid && callback) {
+			return callback(event)
+		} else {
+			return false
+		}
 	}
 </script>
 
 <div class="login">
 	<div class="headline-l-xxl">Login</div>
-	<form method="dialog">
+	<form name="login" method="POST" on:submit|preventDefault={(event) => validateLogin(event)}>
 		<div class="login-element">
 			<label
 				for="username"
@@ -65,7 +69,7 @@
 			{/if}
 		</div>
 		<div class="login-button-row">
-			<LoginButton callback={() => callback(validateLogin())} />
+			<LoginButton />
 		</div>
 	</form>
 	<slot />
