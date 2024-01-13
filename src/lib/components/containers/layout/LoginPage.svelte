@@ -1,19 +1,14 @@
 <script>
-	import { AscendLoginBackgroundImage, LoginCard } from '$lib/index.js'
+	import { LoginCard } from '$lib/index.js'
 
-	export let loginCallback,
-		username,
-		dialogCallback = null
+	export let username, dialogCallback = null
 </script>
 
 <div
 	class="login-page"
-	style={`background-image: url(${AscendLoginBackgroundImage})`}
+	style={`background-image: url(https://ascnd.s3.us-east-2.amazonaws.com/AscendLoginBackgroundImage.png)`}
 >
-	<LoginCard
-		bind:username
-		callback={loginCallback}
-	>
+	<LoginCard bind:username>
 		{#if dialogCallback}
 			<div class="account-change-slot">
 				<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->

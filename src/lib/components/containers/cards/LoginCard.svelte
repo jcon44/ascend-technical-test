@@ -1,39 +1,28 @@
 <script>
 	import { InputError, LoginButton } from '$lib/index.js'
 
-	export let callback,
-		username = ''
+	export let username = ''
 
 	let password = '',
 		validUsername,
 		validPassword
 
 	function validateUsername() {
-		validUsername = username.length > 0
-		return validUsername
+		return username !== ''
 	}
 
 	function validatePassword() {
-		if (validUsername) validPassword = password.length > 0
+		if (validUsername) validPassword = password !== ''
 		else validPassword = true
 		return validPassword
 	}
 
-	function validateLogin(event) {
-		validUsername = username.length > 0
-		validPassword = password.length > 0
-		const valid = validUsername && validPassword
-		if (valid && callback) {
-			return callback(event)
-		} else {
-			return false
-		}
-	}
+	$: invalidCreds = username === '' || password === ''
 </script>
 
 <div class="login">
 	<div class="headline-l-xxl">Login</div>
-	<form name="login" method="POST" on:submit|preventDefault={(event) => validateLogin(event)}>
+	<form name="login" action="?/login" method="POST">
 		<div class="login-element">
 			<label
 				for="username"
@@ -44,6 +33,7 @@
 				id="username"
 				class={validUsername === false ? 'error' : ''}
 				placeholder="Enter your username"
+				autocomplete="username"
 				bind:value={username}
 				on:blur={validateUsername}
 			/>
@@ -61,6 +51,7 @@
 				id="password"
 				class={validPassword === false ? 'error' : ''}
 				placeholder="Enter your password"
+				autocomplete="current-password"
 				bind:value={password}
 				on:blur={validatePassword}
 			/>
@@ -69,7 +60,7 @@
 			{/if}
 		</div>
 		<div class="login-button-row">
-			<LoginButton />
+			<LoginButton bind:disabled={invalidCreds} />
 		</div>
 	</form>
 	<slot />
