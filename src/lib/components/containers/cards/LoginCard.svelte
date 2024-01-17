@@ -1,11 +1,9 @@
 <script>
 	import { InputError, LoginButton } from '$lib/index.js'
 
-	export let username = ''
+	export let username = '', password = '', loginCallback = null
 
-	let password = '',
-		validUsername,
-		validPassword
+	let validUsername, validPassword
 
 	function validateUsername() {
 		return username !== ''
@@ -22,7 +20,7 @@
 
 <div class="login">
 	<div class="headline-l-xxl">Login</div>
-	<form name="login" action="?/login" method="POST">
+	<form name="login">
 		<div class="login-element">
 			<label
 				for="username"
@@ -60,7 +58,7 @@
 			{/if}
 		</div>
 		<div class="login-button-row">
-			<LoginButton bind:disabled={invalidCreds} />
+			<LoginButton callback={loginCallback} bind:disabled={invalidCreds} />
 		</div>
 	</form>
 	<slot />
