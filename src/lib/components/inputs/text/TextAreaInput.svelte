@@ -1,8 +1,7 @@
 <script>
 	import { CharacterCounter, Label, Tag } from '$lib/index.js'
 
-	export let
-		autofocus = false,
+	export let autofocus = false,
 		callback = null,
 		cols = '',
 		description = '',

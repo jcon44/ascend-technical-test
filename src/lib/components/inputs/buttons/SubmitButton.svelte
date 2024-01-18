@@ -1,6 +1,5 @@
 <script>
-	export let
-		callback = null,
+	export let callback = null,
 		classes = ['btn-fit', 'btn-l', 'btn-primary', 'btn-square'],
 		disabled = false,
 		text = 'Submit'

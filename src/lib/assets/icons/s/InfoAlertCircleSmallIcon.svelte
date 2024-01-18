@@ -2,10 +2,7 @@
 	import { Icon, getGlobalColorPalette } from '$lib/index.js'
 	import { onMount } from 'svelte'
 
-	export let styles = [
-		`border: var(--spacing01) solid var(--info-base)`,
-		`border-radius: var(--border-radius-xl)`
-	]
+	export let styles = [`border: var(--spacing01) solid var(--info-base)`, `border-radius: var(--border-radius-xl)`]
 
 	let palette = {}
 

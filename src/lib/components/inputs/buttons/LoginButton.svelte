@@ -1,7 +1,8 @@
 <script>
 	import { SubmitButton } from '$lib/index.js'
 
-	export let callback = null, disabled = false
+	export let callback = null,
+		disabled = false
 </script>
 
 <SubmitButton

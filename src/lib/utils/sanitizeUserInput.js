@@ -9,5 +9,5 @@ export default function sanitizeUserInput(string) {
 		'>': '&gt;',
 		'`': '&#x60;',
 	}
-	return String(string).replace(/[&<>"'`=/\\]/g, match => map[match])
+	return String(string).replace(/[&<>"'`=/\\]/g, (match) => map[match])
 }
