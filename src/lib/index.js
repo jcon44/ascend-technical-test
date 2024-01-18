@@ -242,6 +242,7 @@ export { default as SelectorInput } from '$lib/components/inputs/selectors/Selec
 export { default as PhoneNumberInput } from '$lib/components/inputs/tel/PhoneNumberInput.svelte'
 
 // Text
+export { default as FormTextInput } from '$lib/components/inputs/text/FormTextInput.svelte'
 export { default as SearchBar } from '$lib/components/inputs/text/SearchBar.svelte'
 export { default as TextAreaInput } from '$lib/components/inputs/text/TextAreaInput.svelte'
 export { default as TextInput } from '$lib/components/inputs/text/TextInput.svelte'
