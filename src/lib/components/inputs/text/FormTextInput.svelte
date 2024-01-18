@@ -4,7 +4,7 @@
 	export let value, label, validValue, validationCallback
 </script>
 
-<div class="login-input">
+<div class="login-element">
 	<label
 		for={label}
 		class="body-m-semibold"
@@ -27,7 +27,7 @@
 </div>
 
 <style>
-	.login-input {
+	.login-element {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
