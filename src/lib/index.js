@@ -55,6 +55,7 @@ export { default as XCircleExtraSmallIcon } from '$lib/assets/icons/xs/XCircleEx
 export { default as AscendLogo } from '$lib/assets/images/AscendLogo.svelte'
 export { default as AscendSymbol } from '$lib/assets/images/AscendSymbol.svelte'
 export { default as Error404Graphic } from '$lib/assets/images/Error404Graphic.svelte'
+export { default as AscendLoginBackground } from '$lib/assets/images/AscendLoginBackground.png'
 
 // Stylesheets
 export { default as GlobalCSS } from '$lib/stylesheets/global.css?inline'
