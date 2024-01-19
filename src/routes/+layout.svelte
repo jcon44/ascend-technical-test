@@ -1,4 +1,5 @@
 <script>
+	import './styles.css'
 	import { AscendLogoIcon, HeaderBar, Main, NavBar, ProfileButton, Shell, ToastArea } from '$lib/index.js'
 
 	const NavIcon = AscendLogoIcon

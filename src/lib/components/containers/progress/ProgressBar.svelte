@@ -6,10 +6,6 @@
 		type = ''
 
 	$: percentageComplete = ((value - min) / (max - min)) * 100
-
-	function getPercentage() {
-		return percentageComplete
-	}
 </script>
 
 <div
@@ -18,7 +14,7 @@
 >
 	<div
 		class={`progress-bar-fill ${type}`}
-		style={`width: ${getPercentage()}%`}
+		style={`width: ${percentageComplete}%`}
 	/>
 </div>
 

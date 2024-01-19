@@ -1,5 +1,7 @@
 <script>
 	import { Card, Page, ProgressBar, ProgressSpinner } from '$lib/index.js'
+
+	let progress = 0
 </script>
 
 <Page>
@@ -10,9 +12,15 @@
 	>
 		<div>
 			<h3>Alert Progress Bar (25%)</h3>
+			<div style='display: flex'>
+
+				<button class='btn-primary btn-m' on:click={progress++}>Prev</button>
+				<button class='btn-primary btn-m' on:click={progress--}>Next</button>
+			</div>
 			<br />
 			<ProgressBar
-				value="25"
+				bind:value={progress}
+				max='10'
 				type="alert"
 			/>
 		</div>
