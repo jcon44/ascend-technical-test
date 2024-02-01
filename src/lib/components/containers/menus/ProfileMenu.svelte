@@ -1,7 +1,8 @@
 <script>
 	import { LogoutMenuButton, Menu, ProfileIcon } from '$lib/index.js'
 
-	export let user,
+	export let username = '',
+		role='',
 		logoutCallback,
 		menuOpen,
 		menuList = [
@@ -30,8 +31,7 @@
 	>
 		<ProfileIcon />
 		<div class="user-info">
-			{user.name}
-			{user.role}
+			{`${username} ${role}`}
 		</div>
 	</div>
 	<div
