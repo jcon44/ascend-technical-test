@@ -17,7 +17,11 @@
 <div
 	on:click={callback || ''}
 	on:keypress={callback || ''}
-	class={`button-wrapper ${classes.includes('btn-full') ? 'btn-full' : 'btn-fit'}`}
+	class={`
+		button-wrapper
+		${classes.includes('btn-full') ? 'btn-full' : 'btn-fit'}
+		${disabled ? 'btn-disabled' : ''}
+	`}
 >
 	{#if url?.length}
 		<LinkButton

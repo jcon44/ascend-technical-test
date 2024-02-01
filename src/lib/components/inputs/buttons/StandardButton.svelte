@@ -24,11 +24,13 @@
 		class={`
 			btn-content-wrapper
 			${classes?.join(' ') ?? ''}
+			${disabled ? 'btn-disabled' : ''}
 		`}
 		style={styles.join(';')}
 	>
 		<ButtonContents
 			{bottomIcon}
+			{disabled}
 			{leftIcon}
 			{rightIcon}
 			{text}

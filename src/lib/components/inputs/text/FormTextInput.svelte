@@ -1,7 +1,7 @@
 <script>
 	import { capitalize, InputError } from '$lib/index.js'
 
-	export let value, label, validValue, validationCallback
+	export let value, label='', validValue, validationCallback
 </script>
 
 <div class="login-element">
