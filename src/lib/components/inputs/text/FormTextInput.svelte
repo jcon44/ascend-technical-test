@@ -1,7 +1,7 @@
 <script>
 	import { capitalize, InputError } from '$lib/index.js'
 
-	export let value, label='', validValue, validationCallback
+	export let value, label='', type = 'text', validValue, validationCallback
 </script>
 
 <div class="login-element">
@@ -11,16 +11,40 @@
 	>
 		{capitalize(label)}
 	</label>
-	<input
-		autocomplete={label}
-		bind:value
-		class={validValue === false ? 'error' : ''}
-		id={label}
-		name={label}
-		on:blur={validationCallback}
-		placeholder={`Enter your ${label}`}
-		type="text"
-	/>
+	{#if type === 'text'}
+		<input
+			autocomplete={label}
+			bind:value
+			class={validValue === false ? 'error' : ''}
+			id={label}
+			name={label}
+			on:blur={validationCallback}
+			placeholder={`Enter your ${label}`}
+			type='text'
+		/>
+	{:else if type === 'email'}
+		<input
+			autocomplete={label}
+			bind:value
+			class={validValue === false ? 'error' : ''}
+			id={label}
+			name={label}
+			on:blur={validationCallback}
+			placeholder={`Enter your ${label}`}
+			type='email'
+		/>
+	{:else if type === 'password'}
+		<input
+			autocomplete={label}
+			bind:value
+			class={validValue === false ? 'error' : ''}
+			id={label}
+			name={label}
+			on:blur={validationCallback}
+			placeholder={`Enter your ${label}`}
+			type='password'
+		/>
+	{/if}
 	{#if validValue === false}
 		<InputError text={`Please enter your ${label}`} />
 	{/if}
