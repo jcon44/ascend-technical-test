@@ -172,6 +172,20 @@ button {
 	background-color: var(--neutral-100);
 }
 
+/* Link */
+.btn-link {
+	background-color: var(--background-base);
+	border: none;
+	color: var(--neutral-base);
+	font-weight: 600;
+	text-decoration: underline var(--neutral-100) var(--spacing01);
+}
+.btn-link:active,
+.btn-link:focus,
+.btn-link:hover {
+	text-decoration: underline var(--primary-500) var(--spacing01);
+}
+
 /* Disabled */
 
 .btn-disabled {
