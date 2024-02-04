@@ -10,7 +10,8 @@
 		styles = [],
 		text = '',
 		topIcon = null,
-		url = ''
+		url = '',
+		target = false
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -30,6 +31,7 @@
 			{text}
 			{topIcon}
 			{url}
+			{target}
 		/>
 	{:else}
 		<StandardButton
