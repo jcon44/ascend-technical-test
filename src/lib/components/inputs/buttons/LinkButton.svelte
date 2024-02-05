@@ -9,11 +9,13 @@
 		styles = [],
 		text,
 		topIcon,
-		url = ''
+		url = '',
+		target = false
 </script>
 
 <a
 	href={disabled ? '#' : url}
+	target={target ? '_blank' : ''}
 	{disabled}
 	class={`
 		semibold
