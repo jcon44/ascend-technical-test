@@ -14,6 +14,12 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--spacing09);
-		justify-content: flex-start;
+		justify-content: center;
+	}
+
+	@media screen and (min-width: 768px) {
+		.card-grid {
+			justify-content: flex-start;
+		}	
 	}
 </style>

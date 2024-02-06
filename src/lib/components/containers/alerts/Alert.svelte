@@ -47,16 +47,16 @@
 		flex-direction: column;
 		gap: var(--spacing06);
 	}
+	.alert-content {
+		display: flex;
+		gap: var(--spacing06);
+	}
 	
 	@media screen and (min-width: 768px) {
 		.alert {
 			border: var(--spacing01) solid var(--neutral-050);
 			flex-direction: row;
 			justify-content: space-between;
-		}
-		.alert-content {
-			display: flex;
-			gap: var(--spacing06);
 		}
 		.alert-icon {
 			align-items: center;

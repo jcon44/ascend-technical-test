@@ -8,7 +8,13 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		padding: var(--spacing09) var(--spacing09) var(--spacing11) var(--spacing09);
+		padding: var(--spacing09);
 		width: 100%;
+	}
+
+	@media screen and (min-width: 768px) {
+		.dialog-footer {
+			padding: var(--spacing09) var(--spacing09) var(--spacing11) var(--spacing09);
+		}
 	}
 </style>

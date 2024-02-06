@@ -17,7 +17,7 @@
 </script>
 
 <div class="text-control">
-	<div class="text-input-title">
+	<div class="text-title">
 		{#if label}
 			<Label
 				{id}
@@ -62,7 +62,7 @@
 		width: 100%;
 	}
 
-	.text-input-title {
+	.text-title {
 		display: flex;
 		gap: var(--spacing05);
 		justify-content: flex-start;

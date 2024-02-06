@@ -50,14 +50,15 @@
 		z-index: 100;
 	}
 	dialog {
-		border-radius: var(--border-radius-xl);
+		border-radius: var(--spacing10);
 		border: none;
 		box-shadow:
 			0px var(--spacing04) var(--spacing10) var(--neutral-trans-050),
 			0px var(--spacing02) var(--spacing03) var(--spacing02) var(--neutral-trans-100);
 		display: block;
-		margin: auto;
-		width: var(--spacing30);
+		margin: var(--spacing09);
+		width: calc(100vw - var(--spacing12));
+		max-height: calc(100vh - var(--spacing12));
 	}
 	dialog:modal {
 		background-color: var(--background-base);
@@ -85,6 +86,15 @@
 		}
 		to {
 			opacity: 1;
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		dialog {
+			border-radius: var(--border-radius-xl);
+			width: var(--spacing30);
+			max-height: unset;
+			margin: auto;
 		}
 	}
 </style>
