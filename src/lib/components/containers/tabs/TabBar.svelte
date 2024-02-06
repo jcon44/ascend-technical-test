@@ -9,6 +9,7 @@
 	const tabWidth = 144 // Tab.svelte min-width var(--spacing16) + .tab-list gap var(--spacing09)
 
 	onMount(() => {
+		// TODO: need to fix a bug where a resized window doesn't update the tabBar width which messes up navigation
 		tabThing = document.getElementsByClassName('tab-list')[0]
 		tabBarMaxWidth = tabThing.clientWidth
 		tabListWidth = tabList.length * tabWidth
