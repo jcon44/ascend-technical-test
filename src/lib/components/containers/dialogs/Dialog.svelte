@@ -93,7 +93,6 @@
 		dialog {
 			border-radius: var(--border-radius-xl);
 			width: var(--spacing30);
-			max-height: unset;
 			margin: auto;
 		}
 	}

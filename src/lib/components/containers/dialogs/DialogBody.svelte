@@ -16,7 +16,6 @@
 	@media screen and (min-width: 768px) {
 		.dialog-body {
 			padding: var(--spacing09) var(--spacing11);
-			max-height: unset;
 		}
 	}
 </style>
