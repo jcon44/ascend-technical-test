@@ -1,7 +1,9 @@
 <script>
 	import { RadioOption } from '$lib/index.js'
 
-	export let group = '',
+	export let 
+		callback,
+		group = '',
 		list = [],
 		styles = []
 </script>
@@ -13,6 +15,7 @@
 	{#each list as item}
 		<RadioOption
 			bind:group
+			{callback}
 			label={item.label}
 			value={item.value}
 		/>

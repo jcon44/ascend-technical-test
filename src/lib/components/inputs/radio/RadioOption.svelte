@@ -1,7 +1,7 @@
 <script>
 	import { RadioInput } from '$lib/index.js'
 
-	export let group, label, value
+	export let callback, group, label, value
 
 	function selectValue() {
 		group = value
@@ -17,6 +17,7 @@
 >
 	<RadioInput
 		bind:group
+		{callback}
 		{value}
 	/>
 	<div class="semibold">
