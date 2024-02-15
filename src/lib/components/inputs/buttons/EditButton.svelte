@@ -3,7 +3,7 @@
 
 	export let callback,
 		classes = ['btn-m', 'btn-outline'],
-		url
+		url = ''
 </script>
 
 <Button

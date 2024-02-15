@@ -1,3 +1,4 @@
+<!-- svelte-ignore unused-export-let -->
 <script>
 	export let bottomIcon = null,
 		disabled = false,
