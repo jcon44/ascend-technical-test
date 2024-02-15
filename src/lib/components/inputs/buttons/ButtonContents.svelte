@@ -1,5 +1,6 @@
 <script>
 	export let bottomIcon = null,
+		disabled = false,
 		leftIcon = null,
 		rightIcon = null,
 		text = '',
