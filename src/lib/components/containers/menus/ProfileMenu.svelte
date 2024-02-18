@@ -12,11 +12,11 @@
 			},
 			{
 				name: 'Terms & Conditions',
-				url: '/terms-and-conditions',
+				url: 'https://ascend-innovations.com/legal/terms-and-conditions',
 			},
 			{
 				name: 'Privacy Policy',
-				url: '/privacy-policy',
+				url: 'https://ascend-innovations.com/legal/privacy-policy',
 			},
 		]
 </script>
