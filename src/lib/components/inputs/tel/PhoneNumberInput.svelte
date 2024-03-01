@@ -20,6 +20,7 @@
 	<input
 		bind:value={phoneNumber}
 		class="phone-number-input"
+		pattern="/^\d{10}$/"
 		style={styles.join(';')}
 		type="tel"
 		{id}
