@@ -13,7 +13,7 @@
 
 	onMount(() => {
 		if (toast.category === 'dismiss') {
-			setTimeout(() => closeToast(toast._id), 2000)
+			setTimeout(() => closeToast(toast._id), 3000)
 		}
 	})
 </script>
