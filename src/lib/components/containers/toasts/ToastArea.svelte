@@ -29,6 +29,7 @@
 		display: flex;
 		flex-direction: column-reverse;
 		gap: var(--spacing05);
+		border-radius: var(--spacing09);
 		overflow: auto;
 		position: fixed;
 		transform: translateX(-33%);
