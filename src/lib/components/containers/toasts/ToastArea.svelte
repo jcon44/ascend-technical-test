@@ -19,9 +19,10 @@
 
 <style>
 	.toast-area {
+		width: 100%;
 		display: flex;
 		justify-content: center;
-		position: static;
+		position: absolute;
 	}
 	.toast-list {
 		bottom: 5%;
@@ -30,6 +31,7 @@
 		gap: var(--spacing05);
 		overflow: auto;
 		position: fixed;
+		transform: translateX(-33%);
 		width: var(--spacing25);
 	}
 </style>

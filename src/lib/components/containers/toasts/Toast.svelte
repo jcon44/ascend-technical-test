@@ -73,6 +73,11 @@
 	.text-column {
 		width: var(--spacing22);
 	}
+	.text-body {
+		font-size: 13px;
+		color: var(--neutral-300);
+		margin-top: 4px;
+	}
 	.close-column {
 		color: white;
 	}
