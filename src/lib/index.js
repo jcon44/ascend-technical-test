@@ -224,12 +224,18 @@ export { default as DateTimePicker } from '$lib/components/inputs/datetime/DateT
 export { default as TimeInput } from '$lib/components/inputs/datetime/time/TimeInput.svelte'
 export { default as TimePicker } from '$lib/components/inputs/datetime/time/TimePicker.svelte'
 
+// Email
+export { default as EmailInput } from '$lib/components/inputs/email/EmailInput.svelte'
+
 // Number
 export { default as CharacterCounter } from '$lib/components/inputs/number/CharacterCounter.svelte'
 export { default as ZipCodeInput } from '$lib/components/inputs/number/ZipCodeInput.svelte'
 
 // Pagination
 export { default as Pagination } from '$lib/components/inputs/pagination/Pagination.svelte'
+
+// Password
+export { default as PasswordInput } from '$lib/components/inputs/password/PasswordInput.svelte'
 
 // Radio
 export { default as RadioDetailedList } from '$lib/components/inputs/radio/RadioDetailedList.svelte'
