@@ -55,14 +55,14 @@
 </div>
 
 <style>
-	.text-control {
+	.password-control {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing03);
 		width: 100%;
 	}
 
-	.text-title {
+	.password-title {
 		display: flex;
 		gap: var(--spacing05);
 		justify-content: flex-start;
