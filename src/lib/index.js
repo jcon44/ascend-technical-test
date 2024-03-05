@@ -135,10 +135,21 @@ export { default as TabContents } from '$lib/components/containers/tabs/TabConte
 // Tables
 export { default as Table } from '$lib/components/containers/tables/Table.svelte'
 export { default as TableBody } from '$lib/components/containers/tables/TableBody.svelte'
-export { default as TableCell } from '$lib/components/containers/tables/TableCell.svelte'
-export { default as TableColumnHeaderCell } from '$lib/components/containers/tables/TableColumnHeaderCell.svelte'
 export { default as TableHeaders } from '$lib/components/containers/tables/TableHeaders.svelte'
 export { default as TableRow } from '$lib/components/containers/tables/TableRow.svelte'
+
+// Table Cells
+export { default as ArrayCell } from '$lib/components/containers/tables/cells/ArrayCell.svelte'
+export { default as BooleanCell } from '$lib/components/containers/tables/cells/BooleanCell.svelte'
+export { default as ButtonCell } from '$lib/components/containers/tables/cells/ButtonCell.svelte'
+export { default as CheckboxCell } from '$lib/components/containers/tables/cells/CheckboxCell.svelte'
+export { default as DateCell } from '$lib/components/containers/tables/cells/DateCell.svelte'
+export { default as DefaultCell } from '$lib/components/containers/tables/cells/DefaultCell.svelte'
+export { default as EditableCell } from '$lib/components/containers/tables/cells/EditableCell.svelte'
+export { default as RadioCell } from '$lib/components/containers/tables/cells/RadioCell.svelte'
+export { default as TableCell } from '$lib/components/containers/tables/TableCell.svelte'
+export { default as TableColumnHeaderCell } from '$lib/components/containers/tables/TableColumnHeaderCell.svelte'
+export { default as TagCell } from '$lib/components/containers/tables/cells/TagCell.svelte'
 
 // Tags
 export { default as ErrorTag } from '$lib/components/containers/tags/ErrorTag.svelte'

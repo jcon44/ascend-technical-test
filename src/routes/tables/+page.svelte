@@ -1,45 +1,45 @@
 <script>
-	import { PageBody, Table, Button, StatusTag, RadioInput } from "ascend-ui"
+	import { EditButton, PageBody, RadioInput, StatusTag, Table } from '$lib/index'
 
-    const list = [
-        {
-            array: ['1','3','5'],
-            boolean: true,
-            button: Button,
-            checkbox: false,
-            date: new Date(),
-            radio: true,
-            tag: 'pending',
-            editable: 'test editable text',
-            default: 'default text'
-        },
-        {
-            array: ['2','4','6'],
-            boolean: false,
-            button: Button,
-            checkbox: true,
-            date: new Date(),
-            radio: false,
-            tag: 'approved',
-            editable: 'test editable text',
-            default: 'default text'
-        },
-        {
-            array: ['1','2','3'],
-            boolean: true,
-            button: Button,
-            checkbox: true,
-            date: new Date(),
-            radio: true,
-            tag: 'pending',
-            editable: 'test editable text',
-            default: 'default text'
-        }
-    ]
-
-    const columns = [
+	let list = [
 		{
-			title: 'Text',
+			array: ['1', '3', '5'],
+			boolean: true,
+			button: EditButton,
+			checkbox: false,
+			date: new Date('1/1/2022'),
+			default: 'B Default Text',
+			editable: 'B Editable Text',
+			radio: true,
+			status: 'pending',
+		},
+		{
+			array: ['2', '4', '6'],
+			boolean: false,
+			button: EditButton,
+			checkbox: true,
+			date: new Date('6/6/2023'),
+			default: 'A Default Text',
+			editable: 'A Editable Text',
+			radio: false,
+			status: 'approved',
+		},
+		// {
+		// 	array: ['1', '2', '3'],
+		// 	boolean: true,
+		// 	button: EditButton,
+		// 	checkbox: true,
+		// 	date: new Date('12/12/2024'),
+		// 	default: 'C Default Text',
+		// 	editable: 'C Editable Text',
+		// 	radio: true,
+		// 	status: 'pending',
+		// },
+	]
+
+	const columns = [
+		{
+			title: 'Default',
 			key: 'default',
 			type: 'text',
 			styles: ['flex: 2', 'max-width: 223px', 'white-space: nowrap', 'overflow: hidden', 'text-overflow: ellipsis', 'font-weight: bold'],
@@ -59,36 +59,36 @@
 		{
 			title: 'Tag',
 			component: StatusTag,
-			key: 'tag',
+			key: 'status',
 			type: 'tag',
 			styles: ['flex: 1'],
 		},
-        {
-            title: 'Editable',
-            key: 'editable',
-            type: 'editable',
-            styles: ['flex: 1']
-        },
-        {
-            title: 'Button',
-            component: Button,
-            key: 'button',
-            type: 'button',
-            styles: ['flex: 1']
-        },
-        {
-            title: 'Radio',
-            component: RadioInput,
-            key: 'radio',
-            type: 'radio',
-            styles: ['flex: 1']
-        }
+		{
+			title: 'Editable',
+			key: 'editable',
+			type: 'text',
+			styles: ['flex: 1'],
+		},
+		{
+			title: 'Button',
+			component: EditButton,
+			key: 'button',
+			type: 'button',
+			styles: ['flex: 1'],
+		},
+		{
+			title: 'Radio',
+			component: RadioInput,
+			key: 'radio',
+			type: 'radiolist',
+			styles: ['flex: 1'],
+		},
 	]
 </script>
 
-<PageBody size='full'>
-    <Table
+<PageBody size="full">
+	<Table
         {columns}
-        {list}
-    />
+        bind:list
+	/>
 </PageBody>

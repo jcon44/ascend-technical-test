@@ -2,7 +2,7 @@
 	import { LogoutMenuButton, Menu, ProfileIcon } from '$lib/index.js'
 
 	export let username = '',
-		role='',
+		role = '',
 		logoutCallback,
 		menuOpen,
 		menuList = [

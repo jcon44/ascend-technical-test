@@ -16,22 +16,22 @@
 
 <div class="url-control">
 	<div class="url-title">
-        <div class="url-title">
-            <Label
-                {id}
-                {label}
-            />
-            {#if tag !== null}
-                <Tag
-                    content={tag?.content || ''}
-                    icon={tag?.icon || null}
-                    side={tag?.side || ''}
-                    type={tag?.type || ''}
-                />
-            {/if}
-        </div>
+		<div class="url-title">
+			<Label
+				{id}
+				{label}
+			/>
+			{#if tag !== null}
+				<Tag
+					content={tag?.content || ''}
+					icon={tag?.icon || null}
+					side={tag?.side || ''}
+					type={tag?.type || ''}
+				/>
+			{/if}
+		</div>
 	</div>
-	
+
 	{#if description}
 		<div class="body-xs">{description}</div>
 	{/if}
@@ -41,7 +41,7 @@
 		class="text-input"
 		style={styles.join(';')}
 		type="url"
-        pattern="https://.*"
+		pattern="https://.*"
 		{autofocus}
 		{id}
 		{name}

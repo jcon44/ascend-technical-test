@@ -1,7 +1,11 @@
 <script>
 	import { capitalize, InputError } from '$lib/index.js'
 
-	export let value, label='', type = 'text', validValue, validationCallback
+	export let value,
+		label = '',
+		type = 'text',
+		validValue,
+		validationCallback
 </script>
 
 <div class="login-element">
@@ -20,7 +24,7 @@
 			name={label}
 			on:blur={validationCallback}
 			placeholder={`Enter your ${label}`}
-			type='text'
+			type="text"
 		/>
 	{:else if type === 'email'}
 		<input
@@ -31,7 +35,7 @@
 			name={label}
 			on:blur={validationCallback}
 			placeholder={`Enter your ${label}`}
-			type='email'
+			type="email"
 		/>
 	{:else if type === 'password'}
 		<input
@@ -42,7 +46,7 @@
 			name={label}
 			on:blur={validationCallback}
 			placeholder={`Enter your ${label}`}
-			type='password'
+			type="password"
 		/>
 	{/if}
 	{#if validValue === false}

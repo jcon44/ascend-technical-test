@@ -33,7 +33,7 @@
 			/>
 		{/if}
 	</div>
-	
+
 	{#if description}
 		<div class="body-xs">{description}</div>
 	{/if}

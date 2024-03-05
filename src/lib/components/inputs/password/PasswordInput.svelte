@@ -5,15 +5,15 @@
 		description = '',
 		id = '',
 		label = '',
-		tag = null,
 		maxlength = '',
 		minlength = '',
 		name = '',
+		password = '',
 		placeholder = '',
 		required = false,
 		styles = [],
 		tabindex = '',
-		password = ''
+		tag = null
 </script>
 
 <div class="password-control">
@@ -33,13 +33,13 @@
 			/>
 		{/if}
 	</div>
-	
+
 	{#if description}
 		<div class="body-xs">{description}</div>
 	{/if}
 	<!-- svelte-ignore a11y-autofocus -->
 	<input
-		bind:value={text}
+		bind:value={password}
 		class="password-input"
 		style={styles.join(';')}
 		type="password"

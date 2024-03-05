@@ -4,7 +4,7 @@
 	export let status = '',
 		time = ''
 
-	const statusKey = status ? status.replace(' ', '').toLowerCase() : ''
+	$: statusKey = status ? status.replace(' ', '').toLowerCase() : ''
 
 	const statusColorMap = {
 		approved: 'success',
@@ -17,16 +17,18 @@
 		subscribed: 'success',
 	}
 
-	const statusType = statusColorMap[statusKey]
+	$: statusType = statusColorMap[statusKey]
 
-	function getStatus() {
+	function getStatus(status, time) {
 		if ((status === 'Sent' || status === 'In Progress') && time) return `${status} ${time}`
 		else if (status === 'Scheduled' && time) return `${status} for ${time}`
 		else return status
 	}
+
+	$: displayStatus = getStatus(status, time)
 </script>
 
 <Tag
 	type={`${statusType}-subtle`}
-	content={getStatus()}
+	bind:content={displayStatus}
 />

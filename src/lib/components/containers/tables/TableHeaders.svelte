@@ -3,6 +3,7 @@
 
 	export let columns, list
 
+	// create sortMap object with keys that match the column's key with a value of empty string
 	const sortMap = {}
 	Object.values(columns).forEach((column) => {
 		if (column.key !== undefined) sortMap[column.key] = ''
@@ -12,7 +13,7 @@
 		// save the last sort order for this column
 		const previousSortOrder = sortMap[columnKey]
 
-		// reset all sortMap values to 'none'
+		// reset all sortMap values to empty string
 		Object.keys(sortMap).forEach((sortKey) => (sortMap[sortKey] = ''))
 
 		// set the new sorting order for this column
