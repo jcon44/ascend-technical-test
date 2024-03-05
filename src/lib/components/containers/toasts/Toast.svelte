@@ -13,7 +13,7 @@
 
 	onMount(() => {
 		if (toast.category === 'dismiss') {
-			setTimeout(() => closeToast(toast._id), 2000)
+			setTimeout(() => closeToast(toast._id), 3000)
 		}
 	})
 </script>
@@ -72,6 +72,11 @@
 	}
 	.text-column {
 		width: var(--spacing22);
+	}
+	.text-body {
+		font-size: 13px;
+		color: var(--neutral-300);
+		margin-top: 4px;
 	}
 	.close-column {
 		color: white;

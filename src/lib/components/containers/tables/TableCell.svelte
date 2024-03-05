@@ -1,13 +1,5 @@
 <script>
-	import ArrayCell from '$lib/components/containers/tables/cells/ArrayCell.svelte'
-	import BooleanCell from '$lib/components/containers/tables/cells/BooleanCell.svelte'
-	import ButtonCell from '$lib/components/containers/tables/cells/ButtonCell.svelte'
-	import CheckboxCell from '$lib/components/containers/tables/cells/CheckboxCell.svelte'
-	import DateCell from '$lib/components/containers/tables/cells/DateCell.svelte'
-	import DefaultCell from '$lib/components/containers/tables/cells/DefaultCell.svelte'
-	import EditableCell from '$lib/components/containers/tables/cells/EditableCell.svelte'
-	import RadioCell from '$lib/components/containers/tables/cells/RadioCell.svelte'
-	import TagCell from '$lib/components/containers/tables/cells/TagCell.svelte'
+	import { ArrayCell, BooleanCell, ButtonCell, CheckboxCell, DateCell, DefaultCell, EditableCell, RadioCell, TagCell } from '$lib/index'
 
 	export let column, row
 </script>

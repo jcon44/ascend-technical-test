@@ -18,7 +18,9 @@
 		margin: 0 auto;
 		padding-bottom: var(--spacing15);
 	}
-	.full, .thin, .wide {
+	.full,
+	.thin,
+	.wide {
 		align-items: start;
 		padding: 0 var(--spacing09);
 	}

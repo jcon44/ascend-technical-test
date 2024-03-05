@@ -3,5 +3,6 @@
 </script>
 
 <MainContent>
-	<h1>TEST</h1>
+	<h1>Ascend UI Component Library</h1>
+	<a href="/tables">Tables</a>
 </MainContent>

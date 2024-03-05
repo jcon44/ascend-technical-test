@@ -51,7 +51,7 @@
 		display: flex;
 		gap: var(--spacing06);
 	}
-	
+
 	@media screen and (min-width: 768px) {
 		.alert {
 			border: var(--spacing01) solid var(--neutral-050);

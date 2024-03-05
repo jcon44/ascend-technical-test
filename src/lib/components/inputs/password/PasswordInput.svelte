@@ -5,19 +5,19 @@
 		description = '',
 		id = '',
 		label = '',
-		tag = null,
 		maxlength = '',
 		minlength = '',
 		name = '',
+		password = '',
 		placeholder = '',
 		required = false,
 		styles = [],
 		tabindex = '',
-		text = ''
+		tag = null
 </script>
 
-<div class="text-control">
-	<div class="text-title">
+<div class="password-control">
+	<div class="password-title">
 		{#if label}
 			<Label
 				{id}
@@ -39,10 +39,10 @@
 	{/if}
 	<!-- svelte-ignore a11y-autofocus -->
 	<input
-		bind:value={text}
-		class="text-input"
+		bind:value={password}
+		class="password-input"
 		style={styles.join(';')}
-		type="text"
+		type="password"
 		{autofocus}
 		{id}
 		{name}
@@ -55,14 +55,14 @@
 </div>
 
 <style>
-	.text-control {
+	.password-control {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing03);
 		width: 100%;
 	}
 
-	.text-title {
+	.password-title {
 		display: flex;
 		gap: var(--spacing05);
 		justify-content: flex-start;

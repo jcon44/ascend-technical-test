@@ -1,8 +1,7 @@
 <script>
 	import { RadioOption } from '$lib/index.js'
 
-	export let 
-		callback,
+	export let callback,
 		group = '',
 		list = [],
 		styles = []

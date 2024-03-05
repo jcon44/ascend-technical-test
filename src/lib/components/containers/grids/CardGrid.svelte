@@ -20,6 +20,6 @@
 	@media screen and (min-width: 768px) {
 		.card-grid {
 			justify-content: flex-start;
-		}	
+		}
 	}
 </style>
