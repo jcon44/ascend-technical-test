@@ -1,6 +1,7 @@
 <script>
 	import { AlertCircleSmallIcon, CloseToastButton, SuccessCheckCircleSmallIcon } from '$lib/index.js'
 	import { createEventDispatcher, onMount } from 'svelte'
+	import { fade } from 'svelte/transition'
 
 	export let toast, delay
 
@@ -17,7 +18,7 @@
 	})
 </script>
 
-<div class="toast-container">
+<div class="toast-container" transition:fade>
 	<div class="toast-body">
 		<div class="icon-column">
 			{#if toast.purpose === 'success'}
@@ -53,6 +54,7 @@
 			0px var(--spacing02) var(--spacing03) var(--spacing02) var(--neutral-trans-100);
 		gap: var(--spacing11);
 		padding: var(--spacing09);
+		width: var(--spacing25);
 	}
 	.toast-body,
 	.toast-actions {

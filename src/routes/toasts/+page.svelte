@@ -15,6 +15,20 @@
 			id: 1,
 			purpose: 'error',
 			title: 'Error!',
+		},
+		{
+			body: 'Something else?',
+			category: 'action',
+			id: 2,
+			purpose: 'error',
+			title: 'Error!',
+		},
+		{
+			body: 'More problems!',
+			category: 'action',
+			id: 3,
+			purpose: 'error',
+			title: 'Error!',
 		}
 	]
 </script>
@@ -22,6 +36,7 @@
 <Page>
 	<h1>Toasts</h1>
 	<pre>
+		<code>
 		{`
 			const toastList = [
 				{
@@ -40,6 +55,7 @@
 				}
 			]
 		`}
+		</code>
 	</pre>
 	<ToastArea {toastList} />
 </Page>

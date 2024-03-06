@@ -10,8 +10,8 @@
 </script>
 
 {#if toastList?.length > 0}
-	<div class="toast-area" transition:fade>
-		<div class="toast-list">
+	<div class="toast-area">
+		<div class="toast-list" transition:fade>
 			{#each toastList as toast}
 				<Toast
 					{delay}
@@ -28,17 +28,19 @@
 		display: flex;
 		justify-content: center;
 		position: absolute;
-		width: 100%;
+		width: var(--spacing26);
 	}
 	.toast-list {
+		align-items: center;
+		border-radius: var(--spacing09);
 		bottom: 5%;
 		display: flex;
 		flex-direction: column-reverse;
 		gap: var(--spacing05);
-		border-radius: var(--spacing09);
 		overflow: auto;
+		padding: var(--spacing09) 0;
 		position: fixed;
 		transform: translateX(-33%);
-		width: var(--spacing25);
+		width: var(--spacing26);
 	}
 </style>
