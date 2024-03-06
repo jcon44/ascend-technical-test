@@ -1,16 +1,16 @@
 <script>
 	import { Toast } from '$lib/index.js'
+	import { fade } from 'svelte/transition'
 
 	export let toastList = undefined, delay = 3000
 
 	function removeToast(event) {
 		toastList = toastList.filter((toast) => toast.id !== event.detail.id)
 	}
-
 </script>
 
 {#if toastList?.length > 0}
-	<div class="toast-area">
+	<div class="toast-area" transition:fade>
 		<div class="toast-list">
 			{#each toastList as toast}
 				<Toast
@@ -25,10 +25,10 @@
 
 <style>
 	.toast-area {
-		width: 100%;
 		display: flex;
 		justify-content: center;
 		position: absolute;
+		width: 100%;
 	}
 	.toast-list {
 		bottom: 5%;
