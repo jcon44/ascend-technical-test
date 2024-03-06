@@ -1,7 +1,12 @@
 <script>
-	import { Toast, removeToast } from '$lib/index.js'
+	import { Toast } from '$lib/index.js'
 
-	export let toastList = undefined
+	export let toastList = undefined, delay = 3000
+
+	function removeToast(event) {
+		toastList = toastList.filter((toast) => toast.id !== event.detail.id)
+	}
+
 </script>
 
 {#if toastList?.length > 0}
@@ -9,8 +14,9 @@
 		<div class="toast-list">
 			{#each toastList as toast}
 				<Toast
+					{delay}
 					{toast}
-					on:timer={(e) => (toastList = removeToast(e, toastList))}
+					on:timer={(event) => removeToast(event)}
 				/>
 			{/each}
 		</div>

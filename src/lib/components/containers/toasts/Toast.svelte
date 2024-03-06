@@ -3,7 +3,7 @@
 	import { createEventDispatcher, onMount } from 'svelte'
 	import { fade } from 'svelte/transition'
 
-	export let toast
+	export let toast, delay
 
 	const dispatch = createEventDispatcher()
 
@@ -13,7 +13,7 @@
 
 	onMount(() => {
 		if (toast.category === 'dismiss') {
-			setTimeout(() => closeToast(toast._id), 3000)
+			setTimeout(() => closeToast(toast.id), delay)
 		}
 	})
 </script>
@@ -38,7 +38,7 @@
 		</div>
 		{#if toast.category === 'action'}
 			<div class="close-column">
-				<CloseToastButton callback={() => closeToast(toast._id)} />
+				<CloseToastButton callback={() => closeToast(toast.id)} />
 			</div>
 		{/if}
 	</div>

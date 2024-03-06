@@ -4,5 +4,6 @@
 
 <MainContent>
 	<h1>Ascend UI Component Library</h1>
-	<a href="/tables">Tables</a>
+	<p><a href="/tables">Tables</a></p>
+	<p><a href="/toasts">Toasts</a></p>
 </MainContent>
