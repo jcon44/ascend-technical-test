@@ -76,6 +76,7 @@ export { default as Card } from '$lib/components/containers/cards/Card.svelte'
 export { default as LinkCard } from '$lib/components/containers/cards/LinkCard.svelte'
 export { default as LoginCard } from '$lib/components/containers/cards/LoginCard.svelte'
 export { default as MetricCard } from '$lib/components/containers/cards/MetricCard.svelte'
+export { default as RegistrationCard } from '$lib/components/containers/cards/RegistrationCard.svelte'
 export { default as StandardCard } from '$lib/components/containers/cards/StandardCard.svelte'
 
 // Dialogs
@@ -112,6 +113,7 @@ export { default as PageBody } from '$lib/components/containers/layout/PageBody.
 export { default as PageDescription } from '$lib/components/containers/layout/PageDescription.svelte'
 export { default as PageFooter } from '$lib/components/containers/layout/PageFooter.svelte'
 export { default as PageHeader } from '$lib/components/containers/layout/PageHeader.svelte'
+export { default as RegistrationPage } from '$lib/components/containers/layout/RegistrationPage.svelte'
 export { default as Shell } from '$lib/components/containers/layout/Shell.svelte'
 
 // Menu
