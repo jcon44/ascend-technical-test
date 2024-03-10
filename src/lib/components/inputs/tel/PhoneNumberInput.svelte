@@ -3,13 +3,19 @@
 
 	export let id = '',
 		label = '',
-		maxlength = '10',
-		minlength = '10',
+		maxlength = "10",
+		minlength = "10",
 		phoneNumber = '',
 		placeholder = '',
 		required = false,
 		styles = [],
 		tabindex = ''
+
+	function digitsOnly() {
+		if (phoneNumber.length) {
+			phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
+		}
+	}
 </script>
 
 <div class="phone-number-control">
@@ -19,13 +25,14 @@
 	/>
 	<input
 		bind:value={phoneNumber}
+		on:keyup={digitsOnly}
 		class="phone-number-input"
-		pattern="/^\d{10}$/"
 		style={styles.join(';')}
+		pattern={`^[0-9]{10}$`}
 		type="tel"
 		{id}
-		{maxlength}
-		{minlength}
+		maxlength={maxlength}
+		minlength={minlength}
 		{placeholder}
 		{required}
 		{tabindex}
