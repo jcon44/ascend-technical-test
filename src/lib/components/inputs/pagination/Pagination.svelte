@@ -34,7 +34,6 @@
 		height: var(--spacing12);
 		justify-content: space-between;
 		padding: var(--spacing09);
-		position: sticky;
 	}
 	.page-number {
 		color: var(--neutral-400);
