@@ -6,12 +6,18 @@
 
 <div class="footer-bar">
 	<div class="company-signature">
-		A product by <strong>Ascend Innovations</strong>
+		Powered by <strong>Ascend Innovations</strong>
 	</div>
 	<div class="link-buttons">
-		<TermsAndConditionsButton url={termsAndConditionsURL} />
-		<PrivacyPolicyButton url={privacyPolicyURL} />
-		<ContactUsButton url={contactUsURL} />
+		{#if termsAndConditionsURL}
+			<TermsAndConditionsButton url={termsAndConditionsURL} />
+		{/if}
+		{#if privacyPolicyURL}
+			<PrivacyPolicyButton url={privacyPolicyURL} />
+		{/if}
+		{#if contactUsURL}
+			<ContactUsButton url={contactUsURL} />
+		{/if}
 	</div>
 </div>
 
