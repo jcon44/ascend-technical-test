@@ -28,7 +28,7 @@
 		display: flex;
 		justify-content: center;
 		position: absolute;
-		width: var(--spacing26);
+		width: 100%;
 	}
 	.toast-list {
 		align-items: center;
