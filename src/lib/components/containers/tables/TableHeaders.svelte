@@ -26,7 +26,7 @@
 </script>
 
 <div class="table-header-row">
-	{#each columns as column, columnIndex}
+	{#each columns as column}
 		<TableColumnHeaderCell
 			bind:list
 			order={sortMap[column.key]}
