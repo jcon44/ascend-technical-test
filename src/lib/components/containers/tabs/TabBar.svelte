@@ -71,6 +71,7 @@
 	.tab-bar {
 		align-items: center;
 		display: flex;
+		max-height: var(--spacing13);
 		width: 100%;
 	}
 	.tab-list {

@@ -129,6 +129,7 @@ export { default as ProgressBar } from '$lib/components/containers/progress/Prog
 export { default as ProgressSpinner } from '$lib/components/containers/progress/ProgressSpinner.svelte'
 
 // Tab
+export { default as CardTabContainer } from '$lib/components/containers/tabs/CardTabContainer.svelte'
 export { default as Tab } from '$lib/components/containers/tabs/Tab.svelte'
 export { default as TabBar } from '$lib/components/containers/tabs/TabBar.svelte'
 export { default as TabContainer } from '$lib/components/containers/tabs/TabContainer.svelte'
