@@ -7,10 +7,10 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		max-height: 72dvh;
 		overflow-y: auto;
 		padding: var(--spacing09);
 		width: 100%;
-		max-height: 72vh;
 	}
 
 	@media screen and (min-width: 768px) {
