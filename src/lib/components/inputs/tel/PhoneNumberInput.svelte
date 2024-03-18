@@ -1,5 +1,5 @@
 <script>
-	import { Label } from '$lib/index.js'
+	import { Label, InputError } from '$lib/index.js'
 
 	export let id = '',
 		label = '',
@@ -9,7 +9,9 @@
 		placeholder = '',
 		required = false,
 		styles = [],
-		tabindex = ''
+		tabindex = '',
+		validationCallback,
+		validValue
 
 	function digitsOnly() {
 		if (phoneNumber.length) {
@@ -26,7 +28,8 @@
 	<input
 		bind:value={phoneNumber}
 		on:keyup={digitsOnly}
-		class="phone-number-input"
+		on:blur={validationCallback}
+		class="phone-number-input {validValue === false ? 'error' : ''}"
 		style={styles.join(';')}
 		pattern={`^[0-9]{10}$`}
 		type="tel"
@@ -37,6 +40,9 @@
 		{required}
 		{tabindex}
 	/>
+	{#if validValue === false}
+		<InputError text={`Please enter your ${label}`} />
+	{/if}
 </div>
 
 <style>
