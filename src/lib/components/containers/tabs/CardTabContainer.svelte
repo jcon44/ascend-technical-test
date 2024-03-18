@@ -30,5 +30,6 @@
 	}
 	.card-tab-content {
 		max-height: calc(72dvh - var(--spacing09));
+		width: 100%;
 	}
 </style>
