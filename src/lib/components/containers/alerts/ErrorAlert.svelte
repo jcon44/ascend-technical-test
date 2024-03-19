@@ -41,6 +41,7 @@
 
 <style>
 	.alert {
+		background-color: var(--error-300);
 		border-radius: var(--spacing09);
 		display: flex;
 		flex-direction: column;
@@ -60,8 +61,8 @@
 		}
 		.alert-icon {
 			align-items: center;
-			background-color: var(--neutral-000);
-			border-radius: var(--border-radius-xl);
+			background-color: var(--neutral-500);
+			border-radius: var(--border-radius-full);
 			display: flex;
 			height: var(--spacing12);
 			justify-content: center;

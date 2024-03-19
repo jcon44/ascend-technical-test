@@ -70,6 +70,7 @@ export { default as ActionBar } from '$lib/components/containers/actionbars/Acti
 
 // Alerts
 export { default as Alert } from '$lib/components/containers/alerts/Alert.svelte'
+export { default as ErrorAlert } from '$lib/components/containers/alerts/ErrorAlert.svelte'
 
 // Cards
 export { default as Card } from '$lib/components/containers/cards/Card.svelte'
