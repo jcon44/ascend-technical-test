@@ -7,7 +7,7 @@
 </script>
 
 <div class="table-body-row">
-	{#each columns as column (column.id)}
+	{#each columns as column}
 		<TableCell
 			bind:column
 			bind:row
