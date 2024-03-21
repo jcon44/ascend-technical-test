@@ -38,9 +38,7 @@
 		flex-direction: column-reverse;
 		gap: var(--spacing05);
 		overflow: auto;
-		padding: var(--spacing09) 0;
+		padding: var(--spacing09);
 		position: fixed;
-		transform: translateX(-33%);
-		width: var(--spacing26);
 	}
 </style>

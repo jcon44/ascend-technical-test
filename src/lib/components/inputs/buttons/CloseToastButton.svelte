@@ -1,11 +1,11 @@
 <script>
-	import { Button, CloseSmallIcon } from '$lib/index.js'
+	import { Button, CloseSmallWhiteIcon } from '$lib/index.js'
 
 	export let callback
 </script>
 
 <Button
 	{callback}
-	classes={['btn-m', 'btn-outline', 'btn-square']}
-	leftIcon={CloseSmallIcon}
+	classes={['btn-m', 'btn-neutral', 'btn-square']}
+	leftIcon={CloseSmallWhiteIcon}
 />
