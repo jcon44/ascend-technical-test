@@ -109,7 +109,7 @@ export { default as Error404Page } from '$lib/components/containers/layout/Error
 export { default as LoginPage } from '$lib/components/containers/layout/LoginPage.svelte'
 export { default as Main } from '$lib/components/containers/layout/Main.svelte'
 export { default as MainContent } from '$lib/components/containers/layout/MainContent.svelte'
-export { default as Page } from '$lib/components/containers/layout/Page.svelte'
+export { default as Page } from '$lib/components/containers/pages/Page.svelte'
 export { default as PageBody } from '$lib/components/containers/layout/PageBody.svelte'
 export { default as PageDescription } from '$lib/components/containers/layout/PageDescription.svelte'
 export { default as PageFooter } from '$lib/components/containers/layout/PageFooter.svelte'
