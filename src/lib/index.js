@@ -105,16 +105,8 @@ export { default as Icon } from '$lib/components/containers/icons/Icon.svelte'
 export { default as Label } from '$lib/components/containers/labels/Label.svelte'
 
 // Layout
-export { default as Error404Page } from '$lib/components/containers/layout/Error404Page.svelte'
-export { default as LoginPage } from '$lib/components/containers/layout/LoginPage.svelte'
 export { default as Main } from '$lib/components/containers/layout/Main.svelte'
 export { default as MainContent } from '$lib/components/containers/layout/MainContent.svelte'
-export { default as Page } from '$lib/components/containers/pages/Page.svelte'
-export { default as PageBody } from '$lib/components/containers/layout/PageBody.svelte'
-export { default as PageDescription } from '$lib/components/containers/layout/PageDescription.svelte'
-export { default as PageFooter } from '$lib/components/containers/layout/PageFooter.svelte'
-export { default as PageHeader } from '$lib/components/containers/layout/PageHeader.svelte'
-export { default as RegistrationPage } from '$lib/components/containers/layout/RegistrationPage.svelte'
 export { default as Shell } from '$lib/components/containers/layout/Shell.svelte'
 
 // Menu
@@ -124,6 +116,16 @@ export { default as ProfileMenu } from '$lib/components/containers/menus/Profile
 // Navbar
 export { default as NavBar } from '$lib/components/containers/navbar/NavBar.svelte'
 export { default as NavBarHeader } from '$lib/components/containers/navbar/NavBarHeader.svelte'
+
+// Pages
+export { default as Error404Page } from '$lib/components/containers/pages/Error404Page.svelte'
+export { default as LoginPage } from '$lib/components/containers/pages/LoginPage.svelte'
+export { default as Page } from '$lib/components/containers/pages/Page.svelte'
+export { default as PageBody } from '$lib/components/containers/pages/PageBody.svelte'
+export { default as PageDescription } from '$lib/components/containers/pages/PageDescription.svelte'
+export { default as PageFooter } from '$lib/components/containers/pages/PageFooter.svelte'
+export { default as PageHeader } from '$lib/components/containers/pages/PageHeader.svelte'
+export { default as RegistrationPage } from '$lib/components/containers/pages/RegistrationPage.svelte'
 
 // Progress
 export { default as ProgressBar } from '$lib/components/containers/progress/ProgressBar.svelte'
