@@ -5,6 +5,7 @@
 		classes,
 		disabled,
 		leftIcon,
+		loading,
 		rightIcon,
 		styles = [],
 		text,
@@ -32,6 +33,7 @@
 			{bottomIcon}
 			{disabled}
 			{leftIcon}
+			{loading}
 			{rightIcon}
 			{text}
 			{topIcon}

@@ -12,10 +12,10 @@
 <div class="progress-spinner-container">
 	<svg
 		class="progress-spinner"
-		height="50"
+		height="24"
 		style="animation-duration:1000ms;"
 		viewbox="0 0 20 20"
-		width="50"
+		width="24"
 	>
 		<circle
 			cx="10"
@@ -32,6 +32,10 @@
 </div>
 
 <style>
+	.progress-spinner-container {
+		width: 100%;
+		height: 100%;
+	}
 	.progress-spinner {
 		animation-iteration-count: infinite;
 		animation-name: spin;

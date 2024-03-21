@@ -1,5 +1,5 @@
 <script>
-	import { Card, Page, ProgressBar, ProgressSpinner } from '$lib/index.js'
+	import { Card, ConfirmButton, Page, ProgressBar, ProgressSpinner } from '$lib/index.js'
 
 	let progress = 0
 </script>
@@ -11,15 +11,15 @@
 		styles={['width: 100%']}
 	>
 		<div>
-			<h3>Alert Progress Bar (25%)</h3>
+			<h3>Alert Progress Bar ({progress * 10}%)</h3>
 			<div style="display: flex">
 				<button
 					class="btn-primary btn-m"
-					on:click={progress++}>Prev</button
+					on:click={() => progress = progress - 1}>Less</button
 				>
 				<button
 					class="btn-primary btn-m"
-					on:click={progress--}>Next</button
+					on:click={() => progress = progress + 1}>More</button
 				>
 			</div>
 			<br />
@@ -63,5 +63,6 @@
 		styles={['width: 100%']}
 	>
 		<ProgressSpinner active="true" />
+		<ConfirmButton loading={true} />
 	</Card>
 </Page>

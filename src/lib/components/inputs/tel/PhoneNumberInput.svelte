@@ -3,8 +3,8 @@
 
 	export let id = '',
 		label = '',
-		maxlength = "10",
-		minlength = "10",
+		maxlength = '10',
+		minlength = '10',
 		phoneNumber = '',
 		placeholder = '',
 		required = false,
@@ -34,8 +34,8 @@
 		pattern={`^[0-9]{10}$`}
 		type="tel"
 		{id}
-		maxlength={maxlength}
-		minlength={minlength}
+		{maxlength}
+		{minlength}
 		{placeholder}
 		{required}
 		{tabindex}

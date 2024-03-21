@@ -2,7 +2,8 @@
 	import { Toast } from '$lib/index.js'
 	import { fade } from 'svelte/transition'
 
-	export let toastList = undefined, delay = 3000
+	export let toastList = undefined,
+		delay = 3000
 
 	function removeToast(event) {
 		toastList = toastList.filter((toast) => toast.id !== event.detail.id)
@@ -11,7 +12,10 @@
 
 {#if toastList?.length > 0}
 	<div class="toast-area">
-		<div class="toast-list" transition:fade>
+		<div
+			class="toast-list"
+			transition:fade
+		>
 			{#each toastList as toast}
 				<Toast
 					{delay}

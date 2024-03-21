@@ -8,14 +8,14 @@
 		disabled = false,
 		icon = arrow ? ArrowRightSmallIcon : null,
 		loading = false,
-		loadingIcon = ProgressSpinner,
+		// loadingIcon = ProgressSpinner,
 		text = '',
 		url = ''
 
-	onMount(() => {
-		if (loading) icon = loadingIcon
-		else icon = arrow ? ArrowRightSmallIcon : null
-	})
+	// onMount(() => {
+	// 	if (loading) icon = loadingIcon
+	// 	else icon = arrow ? ArrowRightSmallIcon : null
+	// })
 </script>
 
 <Button
@@ -23,6 +23,7 @@
 	{callback}
 	{classes}
 	{disabled}
+	{loading}
 	{text}
 	{url}
 />

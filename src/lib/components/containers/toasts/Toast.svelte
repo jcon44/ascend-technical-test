@@ -18,7 +18,10 @@
 	})
 </script>
 
-<div class="toast-container" transition:fade>
+<div
+	class="toast-container"
+	transition:fade
+>
 	<div class="toast-body">
 		<div class="icon-column">
 			{#if toast.purpose === 'success'}

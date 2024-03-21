@@ -1,16 +1,7 @@
 export default function sortArray(unsortedArray, columnKey, columnType, sortOrder) {
+	const numericValues = ['date', 'number']
 
-	const numericValues = [
-		'date',
-		'number',
-	]
-
-	const booleanValues = [
-		'boolean',
-		'checkbox',
-		'checklist',
-		'radiolist',
-	]
+	const booleanValues = ['boolean', 'checkbox', 'checklist', 'radiolist']
 
 	// sort the items by the column in the given order
 	return unsortedArray.sort((a, b) => {
@@ -33,7 +24,7 @@ export default function sortArray(unsortedArray, columnKey, columnType, sortOrde
 			if (sortOrder === 'newest') return aItem - bItem
 			else if (sortOrder === 'oldest') return bItem - aItem
 
-		// sorting boolean-based values
+			// sorting boolean-based values
 		} else if (booleanValues.includes(columnType)) {
 			// return based on sort order
 			if (sortOrder === 'newest') {
@@ -44,7 +35,6 @@ export default function sortArray(unsortedArray, columnKey, columnType, sortOrde
 				else if (!aItem && bItem) return 1
 			}
 			return 0
-
 		} else {
 			// convert items for 'array' columnType
 			if (columnType === 'array') {

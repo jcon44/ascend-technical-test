@@ -36,7 +36,7 @@
 			id: 3,
 			purpose: 'success',
 			title: 'Success!',
-		}
+		},
 	]
 </script>
 

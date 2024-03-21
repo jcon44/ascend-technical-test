@@ -6,6 +6,7 @@
 		classes = ['btn-fit', 'btn-m', 'btn-primary', 'btn-rect'],
 		disabled = false,
 		leftIcon = null,
+		loading = false,
 		rightIcon = null,
 		styles = [],
 		text = '',
@@ -43,6 +44,7 @@
 			{classes}
 			{disabled}
 			{leftIcon}
+			{loading}
 			{rightIcon}
 			{styles}
 			{text}

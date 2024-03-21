@@ -88,7 +88,7 @@
 
 <PageBody size="full">
 	<Table
-        {columns}
-        bind:list
+		{columns}
+		bind:list
 	/>
 </PageBody>

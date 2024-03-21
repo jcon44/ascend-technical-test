@@ -3,12 +3,14 @@
 
 	export let callback = null,
 		classes = ['btn-fit', 'btn-l', 'btn-square', 'btn-primary'],
+		loading = false,
 		url = ''
 </script>
 
 <Button
+	text="Confirm"
 	{callback}
 	{classes}
-	text="Confirm"
+	{loading}
 	{url}
 />

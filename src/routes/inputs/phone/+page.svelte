@@ -4,7 +4,6 @@
 	let phoneNumber = ''
 </script>
 
-
 <Page>
 	<PhoneNumberInput
 		id="phone-number"
