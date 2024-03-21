@@ -6,6 +6,6 @@
 
 <Button
 	{callback}
-	classes={['btn-m', 'btn-neutral', 'btn-square']}
+	classes={['btn-close-toast']}
 	leftIcon={CloseSmallWhiteIcon}
 />

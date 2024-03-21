@@ -2,33 +2,40 @@
 	import { Page, ToastArea } from '$lib/index.js'
 
 	const toastList = [
+		// {
+		// 	body: 'Yay!',
+		// 	category: 'dismiss',
+		// 	id: 0,
+		// 	purpose: 'success',
+		// 	title: 'Success!',
+		// },
+		// {
+		// 	body: 'Oh no, what now?',
+		// 	category: 'action',
+		// 	id: 1,
+		// 	purpose: 'error',
+		// 	title: 'Error!',
+		// },
+		// {
+		// 	body: 'Something else?',
+		// 	category: 'action',
+		// 	id: 2,
+		// 	purpose: 'error',
+		// 	title: 'Error!',
+		// },
+		// {
+		// 	body: 'More problems!',
+		// 	category: 'action',
+		// 	id: 3,
+		// 	purpose: 'error',
+		// 	title: 'Error!',
+		// },
 		{
-			body: 'Yay!',
-			category: 'dismiss',
-			id: 0,
-			purpose: 'success',
-			title: 'Success!',
-		},
-		{
-			body: 'Oh no, what now?',
-			category: 'action',
-			id: 1,
-			purpose: 'error',
-			title: 'Error!',
-		},
-		{
-			body: 'Something else?',
-			category: 'action',
-			id: 2,
-			purpose: 'error',
-			title: 'Error!',
-		},
-		{
-			body: 'More problems!',
+			body: '',
 			category: 'action',
 			id: 3,
-			purpose: 'error',
-			title: 'Error!',
+			purpose: 'success',
+			title: 'Success!',
 		}
 	]
 </script>

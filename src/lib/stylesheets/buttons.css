@@ -197,3 +197,19 @@ button {
 .btn-tab {
 	padding: var(--spacing05) var(--spacing03);
 }
+
+/* Toasts */
+
+.btn-close-toast {
+	background-color: var(--neutral-base);
+	color: var(--background-base);
+	font-size: var(--spacing06);
+	height: var(--spacing10);
+	padding: var(--spacing05);
+	width: var(--spacing10);
+}
+.btn-close-toast:active,
+.btn-close-toast:focus,
+.btn-close-toast:hover {
+	background-color: var(--neutral-600);
+}
