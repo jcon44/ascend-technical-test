@@ -175,6 +175,7 @@ export { default as ToastArea } from '$lib/components/containers/toasts/ToastAre
 export { default as browserBack } from '$lib/utils/browserBack.js'
 export { default as capitalize } from '$lib/utils/capitalize.js'
 export { default as closeDialog } from '$lib/utils/closeDialog.js'
+export { default as convertDBDateToJSDate } from '$lib/utils/convertDBDateToJSDate.js'
 export { default as formatDate } from '$lib/utils/formatDate.js'
 export { default as formatTimeStamp } from '$lib/utils/formatTimeStamp.js'
 export { default as getGlobalColorPalette } from '$lib/utils/getGlobalColorPalette.js'
