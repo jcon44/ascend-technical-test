@@ -1,10 +1,22 @@
-export default function formatTimeStamp(timestamp) {
-	const thisYear = timestamp.getFullYear()
-	const thisMonth = timestamp.getMonth() + 1
-	const thisDay = timestamp.getDate()
-	const thisHour = timestamp.getHours()
-	const thisMinute = timestamp.getMinutes() > 9 ? timestamp.getMinutes() : `0${timestamp.getMinutes()}`
-	const ampm = thisHour > 12 ? 'PM' : 'PM'
+export default function formatTimeStamp(dateTimeString) {
+	const dateTimeObject = new Date(dateTimeString)
 
-	return `${thisHour > 12 ? thisHour - 12 : thisHour}:${thisMinute}${ampm} ${thisMonth}/${thisDay}/${thisYear}`
+	if (isNaN(dateTimeObject)) {
+		console.log('Invalid date time string')
+		return ''
+	}
+
+	const thisYear = dateTimeObject.getFullYear()
+	const thisMonth = dateTimeObject.getMonth() + 1
+	const thisDay = dateTimeObject.getDate()
+	const dateString = `${thisMonth}/${thisDay}/${thisYear}`
+
+	const thisHour = dateTimeObject.getHours()
+	const thisMinute = dateTimeObject.getMinutes() > 9 ? dateTimeObject.getMinutes() : `0${dateTimeObject.getMinutes()}`
+	const ampm = thisHour > 12 ? 'PM' : 'PM'
+	const timeString = `${thisHour > 12 ? thisHour - 12 : thisHour}:${thisMinute}${ampm}`
+
+	const timeStampString = `${timeString} ${dateString}`
+
+	return timeStampString
 }
