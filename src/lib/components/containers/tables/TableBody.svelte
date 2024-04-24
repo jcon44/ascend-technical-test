@@ -5,7 +5,7 @@
 </script>
 
 <div class="table-body-container">
-	{#each list as row, rowIndex (row.id)}
+	{#each list as row, rowIndex (row.id || rowIndex)}
 		<TableRow
 			{columns}
 			bind:list

@@ -1,4 +1,6 @@
 export default function formatDate(timestamp) {
+	timestamp = new Date(timestamp)
+
 	let day = timestamp.getDate()
 	let month = timestamp.getMonth() + 1
 	let year = timestamp.getYear() + 1900

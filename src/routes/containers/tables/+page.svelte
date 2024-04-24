@@ -1,5 +1,5 @@
 <script>
-	import { EditButton, PageBody, RadioInput, StatusTag, Table } from '$lib/index'
+	import { EditButton, Page, PageBody, RadioInput, StatusTag, Table } from '$lib/index'
 
 	let list = [
 		{
@@ -7,7 +7,7 @@
 			boolean: true,
 			button: EditButton,
 			checkbox: false,
-			date: new Date('1/1/2022'),
+			date: '1/10/2022',
 			default: 'B Default Text',
 			editable: 'B Editable Text',
 			radio: true,
@@ -18,7 +18,7 @@
 			boolean: false,
 			button: EditButton,
 			checkbox: true,
-			date: new Date('6/6/2023'),
+			date: new Date('10/6/2023'),
 			default: 'A Default Text',
 			editable: 'A Editable Text',
 			radio: false,
@@ -86,9 +86,11 @@
 	]
 </script>
 
-<PageBody size="full">
-	<Table
-		{columns}
-		bind:list
-	/>
-</PageBody>
+<Page>
+	<PageBody size="full">
+		<Table
+			{columns}
+			bind:list
+		/>
+	</PageBody>
+</Page>
