@@ -3,7 +3,7 @@ export default function closeDialog(store) {
 		content: null,
 		data: null,
 		open: false,
-		title: ','
+		title: ',',
 	}
 	return store
 }

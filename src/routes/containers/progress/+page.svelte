@@ -15,11 +15,11 @@
 			<div style="display: flex">
 				<button
 					class="btn-primary btn-m"
-					on:click={() => progress = progress - 1}>Less</button
+					on:click={() => (progress = progress - 1)}>Less</button
 				>
 				<button
 					class="btn-primary btn-m"
-					on:click={() => progress = progress + 1}>More</button
+					on:click={() => (progress = progress + 1)}>More</button
 				>
 			</div>
 			<br />

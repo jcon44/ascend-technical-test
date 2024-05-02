@@ -172,25 +172,40 @@ export { default as ToastArea } from '$lib/components/containers/toasts/ToastAre
 
 // --- FUNCTIONS --- //
 
-export { default as browserBack } from '$lib/utils/browserBack.js'
-export { default as capitalize } from '$lib/utils/capitalize.js'
-export { default as closeDialog } from '$lib/utils/closeDialog.js'
-export { default as convertDBDateToJSDate } from '$lib/utils/convertDBDateToJSDate.js'
-export { default as formatDate } from '$lib/utils/formatDate.js'
-export { default as formatTimeStamp } from '$lib/utils/formatTimeStamp.js'
-export { default as getGlobalColorPalette } from '$lib/utils/getGlobalColorPalette.js'
-export { default as getIcon } from '$lib/utils/getIcon.js'
-export { default as isValidEmail } from '$lib/utils/isValidEmail.js'
-export { default as openDialog } from '$lib/utils/openDialog.js'
-export { default as parseURL } from '$lib/utils/parseURL.js'
-export { default as sanitizeUserInput } from '$lib/utils/sanitizeUserInput.js'
-export { default as setStyles } from '$lib/utils/setStyles.js'
-export { default as sortArray } from '$lib/utils/sort/sortArray.js'
-export { default as sortByDate } from '$lib/utils/sort/sortByDate.js'
-export { default as sortTable } from '$lib/utils/sort/sortTable.js'
-export { default as todaysDate } from '$lib/utils/todaysDate.js'
-export { default as withinDateRange } from '$lib/utils/withinDateRange.js'
-export { default as withinTimeRange } from '$lib/utils/withinTimeRange.js'
+// Filtering
+export { default as withinDateRange } from '$lib/functions/filtering/withinDateRange.js'
+export { default as withinTimeRange } from '$lib/functions/filtering/withinTimeRange.js'
+
+// Formatting
+export { default as capitalize } from '$lib/functions/formatting/capitalize.js'
+export { default as convertDBDateToJSDate } from '$lib/functions/formatting/convertDBDateToJSDate.js'
+export { default as formatDate } from '$lib/functions/formatting/formatDate.js'
+export { default as formatTimeStamp } from '$lib/functions/formatting/formatTimeStamp.js'
+export { default as parseURL } from '$lib/functions/formatting/parseURL.js'
+
+// Navigation
+export { default as browserBack } from '$lib/functions/navigation/browserBack.js'
+export { default as closeDialog } from '$lib/functions/navigation/closeDialog.js'
+export { default as openDialog } from '$lib/functions/navigation/openDialog.js'
+
+// Security
+export { default as sanitizeUserInput } from '$lib/functions/security/sanitizeUserInput.js'
+export { default as validateCredentials } from '$lib/functions/security/sanitizeUserInput.js'
+export { default as validateEmail } from '$lib/functions/security/validateEmail.js'
+export { default as validatePassword } from '$lib/functions/security/validatePassword.js'
+
+// Sorting
+export { default as sortArray } from '$lib/functions/sorting/sortArray.js'
+export { default as sortByDate } from '$lib/functions/sorting/sortByDate.js'
+export { default as sortTable } from '$lib/functions/sorting/sortTable.js'
+
+// Styling
+export { default as getGlobalColorPalette } from '$lib/functions/styling/getGlobalColorPalette.js'
+export { default as getIcon } from '$lib/functions/styling/getIcon.js'
+export { default as setStyles } from '$lib/functions/styling/setStyles.js'
+
+// Utility
+export { default as todaysDate } from '$lib/functions/utils/todaysDate.js'
 
 // --- INPUTS --- //
 

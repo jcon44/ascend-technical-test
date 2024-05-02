@@ -22,7 +22,7 @@
 </script>
 
 <div class="phone-number-control">
-	<div class='phone-number-title'>
+	<div class="phone-number-title">
 		{#if label}
 			<Label
 				{id}

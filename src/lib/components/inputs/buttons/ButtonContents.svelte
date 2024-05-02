@@ -1,6 +1,6 @@
 <!-- svelte-ignore unused-export-let -->
 <script>
-	import { ProgressSpinner } from "$lib/index.js"
+	import { ProgressSpinner } from '$lib/index.js'
 
 	export let bottomIcon = null,
 		disabled = false,
@@ -12,71 +12,71 @@
 </script>
 
 <div class="button-contents">
-		{#if text}
-			{#if topIcon}
-				<div class="block-content">
-					{#if loading}
-						<ProgressSpinner active={true} />
-					{:else}
-						<svelte:component this={topIcon} />
-					{/if}
-					{text}
-				</div>
-			{:else if bottomIcon}
-				<div class="block-content">
-					{text}
-					{#if loading}
-						<ProgressSpinner active={true} />
-					{:else}
-						<svelte:component this={bottomIcon} />
-					{/if}
-				</div>
-			{:else if leftIcon && rightIcon}
-				<div class="inline-content">
-					{#if loading}
-						<ProgressSpinner active={true} />
-					{:else}
-						<svelte:component this={leftIcon} />
-					{/if}
-					{text}
+	{#if text}
+		{#if topIcon}
+			<div class="block-content">
+				{#if loading}
+					<ProgressSpinner active={true} />
+				{:else}
+					<svelte:component this={topIcon} />
+				{/if}
+				{text}
+			</div>
+		{:else if bottomIcon}
+			<div class="block-content">
+				{text}
+				{#if loading}
+					<ProgressSpinner active={true} />
+				{:else}
+					<svelte:component this={bottomIcon} />
+				{/if}
+			</div>
+		{:else if leftIcon && rightIcon}
+			<div class="inline-content">
+				{#if loading}
+					<ProgressSpinner active={true} />
+				{:else}
+					<svelte:component this={leftIcon} />
+				{/if}
+				{text}
+				<svelte:component this={rightIcon} />
+			</div>
+		{:else if leftIcon}
+			<div class="inline-content">
+				{#if loading}
+					<ProgressSpinner active={true} />
+				{:else}
+					<svelte:component this={leftIcon} />
+				{/if}
+				{text}
+			</div>
+		{:else if rightIcon}
+			<div class="inline-content">
+				{text}
+				{#if loading}
+					<ProgressSpinner active={true} />
+				{:else}
 					<svelte:component this={rightIcon} />
-				</div>
-			{:else if leftIcon}
-				<div class="inline-content">
-					{#if loading}
-						<ProgressSpinner active={true} />
-					{:else}
-						<svelte:component this={leftIcon} />
-					{/if}
-					{text}
-				</div>
-			{:else if rightIcon}
-				<div class="inline-content">
-					{text}
-					{#if loading}
-						<ProgressSpinner active={true} />
-					{:else}
-						<svelte:component this={rightIcon} />
-					{/if}
-				</div>
-			{:else}
-				<div class="block-content">
-					{#if loading}
-						<ProgressSpinner active={true} />
-					{:else}
-						{text}
-					{/if}
-				</div>
-			{/if}
+				{/if}
+			</div>
 		{:else}
 			<div class="block-content">
 				{#if loading}
 					<ProgressSpinner active={true} />
 				{:else}
-					<svelte:component this={leftIcon || rightIcon || topIcon || bottomIcon} />
+					{text}
 				{/if}
 			</div>
 		{/if}
+	{:else}
+		<div class="block-content">
+			{#if loading}
+				<ProgressSpinner active={true} />
+			{:else}
+				<svelte:component this={leftIcon || rightIcon || topIcon || bottomIcon} />
+			{/if}
+		</div>
+	{/if}
 </div>
 
 <style>
