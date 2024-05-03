@@ -1,8 +1,13 @@
 <script>
+	import DownloadSmallIcon from '$lib/assets/icons/s/DownloadSmallIcon.svelte'
 	import { Button } from '$lib/index.js'
+
+	export let callback
 </script>
 
 <Button
-	classes={['btn-fit', 'btn-l', 'btn-outline', 'btn-rect']}
+	{callback}
+	classes={['btn-outline', 'btn-m', 'btn-rect', 'semibold', 'btn-inline']}
+	leftIcon={DownloadSmallIcon}
 	text="Export CSV"
 />
