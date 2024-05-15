@@ -2,17 +2,19 @@
     import * as d3 from 'd3'
 
     export let data, 
-            style, 
+            title,
+            styles = [],
+            barColors = ['var(--primary-base)', 'var(--secondary-base)', 'var(--tertiary-base)', 'var(--primary-300)', 'var(--secondary-300)'],
             type = 'vertical',
             xKey, 
             yKey
 
     let width = 750
     let height = 400
-    let marginLeft = type === 'vertical' ? 20 : 125
-    let marginRight = type === 'vertical' ? 20 : 50
-    let marginTop = type === 'vertical' ? 50 : 20
-    let marginBottom = type === 'vertical' ? 50 : 20
+    let marginLeft = type === 'vertical' ? 0 : 125
+    let marginRight = type === 'vertical' ? 0 : 50
+    let marginTop = type === 'vertical' ? 25 : 20
+    let marginBottom = type === 'vertical' ? 25 : 20
     let xScale, yScale
 
     if (type === 'vertical') {
@@ -44,7 +46,14 @@
     }
 </script>
 
-<div class='bar-chart-frame' {style}>
+<div class='bar-chart-frame' style={styles.join(';')}>
+    {#if title}
+        <div class="chart-header">
+            <h2 class="body-xxl">{title}</h2>
+            <slot name="chart-header-contents" />
+        </div>
+    {/if}
+
     <svg
         class='bar-chart-svg'
         {width}
@@ -53,10 +62,11 @@
         style="max-width:100%;height:auto;"
     >
         <!-- Bars -->
-        <g class='bars' fill='var(--primary-base)'>
-            {#each data as d}
+        <g class='bars'>
+            {#each data as d, i}
                 {#if type === 'vertical'}
                     <rect 
+                        fill={barColors[i]}
                         x={xScale(d[xKey])}
                         y={yScale(d[yKey])}
                         height={yScale(0) - yScale(d[yKey])}
@@ -74,6 +84,7 @@
                     </text>
                 {:else if type === 'horizontal'}
                     <rect
+                        fill={barColors[i]}
                         x={marginLeft}
                         y={yScale(d[yKey])}
                         height={yScale.bandwidth()}
@@ -126,6 +137,8 @@
             </g>
         {/if}
     </svg>
+
+    <slot name="chart-footer-contents" />
 </div>
 
 <style>
@@ -134,10 +147,21 @@
         height: auto;
         border: 1px solid black;
         border-radius: 24px;
+        padding: var(--spacing09);
     }
 
     .bar-chart-svg {
         width: 100%;
         height: 100%;
+    }
+
+    .chart-header {
+        padding-bottom: var(--spacing09);
+    }
+
+    .header-slot, .footer-slot {
+        padding-top: var(--spacing09);
+        display: flex;
+        gap: var(--spacing09);
     }
 </style>

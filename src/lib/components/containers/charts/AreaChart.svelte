@@ -4,18 +4,18 @@
 	import Tooltip from '../labels/Tooltip.svelte'
 
     export let data, 
+            title,
             areaColors = ['var(--primary-trans-300)', 'var(--secondary-trans-300', 'var(--neutral-trans-200'],
             lineColors = ['var(--primary-base)', 'var(--secondary-base)', 'var(--neutral-base)'],
-            style,
+            styles = [],
             xKey, 
             yKey,
-            stacked = false,
-            tooltip = false
+            stacked = false
 
     let width = 750
     let height = 400
-    let marginLeft = 20
-    let marginRight = 20
+    let marginLeft = 0 // 20
+    let marginRight = 0 // 20
     let marginTop = 50
     let marginBottom = 50
 
@@ -66,18 +66,18 @@
         lines.push(path)
         areas.push(`${path}L${xScale(maxX)},${yScale(0)}L${xScale(minX)},${yScale(0)}Z`)
     }
-
-    let m = { x: 0, y: 0 }
-    function handleTooltip(e) {
-        m.x = e.offsetX
-        m.y = e.offsetY
-    }
 </script>
 
-<div class='area-chart-frame' {style}>
+<div class='area-chart-frame' style={styles.join(';')}>
+    {#if title}
+        <div class="chart-header">
+            <h2 class="body-xxl">{title}</h2>
+            <slot name="chart-header-contents" />
+        </div>
+    {/if}
+
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <svg
-        on:mousemove={handleTooltip}
         class="area-chart-svg"
         {width}
         {height}
@@ -135,6 +135,8 @@
             {/if}
         </g>
     </svg>
+
+    <slot name="chart-footer-contents" />
 </div>
 
 <style>
@@ -148,5 +150,9 @@
     .area-chart-svg {
         width: 100%;
         height: 100%;
+    }
+
+    .chart-header {
+        padding: var(--spacing09);
     }
 </style>
