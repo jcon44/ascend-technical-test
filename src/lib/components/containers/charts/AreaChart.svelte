@@ -1,12 +1,12 @@
 <script>
     import * as d3 from 'd3'
     import { formatDate } from '$lib';
-	import Tooltip from '../labels/Tooltip.svelte'
+	import ChartTooltip from '../labels/ChartTooltip.svelte'
 
     export let data, 
             title,
-            areaColors = ['var(--primary-trans-300)', 'var(--secondary-trans-300', 'var(--neutral-trans-200'],
-            lineColors = ['var(--primary-base)', 'var(--secondary-base)', 'var(--neutral-base)'],
+            areaColors = ['var(--secondary-trans-600)', 'var(--secondary-trans-500)', 'var(--secondary-trans-400)', 'var(--secondary-trans-300)', 'var(--secondary-trans-200)', 'var(--secondary-trans-100)'],
+            lineColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)'],
             styles = [],
             xKey, 
             yKey,
@@ -66,6 +66,12 @@
         lines.push(path)
         areas.push(`${path}L${xScale(maxX)},${yScale(0)}L${xScale(minX)},${yScale(0)}Z`)
     }
+
+    let mouse = { x: 0, y: 0 }
+    function handleTooltip(e) {
+        mouse.x = e.offsetX
+        mouse.y = e.offsetY    
+    }
 </script>
 
 <div class='area-chart-frame' style={styles.join(';')}>
@@ -76,7 +82,6 @@
         </div>
     {/if}
 
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <svg
         class="area-chart-svg"
         {width}
@@ -92,9 +97,9 @@
             {/each}
         </defs>
 
-        <!-- Gradient was working and then stopped working. TODO: investigate -->
+        <!-- TODO Gradient was working and then stopped working -->
         {#each areas as area, i}
-            <path 
+            <path
                 fill={areaColors[i]}
                 d={area}
             />
@@ -134,6 +139,8 @@
                 {/each}
             {/if}
         </g>
+
+        <!-- <ChartTooltip x={mouse.x} y={mouse.y} /> -->
     </svg>
 
     <slot name="chart-footer-contents" />

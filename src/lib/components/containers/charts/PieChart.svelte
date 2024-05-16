@@ -4,7 +4,7 @@
     export let data,
             title,
             styles = [],
-            arcColors = [],
+            arcColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)'],
             xKey,
             yKey,
             ring = false
@@ -99,11 +99,6 @@
 
     .label-text {
         font-size: 24px;
-    }
-
-    .chart-total {
-        font-size: 32px;
-        font-weight: 600;
     }
 
     .chart-header {
