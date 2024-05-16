@@ -21,8 +21,8 @@
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div class="check-all">
 			<CheckboxInput
-				callback={toggleCheckAll}
 				bind:checked={allChecked}
+				callback={toggleCheckAll}
 			/>
 		</div>
 	{:else}

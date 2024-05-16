@@ -10,9 +10,9 @@
 >
 	{#if column?.type === 'array'}
 		<ArrayCell
-			callback={column.callback}
 			bind:column
 			bind:row
+			callback={column.callback}
 		/>
 	{:else if column?.type === 'boolean'}
 		<BooleanCell
@@ -26,13 +26,13 @@
 		/>
 	{:else if column?.type === 'checkbox' || column?.type === 'checkall'}
 		<CheckboxCell
-			callback={column.callback}
 			bind:selected={row.selected}
+			callback={column.callback}
 		/>
 	{:else if column?.type === 'checklist'}
 		<CheckboxCell
-			callback={column.callback}
 			bind:selected={row[column.key]}
+			callback={column.callback}
 		/>
 	{:else if column?.type === 'date'}
 		<DateCell
@@ -41,8 +41,8 @@
 		/>
 	{:else if column?.type === 'radiolist'}
 		<RadioCell
-			callback={column.callback}
 			bind:group={row.group}
+			callback={column.callback}
 			value={column.key}
 		/>
 	{:else if column?.type === 'tag'}
