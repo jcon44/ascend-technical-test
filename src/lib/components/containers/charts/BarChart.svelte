@@ -8,6 +8,7 @@
             vertical = false,
             horizontal = false,
             stacked = false,
+            sort = null, // TODO: BUILD IN LOGIC TO TOGGLE SORTED VIEWS (MAY BE CONTROLLED OUTSIDE COMPONENT)
             xKey,
             yKey,
             seriesKey = null
@@ -22,8 +23,6 @@
 
     if (vertical) {
         if (stacked) {
-            // seriesNames = Object.keys(data[0]).filter((d) => d !== xKey)
-
             stack = d3.stack()
                 .keys(d3.union(data.map((d) => d[seriesKey])))
                 .value(([, D], key) => D.get(key)[yKey])
@@ -200,6 +199,7 @@
         <!-- Side Axis -->
         {#if horizontal}
             <g class='side-axis' transform="translate({marginLeft}, 0)">
+                <!-- <line stroke="green" y1={marginTop} y2={height-marginBottom} /> -->
                 {#each data as d}
                     <text
                         fill="gray"

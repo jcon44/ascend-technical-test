@@ -1,7 +1,6 @@
 <script>
     import * as d3 from 'd3'
     import { formatDate } from '$lib';
-	import ChartTooltip from '../labels/ChartTooltip.svelte'
 
     export let data, 
             title,
@@ -65,12 +64,6 @@
         path = `M${data.map((d) => `${xScale(d[xKey])},${yScale(d[yKey])}`).join('L')}`
         lines.push(path)
         areas.push(`${path}L${xScale(maxX)},${yScale(0)}L${xScale(minX)},${yScale(0)}Z`)
-    }
-
-    let mouse = { x: 0, y: 0 }
-    function handleTooltip(e) {
-        mouse.x = e.offsetX
-        mouse.y = e.offsetY    
     }
 </script>
 
@@ -139,8 +132,6 @@
                 {/each}
             {/if}
         </g>
-
-        <!-- <ChartTooltip x={mouse.x} y={mouse.y} /> -->
     </svg>
 
     <slot name="chart-footer-contents" />

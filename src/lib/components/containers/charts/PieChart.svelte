@@ -1,5 +1,6 @@
 <script>
     import * as d3 from 'd3'
+    import ChartKey from "$lib/components/containers/labels/ChartKey.svelte";
 
     export let data,
             title,
@@ -36,6 +37,9 @@
     {#if title}
         <div class="chart-header">
             <h2 class="body-xxl">{title}</h2>
+            {#each data as d, i}
+                <ChartKey color={arcColors[i]} text={d[xKey]} />
+            {/each}
             <slot name="chart-header-contents" />
         </div>
     {/if}

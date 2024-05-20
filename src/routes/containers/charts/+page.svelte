@@ -244,8 +244,8 @@
                 <p class="p">API props unique to Area Charts:</p>
                 <ul>
                     <li><p><code>stacked</code>: (optional) Boolean defaults to false.</p></li>
-                    <li><p><code>areaColors</code>: (optional) An array of colors for the area fill below the line.</p></li>
-                    <li><p><code>lineColors</code>: (optional) An array of colors for the line fill.</p></li>
+                    <li><p><code>areaColors</code>: (optional) An array of colors for the area fill below the line. Default has enough for 6 areas</p></li>
+                    <li><p><code>lineColors</code>: (optional) An array of colors for the line fill. Default has enough for 6 lines</p></li>
                 </ul>
             </div>
             <div class='simple-area-chart'>
@@ -334,7 +334,7 @@
             <div>
                 <p class="p">API props unique to Pie Charts:</p>
                 <ul>
-                    <li><p><code>arcColors</code>: (optional) An array of colors to define the color of each section.</p></li>
+                    <li><p><code>arcColors</code>: (optional) An array of colors to define the color of each section. Default has enough for up to 6 sections.</p></li>
                     <li><p><code>ring</code>: (optional) Boolean defaults to false.</p></li>
                 </ul>
             </div>
