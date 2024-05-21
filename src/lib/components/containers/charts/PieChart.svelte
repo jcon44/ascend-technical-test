@@ -8,19 +8,31 @@
             arcColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)'],
             xKey,
             yKey,
+            sort = null,
             ring = false
 
     let width = 750
     let height = 400
     let total = 0
+    let pie
 
     for (let item of data) {
         total += item.value
     }
 
-    const pie = d3.pie()
-        .sort(null)
-        .value((d) => d[yKey])
+    if (sort === 'ascending') {
+        pie = d3.pie()
+            .sort((a, b) => d3.ascending(a[yKey], b[yKey]))
+            .value((d) => d[yKey])
+    } else if (sort === 'descending') {
+        pie = d3.pie()
+            .sort((a, b) => d3.descending(a[yKey], b[yKey]))
+            .value((d) => d[yKey])
+    } else {
+        pie = d3.pie()
+            .sort(null)
+            .value((d) => d[yKey])
+    }
 
     const arcPath = d3.arc()
         .innerRadius(ring ? width / 5.5 : 0)
@@ -37,9 +49,6 @@
     {#if title}
         <div class="chart-header">
             <h2 class="body-xxl">{title}</h2>
-            {#each data as d, i}
-                <ChartKey color={arcColors[i]} text={d[xKey]} />
-            {/each}
             <slot name="chart-header-contents" />
         </div>
     {/if}

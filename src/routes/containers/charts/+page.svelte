@@ -109,12 +109,14 @@
                     <li><p><code>vertical</code>: (optional) Boolean defaults to false.</p></li>
                     <li><p><code>horizontal</code>: (optional) Boolean defaults to false.</p></li>
                     <li><p><code>stacked</code>: (optional) Boolean defaults to false.</p></li>
+                    <li><p><code>sort</code>: (optional) Can be "ascending" or "descending". Defaults to null.</p></li>
                     <li><p><code>barColors</code>: (optional) An array of color values (Default has values for up to 7 bars/series)</p></li>
                 </ul>
             </div>
             <div class='simple-v-bar'>
                 <BarChart 
                     vertical
+                    sort='descending'
                     title="Simple Vertical Bar Chart"
                     data={barData} 
                     xKey="x" 
@@ -336,6 +338,7 @@
                 <ul>
                     <li><p><code>arcColors</code>: (optional) An array of colors to define the color of each section. Default has enough for up to 6 sections.</p></li>
                     <li><p><code>ring</code>: (optional) Boolean defaults to false.</p></li>
+                    <li><p><code>sort</code>: (optional) Can be "ascending" or "descending". Defaults to null.</p></li>
                 </ul>
             </div>
             <div class='pie-chart'>
@@ -344,6 +347,7 @@
                     title="Pie Chart"
                     xKey="name" 
                     yKey="value" 
+                    sort='descending'
                 />
                 <details>
                     <summary>Data</summary>

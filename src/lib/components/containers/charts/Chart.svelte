@@ -16,6 +16,7 @@
         vertical,
         horizontal,
         stacked,
+        sort,
         seriesKey,
         ring
 </script>
@@ -31,6 +32,7 @@
         {vertical}
         {horizontal}
         {stacked}
+        {sort}
         {seriesKey}
     />
 {:else if type === 'area'}
@@ -50,6 +52,7 @@
         {title}
         {xKey}
         {yKey}
+        {sort}
         {styles}
         {arcColors}
         {ring}
