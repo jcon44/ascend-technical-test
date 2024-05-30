@@ -13,7 +13,7 @@ export default function formatTimeStamp(dateTimeString) {
 
 	const thisHour = dateTimeObject.getHours()
 	const thisMinute = dateTimeObject.getMinutes() > 9 ? dateTimeObject.getMinutes() : `0${dateTimeObject.getMinutes()}`
-	const ampm = thisHour > 12 ? 'PM' : 'PM'
+	const ampm = thisHour <= 12 ? 'AM' : 'PM'
 	const timeString = `${thisHour > 12 ? thisHour - 12 : thisHour}:${thisMinute}${ampm}`
 
 	const timeStampString = `${timeString} ${dateString}`
