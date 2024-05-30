@@ -1,5 +1,5 @@
 <script>
-    import { getGlobalColorPalette, Icon } from 'ascend-ui'
+    import { getGlobalColorPalette, Icon } from '$lib/index.js'
     import { onMount } from 'svelte'
 
 	export let colorOverride, styles = []
