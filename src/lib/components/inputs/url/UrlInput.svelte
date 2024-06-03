@@ -1,5 +1,5 @@
 <script>
-	import { Label, Tag } from '$lib/index.js'
+	import { Label, Tag, InputError } from '$lib/index.js'
 
 	export let autofocus = false,
 		description = '',
@@ -11,10 +11,15 @@
 		required = false,
 		styles = [],
 		tabindex = '',
-		url = ''
+		url = '',
+		validValue, 
+		validationText
 </script>
 
-<div class="url-control">
+<div 
+	class="url-control"
+	style={styles.join(';')}
+>
 	<div class="url-title">
 		<div class="url-title">
 			<Label
@@ -37,9 +42,8 @@
 	{/if}
 	<!-- svelte-ignore a11y-autofocus -->
 	<input
-		bind:value={text}
-		class="text-input"
-		style={styles.join(';')}
+		bind:value={url}
+		class="url-input"
 		type="url"
 		pattern="https://.*"
 		{autofocus}
@@ -49,10 +53,13 @@
 		{required}
 		{tabindex}
 	/>
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>
-	.text-control {
+	.url-control {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing03);
@@ -63,6 +70,10 @@
 		display: flex;
 		gap: var(--spacing05);
 		justify-content: flex-start;
+		width: 100%;
+	}
+
+	.url-input {
 		width: 100%;
 	}
 </style>

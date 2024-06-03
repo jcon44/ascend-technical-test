@@ -11,6 +11,7 @@
 		required = false,
 		styles = [],
 		tabindex = '',
+		validationText,
 		validationCallback,
 		validValue
 
@@ -54,7 +55,7 @@
 		{tabindex}
 	/>
 	{#if validValue === false}
-		<InputError text={`Please enter your ${label}`} />
+		<InputError text={`${validationText}`} />
 	{/if}
 </div>
 

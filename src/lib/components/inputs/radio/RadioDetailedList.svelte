@@ -10,10 +10,12 @@
 	// 	value: String
 	// }]
 
-	import { RadioInput } from '$lib/index.js'
+	import { RadioInput, InputError } from '$lib/index.js'
 
 	export let list = [],
-		group = ''
+		group = '',
+		validValue,
+		validationText
 
 	function selectValue(value) {
 		group = value
@@ -45,6 +47,9 @@
 			</div>
 		</div>
 	{/each}
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>

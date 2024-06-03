@@ -1,22 +1,33 @@
 <script>
-	import { DateInput, Label } from '$lib/index.js'
+	import { DateInput, Label, InputError } from '$lib/index.js'
 
 	export let date,
 		id = '',
 		label = '',
-		required = false
+		styles = [],
+		required = false,
+		validValue,
+		validationText
 </script>
 
-<div class="date-picker">
-	<Label
-		{id}
-		{label}
-	/>
-	<DateInput
-		bind:date
-		{id}
-		{required}
-	/>
+<div 
+	class="date-picker-selector"
+	style={styles.join(';')}
+>
+	<div class="date-picker">
+		<Label
+			{id}
+			{label}
+		/>
+		<DateInput
+			bind:date
+			{id}
+			{required}
+		/>
+	</div>
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>

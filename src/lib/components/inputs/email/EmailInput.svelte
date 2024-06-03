@@ -1,5 +1,5 @@
 <script>
-	import { Label, Tag } from '$lib/index.js'
+	import { Label, Tag, InputError } from '$lib/index.js'
 
 	export let email = '',
 		id = '',
@@ -8,7 +8,9 @@
 		required = false,
 		styles = [],
 		tabindex = '',
-		tag = null
+		tag = null,
+		validValue,
+		validationCallback
 </script>
 
 <div class="email-control">
@@ -28,6 +30,7 @@
 	</div>
 	<input
 		bind:value={email}
+		on:blur={validationCallback}
 		class="email-input"
 		style={styles.join(';')}
 		type="email"
@@ -37,6 +40,9 @@
 		{required}
 		{tabindex}
 	/>
+	{#if validValue === false}
+		<InputError text={`Please enter your ${label}`} />
+	{/if}
 </div>
 
 <style>
