@@ -1,10 +1,12 @@
 <script>
-	import { RadioOption } from '$lib/index.js'
+	import { RadioOption, InputError } from '$lib/index.js'
 
 	export let callback,
 		group = '',
 		list = [],
-		styles = []
+		styles = [],
+		validValue,
+		validationText
 </script>
 
 <div
@@ -19,6 +21,9 @@
 			value={item.value}
 		/>
 	{/each}
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>

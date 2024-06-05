@@ -8,11 +8,13 @@
 	// 	value: String
 	// }]
 
-	import { CheckOption } from '$lib/index.js'
+	import { CheckOption, InputError } from '$lib/index.js'
 
 	export let callback,
 		list = [],
-		styles = []
+		styles = [],
+		validValue,
+		validationText
 </script>
 
 <div
@@ -36,6 +38,9 @@
 			{/if}
 		</div>
 	{/each}
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>
