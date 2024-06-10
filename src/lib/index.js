@@ -80,6 +80,12 @@ export { default as MetricCard } from '$lib/components/containers/cards/MetricCa
 export { default as RegistrationCard } from '$lib/components/containers/cards/RegistrationCard.svelte'
 export { default as StandardCard } from '$lib/components/containers/cards/StandardCard.svelte'
 
+// Charts
+export { default as Chart } from '$lib/components/containers/charts/Chart.svelte'
+export { default as BarChart } from '$lib/components/containers/charts/BarChart.svelte'
+export { default as AreaChart } from '$lib/components/containers/charts/AreaChart.svelte'
+export { default as PieChart } from '$lib/components/containers/charts/PieChart.svelte'
+
 // Dialogs
 export { default as Dialog } from '$lib/components/containers/dialogs/Dialog.svelte'
 export { default as DialogBody } from '$lib/components/containers/dialogs/DialogBody.svelte'
@@ -103,6 +109,8 @@ export { default as Icon } from '$lib/components/containers/icons/Icon.svelte'
 
 // Labels
 export { default as Label } from '$lib/components/containers/labels/Label.svelte'
+export { default as ChartKey } from '$lib/components/containers/labels/ChartKey.svelte'
+export { default as ChartKeyContainer } from '$lib/components/containers/labels/ChartKeyContainer.svelte'
 
 // Layout
 export { default as Main } from '$lib/components/containers/layout/Main.svelte'

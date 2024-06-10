@@ -1,10 +1,12 @@
 <script>
     import * as d3 from 'd3'
+    import { Card } from "$lib/index.js";
+	import { linear } from 'svelte/easing'
+	import { tick } from 'svelte'
 
-    export let data, 
-            title,
+    export let data,
             styles = [],
-            barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
+            barColors = [],
             vertical = false,
             horizontal = false,
             stacked = false,
@@ -17,8 +19,8 @@
     let height = 400
     let marginLeft = vertical ? 0 : 125
     let marginRight = vertical ? 0 : 50
-    let marginTop = vertical ? 25 : 20
-    let marginBottom = vertical ? 25 : 20
+    let marginTop = vertical ? 24 : 20
+    let marginBottom = vertical ? 24 : 20
     let xScale, yScale, stack
 
     if (vertical) {
@@ -116,158 +118,142 @@
     }
 </script>
 
-<div class='bar-chart-frame' style={styles.join(';')}>
-    {#if title}
-        <div class="chart-header">
-            <h2 class="body-xxl">{title}</h2>
-            <slot name="chart-header-contents" />
-        </div>
+<svg
+    class='bar-chart-svg'
+    {width}
+    {height}
+    viewBox="0 0 {width} {height}"
+    style="max-width:100%;height:auto;"
+>
+    <!-- Side Axis -->
+    <g class='side-axis' transform="translate({marginLeft}, 0)">
+        {#if horizontal}
+            <line stroke="var(--neutral-050)" y1={marginTop} y2={height-marginBottom} />
+            {#each data as d}
+                <text
+                    fill="gray"
+                    text-anchor="start"
+                    x={-100}
+                    y={yScale(d[yKey]) + (yScale.bandwidth() / 2) + 5}
+                >
+                    {d[yKey]}
+                </text>
+            {/each}
+        {:else if vertical}
+            {#each yScale.ticks() as tick}
+                <line
+                    stroke="var(--neutral-050)"
+                    x1={marginLeft}
+                    x2={width - marginRight}
+                    y1={yScale(tick)}
+                    y2={yScale(tick)}
+                />
+            {/each}
+        {/if}
+    </g>
+
+    <!-- Base Axis -->
+    {#if vertical}
+    <g class='base-axis' transform="translate(0,{height - marginBottom})">
+        <line stroke="var(--neutral-050)" x1={marginLeft - 6} x2={width} />
+        {#each data as d}
+            <text
+                fill="gray"
+                text-anchor="middle"
+                x={xScale(d[xKey]) + xScale.bandwidth() / 2}
+                y={22}
+            >
+                {d[xKey]}
+            </text>
+        {/each}
+    </g>
     {/if}
 
-    <svg
-        class='bar-chart-svg'
-        {width}
-        {height}
-        viewBox="0 0 {width} {height}"
-        style="max-width:100%;height:auto;"
-    >
-        <!-- Bars -->
-        {#if stacked}
-            <g class='bars'>
-                {#each stack as series, i}
-                    {#each series as d}
-                        {#if vertical}
-                            <rect
-                                fill={barColors[i]}
-                                x={xScale(d.data[0])}
-                                y={yScale(d[1])}
-                                width={xScale.bandwidth()}
-                                height={yScale(d[0]) - yScale(d[1])}
-                            />
-                            <text
-                                class='bar-label'
-                                x={xScale(d.data[0]) + xScale.bandwidth() / 2}
-                                y={yScale(d[1]) + ((yScale(d[0]) - yScale(d[1]))/2) + 5}
-                                text-anchor="middle"
-                            >
-                                {d[1] - d[0]}
-                            </text>
-                        {:else if horizontal}
-                            <rect
-                                fill={barColors[i]}
-                                x={width - xScale(d[0]) + marginLeft/2}
-                                y={yScale(d.data[0])}
-                                width={xScale(d[0]) -  xScale(d[1])}
-                                height={yScale.bandwidth()}
-                            />
-                            <text
-                                class="bar-label"
-                                text-anchor="middle"
-                                x={width - ((xScale(d[1]) + xScale(d[0])) / 2) + marginLeft/2}
-                                y={yScale(d.data[0]) + yScale.bandwidth() / 2 + 5}
-                            >
-                                {d[1] - d[0]}
-                            </text>
-                        {/if}
-                    {/each}
-                {/each}
-            </g>
-        {:else}
-            <g class='bars'>
-                {#each data as d, i}
+    <!-- Bars -->
+    {#if stacked}
+        <g class='bars'>
+            {#each stack as series, i}
+                {#each series as d}
                     {#if vertical}
-                        <rect 
+                        <rect
                             fill={barColors[i]}
-                            x={xScale(d[xKey])}
-                            y={yScale(d[yKey])}
-                            height={yScale(0) - yScale(d[yKey])}
+                            x={xScale(d.data[0])}
+                            y={yScale(d[1])}
                             width={xScale.bandwidth()}
-                            rx={12}
+                            height={yScale(d[0]) - yScale(d[1])}
                         />
-                        <text
-                            class="bar-label"
+                        <!-- <text
+                            class='bar-label'
+                            x={xScale(d.data[0]) + xScale.bandwidth() / 2}
+                            y={yScale(d[1]) + ((yScale(d[0]) - yScale(d[1]))/2) + 5}
                             text-anchor="middle"
-                            x={xScale(d[xKey]) + xScale.bandwidth() / 2}
-                            y={yScale(d[yKey]) - 10}
                         >
-                            {d[yKey]}
-                        </text>
+                            {d[1] - d[0]}
+                        </text> -->
                     {:else if horizontal}
                         <rect
                             fill={barColors[i]}
-                            x={marginLeft}
-                            y={yScale(d[yKey])}
+                            x={width - xScale(d[0]) + marginLeft/2}
+                            y={yScale(d.data[0])}
+                            width={xScale(d[0]) -  xScale(d[1])}
                             height={yScale.bandwidth()}
-                            width={xScale(0) - xScale(d[xKey])}
-                            rx={12}
                         />
-                        <text
+                        <!-- <text
                             class="bar-label"
                             text-anchor="middle"
-                            x={width - xScale(d[xKey]) + 90}
-                            y={yScale(d[yKey]) + (yScale.bandwidth() / 2) + 5}
+                            x={width - ((xScale(d[1]) + xScale(d[0])) / 2) + marginLeft/2}
+                            y={yScale(d.data[0]) + yScale.bandwidth() / 2 + 5}
                         >
-                            {d[xKey]}
-                        </text>
+                            {d[1] - d[0]}
+                        </text> -->
                     {/if}
                 {/each}
-            </g>
-        {/if}
-        
-    
-        <!-- Base Axis -->
-        {#if vertical}
-            <g class='base-axis' transform="translate(0,{height - marginBottom})">
-                <!-- <line stroke="green" x1={marginLeft - 6} x2={width} /> -->
-                {#each data as d}
-                    <text
-                        fill="gray"
+            {/each}
+        </g>
+    {:else}
+        <g class='bars'>
+            {#each data as d, i}
+                {#if vertical}
+                    <rect 
+                        fill={barColors[i]}
+                        x={xScale(d[xKey])}
+                        y={yScale(d[yKey])}
+                        height={yScale(0) - yScale(d[yKey])}
+                        width={xScale.bandwidth()}
+                    />
+                    <!-- <text
+                        class="bar-label"
                         text-anchor="middle"
                         x={xScale(d[xKey]) + xScale.bandwidth() / 2}
-                        y={22}
-                    >
-                        {d[xKey]}
-                    </text>
-                {/each}
-            </g>
-        {/if}
-
-        <!-- Side Axis -->
-        {#if horizontal}
-            <g class='side-axis' transform="translate({marginLeft}, 0)">
-                <!-- <line stroke="green" y1={marginTop} y2={height-marginBottom} /> -->
-                {#each data as d}
-                    <text
-                        fill="gray"
-                        text-anchor="start"
-                        x={-100}
-                        y={yScale(d[yKey]) + (yScale.bandwidth() / 2) + 5}
+                        y={yScale(d[yKey]) - 10}
                     >
                         {d[yKey]}
-                    </text>
-                {/each}
-            </g>
-        {/if}
-    </svg>
-
-    <slot name="chart-footer-contents" />
-</div>
+                    </text> -->
+                {:else if horizontal}
+                    <rect
+                        fill={barColors[i]}
+                        x={marginLeft}
+                        y={yScale(d[yKey])}
+                        height={yScale.bandwidth()}
+                        width={xScale(0) - xScale(d[xKey])}
+                    />
+                    <!-- <text
+                        class="bar-label"
+                        text-anchor="middle"
+                        x={width - xScale(d[xKey]) + 90}
+                        y={yScale(d[yKey]) + (yScale.bandwidth() / 2) + 5}
+                    >
+                        {d[xKey]}
+                    </text> -->
+                {/if}
+            {/each}
+        </g>
+    {/if}
+</svg>
 
 <style>
-    .bar-chart-frame {
-        width: 100%;
-        height: fit-content;
-        border: 1px solid black;
-        border-radius: 24px;
-        padding: var(--spacing09);
-    }
-
     .bar-chart-svg {
         width: 100%;
         height: 100%;
-    }
-
-    .chart-header {
-        padding-bottom: var(--spacing09);
     }
 </style>

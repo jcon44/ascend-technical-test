@@ -1,11 +1,9 @@
 <script>
     import * as d3 from 'd3'
-    import ChartKey from "$lib/components/containers/labels/ChartKey.svelte";
 
     export let data,
-            title,
             styles = [],
-            arcColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)'],
+            arcColors = [],
             xKey,
             yKey,
             sort = null,
@@ -45,62 +43,44 @@
     const arcs = pie(data)
 </script>
 
-<div class="pie-chart-frame" style={styles.join(';')}>
-    {#if title}
-        <div class="chart-header">
-            <h2 class="body-xxl">{title}</h2>
-            <slot name="chart-header-contents" />
-        </div>
-    {/if}
-
-    <div class="svg-container">
-        <svg
-            class="pie-chart-svg"
-            {width}
-            {height}
-            viewBox="{-width / 2} {-height / 2} {width} {height}"
-        >
-            <g>
-                {#each arcs as slice, i}
-                    <path
-                        fill={arcColors[i]}
-                        d={arcPath(slice)}
-                    />
-        
-                    <text
-                        class="label-text"
-                        fill="gray"
-                        transform="translate({arcLabel.centroid(slice)})"
-                        text-anchor="middle"
-                    >
-                        {slice[yKey]}
-                    </text>
-                {/each}
-        
-                <!-- {#if ring}
-                    <text
-                        class="chart-total"
-                        fill="gray"
-                        text-anchor="middle"
-                    >
-                        {total}
-                    </text>
-                {/if} -->
-            </g>
-        </svg>
-    </div>
-
-    <slot name="chart-footer-contents" />
+<div class="svg-container">
+    <svg
+        class="pie-chart-svg"
+        {width}
+        {height}
+        viewBox="{-width / 2} {-height / 2} {width} {height}"
+    >
+        <g>
+            {#each arcs as slice, i}
+                <path
+                    fill={arcColors[i]}
+                    d={arcPath(slice)}
+                />
+    
+                <text
+                    class="label-text"
+                    fill="gray"
+                    transform="translate({arcLabel.centroid(slice)})"
+                    text-anchor="middle"
+                >
+                    {slice[yKey]}
+                </text>
+            {/each}
+    
+            <!-- {#if ring}
+                <text
+                    class="chart-total"
+                    fill="gray"
+                    text-anchor="middle"
+                >
+                    {total}
+                </text>
+            {/if} -->
+        </g>
+    </svg>
 </div>
 
 <style>
-    .pie-chart-frame {
-        width: 100%;
-        height: auto;
-        border: 1px solid black;
-        border-radius: 24px;
-    }
-
     .svg-container {
         width: 80%;
         margin: auto;
@@ -112,9 +92,5 @@
 
     .label-text {
         font-size: 24px;
-    }
-
-    .chart-header {
-        padding: var(--spacing09);
     }
 </style>

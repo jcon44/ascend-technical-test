@@ -1,9 +1,7 @@
 <script>
     import PageBody from "$lib/components/containers/pages/PageBody.svelte";
     import Page from "$lib/components/containers/pages/Page.svelte";
-    import BarChart from "$lib/components/containers/charts/BarChart.svelte";
-	import AreaChart from "$lib/components/containers/charts/AreaChart.svelte";
-	import PieChart from "$lib/components/containers/charts/PieChart.svelte";
+    import Chart from "$lib/components/containers/charts/Chart.svelte";
 
     let barData = [
         { x: 'Hospital 1', value: 10 },
@@ -114,7 +112,8 @@
                 </ul>
             </div>
             <div class='simple-v-bar'>
-                <BarChart 
+                <Chart 
+                    type='bar'
                     vertical
                     sort='descending'
                     title="Simple Vertical Bar Chart"
@@ -141,7 +140,8 @@
             </div>
         
             <div class='simple-h-bar'>
-                <BarChart 
+                <Chart 
+                    type='bar'
                     horizontal
                     title="Simple Horizontal Bar Chart"
                     data={barData}
@@ -167,7 +167,8 @@
             </div>
 
             <div class='stacked-v-bar'>
-                <BarChart 
+                <Chart 
+                    type='bar'
                     vertical
                     stacked
                     data={stackedBarData} 
@@ -205,7 +206,8 @@
             </div>
 
             <div class='stacked-h-bar'>
-                <BarChart 
+                <Chart 
+                    type='bar'
                     horizontal
                     stacked
                     data={stackedBarData}
@@ -251,7 +253,8 @@
                 </ul>
             </div>
             <div class='simple-area-chart'>
-                <AreaChart 
+                <Chart 
+                    type='area'
                     data={areaData} 
                     title="Simple Area Chart"
                     xKey="date" 
@@ -280,7 +283,8 @@
             </div>
 
             <div class='stacked-area-chart'>
-                <AreaChart 
+                <Chart 
+                    type='area'
                     data={stackedAreaData} 
                     title="Stacked Area Chart"
                     xKey="date" 
@@ -342,7 +346,8 @@
                 </ul>
             </div>
             <div class='pie-chart'>
-                <PieChart 
+                <Chart 
+                    type='pie'
                     data={pieData} 
                     title="Pie Chart"
                     xKey="name" 
@@ -368,7 +373,8 @@
             </div>
 
             <div class='ring-chart'>
-                <PieChart 
+                <Chart 
+                    type='pie'
                     data={pieData} 
                     title="Ring Chart"
                     xKey="name" 

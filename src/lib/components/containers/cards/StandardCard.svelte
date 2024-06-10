@@ -3,7 +3,8 @@
 		classes = [],
 		icon = undefined,
 		styles = [],
-		title = ''
+		title = '',
+		chart = false
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -19,11 +20,11 @@
 		</div>
 	{/if}
 	{#if title}
-		<div class="card-title headline-s-m">
+		<div class="card-title { chart ? 'body-xxl font-weight' : 'headline-s-m'}">
 			{title}
 		</div>
 	{/if}
-	<div class="card-content body-s-s">
+	<div class="{ chart ? 'chart-content' : 'card-content'} body-s-s">
 		<slot />
 	</div>
 </div>
@@ -38,8 +39,17 @@
 		height: 100%;
 		justify-content: space-between;
 	}
+	.chart-content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		gap: var(--spacing09);
+	}
 	.hover-link:hover {
 		box-shadow: var(--neutral-shadow-m);
 		text-decoration: none;
+	}
+	.font-weight {
+		font-weight: 700;
 	}
 </style>

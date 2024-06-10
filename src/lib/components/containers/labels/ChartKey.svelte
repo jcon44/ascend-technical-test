@@ -17,8 +17,8 @@
     }
 
     .color-block {
-        width: var(--spacing08);
-        height: var(--spacing08);
+        width: var(--spacing03);
+        height: var(--spacing03);
         border-radius: 50%;
     }
 </style>
