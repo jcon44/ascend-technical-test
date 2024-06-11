@@ -1,5 +1,5 @@
 <script>
-	import { Label, Tag } from '$lib/index.js'
+	import { Label, Tag, InputError } from '$lib/index.js'
 
 	export let autofocus = false,
 		description = '',
@@ -13,7 +13,10 @@
 		required = false,
 		styles = [],
 		tabindex = '',
-		text = ''
+		text = '',
+		validationText,
+		validValue,
+		validationCallback
 </script>
 
 <div class="text-control">
@@ -40,6 +43,7 @@
 	<!-- svelte-ignore a11y-autofocus -->
 	<input
 		bind:value={text}
+		on:blur={validationCallback}
 		class="text-input"
 		style={styles.join(';')}
 		type="text"
@@ -52,6 +56,9 @@
 		{required}
 		{tabindex}
 	/>
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>

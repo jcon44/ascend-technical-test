@@ -1,5 +1,5 @@
 <script>
-	import { Label } from '$lib/index.js'
+	import { Label, InputError } from '$lib/index.js'
 
 	export let callback = null,
 		defaultOptionName = '',
@@ -8,7 +8,10 @@
 		label = '',
 		optionList = [],
 		selectedValue = '',
-		styles = []
+		styles = [],
+		validValue,
+		validationText,
+		validationCallback
 </script>
 
 <div class="selector-control">
@@ -19,6 +22,7 @@
 	<select
 		bind:value={selectedValue}
 		on:change={callback}
+		on:blur={validationCallback}
 		style={styles.join(';')}
 		{id}
 	>
@@ -34,6 +38,9 @@
 			</option>
 		{/each}
 	</select>
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>

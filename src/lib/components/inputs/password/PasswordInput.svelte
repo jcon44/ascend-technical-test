@@ -1,5 +1,5 @@
 <script>
-	import { Label, Tag } from '$lib/index.js'
+	import { Label, Tag, InputError } from '$lib/index.js'
 
 	export let autofocus = false,
 		description = '',
@@ -13,7 +13,10 @@
 		required = false,
 		styles = [],
 		tabindex = '',
-		tag = null
+		tag = null,
+		validValue,
+		validationText,
+		validationCallback
 </script>
 
 <div class="password-control">
@@ -40,6 +43,7 @@
 	<!-- svelte-ignore a11y-autofocus -->
 	<input
 		bind:value={password}
+		on:blur={validationCallback}
 		class="password-input"
 		style={styles.join(';')}
 		type="password"
@@ -52,6 +56,9 @@
 		{required}
 		{tabindex}
 	/>
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>

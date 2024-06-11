@@ -1,5 +1,5 @@
 <script>
-	import { CharacterCounter, Label, Tag } from '$lib/index.js'
+	import { CharacterCounter, Label, Tag, InputError } from '$lib/index.js'
 
 	export let autofocus = false,
 		callback = null,
@@ -16,7 +16,9 @@
 		styles = [],
 		tabindex = null,
 		tag = null,
-		text = ''
+		text = '',
+		validValue,
+		validationText
 </script>
 
 <div class="textarea-control">
@@ -62,6 +64,9 @@
 			{maxlength}
 			{text}
 		/>
+	{/if}
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
 	{/if}
 </div>
 

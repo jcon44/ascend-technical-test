@@ -1,17 +1,22 @@
 <script>
-	import { Label } from '$lib/index.js'
+	import { Label, InputError } from '$lib/index.js'
 
 	export let autofocus = false,
 		id = 'zip-code',
 		label = 'Zip Code',
+		styles = [],
 		placeholder = '',
 		required = false,
 		tabindex = '',
-		valid = true,
+		validValue,
+		validationText,
 		zip = ''
 </script>
 
-<div class="zip-control">
+<div 
+	class="zip-control"
+	style={styles.join(';')}
+>
 	<Label
 		{id}
 		{label}
@@ -22,12 +27,14 @@
 		maxlength="5"
 		minlength="5"
 		type="text"
-		{autofocus}
 		{id}
 		{placeholder}
 		{required}
 		{tabindex}
 	/>
+	{#if validValue === false}
+		<InputError text={`${validationText}`} />
+	{/if}
 </div>
 
 <style>
