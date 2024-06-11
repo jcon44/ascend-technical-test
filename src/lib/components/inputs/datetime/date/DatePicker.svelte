@@ -10,7 +10,7 @@
 		validationText
 </script>
 
-<div 
+<div
 	class="date-picker-selector"
 	style={styles.join(';')}
 >

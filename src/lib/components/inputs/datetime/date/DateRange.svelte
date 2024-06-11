@@ -37,6 +37,5 @@
 		display: flex;
 		justify-content: space-between;
 		gap: var(--spacing09);
-
 	}
 </style>

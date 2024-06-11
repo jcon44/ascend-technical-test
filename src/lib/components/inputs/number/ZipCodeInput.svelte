@@ -13,7 +13,7 @@
 		zip = ''
 </script>
 
-<div 
+<div
 	class="zip-control"
 	style={styles.join(';')}
 >
