@@ -1,12 +1,12 @@
 <script>
     import { ChartKey } from '$lib/index.js'
 
-    export let data = [], colors = [], xKey
+    export let data = [], colors = [], labelKey
 </script>
 
 <div class='key-container'>
     {#each data as d, i}
-        <ChartKey color={colors[i]} text={d[xKey]} />
+        <ChartKey color={colors[i]} text={d[labelKey]} />
     {/each}
 </div>
 

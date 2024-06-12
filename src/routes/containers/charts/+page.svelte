@@ -43,37 +43,37 @@
 
     let stackedAreaData = [
         [
-            { date: '2024-01-04', value: 25 },
-            { date: '2024-01-25', value: 36 },
-            { date: '2024-02-02', value: 32 },
-            { date: '2024-02-13', value: 34 },
-            { date: '2024-02-29', value: 28 },
-            { date: '2024-03-06', value: 67 },
-            { date: '2024-03-17', value: 79 },
-            { date: '2024-03-23', value: 98 },
-            { date: '2024-04-15', value: 95 },
+            { date: '2024-01-04', name: 'Company 1', value: 25 },
+            { date: '2024-01-25', name: 'Company 1', value: 36 },
+            { date: '2024-02-02', name: 'Company 1', value: 32 },
+            { date: '2024-02-13', name: 'Company 1', value: 34 },
+            { date: '2024-02-29', name: 'Company 1', value: 28 },
+            { date: '2024-03-06', name: 'Company 1', value: 67 },
+            { date: '2024-03-17', name: 'Company 1', value: 79 },
+            { date: '2024-03-23', name: 'Company 1', value: 98 },
+            { date: '2024-04-15', name: 'Company 1', value: 95 },
         ],
         [
-            { date: '2024-01-04', value: 50 },
-            { date: '2024-01-25', value: 46 },
-            { date: '2024-02-02', value: 32 },
-            { date: '2024-02-13', value: 20 },
-            { date: '2024-02-29', value: 13 },
-            { date: '2024-03-06', value: 24 },
-            { date: '2024-03-17', value: 48 },
-            { date: '2024-03-23', value: 57 },
-            { date: '2024-04-15', value: 67 },
+            { date: '2024-01-04', name: 'Company 2', value: 50 },
+            { date: '2024-01-25', name: 'Company 2', value: 46 },
+            { date: '2024-02-02', name: 'Company 2', value: 32 },
+            { date: '2024-02-13', name: 'Company 2', value: 20 },
+            { date: '2024-02-29', name: 'Company 2', value: 13 },
+            { date: '2024-03-06', name: 'Company 2', value: 24 },
+            { date: '2024-03-17', name: 'Company 2', value: 48 },
+            { date: '2024-03-23', name: 'Company 2', value: 57 },
+            { date: '2024-04-15', name: 'Company 2', value: 67 },
         ],
         [
-            { date: '2024-01-04', value: 34 },
-            { date: '2024-01-25', value: 36 },
-            { date: '2024-02-02', value: 38 },
-            { date: '2024-02-13', value: 43 },
-            { date: '2024-02-29', value: 48 },
-            { date: '2024-03-06', value: 57 },
-            { date: '2024-03-17', value: 58 },
-            { date: '2024-03-23', value: 69 },
-            { date: '2024-04-15', value: 72 },
+            { date: '2024-01-04', name: 'Company 3', value: 34 },
+            { date: '2024-01-25', name: 'Company 3', value: 36 },
+            { date: '2024-02-02', name: 'Company 3', value: 38 },
+            { date: '2024-02-13', name: 'Company 3', value: 43 },
+            { date: '2024-02-29', name: 'Company 3', value: 48 },
+            { date: '2024-03-06', name: 'Company 3', value: 57 },
+            { date: '2024-03-17', name: 'Company 3', value: 58 },
+            { date: '2024-03-23', name: 'Company 3', value: 69 },
+            { date: '2024-04-15', name: 'Company 3', value: 72 },
         ]
     ]
 
@@ -174,7 +174,8 @@
                     data={stackedBarData} 
                     title="Stacked Vertical Bar Chart"
                     xKey="x" 
-                    yKey="value" 
+                    yKey="value",
+                    labelKey="name"
                     seriesKey="name"
                 />
                 <details>
@@ -213,7 +214,8 @@
                     data={stackedBarData}
                     title="Stacked Horizontal Bar Chart"
                     xKey="value"
-                    yKey="x"
+                    yKey="x",
+                    labelKey="name"
                     seriesKey="name"
                 />
                 <details>
@@ -289,6 +291,7 @@
                     title="Stacked Area Chart"
                     xKey="date" 
                     yKey="value" 
+                    labelKey="name"
                     stacked 
                 />
                 <details>
@@ -352,6 +355,7 @@
                     title="Pie Chart"
                     xKey="name" 
                     yKey="value" 
+                    labelKey="name"
                     sort='descending'
                 />
                 <details>
@@ -378,7 +382,8 @@
                     data={pieData} 
                     title="Ring Chart"
                     xKey="name" 
-                    yKey="value" 
+                    yKey="value"
+                    labelKey="name"
                     ring
                 />
                 <details>

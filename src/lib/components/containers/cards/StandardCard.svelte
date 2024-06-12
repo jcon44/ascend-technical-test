@@ -51,5 +51,6 @@
 	}
 	.font-weight {
 		font-weight: 700;
+		letter-spacing: 0.5px;
 	}
 </style>
