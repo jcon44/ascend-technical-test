@@ -124,6 +124,7 @@ export { default as ProfileMenu } from '$lib/components/containers/menus/Profile
 // Navbar
 export { default as NavBar } from '$lib/components/containers/navbar/NavBar.svelte'
 export { default as NavBarHeader } from '$lib/components/containers/navbar/NavBarHeader.svelte'
+export { default as SimpleNavBar } from '$lib/components/containers/navbar/SimpleNavBar.svelte'
 
 // Pages
 export { default as Error404Page } from '$lib/components/containers/pages/Error404Page.svelte'

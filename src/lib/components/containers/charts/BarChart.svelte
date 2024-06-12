@@ -33,7 +33,7 @@
             xScale = d3.scaleBand()
                 .domain(data.map((d) => d[xKey]))
                 .range([marginLeft, width - marginRight])
-                .padding(0.1)
+                .padding(0.3)
                 
             yScale = d3.scaleLinear()
                 .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
@@ -47,7 +47,7 @@
                         (d) => d[xKey]
                     ))
                     .range([marginLeft, width - marginRight])
-                    .padding(0.2)
+                    .padding(0.3)
             } else if (sort === 'descending') {
                 xScale = d3.scaleBand()
                     .domain(d3.groupSort(
@@ -56,12 +56,12 @@
                         (d) => d[xKey]
                     ))
                     .range([marginLeft, width - marginRight])
-                    .padding(0.2)
+                    .padding(0.3)
             } else {
                 xScale = d3.scaleBand()
                     .domain(data.map((d) => d[xKey]))
                     .range([marginLeft, width - marginRight])
-                    .padding(0.1)
+                    .padding(0.3)
             }
                 
             yScale = d3.scaleLinear()
@@ -153,21 +153,21 @@
     </g>
 
     <!-- Base Axis -->
-    {#if vertical}
     <g class='base-axis' transform="translate(0,{height - marginBottom})">
-        <line stroke="var(--neutral-050)" x1={marginLeft - 6} x2={width} />
-        {#each data as d}
-            <text
-                fill="gray"
-                text-anchor="middle"
-                x={xScale(d[xKey]) + xScale.bandwidth() / 2}
-                y={22}
-            >
-                {d[xKey]}
-            </text>
-        {/each}
+        {#if vertical}
+            <line stroke="var(--neutral-050)" x1={marginLeft - 6} x2={width} />
+            {#each data as d}
+                <text
+                    fill="gray"
+                    text-anchor="middle"
+                    x={xScale(d[xKey]) + xScale.bandwidth() / 2}
+                    y={22}
+                >
+                    {d[xKey]}
+                </text>
+            {/each}
+        {/if}
     </g>
-    {/if}
 
     <!-- Bars -->
     {#if stacked}
@@ -214,7 +214,7 @@
         <g class='bars'>
             {#each data as d, i}
                 {#if vertical}
-                    <rect 
+                    <rect
                         fill={barColors[i]}
                         x={xScale(d[xKey])}
                         y={yScale(d[yKey])}

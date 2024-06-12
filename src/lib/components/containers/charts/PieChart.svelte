@@ -57,25 +57,15 @@
                     d={arcPath(slice)}
                 />
     
-                <text
+                <!-- <text
                     class="label-text"
                     fill="gray"
                     transform="translate({arcLabel.centroid(slice)})"
                     text-anchor="middle"
                 >
                     {slice[yKey]}
-                </text>
+                </text> -->
             {/each}
-    
-            <!-- {#if ring}
-                <text
-                    class="chart-total"
-                    fill="gray"
-                    text-anchor="middle"
-                >
-                    {total}
-                </text>
-            {/if} -->
         </g>
     </svg>
 </div>

@@ -8,6 +8,7 @@
             styles = [],
             xKey, 
             yKey,
+            line = false,
             stacked = false
 
     let width = 750
@@ -17,7 +18,7 @@
     let marginTop = 24
     let marginBottom = 50
 
-    let xScale, yScale, minX, maxX, line, areas = [], lines =[], path
+    let xScale, yScale, minX, maxX, stroke, areas = [], lines =[], path
 
     if (stacked) {
         if (xKey === 'date') {
@@ -35,7 +36,7 @@
                 minX = series[0][xKey]
                 maxX = series[series.length - 1][xKey]
             
-                line = d3.line().x((s) => s[xKey]).y((s) => s[yKey])
+                stroke = d3.line().x((s) => s[xKey]).y((s) => s[yKey])
             
                 path = `M${series.map((s) => `${xScale(s[xKey])},${yScale(s[yKey])}`).join('L')}`
                 lines.push(path)
@@ -58,7 +59,7 @@
         minX = data[0][xKey]
         maxX = data[data.length - 1][xKey]
     
-        line = d3.line().x((d) => d[xKey]).y((d) => d[yKey])
+        stroke = d3.line().x((d) => d[xKey]).y((d) => d[yKey])
     
         path = `M${data.map((d) => `${xScale(d[xKey])},${yScale(d[yKey])}`).join('L')}`
         lines.push(path)
@@ -72,15 +73,6 @@
     {height}
     viewBox="0 0 {width} {height}"
 >
-    <defs>
-        {#each areaColors as gradient, i}    
-            <linearGradient id="area-gradient{i}" x1="0%" x2="0%" y1="0%" y2="100%">
-                <stop offset="100%" stop-color="white" opacity="0" />
-                <stop offset="0%" stop-color="{gradient[i]}" opacity="1" />
-            </linearGradient>
-        {/each}
-    </defs>
-
     {#each yScale.ticks() as tick}
         <line
             stroke="var(--neutral-050)"
@@ -92,18 +84,26 @@
     {/each}
 
     <!-- TODO Gradient was working and then stopped working -->
-    {#each areas as area, i}
-        <path
-            fill={areaColors[i]}
-            d={area}
-        />
-    {/each}
-    {#each lines as line, i}
+    {#if !line}
+        {#each areas as area, i}
+            <defs>   
+                <linearGradient id="area-gradient{i}" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color={areaColors[i]} opacity="0.8" />
+                    <stop offset="100%" stop-color="white" opacity="0" />
+                </linearGradient>
+            </defs>
+            <path
+                fill="url('#area-gradient{i}')"
+                d={area}
+            />
+        {/each}
+    {/if}
+    {#each lines as stroke, i}
         <path 
             stroke={lineColors[i]}
-            stroke-width="3"
+            stroke-width="2"
             fill="none"
-            d={line}
+            d={stroke}
         />
     {/each}
 
