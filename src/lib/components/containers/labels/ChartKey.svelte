@@ -21,4 +21,8 @@
         height: var(--spacing03);
         border-radius: 50%;
     }
+
+    .key-text {
+        font-size: 14px;
+    }
 </style>

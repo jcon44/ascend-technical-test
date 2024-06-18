@@ -1,13 +1,38 @@
 <script>
     import * as d3 from 'd3'
     import { formatDate } from '$lib';
+    import { browser } from '$app/environment';
+	import ChartTooltip from '$lib/components/containers/labels/ChartTooltip.svelte'
+
+    /**
+     *  @param {array} data
+     *      data - an array of objects containing the area chart data.
+     *      For UNSTACKED area charts each object must have a minimum of two properties – 
+     *      one for the x-axis and one for the y-axis => { x: <x-value>, y: <y-value>, ... }.
+     *      Note that there can be more properties within this object, but they are not accessed
+     *      by the chart component.
+     * 
+     *      For STACKED area charts each object must have a minimum of three properties –
+     *      one for the x-axis, one for the y-axis, and one for the series differentiator =>
+     *      { x: <x-value>, y: <y-value>, series: <series-name>, ... }
+     * 
+     *  @param {string} xKey
+     *      xKey - string property that declares the name of the object key used to define the x-axis.
+     * 
+     *  @param {string} yKey
+     *      yKey - string property that declares the name of the object key used to define the y-axis.
+     * 
+     *  @param {string} seriesKey
+     *      seriesKey - string property that declares the object key differentiating each series
+     */
 
     export let data,
+            tooltipId,
             areaColors = [],
             lineColors = [],
-            styles = [],
             xKey, 
             yKey,
+            seriesKey,
             line = false,
             stacked = false
 
@@ -18,52 +43,86 @@
     let marginTop = 24
     let marginBottom = 50
 
-    let xScale, yScale, minX, maxX, stroke, areas = [], lines =[], path
+    let formatTime, mouseDateSnap, xScale, yScale, stroke, stack, area, lines =[]
 
     if (stacked) {
         if (xKey === 'date') {
-            for (let series of data) {
-                for (let obj of series) {
-                    obj.formattedLabel = formatDate(obj[xKey])
-                    obj[xKey] = new Date(obj[xKey])
-                }
-
-                xScale = d3.scaleUtc(d3.extent(series, (s) => s[xKey]), [marginLeft, width - marginRight])
-                yScale = d3.scaleLinear()
-                    .domain([0, d3.max(series, (s) => s[yKey])])
-                    .range([height - marginBottom, marginTop])
-            
-                minX = series[0][xKey]
-                maxX = series[series.length - 1][xKey]
-            
-                stroke = d3.line().x((s) => s[xKey]).y((s) => s[yKey])
-            
-                path = `M${series.map((s) => `${xScale(s[xKey])},${yScale(s[yKey])}`).join('L')}`
-                lines.push(path)
-                areas.push(`${path}L${xScale(maxX)},${yScale(0)}L${xScale(minX)},${yScale(0)}Z`)
+            for (let obj of data) {
+                obj[xKey] = new Date(obj[xKey])
             }
+
+            formatTime = d3.utcFormat("%B %d, %Y")
+            // formatTime(new Date()); // "May 31, 2023"
+            
+            stack = d3.stack()
+            .keys(d3.union(data.map((d) => d[seriesKey])))
+            .value(([, D], key) => D.get(key)[yKey])
+            (d3.index(data, (d) => d[xKey], (d) => d[seriesKey]))
+            
+            xScale = d3.scaleTime()
+            .domain(d3.extent(data, (d) => d[xKey]))
+            .range([marginLeft, width - marginRight])
+            
+            yScale = d3.scaleLinear()
+            .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
+            .range([height - marginBottom, marginTop])
+            
+            area = d3.area()
+            .x((d) => xScale(d.data[0]))
+            .y0((d) => yScale(d[0]))
+            .y1((d) => yScale(d[1]))
+            
+            stroke = d3.line()
+            .x((d) => xScale(d.data[0]))
+            .y((d) => yScale(d[1]))
         }
     } else {
         if (xKey === 'date') {
             for (let obj of data) {
-                obj.formattedLabel = formatDate(obj[xKey])
                 obj[xKey] = new Date(obj[xKey])
             }
+
+            formatTime = d3.utcFormat("%B %d, %Y");
+    
+            xScale = d3.scaleTime()
+                .domain(d3.extent(data, (d) => d[xKey]))
+                .range([marginLeft, width - marginRight])
+            yScale = d3.scaleLinear()
+                .domain([0, d3.max(data, (d) => d[yKey])])
+                .range([height - marginBottom, marginTop])
+
+            area = d3.area()
+                .x((d) => xScale(d[xKey]))
+                .y0(yScale(0))
+                .y1((d) => yScale(d[yKey]))
+        
+            stroke = d3.line()
+                .x((d) => d[xKey])
+                .y((d) => d[yKey])
         }
-    
-        xScale = d3.scaleUtc(d3.extent(data, (d) => d[xKey]), [marginLeft, width - marginRight])
-        yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, (d) => d[yKey])])
-            .range([height - marginBottom, marginTop])
-    
-        minX = data[0][xKey]
-        maxX = data[data.length - 1][xKey]
-    
-        stroke = d3.line().x((d) => d[xKey]).y((d) => d[yKey])
-    
-        path = `M${data.map((d) => `${xScale(d[xKey])},${yScale(d[yKey])}`).join('L')}`
-        lines.push(path)
-        areas.push(`${path}L${xScale(maxX)},${yScale(0)}L${xScale(minX)},${yScale(0)}Z`)
+    }
+
+    let tooltip, tooltipData = { top: 0, left: 0, xValue: 0, yValue: 0}
+    if (browser) {
+        tooltip = d3.select(`#${tooltipId}`)
+    }
+
+    function enterTooltip(e) {
+        tooltip.style('opacity', 1)
+    }
+
+    function movingTooltip(e, d) {
+        const [x, y] = d3.pointer(e)
+        tooltipData.top = e.offsetY - 85
+        tooltipData.left = e.offsetX - 60
+        tooltipData.xValue = formatTime(xScale.invert(x))
+        tooltipData.yValue = yScale.invert(y)
+
+        mouseDateSnap = d3.timeYear.floor(xScale.invert(x))
+    }
+
+    function leaveTooltip(e) {
+        tooltip.style('opacity', 0)
     }
 </script>
 
@@ -73,6 +132,7 @@
     {height}
     viewBox="0 0 {width} {height}"
 >
+    <!-- Y-Axis lines -->
     {#each yScale.ticks() as tick}
         <line
             stroke="var(--neutral-050)"
@@ -83,20 +143,54 @@
         />
     {/each}
 
-    <!-- TODO Gradient was working and then stopped working -->
+    <!-- Areas -->
     {#if !line}
-        {#each areas as area, i}
-            <defs>   
+        {#if stacked}
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
+            {#each stack as series, i}
+                <!-- svelte-ignore missing-declaration -->
+                <path
+                stroke={lineColors[i]}
+                stroke-width={2}
+                fill='none'
+                d={stroke(series)}
+                />
+                {#if !line}
+                    <path 
+                        on:mouseenter={enterTooltip}
+                        on:mousemove={(e) => movingTooltip(e, d)}
+                        on:mouseleave={leaveTooltip}
+                        fill={areaColors[i]}
+                        d={area(series)}
+                    />
+                {/if}
+            {/each}
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        {:else}
+            <!-- <defs>   
                 <linearGradient id="area-gradient{i}" x1="0%" x2="0%" y1="0%" y2="100%">
                     <stop offset="0%" stop-color={areaColors[i]} opacity="0.8" />
                     <stop offset="100%" stop-color="white" opacity="0" />
                 </linearGradient>
-            </defs>
-            <path
-                fill="url('#area-gradient{i}')"
-                d={area}
+            </defs> -->
+            <path 
+            stroke={lineColors[0]}
+            stroke-width="2"
+            fill="none"
+            d={stroke(data)}
             />
-        {/each}
+            {#if !line}
+                <!-- svelte-ignore missing-declaration -->
+                <!-- svelte-ignore a11y-no-static-element-interactions -->
+                <path
+                    on:mouseenter={enterTooltip}
+                    on:mousemove={(e) => movingTooltip(e, data)}
+                    on:mouseleave={leaveTooltip}
+                    fill={areaColors[0]}
+                    d={area(data)}
+                />
+            {/if}
+        {/if}
     {/if}
     {#each lines as stroke, i}
         <path 
@@ -110,34 +204,51 @@
     <!-- Base Axis -->
     <g transform="translate(0,{height - marginBottom})">
         {#if stacked}
-            {#each data[0] as d, i}
+            {#each stack as series, i}
                 <text
+                    class="axis-label"
                     fill="gray"
                     text-anchor="start"
-                    x={(width/data[0].length) * i}
+                    x={xScale(series[i].data[0])}
                     y={22}
                 >
-                    {xKey === 'date' ? d.formattedLabel : d[xKey]}
+                    {formatTime(series[i].data[0])}
                 </text>
             {/each}
         {:else}
             {#each data as d, i}
                 <text
+                    class="axis-label"
                     fill="gray"
                     text-anchor="start"
                     x={(width/data.length) * i}
                     y={22}
                 >
-                    {xKey === 'date' ? d.formattedLabel : d[xKey]}
+                    {formatTime(d[xKey])}
                 </text>
             {/each}
         {/if}
     </g>
+
+    <!-- Tooltip Line -->
+    <line 
+        stroke='var(--neutral-trans-100)'
+        stroke-dasharray='2 3'
+        x1={xScale(mouseDateSnap)}
+        y1={marginTop}
+        y2={height - marginBottom}
+    />
 </svg>
+
+<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} xValue={tooltipData.xValue} yValue={tooltipData.yValue} />
 
 <style>
     .area-chart-svg {
         width: 100%;
         height: 100%;
+    }
+
+    .axis-label {
+        font-size: 11px;
     }
 </style>

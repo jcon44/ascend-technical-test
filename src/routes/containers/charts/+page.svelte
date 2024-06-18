@@ -42,39 +42,33 @@
     ]
 
     let stackedAreaData = [
-        [
-            { date: '2024-01-04', name: 'Company 1', value: 25 },
-            { date: '2024-01-25', name: 'Company 1', value: 36 },
-            { date: '2024-02-02', name: 'Company 1', value: 32 },
-            { date: '2024-02-13', name: 'Company 1', value: 34 },
-            { date: '2024-02-29', name: 'Company 1', value: 28 },
-            { date: '2024-03-06', name: 'Company 1', value: 67 },
-            { date: '2024-03-17', name: 'Company 1', value: 79 },
-            { date: '2024-03-23', name: 'Company 1', value: 98 },
-            { date: '2024-04-15', name: 'Company 1', value: 95 },
-        ],
-        [
-            { date: '2024-01-04', name: 'Company 2', value: 50 },
-            { date: '2024-01-25', name: 'Company 2', value: 46 },
-            { date: '2024-02-02', name: 'Company 2', value: 32 },
-            { date: '2024-02-13', name: 'Company 2', value: 20 },
-            { date: '2024-02-29', name: 'Company 2', value: 13 },
-            { date: '2024-03-06', name: 'Company 2', value: 24 },
-            { date: '2024-03-17', name: 'Company 2', value: 48 },
-            { date: '2024-03-23', name: 'Company 2', value: 57 },
-            { date: '2024-04-15', name: 'Company 2', value: 67 },
-        ],
-        [
-            { date: '2024-01-04', name: 'Company 3', value: 34 },
-            { date: '2024-01-25', name: 'Company 3', value: 36 },
-            { date: '2024-02-02', name: 'Company 3', value: 38 },
-            { date: '2024-02-13', name: 'Company 3', value: 43 },
-            { date: '2024-02-29', name: 'Company 3', value: 48 },
-            { date: '2024-03-06', name: 'Company 3', value: 57 },
-            { date: '2024-03-17', name: 'Company 3', value: 58 },
-            { date: '2024-03-23', name: 'Company 3', value: 69 },
-            { date: '2024-04-15', name: 'Company 3', value: 72 },
-        ]
+        { date: '2024-01-04', name: 'Company 1', value: 25 },
+        { date: '2024-01-04', name: 'Company 2', value: 50 },
+        { date: '2024-01-04', name: 'Company 3', value: 12 },
+        { date: '2024-01-25', name: 'Company 1', value: 22 },
+        { date: '2024-01-25', name: 'Company 2', value: 53 },
+        { date: '2024-01-25', name: 'Company 3', value: 14 },
+        { date: '2024-02-02', name: 'Company 1', value: 20 },
+        { date: '2024-02-02', name: 'Company 2', value: 55 },
+        { date: '2024-02-02', name: 'Company 3', value: 16 },
+        { date: '2024-02-13', name: 'Company 1', value: 24 },
+        { date: '2024-02-13', name: 'Company 2', value: 60 },
+        { date: '2024-02-13', name: 'Company 3', value: 18 },
+        { date: '2024-02-29', name: 'Company 1', value: 28 },
+        { date: '2024-02-29', name: 'Company 2', value: 62 },
+        { date: '2024-02-29', name: 'Company 3', value: 16 },
+        { date: '2024-03-06', name: 'Company 1', value: 30 },
+        { date: '2024-03-06', name: 'Company 2', value: 65 },
+        { date: '2024-03-06', name: 'Company 3', value: 12 },
+        { date: '2024-03-17', name: 'Company 1', value: 34 },
+        { date: '2024-03-17', name: 'Company 2', value: 66 },
+        { date: '2024-03-17', name: 'Company 3', value: 10 },
+        { date: '2024-03-23', name: 'Company 1', value: 38 },
+        { date: '2024-03-23', name: 'Company 2', value: 66 },
+        { date: '2024-03-23', name: 'Company 3', value: 13 },
+        { date: '2024-04-15', name: 'Company 1', value: 33 },
+        { date: '2024-04-15', name: 'Company 2', value: 64 },
+        { date: '2024-04-15', name: 'Company 3', value: 15 },
     ]
 
     let pieData = [
@@ -113,6 +107,7 @@
             </div>
             <div class='simple-v-bar'>
                 <Chart 
+                    tooltipId="simple-v"
                     type='bar'
                     vertical
                     sort='descending'
@@ -141,6 +136,7 @@
         
             <div class='simple-h-bar'>
                 <Chart 
+                    tooltipId="simple-h"
                     type='bar'
                     horizontal
                     title="Simple Horizontal Bar Chart"
@@ -168,6 +164,7 @@
 
             <div class='stacked-v-bar'>
                 <Chart 
+                    tooltipId='stacked-v'
                     type='bar'
                     vertical
                     stacked
@@ -208,6 +205,7 @@
 
             <div class='stacked-h-bar'>
                 <Chart 
+                    tooltipId="stacked-h"
                     type='bar'
                     horizontal
                     stacked
@@ -256,6 +254,7 @@
             </div>
             <div class='simple-area-chart'>
                 <Chart 
+                    tooltipId='area'
                     type='area'
                     data={areaData} 
                     title="Simple Area Chart"
@@ -286,13 +285,15 @@
 
             <div class='stacked-area-chart'>
                 <Chart 
+                    tooltipId='stacked-area'
                     type='area'
                     data={stackedAreaData} 
                     title="Stacked Area Chart"
-                    xKey="date" 
+                    xKey="date"
                     yKey="value" 
+                    seriesKey="name"
                     labelKey="name"
-                    stacked 
+                    stacked
                 />
                 <details>
                     <summary>Data</summary>
@@ -300,39 +301,33 @@
                         <code>
                             {`
                                 let stackedAreaData = [
-                                    [
-                                        { date: '2024-01-04', value: 25 },
-                                        { date: '2024-01-25', value: 36 },
-                                        { date: '2024-02-02', value: 32 },
-                                        { date: '2024-02-13', value: 34 },
-                                        { date: '2024-02-29', value: 28 },
-                                        { date: '2024-03-06', value: 67 },
-                                        { date: '2024-03-17', value: 79 },
-                                        { date: '2024-03-23', value: 98 },
-                                        { date: '2024-04-15', value: 95 },
-                                    ],
-                                    [
-                                        { date: '2024-01-04', value: 50 },
-                                        { date: '2024-01-25', value: 46 },
-                                        { date: '2024-02-02', value: 32 },
-                                        { date: '2024-02-13', value: 20 },
-                                        { date: '2024-02-29', value: 13 },
-                                        { date: '2024-03-06', value: 24 },
-                                        { date: '2024-03-17', value: 48 },
-                                        { date: '2024-03-23', value: 57 },
-                                        { date: '2024-04-15', value: 67 },
-                                    ],
-                                    [
-                                        { date: '2024-01-04', value: 34 },
-                                        { date: '2024-01-25', value: 36 },
-                                        { date: '2024-02-02', value: 38 },
-                                        { date: '2024-02-13', value: 43 },
-                                        { date: '2024-02-29', value: 48 },
-                                        { date: '2024-03-06', value: 57 },
-                                        { date: '2024-03-17', value: 58 },
-                                        { date: '2024-03-23', value: 69 },
-                                        { date: '2024-04-15', value: 72 },
-                                    ]
+                                    { date: '2024-01-04', name: 'Company 1', value: 25 },
+                                    { date: '2024-01-04', name: 'Company 2', value: 50 },
+                                    { date: '2024-01-04', name: 'Company 3', value: 12 },
+                                    { date: '2024-01-25', name: 'Company 1', value: 22 },
+                                    { date: '2024-01-25', name: 'Company 2', value: 53 },
+                                    { date: '2024-01-25', name: 'Company 3', value: 14 },
+                                    { date: '2024-02-02', name: 'Company 1', value: 20 },
+                                    { date: '2024-02-02', name: 'Company 2', value: 55 },
+                                    { date: '2024-02-02', name: 'Company 3', value: 16 },
+                                    { date: '2024-02-13', name: 'Company 1', value: 24 },
+                                    { date: '2024-02-13', name: 'Company 2', value: 60 },
+                                    { date: '2024-02-13', name: 'Company 3', value: 18 },
+                                    { date: '2024-02-29', name: 'Company 1', value: 28 },
+                                    { date: '2024-02-29', name: 'Company 2', value: 62 },
+                                    { date: '2024-02-29', name: 'Company 3', value: 16 },
+                                    { date: '2024-03-06', name: 'Company 1', value: 30 },
+                                    { date: '2024-03-06', name: 'Company 2', value: 65 },
+                                    { date: '2024-03-06', name: 'Company 3', value: 12 },
+                                    { date: '2024-03-17', name: 'Company 1', value: 34 },
+                                    { date: '2024-03-17', name: 'Company 2', value: 66 },
+                                    { date: '2024-03-17', name: 'Company 3', value: 10 },
+                                    { date: '2024-03-23', name: 'Company 1', value: 38 },
+                                    { date: '2024-03-23', name: 'Company 2', value: 66 },
+                                    { date: '2024-03-23', name: 'Company 3', value: 13 },
+                                    { date: '2024-04-15', name: 'Company 1', value: 33 },
+                                    { date: '2024-04-15', name: 'Company 2', value: 64 },
+                                    { date: '2024-04-15', name: 'Company 3', value: 15 },
                                 ]
                             `} 
                         </code>
@@ -350,6 +345,7 @@
             </div>
             <div class='pie-chart'>
                 <Chart 
+                    tooltipId="pie"
                     type='pie'
                     data={pieData} 
                     title="Pie Chart"
@@ -378,6 +374,7 @@
 
             <div class='ring-chart'>
                 <Chart 
+                    tooltipId="ring"
                     type='pie'
                     data={pieData} 
                     title="Ring Chart"

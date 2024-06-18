@@ -11,6 +11,7 @@
         xKey,
         yKey,
         labelKey,
+        tooltipId,
         styles,
         barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
         areaColors = ['var(--secondary-trans-600)', 'var(--secondary-trans-500)', 'var(--secondary-trans-400)', 'var(--secondary-trans-300)', 'var(--secondary-trans-200)', 'var(--secondary-trans-100)'],
@@ -23,18 +24,21 @@
         seriesKey,
         ring,
         line
+    
+    let chartWidth
 </script>
 
 <Card
     {title}
     chart
     classes={['neutral-shadow-l']}
-    styles={['width: 100%', 'height: fit-content', 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
+    styles={['position: relative', 'width: 100%', 'height: fit-content', 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
 >
     <slot name='chart-header' />
-    <div class='chart-wrapper'>
+    <div class='chart-wrapper' bind:clientWidth={chartWidth}>
         {#if type === 'bar'}
             <BarChart 
+                {tooltipId}
                 {data}
                 {xKey}
                 {yKey}
@@ -51,9 +55,11 @@
             {/if}
         {:else if type === 'area'}
             <AreaChart
+                {tooltipId}
                 {data}
                 {xKey}
                 {yKey}
+                {seriesKey}
                 {styles}
                 {areaColors}
                 {lineColors}
@@ -65,6 +71,7 @@
             {/if}
         {:else if type === 'pie'}
             <PieChart 
+                {tooltipId}
                 {data}
                 {xKey}
                 {yKey}
@@ -73,7 +80,12 @@
                 {arcColors}
                 {ring}
             />
-            <ChartKeyContainer {data} {labelKey} colors={barColors} />
+            <ChartKeyContainer 
+                {data} 
+                {labelKey} 
+                colors={barColors} 
+                column={ chartWidth < 500 ? true : false }
+            />
         {/if}
     </div>
 </Card>

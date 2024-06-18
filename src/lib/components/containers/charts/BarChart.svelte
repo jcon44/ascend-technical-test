@@ -1,11 +1,31 @@
 <script>
     import * as d3 from 'd3'
-    import { Card } from "$lib/index.js";
-	import { linear } from 'svelte/easing'
-	import { tick } from 'svelte'
+    import { browser } from '$app/environment';
+	import ChartTooltip from '$lib/components/containers/labels/ChartTooltip.svelte'
+
+    /**
+     *  @param {array} data
+     *      data - an array of objects containing the bar chart data.
+     *      For UNSTACKED bar charts each object must have a minimum of two properties – 
+     *      one for the x-axis and one for the y-axis => { x: <x-value>, y: <y-value>, ... }.
+     *      Note that there can be more properties within this object, but they are not accessed
+     *      by the chart component.
+     * 
+     *      For STACKED bar charts each object must have a minimum of three properties –
+     *      one for the x-axis, one for the y-axis, and one for the series differentiator =>
+     *      { x: <x-value>, y: <y-value>, series: <series-name>, ... }
+     * 
+     *  @param {string} xKey
+     *      xKey - string property that declares the name of the object key used to define the x-axis.
+     * 
+     *  @param {string} yKey
+     *      yKey - string property that declares the name of the object key used to define the y-axis.
+     * 
+     *  @param {string} seriesKey
+     *      seriesKey - string property that declares the object key to differentiating each series
+     */
 
     export let data,
-            styles = [],
             barColors = [],
             vertical = false,
             horizontal = false,
@@ -13,7 +33,8 @@
             sort = null,
             xKey,
             yKey,
-            seriesKey = null
+            seriesKey = null,
+            tooltipId
 
     let width = 750
     let height = 400
@@ -116,6 +137,32 @@
                 .range([width - marginRight, marginLeft])
         }
     }
+
+    let tooltip, tooltipData = { top: 0, left: 0, xValue: 0, yValue: 0}
+    if (browser) {
+        tooltip = d3.select(`#${tooltipId}`)
+    }
+
+    function enterTooltip(e) {
+        tooltip.style('opacity', 1)
+    }
+
+    function movingTooltip(e, d) {
+        const [x, y] = d3.pointer(e)
+        tooltipData.top = e.offsetY - 85
+        tooltipData.left = e.offsetX - 60
+        if (vertical) {
+            tooltipData.xValue = d.x
+            tooltipData.yValue = d.value
+        } else if (horizontal) {
+            tooltipData.yValue = d.x
+            tooltipData.xValue = d.value
+        }
+    }
+
+    function leaveTooltip(e) {
+        tooltip.style('opacity', 0)
+    }
 </script>
 
 <svg
@@ -131,6 +178,7 @@
             <line stroke="var(--neutral-050)" y1={marginTop} y2={height-marginBottom} />
             {#each data as d}
                 <text
+                    class="axis-label"
                     fill="gray"
                     text-anchor="start"
                     x={-100}
@@ -158,6 +206,7 @@
             <line stroke="var(--neutral-050)" x1={marginLeft - 6} x2={width} />
             {#each data as d}
                 <text
+                    class="axis-label"
                     fill="gray"
                     text-anchor="middle"
                     x={xScale(d[xKey]) + xScale.bandwidth() / 2}
@@ -175,21 +224,29 @@
             {#each stack as series, i}
                 {#each series as d}
                     {#if vertical}
-                        <rect
+                        <!-- <rect
                             fill={barColors[i]}
                             x={xScale(d.data[0])}
                             y={yScale(d[1])}
                             width={xScale.bandwidth()}
                             height={yScale(d[0]) - yScale(d[1])}
+                        /> -->
+                        
+                        <!-- svelte-ignore a11y-no-static-element-interactions -->
+                        <path
+                            on:mouseenter={enterTooltip}
+                            on:mousemove={(e) => movingTooltip(e, d)}
+                            on:mouseleave={leaveTooltip}
+                            fill={barColors[i]} 
+                            d={`
+                                M${xScale(d.data[0])},${yScale(d[1]) + 4}
+                                a4,4 0 0 1 4,-4
+                                h${xScale.bandwidth() - 2 * 4}
+                                a4,4 0 0 1 4,4
+                                v${(yScale(d[0]) - yScale(d[1])) - 4}
+                                h${-xScale.bandwidth()}Z
+                            `}
                         />
-                        <!-- <text
-                            class='bar-label'
-                            x={xScale(d.data[0]) + xScale.bandwidth() / 2}
-                            y={yScale(d[1]) + ((yScale(d[0]) - yScale(d[1]))/2) + 5}
-                            text-anchor="middle"
-                        >
-                            {d[1] - d[0]}
-                        </text> -->
                     {:else if horizontal}
                         <rect
                             fill={barColors[i]}
@@ -198,14 +255,18 @@
                             width={xScale(d[0]) -  xScale(d[1])}
                             height={yScale.bandwidth()}
                         />
-                        <!-- <text
-                            class="bar-label"
-                            text-anchor="middle"
-                            x={width - ((xScale(d[1]) + xScale(d[0])) / 2) + marginLeft/2}
-                            y={yScale(d.data[0]) + yScale.bandwidth() / 2 + 5}
-                        >
-                            {d[1] - d[0]}
-                        </text> -->
+
+                        <!-- <path 
+                            fill={barColors[i]}
+                            d={`
+                                M${marginLeft},${yScale(d[yKey]) + 4}
+                                h${width - xScale(d[xKey]) - marginRight - 4}
+                                a4,4 0 0 1 4,4
+                                v${yScale.bandwidth() - 2 * 4}
+                                a-4,4 0 0 1 -4,4
+                                h${-width + xScale(d[xKey]) + marginRight + 4}Z
+                            `}
+                        /> -->
                     {/if}
                 {/each}
             {/each}
@@ -214,46 +275,70 @@
         <g class='bars'>
             {#each data as d, i}
                 {#if vertical}
-                    <rect
+                    <!-- <rect
                         fill={barColors[i]}
                         x={xScale(d[xKey])}
                         y={yScale(d[yKey])}
                         height={yScale(0) - yScale(d[yKey])}
                         width={xScale.bandwidth()}
+                    /> -->
+
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+                    <path
+                        on:mouseenter={enterTooltip}
+                        on:mousemove={(e) => movingTooltip(e, d)}
+                        on:mouseleave={leaveTooltip}
+                        fill={barColors[i]}
+                        d={`
+                            M${xScale(d[xKey])},${yScale(d[yKey]) + 4}
+                            a4,4 0 0 1 4,-4
+                            h${xScale.bandwidth() - 2 * 4}
+                            a4,4 0 0 1 4,4
+                            v${height - yScale(d[yKey]) - marginBottom - 4}
+                            h${-xScale.bandwidth()}Z
+                        `}
                     />
-                    <!-- <text
-                        class="bar-label"
-                        text-anchor="middle"
-                        x={xScale(d[xKey]) + xScale.bandwidth() / 2}
-                        y={yScale(d[yKey]) - 10}
-                    >
-                        {d[yKey]}
-                    </text> -->
                 {:else if horizontal}
-                    <rect
+                    <!-- <rect
                         fill={barColors[i]}
                         x={marginLeft}
                         y={yScale(d[yKey])}
                         height={yScale.bandwidth()}
                         width={xScale(0) - xScale(d[xKey])}
+                    /> -->
+
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <path 
+                        on:mouseenter={enterTooltip}
+                        on:mousemove={(e) => movingTooltip(e, d)}
+                        on:mouseleave={leaveTooltip}
+                        fill={barColors[i]}
+                        d={`
+                            M${marginLeft},${yScale(d[yKey]) + 4}
+                            h${width - xScale(d[xKey]) - marginRight - 4}
+                            a4,4 0 0 1 4,4
+                            v${yScale.bandwidth() - 2 * 4}
+                            a-4,4 0 0 1 -4,4
+                            h${-width + xScale(d[xKey]) + marginRight + 4}Z
+                        `}
                     />
-                    <!-- <text
-                        class="bar-label"
-                        text-anchor="middle"
-                        x={width - xScale(d[xKey]) + 90}
-                        y={yScale(d[yKey]) + (yScale.bandwidth() / 2) + 5}
-                    >
-                        {d[xKey]}
-                    </text> -->
                 {/if}
             {/each}
         </g>
     {/if}
 </svg>
 
+<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} xValue={tooltipData.xValue} yValue={tooltipData.yValue} />
+
+
 <style>
     .bar-chart-svg {
         width: 100%;
         height: 100%;
+    }
+
+    .axis-label {
+        font-size: 11px;
     }
 </style>
