@@ -7,19 +7,19 @@
      *  @param {array} data
      *      data - an array of objects containing the bar chart data.
      *      For UNSTACKED bar charts each object must have a minimum of two properties – 
-     *      one for the x-axis and one for the y-axis => { x: <x-value>, y: <y-value>, ... }.
+     *      one for the domain and one for the range => { x: <domain-value>, y: <range-value>, ... }.
      *      Note that there can be more properties within this object, but they are not accessed
      *      by the chart component.
      * 
      *      For STACKED bar charts each object must have a minimum of three properties –
-     *      one for the x-axis, one for the y-axis, and one for the series differentiator =>
-     *      { x: <x-value>, y: <y-value>, series: <series-name>, ... }
+     *      one for the domain, one for the range, and one for the series differentiator =>
+     *      { x: <domain-value>, y: <range-value>, series: <series-name>, ... }
      * 
-     *  @param {string} xKey
-     *      xKey - string property that declares the name of the object key used to define the x-axis.
+     *  @param {string} domain
+     *      domain - string property that declares the name of the object key used to define the x-axis.
      * 
-     *  @param {string} yKey
-     *      yKey - string property that declares the name of the object key used to define the y-axis.
+     *  @param {string} range
+     *      range - string property that declares the name of the object key used to define the y-axis.
      * 
      *  @param {string} seriesKey
      *      seriesKey - string property that declares the object key to differentiating each series
@@ -31,8 +31,8 @@
             horizontal = false,
             stacked = false,
             sort = null,
-            xKey,
-            yKey,
+            domain,
+            range,
             seriesKey = null,
             tooltipId
 
@@ -48,11 +48,11 @@
         if (stacked) {
             stack = d3.stack()
                 .keys(d3.union(data.map((d) => d[seriesKey])))
-                .value(([, D], key) => D.get(key)[yKey])
-                (d3.index(data, (d) => d[xKey], (d) => d[seriesKey]))
+                .value(([, D], key) => D.get(key)[range])
+                (d3.index(data, (d) => d[domain], (d) => d[seriesKey]))
 
             xScale = d3.scaleBand()
-                .domain(data.map((d) => d[xKey]))
+                .domain(data.map((d) => d[domain]))
                 .range([marginLeft, width - marginRight])
                 .padding(0.3)
                 
@@ -64,8 +64,8 @@
                 xScale = d3.scaleBand()
                     .domain(d3.groupSort(
                         data,
-                        ([d]) => d[yKey],
-                        (d) => d[xKey]
+                        ([d]) => d[range],
+                        (d) => d[domain]
                     ))
                     .range([marginLeft, width - marginRight])
                     .padding(0.3)
@@ -73,20 +73,20 @@
                 xScale = d3.scaleBand()
                     .domain(d3.groupSort(
                         data,
-                        ([d]) => -d[yKey],
-                        (d) => d[xKey]
+                        ([d]) => -d[range],
+                        (d) => d[domain]
                     ))
                     .range([marginLeft, width - marginRight])
                     .padding(0.3)
             } else {
                 xScale = d3.scaleBand()
-                    .domain(data.map((d) => d[xKey]))
+                    .domain(data.map((d) => d[domain]))
                     .range([marginLeft, width - marginRight])
                     .padding(0.3)
             }
                 
             yScale = d3.scaleLinear()
-                .domain([0, d3.max(data, (d) => d[yKey])])
+                .domain([0, d3.max(data, (d) => d[range])])
                 .range([height - marginBottom, marginTop])
         }
     }
@@ -95,11 +95,11 @@
         if (stacked) {
             stack = d3.stack()
                 .keys(d3.union(data.map((d) => d[seriesKey])))
-                .value(([, D], key) => D.get(key)[xKey])
-                (d3.index(data, (d) => d[yKey], (d) => d[seriesKey]))
+                .value(([, D], key) => D.get(key)[domain])
+                (d3.index(data, (d) => d[range], (d) => d[seriesKey]))
 
             yScale = d3.scaleBand()
-                .domain(data.map((d) => d[yKey]))
+                .domain(data.map((d) => d[range]))
                 .range([marginTop, height - marginBottom])
                 .padding(0.2)
                 
@@ -111,8 +111,8 @@
                 yScale = d3.scaleBand()
                     .domain(d3.groupSort(
                         data,
-                        ([d]) => d[xKey],
-                        (d) => d[yKey]
+                        ([d]) => d[domain],
+                        (d) => d[range]
                     ))
                     .range([marginTop, height - marginBottom])
                     .padding(0.2)
@@ -120,20 +120,20 @@
                 yScale = d3.scaleBand()
                     .domain(d3.groupSort(
                         data,
-                        ([d]) => -d[xKey],
-                        (d) => d[yKey]
+                        ([d]) => -d[domain],
+                        (d) => d[range]
                     ))
                     .range([marginTop, height - marginBottom])
                     .padding(0.2)
             } else {
                 yScale = d3.scaleBand()
-                .domain(data.map((d) => d[yKey]))
+                .domain(data.map((d) => d[range]))
                 .range([marginTop, height - marginBottom])
                 .padding(0.2)
             }
             
             xScale = d3.scaleLinear()
-                .domain([0, d3.max(data, (d) => d[xKey])])
+                .domain([0, d3.max(data, (d) => d[domain])])
                 .range([width - marginRight, marginLeft])
         }
     }
@@ -182,9 +182,9 @@
                     fill="gray"
                     text-anchor="start"
                     x={-100}
-                    y={yScale(d[yKey]) + (yScale.bandwidth() / 2) + 5}
+                    y={yScale(d[range]) + (yScale.bandwidth() / 2) + 5}
                 >
-                    {d[yKey]}
+                    {d[range]}
                 </text>
             {/each}
         {:else if vertical}
@@ -209,10 +209,10 @@
                     class="axis-label"
                     fill="gray"
                     text-anchor="middle"
-                    x={xScale(d[xKey]) + xScale.bandwidth() / 2}
+                    x={xScale(d[domain]) + xScale.bandwidth() / 2}
                     y={22}
                 >
-                    {d[xKey]}
+                    {d[domain]}
                 </text>
             {/each}
         {/if}
@@ -259,12 +259,12 @@
                         <!-- <path 
                             fill={barColors[i]}
                             d={`
-                                M${marginLeft},${yScale(d[yKey]) + 4}
-                                h${width - xScale(d[xKey]) - marginRight - 4}
+                                M${marginLeft},${yScale(d[range]) + 4}
+                                h${width - xScale(d[domain]) - marginRight - 4}
                                 a4,4 0 0 1 4,4
                                 v${yScale.bandwidth() - 2 * 4}
                                 a-4,4 0 0 1 -4,4
-                                h${-width + xScale(d[xKey]) + marginRight + 4}Z
+                                h${-width + xScale(d[domain]) + marginRight + 4}Z
                             `}
                         /> -->
                     {/if}
@@ -277,9 +277,9 @@
                 {#if vertical}
                     <!-- <rect
                         fill={barColors[i]}
-                        x={xScale(d[xKey])}
-                        y={yScale(d[yKey])}
-                        height={yScale(0) - yScale(d[yKey])}
+                        x={xScale(d[domain])}
+                        y={yScale(d[range])}
+                        height={yScale(0) - yScale(d[range])}
                         width={xScale.bandwidth()}
                     /> -->
 
@@ -291,11 +291,11 @@
                         on:mouseleave={leaveTooltip}
                         fill={barColors[i]}
                         d={`
-                            M${xScale(d[xKey])},${yScale(d[yKey]) + 4}
+                            M${xScale(d[domain])},${yScale(d[range]) + 4}
                             a4,4 0 0 1 4,-4
                             h${xScale.bandwidth() - 2 * 4}
                             a4,4 0 0 1 4,4
-                            v${height - yScale(d[yKey]) - marginBottom - 4}
+                            v${height - yScale(d[range]) - marginBottom - 4}
                             h${-xScale.bandwidth()}Z
                         `}
                     />
@@ -303,9 +303,9 @@
                     <!-- <rect
                         fill={barColors[i]}
                         x={marginLeft}
-                        y={yScale(d[yKey])}
+                        y={yScale(d[range])}
                         height={yScale.bandwidth()}
-                        width={xScale(0) - xScale(d[xKey])}
+                        width={xScale(0) - xScale(d[domain])}
                     /> -->
 
                     <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -315,12 +315,12 @@
                         on:mouseleave={leaveTooltip}
                         fill={barColors[i]}
                         d={`
-                            M${marginLeft},${yScale(d[yKey]) + 4}
-                            h${width - xScale(d[xKey]) - marginRight - 4}
+                            M${marginLeft},${yScale(d[range]) + 4}
+                            h${width - xScale(d[domain]) - marginRight - 4}
                             a4,4 0 0 1 4,4
                             v${yScale.bandwidth() - 2 * 4}
                             a-4,4 0 0 1 -4,4
-                            h${-width + xScale(d[xKey]) + marginRight + 4}Z
+                            h${-width + xScale(d[domain]) + marginRight + 4}Z
                         `}
                     />
                 {/if}

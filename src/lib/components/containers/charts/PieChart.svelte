@@ -6,23 +6,23 @@
     /**
      *  @param {array} data
      *      data - an array of objects containing the pie chart data.
-     *      Each object must have a minimum of two properties – one for the arc groupings and
-     *      one for the arc value => { x: <x-value>, y: <y-value>, ... }.
+     *      Each object must have a minimum of two properties – one for the domain and
+     *      one for the range value => { x: <domain-value>, y: <range-value>, ... }.
      *      Note that there can be more properties within this object, but they are not accessed
      *      by the chart component.
      * 
-     *  @param {string} xKey
-     *      xKey - string property that declares the name of the object key used to define the arc groupings.
+     *  @param {string} domain
+     *      domain - string property that declares the name of the object key used to define the arc groupings.
      * 
-     *  @param {string} yKey
-     *      yKey - string property that declares the name of the object key used to define
+     *  @param {string} range
+     *      range - string property that declares the name of the object key used to define
      *      the measured arc value.
      */
 
     export let data,
             arcColors = [],
-            xKey,
-            yKey,
+            domain,
+            range,
             sort = null,
             ring = false,
             tooltipId
@@ -38,16 +38,16 @@
 
     if (sort === 'ascending') {
         pie = d3.pie()
-            .sort((a, b) => d3.ascending(a[yKey], b[yKey]))
-            .value((d) => d[yKey])
+            .sort((a, b) => d3.ascending(a[range], b[range]))
+            .value((d) => d[range])
     } else if (sort === 'descending') {
         pie = d3.pie()
-            .sort((a, b) => d3.descending(a[yKey], b[yKey]))
-            .value((d) => d[yKey])
+            .sort((a, b) => d3.descending(a[range], b[range]))
+            .value((d) => d[range])
     } else {
         pie = d3.pie()
             .sort(null)
-            .value((d) => d[yKey])
+            .value((d) => d[range])
     }
 
     const arcPath = d3.arc()
@@ -73,7 +73,7 @@
         const [x, y] = d3.pointer(e)
         tooltipData.top = e.offsetY - 85
         tooltipData.left = e.offsetX - 10
-        tooltipData.xValue = d.data[xKey]
+        tooltipData.xValue = d.data[domain]
         tooltipData.yValue = d.value
     }
 

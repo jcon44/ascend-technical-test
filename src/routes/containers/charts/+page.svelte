@@ -87,8 +87,8 @@
             <p class="p">Each chart component shares the following API for data and style:</p>
             <ul>
                 <li><p><code>data</code>: An array of objects containing the chart data.</p></li>
-                <li><p><code>xKey</code>: A string defining the data object key for the base axis or measurement for the chart data.</p></li>
-                <li><p><code>yKey</code>: A string defining the data object key for the value axis or measurement for the chart data.</p></li>
+                <li><p><code>domain</code>: A string defining the data object key for the base axis or measurement for the chart data.</p></li>
+                <li><p><code>range</code>: A string defining the data object key for the value axis or measurement for the chart data.</p></li>
                 <li><p><code>styles</code>: (optional) An array of CSS styles that style the chart frame.</p></li>
                 <li><p><code>title</code>: (optional) A string representing the chart title.</p></li>
             </ul>
@@ -113,8 +113,8 @@
                     sort='descending'
                     title="Simple Vertical Bar Chart"
                     data={barData} 
-                    xKey="x" 
-                    yKey="value" 
+                    domain="x" 
+                    range="value" 
                 />
                 <details>
                     <summary>Data</summary>
@@ -141,8 +141,8 @@
                     horizontal
                     title="Simple Horizontal Bar Chart"
                     data={barData}
-                    xKey="value" 
-                    yKey="x" 
+                    domain="value" 
+                    range="x" 
                 />
                 <details>
                     <summary>Data</summary>
@@ -170,8 +170,8 @@
                     stacked
                     data={stackedBarData} 
                     title="Stacked Vertical Bar Chart"
-                    xKey="x" 
-                    yKey="value",
+                    domain="x" 
+                    range="value",
                     labelKey="name"
                     seriesKey="name"
                 />
@@ -211,8 +211,8 @@
                     stacked
                     data={stackedBarData}
                     title="Stacked Horizontal Bar Chart"
-                    xKey="value"
-                    yKey="x",
+                    domain="value"
+                    range="x",
                     labelKey="name"
                     seriesKey="name"
                 />
@@ -258,8 +258,8 @@
                     type='area'
                     data={areaData} 
                     title="Simple Area Chart"
-                    xKey="date" 
-                    yKey="value" 
+                    domain="date" 
+                    range="value" 
                 />
                 <details>
                     <summary>Data</summary>
@@ -289,8 +289,8 @@
                     type='area'
                     data={stackedAreaData} 
                     title="Stacked Area Chart"
-                    xKey="date"
-                    yKey="value" 
+                    domain="date"
+                    range="value" 
                     seriesKey="name"
                     labelKey="name"
                     stacked
@@ -349,9 +349,9 @@
                     type='pie'
                     data={pieData} 
                     title="Pie Chart"
-                    xKey="name" 
-                    yKey="value" 
-                    labelKey="name"
+                    domain="name" 
+                    range="value" 
+                    seriesKey="name"
                     sort='descending'
                 />
                 <details>
@@ -378,9 +378,9 @@
                     type='pie'
                     data={pieData} 
                     title="Ring Chart"
-                    xKey="name" 
-                    yKey="value"
-                    labelKey="name"
+                    domain="name" 
+                    range="value"
+                    seriesKey="name"
                     ring
                 />
                 <details>

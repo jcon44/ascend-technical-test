@@ -8,8 +8,8 @@
     export let data,
         type,
         title,
-        xKey,
-        yKey,
+        domain,
+        range,
         tooltipId,
         styles,
         barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
@@ -57,8 +57,8 @@
             <BarChart 
                 {tooltipId}
                 {data}
-                {xKey}
-                {yKey}
+                {domain}
+                {range}
                 {styles}
                 {barColors}
                 {vertical}
@@ -74,8 +74,8 @@
             <AreaChart
                 {tooltipId}
                 {data}
-                {xKey}
-                {yKey}
+                {domain}
+                {range}
                 {seriesKey}
                 {styles}
                 {areaColors}
@@ -90,8 +90,8 @@
             <PieChart 
                 {tooltipId}
                 {data}
-                {xKey}
-                {yKey}
+                {domain}
+                {range}
                 {sort}
                 {styles}
                 {arcColors}

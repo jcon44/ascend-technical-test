@@ -8,19 +8,19 @@
      *  @param {array} data
      *      data - an array of objects containing the area chart data.
      *      For UNSTACKED area charts each object must have a minimum of two properties – 
-     *      one for the x-axis and one for the y-axis => { x: <x-value>, y: <y-value>, ... }.
+     *      one for the domain and one for the range => { x: <domain-value>, y: <range-value>, ... }.
      *      Note that there can be more properties within this object, but they are not accessed
      *      by the chart component.
      * 
      *      For STACKED area charts each object must have a minimum of three properties –
-     *      one for the x-axis, one for the y-axis, and one for the series differentiator =>
-     *      { x: <x-value>, y: <y-value>, series: <series-name>, ... }
+     *      one for the domain, one for the range, and one for the series differentiator =>
+     *      { x: <domain-value>, y: <range-value>, series: <series-name>, ... }
      * 
-     *  @param {string} xKey
-     *      xKey - string property that declares the name of the object key used to define the x-axis.
+     *  @param {string} domain
+     *      domain - string property that declares the name of the object key used to define the x-axis.
      * 
-     *  @param {string} yKey
-     *      yKey - string property that declares the name of the object key used to define the y-axis.
+     *  @param {string} range
+     *      range - string property that declares the name of the object key used to define the y-axis.
      * 
      *  @param {string} seriesKey
      *      seriesKey - string property that declares the object key differentiating each series
@@ -30,8 +30,8 @@
             tooltipId,
             areaColors = [],
             lineColors = [],
-            xKey, 
-            yKey,
+            domain, 
+            range,
             seriesKey,
             line = false,
             stacked = false
@@ -46,9 +46,9 @@
     let formatTime, mouseDateSnap, xScale, yScale, stroke, stack, area, lines =[]
 
     if (stacked) {
-        if (xKey === 'date') {
+        if (domain === 'date') {
             for (let obj of data) {
-                obj[xKey] = new Date(obj[xKey])
+                obj[domain] = new Date(obj[domain])
             }
 
             formatTime = d3.utcFormat("%B %d, %Y")
@@ -56,11 +56,11 @@
             
             stack = d3.stack()
             .keys(d3.union(data.map((d) => d[seriesKey])))
-            .value(([, D], key) => D.get(key)[yKey])
-            (d3.index(data, (d) => d[xKey], (d) => d[seriesKey]))
+            .value(([, D], key) => D.get(key)[range])
+            (d3.index(data, (d) => d[domain], (d) => d[seriesKey]))
             
             xScale = d3.scaleTime()
-            .domain(d3.extent(data, (d) => d[xKey]))
+            .domain(d3.extent(data, (d) => d[domain]))
             .range([marginLeft, width - marginRight])
             
             yScale = d3.scaleLinear()
@@ -76,30 +76,34 @@
             .x((d) => xScale(d.data[0]))
             .y((d) => yScale(d[1]))
         }
+
+        //
     } else {
-        if (xKey === 'date') {
+        if (domain === 'date') {
             for (let obj of data) {
-                obj[xKey] = new Date(obj[xKey])
+                obj[domain] = new Date(obj[domain])
             }
 
             formatTime = d3.utcFormat("%B %d, %Y");
     
             xScale = d3.scaleTime()
-                .domain(d3.extent(data, (d) => d[xKey]))
+                .domain(d3.extent(data, (d) => d[domain]))
                 .range([marginLeft, width - marginRight])
             yScale = d3.scaleLinear()
-                .domain([0, d3.max(data, (d) => d[yKey])])
+                .domain([0, d3.max(data, (d) => d[range])])
                 .range([height - marginBottom, marginTop])
 
             area = d3.area()
-                .x((d) => xScale(d[xKey]))
+                .x((d) => xScale(d[domain]))
                 .y0(yScale(0))
-                .y1((d) => yScale(d[yKey]))
+                .y1((d) => yScale(d[range]))
         
             stroke = d3.line()
-                .x((d) => d[xKey])
-                .y((d) => d[yKey])
+                .x((d) => d[domain])
+                .y((d) => d[range])
         }
+
+        // 
     }
 
     let tooltip, tooltipData = { top: 0, left: 0, xValue: 0, yValue: 0}
@@ -224,7 +228,7 @@
                     x={(width/data.length) * i}
                     y={22}
                 >
-                    {formatTime(d[xKey])}
+                    {formatTime(d[domain])}
                 </text>
             {/each}
         {/if}
