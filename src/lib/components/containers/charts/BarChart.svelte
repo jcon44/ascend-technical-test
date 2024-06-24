@@ -6,14 +6,11 @@
     /**
      *  @param {array} data
      *      data - an array of objects containing the bar chart data.
-     *      For UNSTACKED bar charts each object must have a minimum of two properties – 
-     *      one for the domain and one for the range => { x: <domain-value>, y: <range-value>, ... }.
+     *      For all bar charts each object must have a minimum of three properties – 
+     *      one for the domain, one for the range, and one for the series differentiator =>
+     *      { x: <domain-value>, y: <range-value>, series: <series-name>, ... }.
      *      Note that there can be more properties within this object, but they are not accessed
      *      by the chart component.
-     * 
-     *      For STACKED bar charts each object must have a minimum of three properties –
-     *      one for the domain, one for the range, and one for the series differentiator =>
-     *      { x: <domain-value>, y: <range-value>, series: <series-name>, ... }
      * 
      *  @param {string} domain
      *      domain - string property that declares the name of the object key used to define the x-axis.
@@ -138,7 +135,7 @@
         }
     }
 
-    let tooltip, tooltipData = { top: 0, left: 0, xValue: 0, yValue: 0}
+    let tooltip, tooltipData = { top: 0, left: 0, series: '', domain: 0, range: 0}
     if (browser) {
         tooltip = d3.select(`#${tooltipId}`)
     }
@@ -147,16 +144,21 @@
         tooltip.style('opacity', 1)
     }
 
-    function movingTooltip(e, d) {
+    function movingTooltip(e, d, s) {
         const [x, y] = d3.pointer(e)
         tooltipData.top = e.offsetY - 85
         tooltipData.left = e.offsetX - 60
+        tooltipData.series = s
         if (vertical) {
-            tooltipData.xValue = d.x
-            tooltipData.yValue = d.value
+            tooltipData.domain = d[domain]
+            tooltipData.range = d[range]
         } else if (horizontal) {
-            tooltipData.yValue = d.x
-            tooltipData.xValue = d.value
+            tooltipData.range = d[domain]
+            tooltipData.domain = d[range]
+        }
+        if (stacked) {
+            tooltipData.domain = d.data[0]
+            tooltipData.range = d[1] - d[0]
         }
     }
 
@@ -235,7 +237,7 @@
                         <!-- svelte-ignore a11y-no-static-element-interactions -->
                         <path
                             on:mouseenter={enterTooltip}
-                            on:mousemove={(e) => movingTooltip(e, d)}
+                            on:mousemove={(e) => movingTooltip(e, d, series.key)}
                             on:mouseleave={leaveTooltip}
                             fill={barColors[i]} 
                             d={`
@@ -329,7 +331,7 @@
     {/if}
 </svg>
 
-<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} xValue={tooltipData.xValue} yValue={tooltipData.yValue} />
+<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} series={tooltipData.series} domainLabel={horizontal ? range : domain} domain={tooltipData.domain} rangeLabel={horizontal ? domain : range} range={tooltipData.range} />
 
 
 <style>

@@ -4,11 +4,11 @@
     import Chart from "$lib/components/containers/charts/Chart.svelte";
 
     let barData = [
-        { x: 'Hospital 1', value: 10 },
-        { x: 'Hospital 2', value: 15 },
-        { x: 'Hospital 3', value: 13 },
-        { x: 'Hospital 4', value: 4 },
-        { x: 'Hospital 5', value: 20 },
+        { x: 'Hospital 1', series: 'Source', value: 10 },
+        { x: 'Hospital 2', series: 'Source', value: 15 },
+        { x: 'Hospital 3', series: 'Source', value: 13 },
+        { x: 'Hospital 4', series: 'Source', value: 4 },
+        { x: 'Hospital 5', series: 'Source', value: 20 },
     ]
 
     let stackedBarData = [
@@ -30,15 +30,15 @@
     ]
 
     let areaData = [
-        { date: '2024-01-04', value: 25 },
-        { date: '2024-01-25', value: 36 },
-        { date: '2024-02-02', value: 32 },
-        { date: '2024-02-13', value: 34 },
-        { date: '2024-02-29', value: 28 },
-        { date: '2024-03-06', value: 67 },
-        { date: '2024-03-17', value: 79 },
-        { date: '2024-03-23', value: 98 },
-        { date: '2024-04-15', value: 95 },
+        { date: '2024-01-04', series: 'Source', value: 25 },
+        { date: '2024-01-25', series: 'Source', value: 36 },
+        { date: '2024-02-02', series: 'Source', value: 32 },
+        { date: '2024-02-13', series: 'Source', value: 34 },
+        { date: '2024-02-29', series: 'Source', value: 28 },
+        { date: '2024-03-06', series: 'Source', value: 67 },
+        { date: '2024-03-17', series: 'Source', value: 79 },
+        { date: '2024-03-23', series: 'Source', value: 98 },
+        { date: '2024-04-15', series: 'Source', value: 95 },
     ]
 
     let stackedAreaData = [

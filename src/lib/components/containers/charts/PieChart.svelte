@@ -60,7 +60,7 @@
 
     const arcs = pie(data)
 
-    let tooltip, tooltipData = { top: 0, left: 0, xValue: 0, yValue: 0}
+    let tooltip, tooltipData = { top: 0, left: 0, domain: 0, range: 0}
     if (browser) {
         tooltip = d3.select(`#${tooltipId}`).style('opacity', 0)
     }
@@ -73,8 +73,8 @@
         const [x, y] = d3.pointer(e)
         tooltipData.top = e.offsetY - 85
         tooltipData.left = e.offsetX - 10
-        tooltipData.xValue = d.data[domain]
-        tooltipData.yValue = d.value
+        tooltipData.domain = d.data[domain]
+        tooltipData.range = d[range]
     }
 
     function leaveTooltip(e) {
@@ -102,7 +102,7 @@
             {/each}
         </g>
     </svg>
-    <ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} xValue={tooltipData.xValue} yValue={tooltipData.yValue} />
+    <ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} series={tooltipData.domain} rangeLabel={range} range={tooltipData.range} />
 </div>
 
 <style>

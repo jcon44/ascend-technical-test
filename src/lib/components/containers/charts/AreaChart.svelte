@@ -7,14 +7,11 @@
     /**
      *  @param {array} data
      *      data - an array of objects containing the area chart data.
-     *      For UNSTACKED area charts each object must have a minimum of two properties – 
-     *      one for the domain and one for the range => { x: <domain-value>, y: <range-value>, ... }.
+     *      For UNSTACKED area charts each object must have a minimum of three properties – 
+     *      one for the domain, one for the range, and one for the series differentiator =>
+     *      { x: <domain-value>, y: <range-value>, series: <series-name>, ... }.
      *      Note that there can be more properties within this object, but they are not accessed
      *      by the chart component.
-     * 
-     *      For STACKED area charts each object must have a minimum of three properties –
-     *      one for the domain, one for the range, and one for the series differentiator =>
-     *      { x: <domain-value>, y: <range-value>, series: <series-name>, ... }
      * 
      *  @param {string} domain
      *      domain - string property that declares the name of the object key used to define the x-axis.
@@ -106,7 +103,7 @@
         // 
     }
 
-    let tooltip, tooltipData = { top: 0, left: 0, xValue: 0, yValue: 0}
+    let tooltip, tooltipData = { top: 0, left: 0, domain: 0, range: 0}
     if (browser) {
         tooltip = d3.select(`#${tooltipId}`)
     }
@@ -119,8 +116,8 @@
         const [x, y] = d3.pointer(e)
         tooltipData.top = e.offsetY - 85
         tooltipData.left = e.offsetX - 60
-        tooltipData.xValue = formatTime(xScale.invert(x))
-        tooltipData.yValue = yScale.invert(y)
+        tooltipData.domain = formatTime(xScale.invert(x))
+        tooltipData.range = yScale.invert(y)
 
         mouseDateSnap = d3.timeYear.floor(xScale.invert(x))
     }
@@ -244,7 +241,7 @@
     />
 </svg>
 
-<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} xValue={tooltipData.xValue} yValue={tooltipData.yValue} />
+<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} domainLabel={domain} domain={tooltipData.domain} rangeLabel={range} range={tooltipData.range} />
 
 <style>
     .area-chart-svg {

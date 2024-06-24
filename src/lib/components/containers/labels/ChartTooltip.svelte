@@ -1,12 +1,16 @@
 <script>
-    export let tooltipId, x, y, xValue, yValue
+    export let tooltipId, x, y, domainLabel, domain, rangeLabel, range, series
 </script>
 
 <div id={tooltipId} class='tooltip' style="top:{y}px;left:{x}px;">
     <div class="tooltip-text">
-        <p>Series 1</p>
-        <p class='values'><span>X Value:</span> {xValue}</p>
-        <p class='values'><span>Y Value:</span> {yValue}</p>
+        <p>{series}</p>
+        {#if domain}
+            <p class='values'><span>{domainLabel}:</span> {domain}</p>
+        {/if}
+        {#if range}
+            <p class='values'><span>{rangeLabel}:</span> {range}</p>
+        {/if}
     </div>
 </div>
 
