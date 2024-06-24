@@ -10,7 +10,6 @@
         title,
         xKey,
         yKey,
-        labelKey,
         tooltipId,
         styles,
         barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
@@ -25,7 +24,25 @@
         ring,
         line
     
-    let chartWidth
+    let chartWidth, stackedData = []
+    if (stacked) {
+        // pull out the unique series values for the chart key
+        let seenValues = []
+        for (let item of data) {
+            stackedData.push(item[seriesKey])
+        }
+        for (let [index, value] of stackedData.entries()) {
+            if (!seenValues.includes(value)) {
+                const obj = {}
+                obj[seriesKey] = value
+                stackedData[index] = obj
+                seenValues.push(value)
+            }
+        }
+        for (let i = stackedData.length - 1; i >= 0; i--) {
+            if (typeof stackedData[i] === 'string') stackedData.splice(i, 1)
+        }
+    }
 </script>
 
 <Card
@@ -51,7 +68,7 @@
                 {seriesKey}
             />
             {#if stacked}
-                <ChartKeyContainer {data} {labelKey} colors={barColors} />
+                <ChartKeyContainer data={stackedData} {seriesKey} colors={barColors} />
             {/if}
         {:else if type === 'area'}
             <AreaChart
@@ -67,7 +84,7 @@
                 {line}
             />
             {#if stacked}
-                <ChartKeyContainer {data} {xKey} colors={barColors} />
+                <ChartKeyContainer data={stackedData} {seriesKey} colors={barColors} />
             {/if}
         {:else if type === 'pie'}
             <PieChart 
@@ -82,7 +99,7 @@
             />
             <ChartKeyContainer 
                 {data} 
-                {labelKey} 
+                {seriesKey} 
                 colors={barColors} 
                 column={ chartWidth < 500 ? true : false }
             />
