@@ -2,7 +2,6 @@
     import { ChartKey } from '$lib/index.js'
 
     export let data = [], colors = [], seriesKey, column = false
-    console.log(data, seriesKey)
 </script>
 
 <div class='key-container { column ? 'column': '' }'>
