@@ -18,10 +18,13 @@
 		gap: var(--spacing04);
 		width: fit-content;
 	}
+    .color-block {
+        width: var(--spacing03);
+        height: var(--spacing03);
+        border-radius: 50%;
+    }
 
-	.color-block {
-		width: var(--spacing08);
-		height: var(--spacing08);
-		border-radius: 50%;
-	}
+    .key-text {
+        font-size: 14px;
+    }
 </style>

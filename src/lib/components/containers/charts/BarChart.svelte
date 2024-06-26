@@ -1,313 +1,346 @@
 <script>
-	import * as d3 from 'd3'
+    import * as d3 from 'd3'
+    import { browser } from '$app/environment';
+	import ChartTooltip from '$lib/components/containers/labels/ChartTooltip.svelte'
 
-	export let data,
-		title,
-		styles = [],
-		barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
-		vertical = false,
-		horizontal = false,
-		stacked = false,
-		sort = null,
-		xKey,
-		yKey,
-		seriesKey = null
+    /**
+     *  @param {array} data
+     *      data - an array of objects containing the bar chart data.
+     *      For all bar charts each object must have a minimum of three properties – 
+     *      one for the domain, one for the range, and one for the series differentiator =>
+     *      { x: <domain-value>, y: <range-value>, series: <series-name>, ... }.
+     *      Note that there can be more properties within this object, but they are not accessed
+     *      by the chart component.
+     * 
+     *  @param {string} domain
+     *      domain - string property that declares the name of the object key used to define the x-axis.
+     * 
+     *  @param {string} range
+     *      range - string property that declares the name of the object key used to define the y-axis.
+     * 
+     *  @param {string} seriesKey
+     *      seriesKey - string property that declares the object key to differentiating each series
+     */
 
-	let width = 750
-	let height = 400
-	let marginLeft = vertical ? 0 : 125
-	let marginRight = vertical ? 0 : 50
-	let marginTop = vertical ? 25 : 20
-	let marginBottom = vertical ? 25 : 20
-	let xScale, yScale, stack
+    export let data,
+            barColors = [],
+            vertical = false,
+            horizontal = false,
+            stacked = false,
+            sort = null,
+            domain,
+            range,
+            seriesKey = null,
+            tooltipId
 
-	if (vertical) {
-		if (stacked) {
-			stack = d3
-				.stack()
-				.keys(d3.union(data.map((d) => d[seriesKey])))
-				.value(([, D], key) => D.get(key)[yKey])(
-				d3.index(
-					data,
-					(d) => d[xKey],
-					(d) => d[seriesKey],
-				),
-			)
+    let width = 750
+    let height = 400
+    let marginLeft = vertical ? 0 : 125
+    let marginRight = vertical ? 0 : 50
+    let marginTop = vertical ? 24 : 20
+    let marginBottom = vertical ? 24 : 20
+    let xScale, yScale, stack
 
-			xScale = d3
-				.scaleBand()
-				.domain(data.map((d) => d[xKey]))
-				.range([marginLeft, width - marginRight])
-				.padding(0.1)
+    if (vertical) {
+        if (stacked) {
+            stack = d3.stack()
+                .keys(d3.union(data.map((d) => d[seriesKey])))
+                .value(([, D], key) => D.get(key)[range])
+                (d3.index(data, (d) => d[domain], (d) => d[seriesKey]))
 
-			yScale = d3
-				.scaleLinear()
-				.domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
-				.range([height - marginBottom, marginTop])
-		} else {
-			if (sort === 'ascending') {
-				xScale = d3
-					.scaleBand()
-					.domain(
-						d3.groupSort(
-							data,
-							([d]) => d[yKey],
-							(d) => d[xKey],
-						),
-					)
-					.range([marginLeft, width - marginRight])
-					.padding(0.2)
-			} else if (sort === 'descending') {
-				xScale = d3
-					.scaleBand()
-					.domain(
-						d3.groupSort(
-							data,
-							([d]) => -d[yKey],
-							(d) => d[xKey],
-						),
-					)
-					.range([marginLeft, width - marginRight])
-					.padding(0.2)
-			} else {
-				xScale = d3
-					.scaleBand()
-					.domain(data.map((d) => d[xKey]))
-					.range([marginLeft, width - marginRight])
-					.padding(0.1)
-			}
+            xScale = d3.scaleBand()
+                .domain(data.map((d) => d[domain]))
+                .range([marginLeft, width - marginRight])
+                .padding(0.3)
+                
+            yScale = d3.scaleLinear()
+                .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
+                .range([height - marginBottom, marginTop])
+        } else {
+            if (sort === 'ascending') {
+                xScale = d3.scaleBand()
+                    .domain(d3.groupSort(
+                        data,
+                        ([d]) => d[range],
+                        (d) => d[domain]
+                    ))
+                    .range([marginLeft, width - marginRight])
+                    .padding(0.3)
+            } else if (sort === 'descending') {
+                xScale = d3.scaleBand()
+                    .domain(d3.groupSort(
+                        data,
+                        ([d]) => -d[range],
+                        (d) => d[domain]
+                    ))
+                    .range([marginLeft, width - marginRight])
+                    .padding(0.3)
+            } else {
+                xScale = d3.scaleBand()
+                    .domain(data.map((d) => d[domain]))
+                    .range([marginLeft, width - marginRight])
+                    .padding(0.3)
+            }
+                
+            yScale = d3.scaleLinear()
+                .domain([0, d3.max(data, (d) => d[range])])
+                .range([height - marginBottom, marginTop])
+        }
+    }
+    
+    if (horizontal) {
+        if (stacked) {
+            stack = d3.stack()
+                .keys(d3.union(data.map((d) => d[seriesKey])))
+                .value(([, D], key) => D.get(key)[domain])
+                (d3.index(data, (d) => d[range], (d) => d[seriesKey]))
 
-			yScale = d3
-				.scaleLinear()
-				.domain([0, d3.max(data, (d) => d[yKey])])
-				.range([height - marginBottom, marginTop])
-		}
-	}
+            yScale = d3.scaleBand()
+                .domain(data.map((d) => d[range]))
+                .range([marginTop, height - marginBottom])
+                .padding(0.2)
+                
+            xScale = d3.scaleLinear()
+                .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
+                .range([width - marginRight, marginLeft])
+        } else {
+            if (sort === 'ascending') {
+                yScale = d3.scaleBand()
+                    .domain(d3.groupSort(
+                        data,
+                        ([d]) => d[domain],
+                        (d) => d[range]
+                    ))
+                    .range([marginTop, height - marginBottom])
+                    .padding(0.2)
+            } else if (sort === 'descending') {
+                yScale = d3.scaleBand()
+                    .domain(d3.groupSort(
+                        data,
+                        ([d]) => -d[domain],
+                        (d) => d[range]
+                    ))
+                    .range([marginTop, height - marginBottom])
+                    .padding(0.2)
+            } else {
+                yScale = d3.scaleBand()
+                .domain(data.map((d) => d[range]))
+                .range([marginTop, height - marginBottom])
+                .padding(0.2)
+            }
+            
+            xScale = d3.scaleLinear()
+                .domain([0, d3.max(data, (d) => d[domain])])
+                .range([width - marginRight, marginLeft])
+        }
+    }
 
-	if (horizontal) {
-		if (stacked) {
-			stack = d3
-				.stack()
-				.keys(d3.union(data.map((d) => d[seriesKey])))
-				.value(([, D], key) => D.get(key)[xKey])(
-				d3.index(
-					data,
-					(d) => d[yKey],
-					(d) => d[seriesKey],
-				),
-			)
+    let tooltip, tooltipData = { top: 0, left: 0, series: '', domain: 0, range: 0}
+    if (browser) {
+        tooltip = d3.select(`#${tooltipId}`)
+    }
 
-			yScale = d3
-				.scaleBand()
-				.domain(data.map((d) => d[yKey]))
-				.range([marginTop, height - marginBottom])
-				.padding(0.2)
+    function enterTooltip(e) {
+        tooltip.style('opacity', 1)
+    }
 
-			xScale = d3
-				.scaleLinear()
-				.domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
-				.range([width - marginRight, marginLeft])
-		} else {
-			if (sort === 'ascending') {
-				yScale = d3
-					.scaleBand()
-					.domain(
-						d3.groupSort(
-							data,
-							([d]) => d[xKey],
-							(d) => d[yKey],
-						),
-					)
-					.range([marginTop, height - marginBottom])
-					.padding(0.2)
-			} else if (sort === 'descending') {
-				yScale = d3
-					.scaleBand()
-					.domain(
-						d3.groupSort(
-							data,
-							([d]) => -d[xKey],
-							(d) => d[yKey],
-						),
-					)
-					.range([marginTop, height - marginBottom])
-					.padding(0.2)
-			} else {
-				yScale = d3
-					.scaleBand()
-					.domain(data.map((d) => d[yKey]))
-					.range([marginTop, height - marginBottom])
-					.padding(0.2)
-			}
+    function movingTooltip(e, d, s) {
+        const [x, y] = d3.pointer(e)
+        tooltipData.top = e.offsetY - 85
+        tooltipData.left = e.offsetX - 60
+        tooltipData.series = s
+        if (vertical) {
+            tooltipData.domain = d[domain]
+            tooltipData.range = d[range]
+        } else if (horizontal) {
+            tooltipData.range = d[domain]
+            tooltipData.domain = d[range]
+        }
+        if (stacked) {
+            tooltipData.domain = d.data[0]
+            tooltipData.range = d[1] - d[0]
+        }
+    }
 
-			xScale = d3
-				.scaleLinear()
-				.domain([0, d3.max(data, (d) => d[xKey])])
-				.range([width - marginRight, marginLeft])
-		}
-	}
+    function leaveTooltip(e) {
+        tooltip.style('opacity', 0)
+    }
 </script>
 
-<div
-	class="bar-chart-frame"
-	style={styles.join(';')}
+<svg
+    class='bar-chart-svg'
+    {width}
+    {height}
+    viewBox="0 0 {width} {height}"
+    style="max-width:100%;height:auto;"
 >
-	{#if title}
-		<div class="chart-header">
-			<h2 class="body-xxl">{title}</h2>
-			<slot name="chart-header-contents" />
-		</div>
-	{/if}
+    <!-- Side Axis -->
+    <g class='side-axis' transform="translate({marginLeft}, 0)">
+        {#if horizontal}
+            <line stroke="var(--neutral-050)" y1={marginTop} y2={height-marginBottom} />
+            {#each data as d}
+                <text
+                    class="axis-label"
+                    fill="gray"
+                    text-anchor="start"
+                    x={-100}
+                    y={yScale(d[range]) + (yScale.bandwidth() / 2) + 5}
+                >
+                    {d[range]}
+                </text>
+            {/each}
+        {:else if vertical}
+            {#each yScale.ticks() as tick}
+                <line
+                    stroke="var(--neutral-050)"
+                    x1={marginLeft}
+                    x2={width - marginRight}
+                    y1={yScale(tick)}
+                    y2={yScale(tick)}
+                />
+            {/each}
+        {/if}
+    </g>
 
-	<svg
-		class="bar-chart-svg"
-		{width}
-		{height}
-		viewBox="0 0 {width} {height}"
-		style="max-width:100%;height:auto;"
-	>
-		<!-- Bars -->
-		{#if stacked}
-			<g class="bars">
-				{#each stack as series, i}
-					{#each series as d}
-						{#if vertical}
-							<rect
-								fill={barColors[i]}
-								x={xScale(d.data[0])}
-								y={yScale(d[1])}
-								width={xScale.bandwidth()}
-								height={yScale(d[0]) - yScale(d[1])}
-							/>
-							<text
-								class="bar-label"
-								x={xScale(d.data[0]) + xScale.bandwidth() / 2}
-								y={yScale(d[1]) + (yScale(d[0]) - yScale(d[1])) / 2 + 5}
-								text-anchor="middle"
-							>
-								{d[1] - d[0]}
-							</text>
-						{:else if horizontal}
-							<rect
-								fill={barColors[i]}
-								x={width - xScale(d[0]) + marginLeft / 2}
-								y={yScale(d.data[0])}
-								width={xScale(d[0]) - xScale(d[1])}
-								height={yScale.bandwidth()}
-							/>
-							<text
-								class="bar-label"
-								text-anchor="middle"
-								x={width - (xScale(d[1]) + xScale(d[0])) / 2 + marginLeft / 2}
-								y={yScale(d.data[0]) + yScale.bandwidth() / 2 + 5}
-							>
-								{d[1] - d[0]}
-							</text>
-						{/if}
-					{/each}
-				{/each}
-			</g>
-		{:else}
-			<g class="bars">
-				{#each data as d, i}
-					{#if vertical}
-						<rect
-							fill={barColors[i]}
-							x={xScale(d[xKey])}
-							y={yScale(d[yKey])}
-							height={yScale(0) - yScale(d[yKey])}
-							width={xScale.bandwidth()}
-							rx={12}
-						/>
-						<text
-							class="bar-label"
-							text-anchor="middle"
-							x={xScale(d[xKey]) + xScale.bandwidth() / 2}
-							y={yScale(d[yKey]) - 10}
-						>
-							{d[yKey]}
-						</text>
-					{:else if horizontal}
-						<rect
-							fill={barColors[i]}
-							x={marginLeft}
-							y={yScale(d[yKey])}
-							height={yScale.bandwidth()}
-							width={xScale(0) - xScale(d[xKey])}
-							rx={12}
-						/>
-						<text
-							class="bar-label"
-							text-anchor="middle"
-							x={width - xScale(d[xKey]) + 90}
-							y={yScale(d[yKey]) + yScale.bandwidth() / 2 + 5}
-						>
-							{d[xKey]}
-						</text>
-					{/if}
-				{/each}
-			</g>
-		{/if}
+    <!-- Base Axis -->
+    <g class='base-axis' transform="translate(0,{height - marginBottom})">
+        {#if vertical}
+            <line stroke="var(--neutral-050)" x1={marginLeft - 6} x2={width} />
+            {#each data as d}
+                <text
+                    class="axis-label"
+                    fill="gray"
+                    text-anchor="middle"
+                    x={xScale(d[domain]) + xScale.bandwidth() / 2}
+                    y={22}
+                >
+                    {d[domain]}
+                </text>
+            {/each}
+        {/if}
+    </g>
 
-		<!-- Base Axis -->
-		{#if vertical}
-			<g
-				class="base-axis"
-				transform="translate(0,{height - marginBottom})"
-			>
-				<!-- <line stroke="green" x1={marginLeft - 6} x2={width} /> -->
-				{#each data as d}
-					<text
-						fill="gray"
-						text-anchor="middle"
-						x={xScale(d[xKey]) + xScale.bandwidth() / 2}
-						y={22}
-					>
-						{d[xKey]}
-					</text>
-				{/each}
-			</g>
-		{/if}
+    <!-- Bars -->
+    {#if stacked}
+        <g class='bars'>
+            {#each stack as series, i}
+                {#each series as d}
+                    {#if vertical}
+                        <!-- <rect
+                            fill={barColors[i]}
+                            x={xScale(d.data[0])}
+                            y={yScale(d[1])}
+                            width={xScale.bandwidth()}
+                            height={yScale(d[0]) - yScale(d[1])}
+                        /> -->
+                        
+                        <!-- svelte-ignore a11y-no-static-element-interactions -->
+                        <path
+                            on:mouseenter={enterTooltip}
+                            on:mousemove={(e) => movingTooltip(e, d, series.key)}
+                            on:mouseleave={leaveTooltip}
+                            fill={barColors[i]} 
+                            d={`
+                                M${xScale(d.data[0])},${yScale(d[1]) + 4}
+                                a4,4 0 0 1 4,-4
+                                h${xScale.bandwidth() - 2 * 4}
+                                a4,4 0 0 1 4,4
+                                v${(yScale(d[0]) - yScale(d[1])) - 4}
+                                h${-xScale.bandwidth()}Z
+                            `}
+                        />
+                    {:else if horizontal}
+                        <rect
+                            fill={barColors[i]}
+                            x={width - xScale(d[0]) + marginLeft/2}
+                            y={yScale(d.data[0])}
+                            width={xScale(d[0]) -  xScale(d[1])}
+                            height={yScale.bandwidth()}
+                        />
 
-		<!-- Side Axis -->
-		{#if horizontal}
-			<g
-				class="side-axis"
-				transform="translate({marginLeft}, 0)"
-			>
-				<!-- <line stroke="green" y1={marginTop} y2={height-marginBottom} /> -->
-				{#each data as d}
-					<text
-						fill="gray"
-						text-anchor="start"
-						x={-100}
-						y={yScale(d[yKey]) + yScale.bandwidth() / 2 + 5}
-					>
-						{d[yKey]}
-					</text>
-				{/each}
-			</g>
-		{/if}
-	</svg>
+                        <!-- <path 
+                            fill={barColors[i]}
+                            d={`
+                                M${marginLeft},${yScale(d[range]) + 4}
+                                h${width - xScale(d[domain]) - marginRight - 4}
+                                a4,4 0 0 1 4,4
+                                v${yScale.bandwidth() - 2 * 4}
+                                a-4,4 0 0 1 -4,4
+                                h${-width + xScale(d[domain]) + marginRight + 4}Z
+                            `}
+                        /> -->
+                    {/if}
+                {/each}
+            {/each}
+        </g>
+    {:else}
+        <g class='bars'>
+            {#each data as d, i}
+                {#if vertical}
+                    <!-- <rect
+                        fill={barColors[i]}
+                        x={xScale(d[domain])}
+                        y={yScale(d[range])}
+                        height={yScale(0) - yScale(d[range])}
+                        width={xScale.bandwidth()}
+                    /> -->
 
-	<slot name="chart-footer-contents" />
-</div>
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+                    <path
+                        on:mouseenter={enterTooltip}
+                        on:mousemove={(e) => movingTooltip(e, d, d[seriesKey])}
+                        on:mouseleave={leaveTooltip}
+                        fill={barColors[i]}
+                        d={`
+                            M${xScale(d[domain])},${yScale(d[range]) + 4}
+                            a4,4 0 0 1 4,-4
+                            h${xScale.bandwidth() - 2 * 4}
+                            a4,4 0 0 1 4,4
+                            v${height - yScale(d[range]) - marginBottom - 4}
+                            h${-xScale.bandwidth()}Z
+                        `}
+                    />
+                {:else if horizontal}
+                    <!-- <rect
+                        fill={barColors[i]}
+                        x={marginLeft}
+                        y={yScale(d[range])}
+                        height={yScale.bandwidth()}
+                        width={xScale(0) - xScale(d[domain])}
+                    /> -->
+
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <path 
+                        on:mouseenter={enterTooltip}
+                        on:mousemove={(e) => movingTooltip(e, d, d[seriesKey])}
+                        on:mouseleave={leaveTooltip}
+                        fill={barColors[i]}
+                        d={`
+                            M${marginLeft},${yScale(d[range]) + 4}
+                            h${width - xScale(d[domain]) - marginRight - 4}
+                            a4,4 0 0 1 4,4
+                            v${yScale.bandwidth() - 2 * 4}
+                            a-4,4 0 0 1 -4,4
+                            h${-width + xScale(d[domain]) + marginRight + 4}Z
+                        `}
+                    />
+                {/if}
+            {/each}
+        </g>
+    {/if}
+</svg>
+
+<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} series={tooltipData.series} domainLabel={horizontal ? range : domain} domain={tooltipData.domain} rangeLabel={horizontal ? domain : range} range={tooltipData.range} />
+
 
 <style>
-	.bar-chart-frame {
-		width: 100%;
-		height: fit-content;
-		border: 1px solid black;
-		border-radius: 24px;
-		padding: var(--spacing09);
-	}
+    .bar-chart-svg {
+        width: 100%;
+        height: 100%;
+    }
 
-	.bar-chart-svg {
-		width: 100%;
-		height: 100%;
-	}
-
-	.chart-header {
-		padding-bottom: var(--spacing09);
-	}
+    .axis-label {
+        font-size: 11px;
+    }
 </style>

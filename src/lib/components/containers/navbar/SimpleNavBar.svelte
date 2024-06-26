@@ -1,0 +1,23 @@
+<script>
+    import { Button } from '$lib/index.js'
+
+    export let links = []
+</script>
+
+<div class="simple-navbar">
+    {#each links as link}
+        <Button 
+            text={link.text}
+            url={link.url}
+            classes={['btn-link']}
+        />
+    {/each}
+</div>
+
+<style>
+    .simple-navbar {
+        padding: var(--spacing09) 0;
+        display: flex;
+        gap: var(--spacing09);
+    }
+</style>
