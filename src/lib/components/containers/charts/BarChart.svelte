@@ -289,7 +289,7 @@
                     <!-- svelte-ignore a11y-mouse-events-have-key-events -->
                     <path
                         on:mouseenter={enterTooltip}
-                        on:mousemove={(e) => movingTooltip(e, d)}
+                        on:mousemove={(e) => movingTooltip(e, d, d[seriesKey])}
                         on:mouseleave={leaveTooltip}
                         fill={barColors[i]}
                         d={`
@@ -313,7 +313,7 @@
                     <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <path 
                         on:mouseenter={enterTooltip}
-                        on:mousemove={(e) => movingTooltip(e, d)}
+                        on:mousemove={(e) => movingTooltip(e, d, d[seriesKey])}
                         on:mouseleave={leaveTooltip}
                         fill={barColors[i]}
                         d={`

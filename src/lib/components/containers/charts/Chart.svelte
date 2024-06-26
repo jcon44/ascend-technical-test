@@ -25,23 +25,21 @@
         line
     
     let chartWidth, stackedData = []
-    if (stacked) {
-        // pull out the unique series values for the chart key
-        let seenValues = []
-        for (let item of data) {
-            stackedData.push(item[seriesKey])
+    // pull out the unique series values for the chart key
+    let seenValues = []
+    for (let item of data) {
+        stackedData.push(item[seriesKey])
+    }
+    for (let [index, value] of stackedData.entries()) {
+        if (!seenValues.includes(value)) {
+            const obj = {}
+            obj[seriesKey] = value
+            stackedData[index] = obj
+            seenValues.push(value)
         }
-        for (let [index, value] of stackedData.entries()) {
-            if (!seenValues.includes(value)) {
-                const obj = {}
-                obj[seriesKey] = value
-                stackedData[index] = obj
-                seenValues.push(value)
-            }
-        }
-        for (let i = stackedData.length - 1; i >= 0; i--) {
-            if (typeof stackedData[i] === 'string') stackedData.splice(i, 1)
-        }
+    }
+    for (let i = stackedData.length - 1; i >= 0; i--) {
+        if (typeof stackedData[i] === 'string') stackedData.splice(i, 1)
     }
 </script>
 

@@ -114,7 +114,8 @@
                     title="Simple Vertical Bar Chart"
                     data={barData} 
                     domain="x" 
-                    range="value" 
+                    range="value"
+                    seriesKey="series"
                 />
                 <details>
                     <summary>Data</summary>
@@ -260,6 +261,7 @@
                     title="Simple Area Chart"
                     domain="date" 
                     range="value" 
+                    seriesKey="series"
                 />
                 <details>
                     <summary>Data</summary>

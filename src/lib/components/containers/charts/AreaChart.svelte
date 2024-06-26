@@ -103,7 +103,7 @@
         // 
     }
 
-    let tooltip, tooltipData = { top: 0, left: 0, domain: 0, range: 0}
+    let tooltip, tooltipData = { top: 0, left: 0, series: '', domain: 0, range: 0}
     if (browser) {
         tooltip = d3.select(`#${tooltipId}`)
     }
@@ -112,10 +112,11 @@
         tooltip.style('opacity', 1)
     }
 
-    function movingTooltip(e, d) {
+    function movingTooltip(e, d, s) {
         const [x, y] = d3.pointer(e)
         tooltipData.top = e.offsetY - 85
         tooltipData.left = e.offsetX - 60
+        tooltipData.series = s
         tooltipData.domain = formatTime(xScale.invert(x))
         tooltipData.range = yScale.invert(y)
 
@@ -142,6 +143,12 @@
             y1={yScale(tick)}
             y2={yScale(tick)}
         />
+        <text
+            x={marginLeft}
+            y={yScale(tick)}
+        >
+            {tick}
+        </text>
     {/each}
 
     <!-- Areas -->
@@ -149,6 +156,7 @@
         {#if stacked}
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             {#each stack as series, i}
+                {console.log(series)}
                 <!-- svelte-ignore missing-declaration -->
                 <path
                 stroke={lineColors[i]}
@@ -159,7 +167,7 @@
                 {#if !line}
                     <path 
                         on:mouseenter={enterTooltip}
-                        on:mousemove={(e) => movingTooltip(e, d)}
+                        on:mousemove={(e) => movingTooltip(e, data, series.key)}
                         on:mouseleave={leaveTooltip}
                         fill={areaColors[i]}
                         d={area(series)}
@@ -185,7 +193,7 @@
                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                 <path
                     on:mouseenter={enterTooltip}
-                    on:mousemove={(e) => movingTooltip(e, data)}
+                    on:mousemove={(e) => movingTooltip(e, data, data[0][seriesKey])}
                     on:mouseleave={leaveTooltip}
                     fill={areaColors[0]}
                     d={area(data)}
@@ -241,7 +249,7 @@
     />
 </svg>
 
-<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} domainLabel={domain} domain={tooltipData.domain} rangeLabel={range} range={tooltipData.range} />
+<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} series={tooltipData.series} domainLabel={domain} domain={tooltipData.domain} rangeLabel={range} range={tooltipData.range} />
 
 <style>
     .area-chart-svg {
