@@ -10,7 +10,7 @@
 </script>
 
 <Icon
-	size="14"
+	size="24"
 	{styles}
 >
     <path 
