@@ -12,11 +12,11 @@
 		styles = [],
 		tabindex = '',
 		url = '',
-		validValue, 
+		validValue,
 		validationText
 </script>
 
-<div 
+<div
 	class="url-control"
 	style={styles.join(';')}
 >

@@ -1,10 +1,17 @@
 <script>
 	import { DatePicker, TimePicker, InputError } from '$lib/index.js'
 
-	export let date, dateId, required, time, timeId, styles = [], validationText, validValue
+	export let date,
+		dateId,
+		required,
+		time,
+		timeId,
+		styles = [],
+		validationText,
+		validValue
 </script>
 
-<div 
+<div
 	class="date-time-selector"
 	style={styles.join(';')}
 >

@@ -11,23 +11,23 @@
         { x: 'Hospital 5', series: 'Source', value: 20 },
     ]
 
-    let stackedBarData = [
-        { x: 'Jan', name: 'A', value: 40 },
-        { x: 'Jan', name: 'B', value: 5 },
-        { x: 'Jan', name: 'C', value: 35 },
-        { x: 'Feb', name: 'A', value: 50 },
-        { x: 'Feb', name: 'B', value: 15 },
-        { x: 'Feb', name: 'C', value: 30 },
-        { x: 'Mar', name: 'A', value: 35 },
-        { x: 'Mar', name: 'B', value: 25 },
-        { x: 'Mar', name: 'C', value: 20 },
-        { x: 'Apr', name: 'A', value: 20 },
-        { x: 'Apr', name: 'B', value: 35 },
-        { x: 'Apr', name: 'C', value: 25 },
-        { x: 'May', name: 'A', value: 10 },
-        { x: 'May', name: 'B', value: 55 },
-        { x: 'May', name: 'C', value: 33 },
-    ]
+	let stackedBarData = [
+		{ x: 'Jan', name: 'A', value: 40 },
+		{ x: 'Jan', name: 'B', value: 5 },
+		{ x: 'Jan', name: 'C', value: 35 },
+		{ x: 'Feb', name: 'A', value: 50 },
+		{ x: 'Feb', name: 'B', value: 15 },
+		{ x: 'Feb', name: 'C', value: 30 },
+		{ x: 'Mar', name: 'A', value: 35 },
+		{ x: 'Mar', name: 'B', value: 25 },
+		{ x: 'Mar', name: 'C', value: 20 },
+		{ x: 'Apr', name: 'A', value: 20 },
+		{ x: 'Apr', name: 'B', value: 35 },
+		{ x: 'Apr', name: 'C', value: 25 },
+		{ x: 'May', name: 'A', value: 10 },
+		{ x: 'May', name: 'B', value: 55 },
+		{ x: 'May', name: 'C', value: 33 },
+	]
 
     let areaData = [
         { date: '2024-01-04', series: 'Source', value: 25 },
@@ -71,13 +71,13 @@
         { date: '2024-04-15', name: 'Company 3', value: 15 },
     ]
 
-    let pieData = [
-        { name: 'MCADAMHS', value: 45 },
-        { name: 'Tri-County', value: 33 },
-        { name: '317 Board', value: 10 },
-        { name: 'AAH', value: 13 },
-        { name: 'Logan-Champaign', value: 65 },
-    ]
+	let pieData = [
+		{ name: 'MCADAMHS', value: 45 },
+		{ name: 'Tri-County', value: 33 },
+		{ name: '317 Board', value: 10 },
+		{ name: 'AAH', value: 13 },
+		{ name: 'Logan-Champaign', value: 65 },
+	]
 </script>
 
 <Page>
@@ -160,9 +160,8 @@
                             `}
                         </code>
                     </pre>
-                </details>
-            </div>
-
+				</details>
+			</div>
             <div class='stacked-v-bar'>
                 <Chart 
                     tooltipId='stacked-v'
@@ -201,9 +200,8 @@
                             `}     
                         </code>
                     </pre>
-                </details>
-            </div>
-
+				</details>
+			</div>
             <div class='stacked-h-bar'>
                 <Chart 
                     tooltipId="stacked-h"
@@ -242,9 +240,8 @@
                             `} 
                         </code>
                     </pre>
-                </details>
-            </div>
-
+				</details>
+			</div>
             <div>
                 <p class="p">API props unique to Area Charts:</p>
                 <ul>
@@ -282,9 +279,8 @@
                             `} 
                         </code>
                     </pre>
-                </details>
-            </div>
-
+				</details>
+			</div>
             <div class='stacked-area-chart'>
                 <Chart 
                     tooltipId='stacked-area'
@@ -334,9 +330,8 @@
                             `} 
                         </code>
                     </pre>
-                </details>
-            </div>
-
+				</details>
+			</div>
             <div>
                 <p class="p">API props unique to Pie Charts:</p>
                 <ul>
@@ -371,9 +366,8 @@
                             `}
                         </code>
                     </pre>
-                </details>
-            </div>
-
+				</details>
+			</div>
             <div class='ring-chart'>
                 <Chart 
                     tooltipId="ring"
@@ -398,70 +392,77 @@
                                 ]`}
                         </code>
                     </pre>
-                </details>
-            </div>
-        </div>
-    </PageBody>
+				</details>
+			</div>
+		</div>
+	</PageBody>
 </Page>
 
 <style>
-    .header {
-        width: 75%;
-        margin: auto;
+	.header {
+		width: 75%;
+		margin: auto;
 
-        & h2 {
-            padding-bottom: var(--spacing09);
-        }
-    }
+		& h2 {
+			padding-bottom: var(--spacing09);
+		}
+	}
 
-    li {
-        padding-bottom: var(--spacing09);
-        list-style: none;
-    }
+	li {
+		padding-bottom: var(--spacing09);
+		list-style: none;
+	}
 
-    code {
-        font: 16px monospace;
-        background-color: lightgray;
-        padding: var(--spacing02);
-    }
+	code {
+		font: 16px monospace;
+		background-color: lightgray;
+		padding: var(--spacing02);
+	}
 
-    .p {
-        font-size: 20px;
-        padding-bottom: var(--spacing09);
-    }
+	.p {
+		font-size: 20px;
+		padding-bottom: var(--spacing09);
+	}
 
-    .chart-container {
-        width: 75%;
-        min-height: 100vh;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing15);
-    }
+	.chart-container {
+		width: 75%;
+		min-height: 100vh;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing15);
+	}
 
-    pre {
-        white-space: pre-line;
-    }
+	pre {
+		white-space: pre-line;
+	}
 
-    pre code {
-        display: block;
-    }
+	pre code {
+		display: block;
+	}
 
-    .simple-v-bar, .simple-h-bar, .stacked-v-bar, .stacked-h-bar, .simple-area-chart, .stacked-area-chart, .pie-chart, .ring-chart {
-        width: 100%;
-        height: auto;
-        margin: auto;
+	.simple-v-bar,
+	.simple-h-bar,
+	.stacked-v-bar,
+	.stacked-h-bar,
+	.simple-area-chart,
+	.stacked-area-chart,
+	.pie-chart,
+	.ring-chart {
+		width: 100%;
+		height: auto;
+		margin: auto;
 
-        & .headline-s-m {
-            margin-bottom: var(--spacing09);
-        }
+		& .headline-s-m {
+			margin-bottom: var(--spacing09);
+		}
 
-        & details {
-            padding-top: var(--spacing04);
-        }
-    }
+		& details {
+			padding-top: var(--spacing04);
+		}
+	}
 
-    .simple-h-bar {
-        height: 50vh;
-    }
+	.simple-h-bar {
+		height: 50vh;
+	}
 </style>

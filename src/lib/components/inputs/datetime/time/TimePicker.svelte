@@ -6,12 +6,12 @@
 		required = false,
 		styles = [],
 		time = '',
-		validValue, 
+		validValue,
 		validationText
 </script>
 
-<div 
-	class="time-picker-selector" 
+<div
+	class="time-picker-selector"
 	style={styles.join(';')}
 >
 	<div class="time-picker">
