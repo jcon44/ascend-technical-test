@@ -20,6 +20,7 @@ export { default as TemplatesIcon } from '$lib/assets/icons/m/TemplatesIcon.svel
 export { default as AlertCircleSmallIcon } from '$lib/assets/icons/s/AlertCircleSmallIcon.svelte'
 export { default as ArrowLeftSmallIcon } from '$lib/assets/icons/s/ArrowLeftSmallIcon.svelte'
 export { default as ArrowRightSmallIcon } from '$lib/assets/icons/s/ArrowRightSmallIcon.svelte'
+export { default as ChevronSingleRightSmallIcon } from '$lib/assets/icons/s/ChevronSingleRightSmallIcon.svelte'
 export { default as ChevronDoubleLeftSmallIcon } from '$lib/assets/icons/s/ChevronDoubleLeftSmallIcon.svelte'
 export { default as ChevronDoubleRightSmallIcon } from '$lib/assets/icons/s/ChevronDoubleRightSmallIcon.svelte'
 export { default as CloseSmallIcon } from '$lib/assets/icons/s/CloseSmallIcon.svelte'
