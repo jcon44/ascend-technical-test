@@ -5,24 +5,24 @@
     import PieChart from "$lib/components/containers/charts/PieChart.svelte";
     import { ChartKeyContainer } from "$lib/index.js";
 
-    export let data,
-        type,
-        title,
-        domain,
-        range,
+    export let data = [],
+        type = null,
+        title = 'Title',
+        domain = null,
+        range = null,
         tooltipId,
-        styles,
+        styles = [],
         barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
         areaColors = ['var(--secondary-trans-600)', 'var(--secondary-trans-500)', 'var(--secondary-trans-400)', 'var(--secondary-trans-300)', 'var(--secondary-trans-200)', 'var(--secondary-trans-100)'],
         lineColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)'],
         arcColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
-        vertical,
-        horizontal,
-        stacked,
-        sort,
-        seriesKey,
-        ring,
-        line
+        vertical = false,
+        horizontal = false,
+        stacked = false,
+        sort = null,
+        seriesKey = null,
+        ring = false,
+        line = false
     
     let chartWidth, stackedData = []
     // pull out the unique series values for the chart key
@@ -101,6 +101,8 @@
                 colors={barColors} 
                 column={ chartWidth < 500 ? true : false }
             />
+        {:else if type === 'null' || data.length === 0}
+            <p>This chart has no data or parameters</p>
         {/if}
     </div>
 </Card>

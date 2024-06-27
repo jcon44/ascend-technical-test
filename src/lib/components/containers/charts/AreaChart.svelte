@@ -23,7 +23,7 @@
      *      seriesKey - string property that declares the object key differentiating each series
      */
 
-    export let data,
+    export let data = [],
             tooltipId,
             areaColors = [],
             lineColors = [],
