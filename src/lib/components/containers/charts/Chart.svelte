@@ -5,7 +5,7 @@
     import PieChart from "$lib/components/containers/charts/PieChart.svelte";
     import { ChartKeyContainer } from "$lib/index.js";
 
-    export let data = null,
+    export let data = [],
         type = '',
         title = 'Title',
         domain = '',
