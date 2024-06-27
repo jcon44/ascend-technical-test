@@ -143,12 +143,6 @@
             y1={yScale(tick)}
             y2={yScale(tick)}
         />
-        <text
-            x={marginLeft}
-            y={yScale(tick)}
-        >
-            {tick}
-        </text>
     {/each}
 
     <!-- Areas -->
