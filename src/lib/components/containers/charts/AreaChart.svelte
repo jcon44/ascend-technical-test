@@ -49,13 +49,12 @@
             }
 
             formatTime = d3.utcFormat("%B %d, %Y")
-            // formatTime(new Date()); // "May 31, 2023"
             
             stack = d3.stack()
             .keys(d3.union(data.map((d) => d[seriesKey])))
             .value(([, D], key) => D.get(key)[range])
             (d3.index(data, (d) => d[domain], (d) => d[seriesKey]))
-            
+
             xScale = d3.scaleTime()
             .domain(d3.extent(data, (d) => d[domain]))
             .range([marginLeft, width - marginRight])
@@ -150,7 +149,6 @@
         {#if stacked}
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             {#each stack as series, i}
-                {console.log(series)}
                 <!-- svelte-ignore missing-declaration -->
                 <path
                 stroke={lineColors[i]}

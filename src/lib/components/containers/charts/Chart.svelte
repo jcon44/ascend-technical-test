@@ -5,12 +5,12 @@
     import PieChart from "$lib/components/containers/charts/PieChart.svelte";
     import { ChartKeyContainer } from "$lib/index.js";
 
-    export let data = [],
-        type = null,
+    export let data = null,
+        type = '',
         title = 'Title',
-        domain = null,
-        range = null,
-        tooltipId,
+        domain = '',
+        range = '',
+        tooltipId = '',
         styles = [],
         barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
         areaColors = ['var(--secondary-trans-600)', 'var(--secondary-trans-500)', 'var(--secondary-trans-400)', 'var(--secondary-trans-300)', 'var(--secondary-trans-200)', 'var(--secondary-trans-100)'],
@@ -19,8 +19,8 @@
         vertical = false,
         horizontal = false,
         stacked = false,
-        sort = null,
-        seriesKey = null,
+        sort = '',
+        seriesKey = '',
         ring = false,
         line = false
     
@@ -101,7 +101,7 @@
                 colors={barColors} 
                 column={ chartWidth < 500 ? true : false }
             />
-        {:else if type === 'null' || data.length === 0}
+        {:else if type === '' || data.length === 0}
             <p>This chart has no data or parameters</p>
         {/if}
     </div>
