@@ -9,7 +9,7 @@
 		styles = [],
 		tabindex = '',
 		tag = null,
-		validValue,
+		validValue = true,
 		validationCallback
 </script>
 

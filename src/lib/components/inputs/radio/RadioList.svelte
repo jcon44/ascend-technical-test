@@ -5,8 +5,8 @@
 		group = '',
 		list = [],
 		styles = [],
-		validValue,
-		validationText
+		validValue = true,
+		validationText = ''
 </script>
 
 <div

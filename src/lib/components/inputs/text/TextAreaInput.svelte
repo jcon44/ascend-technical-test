@@ -17,8 +17,8 @@
 		tabindex = null,
 		tag = null,
 		text = '',
-		validValue,
-		validationText
+		validValue = true,
+		validationText = ''
 </script>
 
 <div class="textarea-control">

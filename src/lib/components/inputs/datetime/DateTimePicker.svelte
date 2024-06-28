@@ -7,8 +7,8 @@
 		time,
 		timeId,
 		styles = [],
-		validationText,
-		validValue
+		validationText = '',
+		validValue = true
 </script>
 
 <div

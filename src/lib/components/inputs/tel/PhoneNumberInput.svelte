@@ -11,9 +11,9 @@
 		required = false,
 		styles = [],
 		tabindex = '',
-		validationText,
+		validationText = '',
 		validationCallback,
-		validValue
+		validValue = true
 
 	function digitsOnly() {
 		if (phoneNumber.length) {

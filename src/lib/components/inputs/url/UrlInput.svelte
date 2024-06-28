@@ -12,8 +12,8 @@
 		styles = [],
 		tabindex = '',
 		url = '',
-		validValue,
-		validationText
+		validValue = true,
+		validationText = ''
 </script>
 
 <div

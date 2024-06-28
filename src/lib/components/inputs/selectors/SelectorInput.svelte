@@ -9,8 +9,8 @@
 		optionList = [],
 		selectedValue = '',
 		styles = [],
-		validValue,
-		validationText,
+		validValue = true,
+		validationText = '',
 		validationCallback
 </script>
 

@@ -14,8 +14,8 @@
 		styles = [],
 		tabindex = '',
 		text = '',
-		validationText,
-		validValue,
+		validationText = '',
+		validValue = true,
 		validationCallback
 </script>
 

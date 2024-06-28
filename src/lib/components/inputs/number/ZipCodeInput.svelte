@@ -8,8 +8,8 @@
 		placeholder = '',
 		required = false,
 		tabindex = '',
-		validValue,
-		validationText,
+		validValue = true,
+		validationText = '',
 		zip = ''
 </script>
 
