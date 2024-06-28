@@ -146,7 +146,7 @@
     {/each}
 
     <!-- Areas -->
-    {#if !line}
+    <!-- {#if !line} -->
         {#if stacked}
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             {#each stack as series, i}
@@ -193,15 +193,15 @@
                 />
             {/if}
         {/if}
-    {/if}
-    {#each lines as stroke, i}
+    <!-- {/if} -->
+    <!-- {#each lines as stroke, i}
         <path 
             stroke={lineColors[i]}
             stroke-width="2"
             fill="none"
             d={stroke}
         />
-    {/each}
+    {/each} -->
 
     <!-- Base Axis -->
     <g transform="translate(0,{height - marginBottom})">
