@@ -259,6 +259,7 @@
                     domain="date" 
                     range="value" 
                     seriesKey="series"
+                    chartHeight={400}
                 />
                 <details>
                     <summary>Data</summary>
@@ -369,6 +370,17 @@
 				</details>
 			</div>
             <div class='ring-chart'>
+                <Chart
+                    tooltipId="simple-v"
+                    type='bar'
+                    vertical
+                    sort='descending'
+                    title="Simple Vertical Bar Chart"
+                    data={barData} 
+                    domain="x" 
+                    range="value"
+                    seriesKey="series"
+                />
                 <Chart 
                     tooltipId="ring"
                     type='pie'
@@ -379,7 +391,7 @@
                     seriesKey="name"
                     ring
                 />
-                <details>
+                <!-- <details>
                     <summary>Data</summary>
                     <pre>
                         <code>
@@ -392,7 +404,7 @@
                                 ]`}
                         </code>
                     </pre>
-				</details>
+				</details> -->
 			</div>
 		</div>
 	</PageBody>
@@ -425,7 +437,7 @@
 	}
 
 	.chart-container {
-		width: 75%;
+		width: 100%;
 		min-height: 100vh;
 		margin: auto;
 		display: flex;
@@ -461,6 +473,11 @@
 			padding-top: var(--spacing04);
 		}
 	}
+
+    .ring-chart {
+        display: flex;
+        gap: var(--spacing09);
+    }
 
 	.simple-h-bar {
 		height: 50vh;

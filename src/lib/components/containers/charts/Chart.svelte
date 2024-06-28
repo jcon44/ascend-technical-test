@@ -4,6 +4,7 @@
     import AreaChart from "$lib/components/containers/charts/AreaChart.svelte";
     import PieChart from "$lib/components/containers/charts/PieChart.svelte";
     import { ChartKeyContainer } from "$lib/index.js";
+	import { onMount } from "svelte"
 
     export let data = [],
         type = '',
@@ -11,7 +12,6 @@
         domain = '',
         range = '',
         tooltipId = '',
-        styles = [],
         barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
         areaColors = ['var(--secondary-trans-600)', 'var(--secondary-trans-500)', 'var(--secondary-trans-400)', 'var(--secondary-trans-300)', 'var(--secondary-trans-200)', 'var(--secondary-trans-100)'],
         lineColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)'],
@@ -22,9 +22,11 @@
         sort = '',
         seriesKey = '',
         ring = false,
-        line = false
+        line = false,
+        chartHeight = 391
     
     let chartWidth, stackedData = []
+    $: height = type === 'pie' ? 280 : chartHeight
     // pull out the unique series values for the chart key
     let seenValues = []
     for (let item of data) {
@@ -47,7 +49,7 @@
     {title}
     chart
     classes={['neutral-shadow-l']}
-    styles={['position: relative', 'width: 100%', 'height: fit-content', 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
+    styles={['position: relative', `width: ${type === 'pie' ? '354px' : '100%' }`, `height: fit-content`, 'max-height: 546px', 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
 >
     <slot name='chart-header' />
     <div class='chart-wrapper' bind:clientWidth={chartWidth}>
@@ -57,13 +59,14 @@
                 {data}
                 {domain}
                 {range}
-                {styles}
                 {barColors}
                 {vertical}
                 {horizontal}
                 {stacked}
                 {sort}
                 {seriesKey}
+                {height}
+                width={chartWidth}
             />
             {#if stacked}
                 <ChartKeyContainer data={stackedData} {seriesKey} colors={barColors} />
@@ -75,11 +78,12 @@
                 {domain}
                 {range}
                 {seriesKey}
-                {styles}
                 {areaColors}
                 {lineColors}
                 {stacked}
                 {line}
+                {height}
+                width={chartWidth}
             />
             {#if stacked}
                 <ChartKeyContainer data={stackedData} {seriesKey} colors={barColors} />
@@ -91,9 +95,9 @@
                 {domain}
                 {range}
                 {sort}
-                {styles}
                 {arcColors}
                 {ring}
+                {height}
             />
             <ChartKeyContainer 
                 {data} 
@@ -110,5 +114,6 @@
 <style>
     .chart-wrapper {
         margin-top: var(--spacing09);
+        /* height: 100%; */
     }
 </style>

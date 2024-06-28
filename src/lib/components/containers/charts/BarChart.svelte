@@ -34,7 +34,7 @@
             tooltipId
 
     let width = 750
-    let height = 400
+    let height = 250
     let marginLeft = vertical ? 0 : 125
     let marginRight = vertical ? 0 : 50
     let marginTop = vertical ? 24 : 20
@@ -226,14 +226,6 @@
             {#each stack as series, i}
                 {#each series as d}
                     {#if vertical}
-                        <!-- <rect
-                            fill={barColors[i]}
-                            x={xScale(d.data[0])}
-                            y={yScale(d[1])}
-                            width={xScale.bandwidth()}
-                            height={yScale(d[0]) - yScale(d[1])}
-                        /> -->
-                        
                         <!-- svelte-ignore a11y-no-static-element-interactions -->
                         <path
                             on:mouseenter={enterTooltip}
@@ -277,14 +269,6 @@
         <g class='bars'>
             {#each data as d, i}
                 {#if vertical}
-                    <!-- <rect
-                        fill={barColors[i]}
-                        x={xScale(d[domain])}
-                        y={yScale(d[range])}
-                        height={yScale(0) - yScale(d[range])}
-                        width={xScale.bandwidth()}
-                    /> -->
-
                     <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <!-- svelte-ignore a11y-mouse-events-have-key-events -->
                     <path
@@ -302,14 +286,6 @@
                         `}
                     />
                 {:else if horizontal}
-                    <!-- <rect
-                        fill={barColors[i]}
-                        x={marginLeft}
-                        y={yScale(d[range])}
-                        height={yScale.bandwidth()}
-                        width={xScale(0) - xScale(d[domain])}
-                    /> -->
-
                     <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <path 
                         on:mouseenter={enterTooltip}

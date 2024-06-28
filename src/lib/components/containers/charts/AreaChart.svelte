@@ -3,6 +3,7 @@
     import { formatDate } from '$lib';
     import { browser } from '$app/environment';
 	import ChartTooltip from '$lib/components/containers/labels/ChartTooltip.svelte'
+	import { onMount } from 'svelte'
 
     /**
      *  @param {array} data
@@ -34,11 +35,11 @@
             stacked = false
 
     let width = 750
-    let height = 400
+    let height = 250
     let marginLeft = 0 // 20
     let marginRight = 0 // 20
     let marginTop = 24
-    let marginBottom = 50
+    let marginBottom = 24
 
     let formatTime, mouseDateSnap, xScale, yScale, stroke, stack, area, lines =[]
 
