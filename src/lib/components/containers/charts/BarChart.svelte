@@ -33,8 +33,8 @@
             seriesKey = null,
             tooltipId
 
-    let width = 750
-    let height = 250
+    let width = 1344
+    let height = 400
     let marginLeft = vertical ? 0 : 125
     let marginRight = vertical ? 0 : 50
     let marginTop = vertical ? 24 : 20

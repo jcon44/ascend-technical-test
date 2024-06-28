@@ -34,8 +34,8 @@
             line = false,
             stacked = false
 
-    let width = 750
-    let height = 250
+    let width = 1344
+    let height = 400
     let marginLeft = 0 // 20
     let marginRight = 0 // 20
     let marginTop = 24
