@@ -26,9 +26,10 @@
             sort = null,
             ring = false,
             tooltipId,
-            height
+            chartHeight
 
-    let width = 750
+    let width = 306
+    let height = chartHeight || 306
     let total = 0
     let pie
 
@@ -51,8 +52,8 @@
     }
 
     const arcPath = d3.arc()
-        .innerRadius(ring ? width / 5 : 0)
-        .outerRadius((Math.min(width, height)))
+        .innerRadius(ring ? width / 3.80 : 0)
+        .outerRadius((Math.min(width, height)) / 2)
 
     const arcs = pie(data)
 
@@ -81,8 +82,6 @@
 <div class="svg-container">
     <svg
         class="pie-chart-svg"
-        {width}
-        {height}
         viewBox="{-width / 2} {-height / 2} {width} {height}"
     >
         <g>
@@ -104,6 +103,7 @@
 <style>
     .svg-container {
         width: 100%;
+        height: 100%;
     }
 
     .pie-chart-svg {

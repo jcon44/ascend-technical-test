@@ -12,6 +12,7 @@
 
 <style>
     .key-container {
+        margin-top: var(--spacing09);
         display: flex;
         flex-direction: row;
         gap: var(--spacing05);

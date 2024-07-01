@@ -2,6 +2,7 @@
     import * as d3 from 'd3'
     import { browser } from '$app/environment';
 	import ChartTooltip from '$lib/components/containers/labels/ChartTooltip.svelte'
+	import { onMount } from 'svelte'
 
     /**
      *  @param {array} data
@@ -31,10 +32,11 @@
             domain,
             range,
             seriesKey = null,
-            tooltipId
+            tooltipId, 
+            chartHeight = null
 
     let width = 1344
-    let height = 400
+    let height = chartHeight || 400
     let marginLeft = vertical ? 0 : 125
     let marginRight = vertical ? 0 : 50
     let marginTop = vertical ? 24 : 20
@@ -169,10 +171,7 @@
 
 <svg
     class='bar-chart-svg'
-    {width}
-    {height}
     viewBox="0 0 {width} {height}"
-    style="max-width:100%;height:auto;"
 >
     <!-- Side Axis -->
     <g class='side-axis' transform="translate({marginLeft}, 0)">

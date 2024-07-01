@@ -32,10 +32,11 @@
             range,
             seriesKey,
             line = false,
-            stacked = false
+            stacked = false,
+            chartHeight = null
 
     let width = 1344
-    let height = 400
+    let height = chartHeight || 400
     let marginLeft = 0 // 20
     let marginRight = 0 // 20
     let marginTop = 24
@@ -130,8 +131,6 @@
 
 <svg
     class="area-chart-svg"
-    {width}
-    {height}
     viewBox="0 0 {width} {height}"
 >
     <!-- Y-Axis lines -->

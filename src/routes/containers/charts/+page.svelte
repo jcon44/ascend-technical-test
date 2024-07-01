@@ -370,7 +370,7 @@
 				</details>
 			</div>
             <div class='ring-chart'>
-                <Chart
+                <!-- <Chart
                     tooltipId="simple-v"
                     type='bar'
                     vertical
@@ -380,7 +380,8 @@
                     domain="x" 
                     range="value"
                     seriesKey="series"
-                />
+                    chartHeight={700}
+                /> -->
                 <Chart 
                     tooltipId="ring"
                     type='pie'
@@ -391,7 +392,7 @@
                     seriesKey="name"
                     ring
                 />
-                <!-- <details>
+                <details>
                     <summary>Data</summary>
                     <pre>
                         <code>
@@ -404,7 +405,7 @@
                                 ]`}
                         </code>
                     </pre>
-				</details> -->
+				</details>
 			</div>
 		</div>
 	</PageBody>

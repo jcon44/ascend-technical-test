@@ -23,6 +23,7 @@
         seriesKey = '',
         ring = false,
         line = false,
+        width = null,
         chartHeight = 391
     
     let chartWidth, stackedData = []
@@ -49,7 +50,7 @@
     {title}
     chart
     classes={['neutral-shadow-l']}
-    styles={['position: relative', `width: ${type === 'pie' ? '354px' : '100%' }`, `height: fit-content`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
+    styles={['position: relative', `width: ${type === 'pie' ? '354px' : '100%' }`, `min-height: 100%`, `height: fit-content`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
 >
     <slot name='chart-header' />
     <div class='chart-wrapper' bind:clientWidth={chartWidth}>
@@ -65,7 +66,7 @@
                 {stacked}
                 {sort}
                 {seriesKey}
-                {height}
+                {chartHeight}
                 width={chartWidth}
             />
             {#if stacked}
@@ -114,6 +115,6 @@
 <style>
     .chart-wrapper {
         margin-top: var(--spacing09);
-        /* height: 100%; */
+        min-height: 100%;
     }
 </style>
