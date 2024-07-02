@@ -43,97 +43,99 @@
     let marginBottom = vertical ? 24 : 20
     let xScale, yScale, stack
 
-    if (vertical) {
-        if (stacked) {
-            stack = d3.stack()
-                .keys(d3.union(data.map((d) => d[seriesKey])))
-                .value(([, D], key) => D.get(key)[range])
-                (d3.index(data, (d) => d[domain], (d) => d[seriesKey]))
-
-            xScale = d3.scaleBand()
-                .domain(data.map((d) => d[domain]))
-                .range([marginLeft, width - marginRight])
-                .padding(0.3)
-                
-            yScale = d3.scaleLinear()
-                .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
-                .range([height - marginBottom, marginTop])
-        } else {
-            if (sort === 'ascending') {
-                xScale = d3.scaleBand()
-                    .domain(d3.groupSort(
-                        data,
-                        ([d]) => d[range],
-                        (d) => d[domain]
-                    ))
-                    .range([marginLeft, width - marginRight])
-                    .padding(0.3)
-            } else if (sort === 'descending') {
-                xScale = d3.scaleBand()
-                    .domain(d3.groupSort(
-                        data,
-                        ([d]) => -d[range],
-                        (d) => d[domain]
-                    ))
-                    .range([marginLeft, width - marginRight])
-                    .padding(0.3)
-            } else {
+    $: {
+        if (vertical) {
+            if (stacked) {
+                stack = d3.stack()
+                    .keys(d3.union(data.map((d) => d[seriesKey])))
+                    .value(([, D], key) => D.get(key)[range])
+                    (d3.index(data, (d) => d[domain], (d) => d[seriesKey]))
+    
                 xScale = d3.scaleBand()
                     .domain(data.map((d) => d[domain]))
                     .range([marginLeft, width - marginRight])
                     .padding(0.3)
-            }
-                
-            yScale = d3.scaleLinear()
-                .domain([0, d3.max(data, (d) => d[range])])
-                .range([height - marginBottom, marginTop])
-        }
-    }
-    
-    if (horizontal) {
-        if (stacked) {
-            stack = d3.stack()
-                .keys(d3.union(data.map((d) => d[seriesKey])))
-                .value(([, D], key) => D.get(key)[domain])
-                (d3.index(data, (d) => d[range], (d) => d[seriesKey]))
-
-            yScale = d3.scaleBand()
-                .domain(data.map((d) => d[range]))
-                .range([marginTop, height - marginBottom])
-                .padding(0.2)
-                
-            xScale = d3.scaleLinear()
-                .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
-                .range([width - marginRight, marginLeft])
-        } else {
-            if (sort === 'ascending') {
-                yScale = d3.scaleBand()
-                    .domain(d3.groupSort(
-                        data,
-                        ([d]) => d[domain],
-                        (d) => d[range]
-                    ))
-                    .range([marginTop, height - marginBottom])
-                    .padding(0.2)
-            } else if (sort === 'descending') {
-                yScale = d3.scaleBand()
-                    .domain(d3.groupSort(
-                        data,
-                        ([d]) => -d[domain],
-                        (d) => d[range]
-                    ))
-                    .range([marginTop, height - marginBottom])
-                    .padding(0.2)
+                    
+                yScale = d3.scaleLinear()
+                    .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
+                    .range([height - marginBottom, marginTop])
             } else {
-                yScale = d3.scaleBand()
-                .domain(data.map((d) => d[range]))
-                .range([marginTop, height - marginBottom])
-                .padding(0.2)
+                if (sort === 'ascending') {
+                    xScale = d3.scaleBand()
+                        .domain(d3.groupSort(
+                            data,
+                            ([d]) => d[range],
+                            (d) => d[domain]
+                        ))
+                        .range([marginLeft, width - marginRight])
+                        .padding(0.3)
+                } else if (sort === 'descending') {
+                    xScale = d3.scaleBand()
+                        .domain(d3.groupSort(
+                            data,
+                            ([d]) => -d[range],
+                            (d) => d[domain]
+                        ))
+                        .range([marginLeft, width - marginRight])
+                        .padding(0.3)
+                } else {
+                    xScale = d3.scaleBand()
+                        .domain(data.map((d) => d[domain]))
+                        .range([marginLeft, width - marginRight])
+                        .padding(0.3)
+                }
+                    
+                yScale = d3.scaleLinear()
+                    .domain([0, d3.max(data, (d) => d[range])])
+                    .range([height - marginBottom, marginTop])
             }
-            
-            xScale = d3.scaleLinear()
-                .domain([0, d3.max(data, (d) => d[domain])])
-                .range([width - marginRight, marginLeft])
+        }
+        
+        if (horizontal) {
+            if (stacked) {
+                stack = d3.stack()
+                    .keys(d3.union(data.map((d) => d[seriesKey])))
+                    .value(([, D], key) => D.get(key)[domain])
+                    (d3.index(data, (d) => d[range], (d) => d[seriesKey]))
+    
+                yScale = d3.scaleBand()
+                    .domain(data.map((d) => d[range]))
+                    .range([marginTop, height - marginBottom])
+                    .padding(0.2)
+                    
+                xScale = d3.scaleLinear()
+                    .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
+                    .range([width - marginRight, marginLeft])
+            } else {
+                if (sort === 'ascending') {
+                    yScale = d3.scaleBand()
+                        .domain(d3.groupSort(
+                            data,
+                            ([d]) => d[domain],
+                            (d) => d[range]
+                        ))
+                        .range([marginTop, height - marginBottom])
+                        .padding(0.2)
+                } else if (sort === 'descending') {
+                    yScale = d3.scaleBand()
+                        .domain(d3.groupSort(
+                            data,
+                            ([d]) => -d[domain],
+                            (d) => d[range]
+                        ))
+                        .range([marginTop, height - marginBottom])
+                        .padding(0.2)
+                } else {
+                    yScale = d3.scaleBand()
+                    .domain(data.map((d) => d[range]))
+                    .range([marginTop, height - marginBottom])
+                    .padding(0.2)
+                }
+                
+                xScale = d3.scaleLinear()
+                    .domain([0, d3.max(data, (d) => d[domain])])
+                    .range([width - marginRight, marginLeft])
+            }
         }
     }
 
