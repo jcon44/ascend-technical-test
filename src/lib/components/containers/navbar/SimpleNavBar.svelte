@@ -18,6 +18,15 @@
     .simple-navbar {
         padding: var(--spacing09) 0;
         display: flex;
+        flex-direction: column;
         gap: var(--spacing09);
+        align-items: center;
+    }
+
+    @media screen and (min-width: 768px) {
+        .simple-navbar {
+            flex-direction: row;
+            align-items: unset;
+        }
     }
 </style>

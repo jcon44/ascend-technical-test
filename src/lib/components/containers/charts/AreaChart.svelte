@@ -35,79 +35,76 @@
             stacked = false,
             chartHeight = null
 
-    let width = 1344
-    let height = chartHeight || 400
+    let innerWidth
+    $: width = innerWidth < 500 ? 294 : 1344
+    $: height = innerWidth < 500 ? 303 : chartHeight ||  400
     let marginLeft = 0 // 20
     let marginRight = 0 // 20
     let marginTop = 24
     let marginBottom = 24
 
-    let formatTime, mouseDateSnap, areaxScale, areayScale, strokeGenerator, stack, areaGenerator, lines =[]
+    let formatTime, mouseDateSnap, xScale, yScale, stroke, stack, area, lines =[]
 
-    $: stack = areaStack
-    $: xScale = areaxScale
-    $: yScale = areayScale
-    $: area = areaGenerator
-    $: stroke = strokeGenerator
-
-    if (stacked) {
-        if (domain === 'date') {
-            for (let obj of data) {
-                obj[domain] = new Date(obj[domain])
-            }
-
-            formatTime = d3.utcFormat("%B %d, %Y")
-            
-            areaStack = d3.stack()
-            .keys(d3.union(data.map((d) => d[seriesKey])))
-            .value(([, D], key) => D.get(key)[range])
-            (d3.index(data, (d) => d[domain], (d) => d[seriesKey]))
-
-            areaxScale = d3.scaleTime()
-            .domain(d3.extent(data, (d) => d[domain]))
-            .range([marginLeft, width - marginRight])
-            
-            areayScale = d3.scaleLinear()
-            .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
-            .range([height - marginBottom, marginTop])
-            
-            areaGenerator = d3.area()
-            .x((d) => xScale(d.data[0]))
-            .y0((d) => yScale(d[0]))
-            .y1((d) => yScale(d[1]))
-            
-            strokeGenerator = d3.line()
-            .x((d) => xScale(d.data[0]))
-            .y((d) => yScale(d[1]))
-        }
-
-        //
-    } else {
-        if (domain === 'date') {
-            for (let obj of data) {
-                obj[domain] = new Date(obj[domain])
-            }
-
-            formatTime = d3.utcFormat("%B %d, %Y");
+    $: {
+        if (stacked) {
+            if (domain === 'date') {
+                for (let obj of data) {
+                    obj[domain] = new Date(obj[domain])
+                }
     
-            areaxScale = d3.scaleTime()
+                formatTime = d3.utcFormat("%B %d, %Y")
+                
+                stack = d3.stack()
+                .keys(d3.union(data.map((d) => d[seriesKey])))
+                .value(([, D], key) => D.get(key)[range])
+                (d3.index(data, (d) => d[domain], (d) => d[seriesKey]))
+    
+                xScale = d3.scaleTime()
                 .domain(d3.extent(data, (d) => d[domain]))
                 .range([marginLeft, width - marginRight])
-            areayScale = d3.scaleLinear()
-                .domain([0, d3.max(data, (d) => d[range])])
+                
+                yScale = d3.scaleLinear()
+                .domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
                 .range([height - marginBottom, marginTop])
-
-            areaGenerator = d3.area()
-                .x((d) => xScale(d[domain]))
-                .y0(yScale(0))
-                .y1((d) => yScale(d[range]))
+                
+                area = d3.area()
+                .x((d) => xScale(d.data[0]))
+                .y0((d) => yScale(d[0]))
+                .y1((d) => yScale(d[1]))
+                
+                stroke = d3.line()
+                .x((d) => xScale(d.data[0]))
+                .y((d) => yScale(d[1]))
+            }
+    
+            //
+        } else {
+            if (domain === 'date') {
+                for (let obj of data) {
+                    obj[domain] = new Date(obj[domain])
+                }
+    
+                formatTime = d3.utcFormat("%B %d, %Y");
         
-            strokeGenerator = d3.line()
-                .x((d) => d[domain])
-                .y((d) => d[range])
+                xScale = d3.scaleTime()
+                    .domain(d3.extent(data, (d) => d[domain]))
+                    .range([marginLeft, width - marginRight])
+                yScale = d3.scaleLinear()
+                    .domain([0, d3.max(data, (d) => d[range])])
+                    .range([height - marginBottom, marginTop])
+    
+                area = d3.area()
+                    .x((d) => xScale(d[domain]))
+                    .y0(yScale(0))
+                    .y1((d) => yScale(d[range]))
+            
+                stroke = d3.line()
+                    .x((d) => d[domain])
+                    .y((d) => d[range])
+            }
+    
+            // 
         }
-
-        // 
     }
 
     let tooltip, tooltipData = { top: 0, left: 0, series: '', domain: 0, range: 0}
@@ -134,6 +131,8 @@
         tooltip.style('opacity', 0)
     }
 </script>
+
+<svelte:window bind:innerWidth />
 
 <svg
     class="area-chart-svg"
@@ -180,11 +179,12 @@
                     <stop offset="100%" stop-color="white" opacity="0" />
                 </linearGradient>
             </defs> -->
+            {console.log(lineColors[0])}
             <path 
-            stroke={lineColors[0]}
-            stroke-width="2"
-            fill="none"
-            d={stroke(data)}
+                stroke={lineColors[0]}
+                stroke-width="2"
+                fill="none"
+                d={stroke(data)}
             />
             {#if !line}
                 <!-- svelte-ignore missing-declaration -->
