@@ -35,8 +35,9 @@
             tooltipId, 
             chartHeight = null
 
-    let width = 1344
-    let height = chartHeight || 400
+    let innerWidth
+    $: width = innerWidth < 500 ? 294 : 1344
+    $: height = innerWidth < 500 ? 346 : chartHeight ||  400
     let marginLeft = vertical ? 0 : 125
     let marginRight = vertical ? 0 : 50
     let marginTop = vertical ? 24 : 20
@@ -171,6 +172,8 @@
     }
 </script>
 
+<svelte:window bind:innerWidth />
+
 <svg
     class='bar-chart-svg'
     viewBox="0 0 {width} {height}"
@@ -243,14 +246,6 @@
                             `}
                         />
                     {:else if horizontal}
-                        <rect
-                            fill={barColors[i]}
-                            x={width - xScale(d[0]) + marginLeft/2}
-                            y={yScale(d.data[0])}
-                            width={xScale(d[0]) -  xScale(d[1])}
-                            height={yScale.bandwidth()}
-                        />
-
                         <!-- <path 
                             fill={barColors[i]}
                             d={`

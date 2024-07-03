@@ -36,12 +36,13 @@
             monthOnly,
             monthDay,
             monthYear,
-            line,
-            stacked,
+            line = false,
+            stacked = false,
             chartHeight = null
 
-    let width = 1344
-    let height = chartHeight || 400
+    let innerWidth
+    $: width = innerWidth < 500 ? 294 : 1344
+    $: height = innerWidth < 500 ? 303 : chartHeight ||  400
     let marginLeft = 0 // 20
     let marginRight = 0 // 20
     let marginTop = 24
@@ -59,7 +60,7 @@
             for (let obj of data) {
                 obj[domain] = new Date(obj[domain])
             }
-
+          
             stack = d3.stack()
             .keys(d3.union(data.map((d) => d[seriesKey])))
             .value(([, D], key) => D.get(key)[range])
@@ -81,7 +82,7 @@
             stroke = d3.line()
             .x((d) => xScale(d.data[0]))
             .y((d) => yScale(d[1]))
-            
+          
             //
         } else {
             for (let obj of data) {
@@ -133,6 +134,8 @@
     }
 </script>
 
+<svelte:window bind:innerWidth />
+
 <svg
     class="area-chart-svg"
     viewBox="0 0 {width} {height}"
@@ -178,11 +181,12 @@
                     <stop offset="100%" stop-color="white" opacity="0" />
                 </linearGradient>
             </defs> -->
+            {console.log(lineColors[0])}
             <path 
-            stroke={lineColors[0]}
-            stroke-width="2"
-            fill="none"
-            d={stroke(data)}
+                stroke={lineColors[0]}
+                stroke-width="2"
+                fill="none"
+                d={stroke(data)}
             />
             {#if !line}
                 <!-- svelte-ignore missing-declaration -->

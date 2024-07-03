@@ -58,7 +58,7 @@
     {title}
     chart
     classes={['neutral-shadow-l']}
-    styles={['position: relative', `width: ${type === 'pie' ? '354px' : '100%' }`, `min-height: 100%`, `height: fit-content`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
+    styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%' }`, `min-height: 100%`, `height: fit-content`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
 >
     <slot name='chart-header' />
     <div class='chart-wrapper' bind:clientWidth={chartWidth}>
@@ -78,7 +78,12 @@
                 width={chartWidth}
             />
             {#if stacked}
-                <ChartKeyContainer data={keyContainerKeys} {seriesKey} colors={barColors} />
+                <ChartKeyContainer 
+                    data={stackedData} 
+                    {seriesKey} 
+                    colors={barColors} 
+                    column={ chartWidth < 500 ? true : false } 
+                />
             {/if}
         {:else if type === 'area'}
             <AreaChart
@@ -100,7 +105,12 @@
                 width={chartWidth}
             />
             {#if stacked}
-                <ChartKeyContainer bind:data={keyContainerKeys} {seriesKey} colors={barColors} />
+                <ChartKeyContainer 
+                    data={stackedData} 
+                    {seriesKey} 
+                    colors={areaColors} 
+                    column={ chartWidth < 500 ? true : false } 
+                />
             {/if}
         {:else if type === 'pie'}
             <PieChart 
@@ -116,7 +126,7 @@
             <ChartKeyContainer 
                 {data} 
                 {seriesKey} 
-                colors={barColors} 
+                colors={arcColors} 
                 column={ chartWidth < 500 ? true : false }
             />
         {:else if type === '' || data.length === 0}
