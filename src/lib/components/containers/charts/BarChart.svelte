@@ -246,14 +246,6 @@
                             `}
                         />
                     {:else if horizontal}
-                        <!-- <rect
-                            fill={barColors[i]}
-                            x={width - xScale(d[0]) + marginLeft/2}
-                            y={yScale(d.data[0])}
-                            width={xScale(d[0]) -  xScale(d[1])}
-                            height={yScale.bandwidth()}
-                        /> -->
-
                         <!-- <path 
                             fill={barColors[i]}
                             d={`
