@@ -79,7 +79,7 @@
             />
             {#if stacked}
                 <ChartKeyContainer 
-                    data={stackedData} 
+                    data={keyContainerKeys} 
                     {seriesKey} 
                     colors={barColors} 
                     column={ chartWidth < 500 ? true : false } 
@@ -106,7 +106,7 @@
             />
             {#if stacked}
                 <ChartKeyContainer 
-                    data={stackedData} 
+                    data={keyContainerKeys} 
                     {seriesKey} 
                     colors={areaColors} 
                     column={ chartWidth < 500 ? true : false } 
