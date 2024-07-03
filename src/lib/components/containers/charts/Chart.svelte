@@ -4,7 +4,7 @@
     import AreaChart from "$lib/components/containers/charts/AreaChart.svelte";
     import PieChart from "$lib/components/containers/charts/PieChart.svelte";
     import { ChartKeyContainer } from "$lib/index.js";
-	import { onMount } from "svelte"
+	import { afterUpdate } from "svelte"
 
     export let data = [],
         type = '',
@@ -31,24 +31,27 @@
         width = null,
         chartHeight = 391
     
-    let chartWidth, stackedData = []
+    let chartWidth, keyContainerKeys = []
     $: height = type === 'pie' ? 280 : chartHeight
-    // pull out the unique series values for the chart key
-    let seenValues = []
-    for (let item of data) {
-        stackedData.push(item[seriesKey])
-    }
-    for (let [index, value] of stackedData.entries()) {
-        if (!seenValues.includes(value)) {
-            const obj = {}
-            obj[seriesKey] = value
-            stackedData[index] = obj
-            seenValues.push(value)
+    afterUpdate(() => {
+        // pull out the unique series values for the chart key
+        let seenValues = []
+        keyContainerKeys.length = 0
+        for (let item of data) {
+            keyContainerKeys.push(item[seriesKey])
         }
-    }
-    for (let i = stackedData.length - 1; i >= 0; i--) {
-        if (typeof stackedData[i] === 'string') stackedData.splice(i, 1)
-    }
+        for (let [index, value] of keyContainerKeys.entries()) {
+            if (!seenValues.includes(value)) {
+                const obj = {}
+                obj[seriesKey] = value
+                keyContainerKeys[index] = obj
+                seenValues.push(value)
+            }
+        }
+        for (let i = keyContainerKeys.length - 1; i >= 0; i--) {
+            if (typeof keyContainerKeys[i] === 'string') keyContainerKeys.splice(i, 1)
+        }
+    })
 </script>
 
 <Card

@@ -60,7 +60,7 @@
             for (let obj of data) {
                 obj[domain] = new Date(obj[domain])
             }
-            
+          
             stack = d3.stack()
             .keys(d3.union(data.map((d) => d[seriesKey])))
             .value(([, D], key) => D.get(key)[range])
@@ -82,7 +82,7 @@
             stroke = d3.line()
             .x((d) => xScale(d.data[0]))
             .y((d) => yScale(d[1]))
-    
+          
             //
         } else {
             for (let obj of data) {
@@ -104,9 +104,9 @@
             stroke = d3.line()
                 .x((d) => d[domain])
                 .y((d) => d[range])
+    
+            // 
         }
-
-        //
     }
 
     let tooltip, tooltipData = { top: 0, left: 0, series: '', domain: 0, range: 0}

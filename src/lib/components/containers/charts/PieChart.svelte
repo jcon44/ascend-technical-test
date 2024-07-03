@@ -30,30 +30,29 @@
 
     let width = 306
     let height = chartHeight || 306
-    let total = 0
     let pie, arcPath, arcs
 
-   $: {
-       if (sort === 'ascending') {
-           pie = d3.pie()
-               .sort((a, b) => d3.ascending(a[range], b[range]))
-               .value((d) => d[range])
-       } else if (sort === 'descending') {
-           pie = d3.pie()
-               .sort((a, b) => d3.descending(a[range], b[range]))
-               .value((d) => d[range])
-       } else {
-           pie = d3.pie()
-               .sort(null)
-               .value((d) => d[range])
-       }
+    $: {
+        if (sort === 'ascending') {
+            pie = d3.pie()
+                .sort((a, b) => d3.ascending(a[range], b[range]))
+                .value((d) => d[range])
+        } else if (sort === 'descending') {
+            pie = d3.pie()
+                .sort((a, b) => d3.descending(a[range], b[range]))
+                .value((d) => d[range])
+        } else {
+            pie = d3.pie()
+                .sort(null)
+                .value((d) => d[range])
+        }
     
-       arcPath = d3.arc()
-           .innerRadius(ring ? width / 3.80 : 0)
-           .outerRadius((Math.min(width, height)) / 2)
+        arcPath = d3.arc()
+            .innerRadius(ring ? width / 3.80 : 0)
+            .outerRadius((Math.min(width, height)) / 2)
     
-       arcs = pie(data)
-   }
+        arcs = pie(data)
+    }
 
     let tooltip, tooltipData = { top: 0, left: 0, domain: 0, range: 0}
     if (browser) {
