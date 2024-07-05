@@ -2,10 +2,11 @@
 	import { Card } from '$lib/index.js'
 
 	export let callback = null,
-		data = null,
 		icon = null,
+		styles = [],
+		title = '',
 		url = '',
-		styles = []
+		value = ''
 </script>
 
 <Card
@@ -15,8 +16,8 @@
 	{styles}
 	{url}
 >
-	<div class="body-s semibold">{data.title}</div>
-	<div class="headline-l-xl semibold">{data.value}</div>
+	<div class="body-s semibold">{title}</div>
+	<div class="headline-l-xl semibold">{value}</div>
 </Card>
 
 <style>
