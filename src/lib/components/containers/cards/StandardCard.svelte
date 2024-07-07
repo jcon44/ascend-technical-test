@@ -42,7 +42,6 @@
 	.chart-content {
 		display: flex;
 		flex-direction: column;
-		height: 100%;
 		gap: var(--spacing09);
 	}
 	.hover-link:hover {

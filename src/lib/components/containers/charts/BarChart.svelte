@@ -309,7 +309,6 @@
 <style>
     .bar-chart-svg {
         width: 100%;
-        height: 100%;
     }
 
     .axis-label {
