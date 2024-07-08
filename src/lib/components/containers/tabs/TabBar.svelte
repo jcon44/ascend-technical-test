@@ -46,7 +46,7 @@
 		</div>
 	{/if}
 	<div class="tab-list">
-		{#each tabList as tab, tabIndex}
+		{#each tabList as tab, tabIndex (tab.name)}
 			<Tab
 				bind:tab
 				icon={tab.icon}
