@@ -130,30 +130,24 @@
             let allRelevantEntries = []
             stack.forEach((series) => {
                 for (let item of series) {
-                    console.log(item.data[0].getTime(), stackedMouseDate.getTime())
                     if (item.data[0].getTime() === stackedMouseDate.getTime()) {
                         allRelevantEntries.push(item)
                     }
                 }
             })
-            console.log(allRelevantEntries)
 
             if (i === 0) {
                 stackedValue = allRelevantEntries[0][1] + 5
                 mouseValue = allRelevantEntries[0][1]
-                // console.log(stackedValue, mouseValue)
             } else if (i === 1) {
                 stackedValue = allRelevantEntries[1][1] + 10
                 mouseValue = allRelevantEntries[1][1] - allRelevantEntries[1][0]
-                // console.log(stackedValue, mouseValue)
             } else if (i === 2) {
                 stackedValue = allRelevantEntries[2][1] + 20
                 mouseValue = allRelevantEntries[2][1] - allRelevantEntries[2][0]
-                // console.log(stackedValue, mouseValue)
             } else if (i === 3) {
                 stackedValue = allRelevantEntries[3][1] + 25
                 mouseValue = allRelevantEntries[3][1] - allRelevantEntries[3][0]
-                // console.log(stackedValue, mouseValue)
             }
             tooltipData.top = yScale(stackedValue) - 25
         } else {
@@ -162,8 +156,9 @@
 
         tooltipData.left = e.offsetX - 60
         tooltipData.line = x + 5
+        console.log(x)
         if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
-        if (xScale(mouseDate) > (width - marginRight) - 70) tooltipData.left = width - marginRight - 70
+        //if (xScale(mouseDate) > (width - marginRight) - 70) tooltipData.left = x // tooltip.node().clientWidth
         tooltipData.series = s
         tooltipData.domain = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
         tooltipData.range = mouseValue
