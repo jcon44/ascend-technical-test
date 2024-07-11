@@ -1,9 +1,7 @@
 <script>
     import * as d3 from 'd3'
-    import { formatDate } from '$lib';
     import { browser } from '$app/environment';
 	import ChartTooltip from '$lib/components/containers/labels/ChartTooltip.svelte'
-	import { onMount } from 'svelte'
 
     /**
      *  @param {array} data
@@ -48,7 +46,7 @@
     let marginTop = 24
     let marginBottom = 24
 
-    let mouseDateSnap, xScale, yScale, stroke, stack, area, lines =[]
+    let xScale, yScale, stroke, stack, area, lines =[]
     let formatFull = d3.utcFormat("%B %d, %Y")
     let formatYear = d3.utcFormat("%Y")
     let formatMonth = d3.utcFormat("%B")
@@ -109,7 +107,7 @@
         }
     }
 
-    let tooltip, tooltipData = { top: 0, left: 0, series: '', domain: 0, range: 0}
+    let tooltip, tooltipData = { top: 0, left: 0, line: 0, color: '', series: '', domain: 0, range: 0}
     if (browser) {
         tooltip = d3.select(`#${tooltipId}`)
     }
@@ -118,15 +116,49 @@
         tooltip.style('opacity', 1)
     }
 
-    function movingTooltip(e, d, s) {
+    function movingTooltip(e, d, s, stack, i, c) {
         const [x, y] = d3.pointer(e)
-        tooltipData.top = e.offsetY - 85
+        
+        const mouseDate = xScale.invert(x)
+        const bisectDate = d3.bisector((d) => d[domain]).right
+        const xIndex = bisectDate(d, mouseDate, 1)
+        let mouseValue = data[xIndex][range]
+
+        let stackedValue = 0
+        if (stacked) {
+            const stackedMouseDate = data[xIndex][domain]
+            const allRelevantEntries = []
+            stack.forEach((series) => {
+                for (let item of series) {
+                    if (item.data[0] === stackedMouseDate) allRelevantEntries.push(item)
+                }
+            })
+
+            console.log(i)
+            if (i === 0) {
+                stackedValue = allRelevantEntries[0][1] + 5
+                mouseValue = allRelevantEntries[0][1]
+            } else if (i === 1) {
+                stackedValue = allRelevantEntries[1][1] + 10
+                mouseValue = allRelevantEntries[1][1] - allRelevantEntries[1][0]
+            } else if (i === 2) {
+                stackedValue = allRelevantEntries[2][1] + 20
+                mouseValue = allRelevantEntries[2][1] - allRelevantEntries[2][0]
+            }
+            tooltipData.top = yScale(stackedValue) - 25
+        } else {
+            tooltipData.top = yScale(mouseValue) - 50
+            console.log(tooltipData.top)
+        }
+
         tooltipData.left = e.offsetX - 60
+        tooltipData.line = x + 5
+        if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
+        if (xScale(mouseDate) > (width - marginRight) - 70) tooltipData.left = width - marginRight - 70
         tooltipData.series = s
         tooltipData.domain = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
-        tooltipData.range = yScale.invert(y)
-
-        mouseDateSnap = d3.timeYear.floor(xScale.invert(x))
+        tooltipData.range = mouseValue
+        tooltipData.color = c
     }
 
     function leaveTooltip(e) {
@@ -158,15 +190,15 @@
             {#each stack as series, i}
                 <!-- svelte-ignore missing-declaration -->
                 <path
-                stroke={lineColors[i]}
-                stroke-width={2}
-                fill='none'
-                d={stroke(series)}
+                    stroke={lineColors[i]}
+                    stroke-width={2}
+                    fill='none'
+                    d={stroke(series)}
                 />
                 {#if !line}
                     <path 
                         on:mouseenter={enterTooltip}
-                        on:mousemove={(e) => movingTooltip(e, data, series.key)}
+                        on:mousemove={(e) => movingTooltip(e, data, series.key, stack, i, lineColors[i])}
                         on:mouseleave={leaveTooltip}
                         fill={areaColors[i]}
                         d={area(series)}
@@ -181,7 +213,6 @@
                     <stop offset="100%" stop-color="white" opacity="0" />
                 </linearGradient>
             </defs> -->
-            {console.log(lineColors[0])}
             <path 
                 stroke={lineColors[0]}
                 stroke-width="2"
@@ -215,10 +246,17 @@
         {#if stacked}
             {#each stack as series, i}
                 {#each series as item}
+                    <line 
+                        stroke="var(--neutral-050)"
+                        stroke-width={2}
+                        x1={xScale(item.data[0])}
+                        x2={xScale(item.data[0])}
+                        y1={marginTop}
+                        y2={height - marginBottom}
+                    />
                     <text
                         class="axis-label"
                         fill="gray"
-                        text-anchor="start"
                         x={xScale(item.data[0])}
                         y={22}
                     >
@@ -231,8 +269,8 @@
                 <text
                     class="axis-label"
                     fill="gray"
-                    text-anchor="start"
-                    x={(width/data.length) * i}
+                    text-anchor="middle"
+                    x={xScale(d[domain])}
                     y={22}
                 >
                     {fullDate ? formatFull(d[domain]) : yearOnly ? formatYear(d[domain]) : monthOnly ? formatMonth(d[domain]) : monthDay ? formatMonthDay(d[domain]) : monthYear ? formatMonthYear(d[domain]) : formatFull(d[domain])}
@@ -245,7 +283,8 @@
     <line 
         stroke='var(--neutral-trans-100)'
         stroke-dasharray='2 3'
-        x1={xScale(mouseDateSnap)}
+        x1={tooltipData.line}
+        x2={tooltipData.line}
         y1={marginTop}
         y2={height - marginBottom}
     />

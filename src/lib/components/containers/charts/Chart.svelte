@@ -108,7 +108,7 @@
                 <ChartKeyContainer 
                     data={keyContainerKeys} 
                     {seriesKey} 
-                    colors={areaColors} 
+                    colors={lineColors} 
                     column={ chartWidth < 500 ? true : false } 
                 />
             {/if}

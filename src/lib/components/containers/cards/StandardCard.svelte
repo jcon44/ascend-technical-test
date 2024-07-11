@@ -20,7 +20,7 @@
 		</div>
 	{/if}
 	{#if title}
-		<div class="card-title { chart ? 'body-xxl font-weight' : 'headline-s-m'}">
+		<div class="{ chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
 			{title}
 		</div>
 	{/if}
@@ -39,6 +39,9 @@
 		height: 100%;
 		justify-content: space-between;
 	}
+	.card-title {
+		font-size: var(--body-xl-font-size);
+	}
 	.chart-content {
 		display: flex;
 		flex-direction: column;
@@ -51,5 +54,11 @@
 	.font-weight {
 		font-weight: 700;
 		letter-spacing: 0.5px;
+	}
+
+	@media screen and (min-width: 768px) {
+		.card-title {
+			font-size: var(--body-xxl-font-size);
+		}
 	}
 </style>
