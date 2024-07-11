@@ -130,8 +130,11 @@
             const allRelevantEntries = []
             stack.forEach((series) => {
                 for (let item of series) {
-                    console.log(item, stackedMouseDate)
-                    if (item.data[0] === stackedMouseDate) allRelevantEntries.push(item)
+                    if (item.data[0] === stackedMouseDate) {
+                        console.log(item)
+                        allRelevantEntries.push(item)
+                    }
+                    console.log(allRelevantEntries)
                 }
             })
             console.log(allRelevantEntries)
