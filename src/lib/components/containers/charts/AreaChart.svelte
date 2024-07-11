@@ -127,14 +127,13 @@
         let stackedValue = 0
         if (stacked) {
             const stackedMouseDate = data[xIndex][domain]
-            const allRelevantEntries = []
+            let allRelevantEntries = []
             stack.forEach((series) => {
                 for (let item of series) {
-                    if (item.data[0] === stackedMouseDate) {
-                        console.log(item)
+                    console.log(item.data[0].getTime(), stackedMouseDate.getTime())
+                    if (item.data[0].getTime() === stackedMouseDate.getTime()) {
                         allRelevantEntries.push(item)
                     }
-                    console.log(allRelevantEntries)
                 }
             })
             console.log(allRelevantEntries)
@@ -142,15 +141,19 @@
             if (i === 0) {
                 stackedValue = allRelevantEntries[0][1] + 5
                 mouseValue = allRelevantEntries[0][1]
+                // console.log(stackedValue, mouseValue)
             } else if (i === 1) {
                 stackedValue = allRelevantEntries[1][1] + 10
                 mouseValue = allRelevantEntries[1][1] - allRelevantEntries[1][0]
+                // console.log(stackedValue, mouseValue)
             } else if (i === 2) {
                 stackedValue = allRelevantEntries[2][1] + 20
                 mouseValue = allRelevantEntries[2][1] - allRelevantEntries[2][0]
+                // console.log(stackedValue, mouseValue)
             } else if (i === 3) {
                 stackedValue = allRelevantEntries[3][1] + 25
                 mouseValue = allRelevantEntries[3][1] - allRelevantEntries[3][0]
+                // console.log(stackedValue, mouseValue)
             }
             tooltipData.top = yScale(stackedValue) - 25
         } else {
