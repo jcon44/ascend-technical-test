@@ -130,11 +130,12 @@
             const allRelevantEntries = []
             stack.forEach((series) => {
                 for (let item of series) {
+                    console.log(item)
                     if (item.data[0] === stackedMouseDate) allRelevantEntries.push(item)
                 }
             })
+            console.log(allRelevantEntries)
 
-            console.log(i)
             if (i === 0) {
                 stackedValue = allRelevantEntries[0][1] + 5
                 mouseValue = allRelevantEntries[0][1]
@@ -144,11 +145,13 @@
             } else if (i === 2) {
                 stackedValue = allRelevantEntries[2][1] + 20
                 mouseValue = allRelevantEntries[2][1] - allRelevantEntries[2][0]
+            } else if (i === 3) {
+                stackedValue = allRelevantEntries[3][1] + 25
+                mouseValue = allRelevantEntries[3][1] - allRelevantEntries[3][0]
             }
             tooltipData.top = yScale(stackedValue) - 25
         } else {
             tooltipData.top = yScale(mouseValue) - 50
-            console.log(tooltipData.top)
         }
 
         tooltipData.left = e.offsetX - 60
