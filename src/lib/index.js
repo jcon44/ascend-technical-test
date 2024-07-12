@@ -187,6 +187,7 @@ export { default as withinDateRange } from '$lib/functions/filtering/withinDateR
 export { default as withinTimeRange } from '$lib/functions/filtering/withinTimeRange.js'
 
 // Formatting
+export { default as abbreviateNumber } from '$lib/functions/formatting/abbreviateNumber.js'
 export { default as capitalize } from '$lib/functions/formatting/capitalize.js'
 export { default as convertDBDateToJSDate } from '$lib/functions/formatting/convertDBDateToJSDate.js'
 export { default as formatDate } from '$lib/functions/formatting/formatDate.js'
