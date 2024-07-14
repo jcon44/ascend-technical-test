@@ -12,7 +12,7 @@ export default function abbreviateNumber(number) {
 		let numberString = number.toString()
 		let numberArray = numberString.split('')
 		let firstNumber = numberArray[0]
-		let remainingNumbers = numberArray.slice(1, numberArray.length).join('').toFixed(1)
+		let remainingNumbers = numberString.slice(1, numberArray.length)
 		abvNumber = `${firstNumber},${remainingNumbers}`
 	} else {
 		abvNumber = number.toString()
