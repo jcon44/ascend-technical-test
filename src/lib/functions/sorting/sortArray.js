@@ -49,7 +49,6 @@ export default function sortArray(unsortedArray, columnKey, columnType, sortOrde
 				if (aItem < bItem) return -1
 				else if (aItem > bItem) return 1
 			}
-			// console.log(aItem, bItem)
 			return 0
 		}
 	})

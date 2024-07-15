@@ -156,7 +156,7 @@
 
         tooltipData.left = e.offsetX - 60
         tooltipData.line = x + 5
-        console.log(x)
+		
         if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
         //if (xScale(mouseDate) > (width - marginRight) - 70) tooltipData.left = x // tooltip.node().clientWidth
         tooltipData.series = s
