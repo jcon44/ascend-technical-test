@@ -36,11 +36,12 @@
             monthYear,
             line = false,
             stacked = false,
+            chartWidth = null,
             chartHeight = null
 
     let innerWidth
-    $: width = innerWidth < 500 ? 294 : 1344
-    $: height = innerWidth < 500 ? 303 : chartHeight ||  400
+    $: width = innerWidth < 500 ? 294 : chartWidth
+    $: height = innerWidth < 500 ? 350 : chartHeight ||  400
     let marginLeft = 0 // 20
     let marginRight = 0 // 20
     let marginTop = 24

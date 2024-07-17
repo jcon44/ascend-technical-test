@@ -4,7 +4,7 @@
     import AreaChart from "$lib/components/containers/charts/AreaChart.svelte";
     import PieChart from "$lib/components/containers/charts/PieChart.svelte";
     import { ChartKeyContainer } from "$lib/index.js";
-	import { afterUpdate } from "svelte"
+	import { afterUpdate, onMount } from "svelte"
 
     export let data = [],
         type = '',
@@ -28,11 +28,14 @@
         seriesKey = '',
         ring = false,
         line = false,
-        width = null,
-        chartHeight = 391
+        singleSelector = false,
+        singleCard = false,
+        singleDoubleSlot = false,
+        stackedSelector = false,
+        stackedCard = false,
+        stackedDoubleSlot = false
     
-    let chartWidth, keyContainerKeys = []
-    $: height = type === 'pie' ? 280 : chartHeight
+    let chartWidth, chartHeight, keyContainerKeys = []
     afterUpdate(() => {
         // pull out the unique series values for the chart key
         let seenValues = []
@@ -58,10 +61,10 @@
     {title}
     chart
     classes={['neutral-shadow-l']}
-    styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%' }`, `height: fit-content`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
+    styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%' }`, `height: 100%`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
 >
     <slot name='chart-header' />
-    <div class='chart-wrapper' bind:clientWidth={chartWidth}>
+    <div class='chart-wrapper { singleSelector ? 'single-selector-slot' : '' } { singleCard ? 'single-card-slot' : '' } { singleDoubleSlot ? 'single-double-slot' : '' } { stacked ? 'stacked-height' : '' } { stackedSelector ? 'stacked-selector-slot' : '' } { stackedCard ? 'stacked-card-slot' : '' } { stackedDoubleSlot ? 'stacked-double-slot' : '' }' bind:clientWidth={chartWidth} bind:clientHeight={chartHeight}>
         {#if type === 'bar'}
             <BarChart 
                 {tooltipId}
@@ -75,7 +78,7 @@
                 {sort}
                 {seriesKey}
                 {chartHeight}
-                width={chartWidth}
+                {chartWidth}
             />
             {#if stacked}
                 <ChartKeyContainer 
@@ -96,13 +99,13 @@
                 {lineColors}
                 {stacked}
                 {line}
-                {height}
                 {fullDate}
                 {yearOnly}
                 {monthOnly}
                 {monthDay}
                 {monthYear}
-                width={chartWidth}
+                {chartWidth}
+                {chartHeight}
             />
             {#if stacked}
                 <ChartKeyContainer 
@@ -121,7 +124,7 @@
                 {sort}
                 {arcColors}
                 {ring}
-                {height}
+                height={280}
             />
             <ChartKeyContainer 
                 {data} 
@@ -138,5 +141,34 @@
 <style>
     .chart-wrapper {
         margin-top: var(--spacing09);
+        height: calc(100% - var(--spacing09));
+    }
+
+    .single-selector-slot {
+        height: calc(100% - 123px);
+    }
+
+    .single-card-slot {
+        height: calc(100% - 185px);
+    }
+
+    .single-double-slot {
+        height: calc(100% - 260px);
+    }
+
+    .stacked-height {
+        height: calc(100% - 45px);
+    }
+
+    .stacked-selector-slot {
+        height: calc(100% - 178px);
+    }
+
+    .stacked-card-slot {
+        height: calc(100% - 230px);
+    }
+
+    .stacked-double-slot {
+        height: calc(100% - 310px);
     }
 </style>

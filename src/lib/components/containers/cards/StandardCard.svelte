@@ -46,6 +46,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing09);
+		height: calc(100% - 48px);
 	}
 	.hover-link:hover {
 		box-shadow: var(--neutral-shadow-m);

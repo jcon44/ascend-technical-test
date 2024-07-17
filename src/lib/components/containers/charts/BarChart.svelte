@@ -32,12 +32,13 @@
             domain,
             range,
             seriesKey = null,
-            tooltipId, 
+            tooltipId,
+            chartWidth = null,
             chartHeight = null
 
     let innerWidth
-    $: width = innerWidth < 500 ? 294 : 1344
-    $: height = innerWidth < 500 ? 346 : chartHeight ||  400
+    $: width = innerWidth < 500 ? 294 : chartWidth
+    $: height = innerWidth < 500 ? 400 : chartHeight ||  400
     let marginLeft = vertical ? 0 : 125
     let marginRight = vertical ? 0 : 50
     let marginTop = vertical ? 24 : 20
@@ -309,6 +310,7 @@
 <style>
     .bar-chart-svg {
         width: 100%;
+        display: block;
     }
 
     .axis-label {
