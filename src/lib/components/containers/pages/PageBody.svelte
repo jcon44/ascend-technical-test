@@ -34,7 +34,7 @@
 			width: var(--spacing27);
 		}
 		.wide {
-			width: var(--spacing33);
+			width: var(--spacing34);
 		}
 	}
 </style>

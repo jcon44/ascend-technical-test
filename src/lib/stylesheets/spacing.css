@@ -33,7 +33,8 @@
 	--spacing31: 736px;
 	--spacing32: 800px;
 	--spacing33: 1024px;
-	--spacing34: 2048px;
+	--spacing34: 1440px;
+	--spacing35: 2048px;
 
 	--breakpoint-xl: 1440px;
 	--breakpoint-l: 1439px;
@@ -41,7 +42,7 @@
 	--breakpoint-s: 767px;
 
 	--container-max-width-full: 100%;
-	--container-max-width-xl: 1160px;
+	--container-max-width-xl: 1440px;
 	--container-max-width-l: 1160px;
 	--container-max-width-m: 644px;
 	--container-max-width-s: 280px;
