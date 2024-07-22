@@ -36,11 +36,11 @@
         stackedLargeSlot = false
     
     let chartWidth, chartHeight, chartHeader, keyContainerKeys = []
-    $: chartHeaderHeight = chartHeader
+    // $: chartHeaderHeight = chartHeader
 
-    afterUpdate(() => {
-        chartHeader = document.querySelector('#simple-area-header').clientHeight
-    })
+    // afterUpdate(() => {
+    //     chartHeader = document.querySelector('#simple-area-header').clientHeight
+    // })
 
     afterUpdate(() => {
         // pull out the unique series values for the chart key
