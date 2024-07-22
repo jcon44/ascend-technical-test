@@ -28,14 +28,20 @@
         seriesKey = '',
         ring = false,
         line = false,
-        singleSelector = false,
-        singleCard = false,
-        singleDoubleSlot = false,
-        stackedSelector = false,
-        stackedCard = false,
-        stackedDoubleSlot = false
+        singleXSmallSlot = false,
+        singleSmallSlot = false,
+        singleMediumSlot = false,
+        stackedSmallSlot = false,
+        stackedMediumSlot = false,
+        stackedLargeSlot = false
     
-    let chartWidth, chartHeight, keyContainerKeys = []
+    let chartWidth, chartHeight, chartHeader, keyContainerKeys = []
+    $: chartHeaderHeight = chartHeader
+
+    afterUpdate(() => {
+        chartHeader = document.querySelector('#simple-area-header').clientHeight
+    })
+
     afterUpdate(() => {
         // pull out the unique series values for the chart key
         let seenValues = []
@@ -64,7 +70,7 @@
     styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%' }`, `height: 100%`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
 >
     <slot name='chart-header' />
-    <div class='chart-wrapper { singleSelector ? 'single-selector-slot' : '' } { singleCard ? 'single-card-slot' : '' } { singleDoubleSlot ? 'single-double-slot' : '' } { stacked ? 'stacked-height' : '' } { stackedSelector ? 'stacked-selector-slot' : '' } { stackedCard ? 'stacked-card-slot' : '' } { stackedDoubleSlot ? 'stacked-double-slot' : '' }' bind:clientWidth={chartWidth} bind:clientHeight={chartHeight}>
+    <div class='chart-wrapper { singleXSmallSlot ? 'single-xs-slots' : '' } { singleSmallSlot ? 'single-s-slots' : '' } { singleMediumSlot ? 'single-m-slots' : '' } { stacked ? 'stacked-xs-slots' : '' } { stackedSmallSlot ? 'stacked-s-slots' : '' } { stackedMediumSlot ? 'stacked-m-slots' : '' } { stackedLargeSlot ? 'stacked-l-slots' : '' }' bind:clientWidth={chartWidth} bind:clientHeight={chartHeight}>
         {#if type === 'bar'}
             <BarChart 
                 {tooltipId}
@@ -144,31 +150,31 @@
         height: calc(100% - var(--spacing09));
     }
 
-    .single-selector-slot {
+    .single-xs-slots {
         height: calc(100% - 123px);
     }
 
-    .single-card-slot {
+    .single-s-slots {
         height: calc(100% - 185px);
     }
 
-    .single-double-slot {
+    .single-m-slots {
         height: calc(100% - 260px);
     }
 
-    .stacked-height {
+    .stacked-xs-slots {
         height: calc(100% - 45px);
     }
 
-    .stacked-selector-slot {
+    .stacked-s-slots {
         height: calc(100% - 178px);
     }
 
-    .stacked-card-slot {
+    .stacked-m-slots {
         height: calc(100% - 230px);
     }
 
-    .stacked-double-slot {
+    .stacked-l-slots {
         height: calc(100% - 310px);
     }
 </style>
