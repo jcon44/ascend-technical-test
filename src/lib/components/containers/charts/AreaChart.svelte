@@ -101,8 +101,8 @@
                 .y1((d) => yScale(d[range]))
         
             stroke = d3.line()
-                .x((d) => d[domain])
-                .y((d) => d[range])
+                .x((d) => xScale(d[domain]))
+                .y((d) => yScale(d[range]))
     
             // 
         }
@@ -212,12 +212,6 @@
             {/each}
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         {:else}
-            <!-- <defs>   
-                <linearGradient id="area-gradient{i}" x1="0%" x2="0%" y1="0%" y2="100%">
-                    <stop offset="0%" stop-color={areaColors[i]} opacity="0.8" />
-                    <stop offset="100%" stop-color="white" opacity="0" />
-                </linearGradient>
-            </defs> -->
             <path 
                 stroke={lineColors[0]}
                 stroke-width="2"
