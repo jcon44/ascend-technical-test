@@ -218,17 +218,15 @@
                 fill="none"
                 d={stroke(data)}
             />
-            {#if !line}
-                <!-- svelte-ignore missing-declaration -->
-                <!-- svelte-ignore a11y-no-static-element-interactions -->
-                <path
-                    on:mouseenter={enterTooltip}
-                    on:mousemove={(e) => movingTooltip(e, data, data[0][seriesKey])}
-                    on:mouseleave={leaveTooltip}
-                    fill={areaColors[0]}
-                    d={area(data)}
-                />
-            {/if}
+            <!-- svelte-ignore missing-declaration -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
+            <path
+                on:mouseenter={enterTooltip}
+                on:mousemove={(e) => movingTooltip(e, data, data[0][seriesKey])}
+                on:mouseleave={leaveTooltip}
+                fill={line ? 'rgba(0,0,0,0)' : areaColors[0]}
+                d={area(data)}
+            />
         {/if}
     <!-- {/if} -->
     <!-- {#each lines as stroke, i}
