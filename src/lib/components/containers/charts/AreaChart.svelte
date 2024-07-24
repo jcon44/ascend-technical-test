@@ -40,10 +40,10 @@
             chartHeight = null
 
     let innerWidth
-    $: width = innerWidth < 500 ? 294 : chartWidth
-    $: height = innerWidth < 500 ? 350 : chartHeight ||  400
-    let marginLeft = 0 // 20
-    let marginRight = 0 // 20
+    $: width = innerWidth < 768 ? 294 : chartWidth 
+    $: height = innerWidth < 768 ? 350 : chartHeight ||  400
+    let marginLeft = 15
+    let marginRight = 15
     let marginTop = 24
     let marginBottom = 24
 
@@ -124,8 +124,7 @@
         const bisectDate = d3.bisector((d) => d[domain]).right
         const xIndex = bisectDate(d, mouseDate, 1)
         let mouseValue = data[xIndex][range]
-
-        let stackedValue = 0
+        
         if (stacked) {
             const stackedMouseDate = data[xIndex][domain]
             let allRelevantEntries = []
@@ -138,28 +137,24 @@
             })
 
             if (i === 0) {
-                stackedValue = allRelevantEntries[0][1] + 5
                 mouseValue = allRelevantEntries[0][1]
             } else if (i === 1) {
-                stackedValue = allRelevantEntries[1][1] + 10
                 mouseValue = allRelevantEntries[1][1] - allRelevantEntries[1][0]
             } else if (i === 2) {
-                stackedValue = allRelevantEntries[2][1] + 20
                 mouseValue = allRelevantEntries[2][1] - allRelevantEntries[2][0]
             } else if (i === 3) {
-                stackedValue = allRelevantEntries[3][1] + 25
                 mouseValue = allRelevantEntries[3][1] - allRelevantEntries[3][0]
             }
-            tooltipData.top = yScale(stackedValue) - 25
+            tooltipData.top = e.offsetY - 90
         } else {
-            tooltipData.top = yScale(mouseValue) - 50
+            tooltipData.top = e.offsetY - 90
         }
 
+        console.log(e)
         tooltipData.left = e.offsetX - 60
-        tooltipData.line = x + 5
+        tooltipData.line = x + 3
 		
         if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
-        //if (xScale(mouseDate) > (width - marginRight) - 70) tooltipData.left = x // tooltip.node().clientWidth
         tooltipData.series = s
         tooltipData.domain = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
         tooltipData.range = mouseValue
@@ -189,7 +184,6 @@
     {/each}
 
     <!-- Areas -->
-    <!-- {#if !line} -->
         {#if stacked}
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             {#each stack as series, i}
@@ -228,15 +222,6 @@
                 d={area(data)}
             />
         {/if}
-    <!-- {/if} -->
-    <!-- {#each lines as stroke, i}
-        <path 
-            stroke={lineColors[i]}
-            stroke-width="2"
-            fill="none"
-            d={stroke}
-        />
-    {/each} -->
 
     <!-- Base Axis -->
     <g transform="translate(0,{height - marginBottom})">
@@ -254,6 +239,7 @@
                     <text
                         class="axis-label"
                         fill="gray"
+                        text-anchor="middle"
                         x={xScale(item.data[0])}
                         y={22}
                     >

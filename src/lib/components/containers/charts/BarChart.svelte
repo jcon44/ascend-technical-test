@@ -37,8 +37,8 @@
             chartHeight = null
 
     let innerWidth
-    $: width = innerWidth < 500 ? 294 : chartWidth
-    $: height = innerWidth < 500 ? 400 : chartHeight ||  400
+    $: width = innerWidth < 768 ? 294 : chartWidth
+    $: height = innerWidth < 768 ? 400 : chartHeight ||  400
     let marginLeft = vertical ? 0 : 125
     let marginRight = vertical ? 0 : 50
     let marginTop = vertical ? 24 : 20
@@ -211,17 +211,19 @@
     <g class='base-axis' transform="translate(0,{height - marginBottom})">
         {#if vertical}
             <line stroke="var(--neutral-050)" x1={marginLeft - 6} x2={width} />
-            {#each data as d}
-                <text
-                    class="axis-label"
-                    fill="gray"
-                    text-anchor="middle"
-                    x={xScale(d[domain]) + xScale.bandwidth() / 2}
-                    y={22}
-                >
-                    {d[domain]}
-                </text>
-            {/each}
+            {#if innerWidth >= 500}
+                {#each data as d}
+                    <text
+                        class="axis-label"
+                        fill="gray"
+                        text-anchor="middle"
+                        x={xScale(d[domain]) + xScale.bandwidth() / 2}
+                        y={22}
+                    >
+                        {d[domain]}
+                    </text>
+                {/each}
+            {/if}
         {/if}
     </g>
 
