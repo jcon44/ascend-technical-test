@@ -4,10 +4,11 @@
 	export let status = '',
 		time = ''
 
-	$: statusKey = status ? status.replace(' ', '').toLowerCase() : ''
+	$: statusKey = status ? status.replace(' ', '').toLowerCase() : 'default'
 
 	const statusColorMap = {
 		approved: 'success',
+		default: 'neutral',
 		draft: 'neutral',
 		failed: 'error',
 		inprogress: 'warning',
