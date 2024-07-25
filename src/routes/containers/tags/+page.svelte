@@ -1,5 +1,5 @@
 <script>
-	import { ArrowDownExtraSmallIcon, Page, Tag } from '$lib/index.js'
+	import { ArrowDownExtraSmallIcon, RoleTag, Page, Tag } from '$lib/index.js'
 
 	const typeList = ['Success', 'Secondary', 'Error', 'Warning', 'Neutral']
 </script>
@@ -24,4 +24,5 @@
 			side="right"
 		/>
 	{/each}
+	<RoleTag role='admin' />
 </Page>
