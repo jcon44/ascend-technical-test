@@ -150,7 +150,6 @@
             tooltipData.top = e.offsetY - 90
         }
 
-        console.log(e)
         tooltipData.left = e.offsetX - 60
         tooltipData.line = x + 3
 		
