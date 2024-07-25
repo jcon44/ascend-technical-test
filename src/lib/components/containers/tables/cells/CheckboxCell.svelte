@@ -1,5 +1,5 @@
 <script>
-	import CheckboxInput from '$lib/components/inputs/checkboxes/CheckboxInput.svelte'
+	import { CheckboxInput } from '$lib/index.js'
 
 	export let callback, selected
 </script>

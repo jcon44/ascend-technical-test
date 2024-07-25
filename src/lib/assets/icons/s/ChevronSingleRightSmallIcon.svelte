@@ -13,11 +13,11 @@
 	size="24"
 	{styles}
 >
-    <path 
-        d="M9 18.5L15 12.5L9 6.5" 
-        stroke={colorOverride || palette.neutral} 
-        stroke-width="2" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
-    />
+	<path 
+		d="M9 18.5L15 12.5L9 6.5" 
+		stroke={colorOverride || palette.neutral} 
+		stroke-width="2" 
+		stroke-linecap="round" 
+		stroke-linejoin="round"
+	/>
 </Icon>

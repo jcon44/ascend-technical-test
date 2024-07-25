@@ -1,6 +1,5 @@
 <script>
-	import { MainContent, RadioOption, RadioList } from '$lib/index.js'
-	import RadioDetailedList from '$lib/components/inputs/radio/RadioDetailedList.svelte'
+	import { MainContent, RadioDetailedList, RadioList, RadioOption } from '$lib/index.js'
 
 	const sampleRadioList = [
 		{

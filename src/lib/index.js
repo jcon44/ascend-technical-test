@@ -112,6 +112,7 @@ export { default as Icon } from '$lib/components/containers/icons/Icon.svelte'
 export { default as Label } from '$lib/components/containers/labels/Label.svelte'
 export { default as ChartKey } from '$lib/components/containers/labels/ChartKey.svelte'
 export { default as ChartKeyContainer } from '$lib/components/containers/labels/ChartKeyContainer.svelte'
+export { default as ChartTooltip } from '$lib/components/containers/labels/ChartTooltip.svelte'
 
 // Layout
 export { default as Main } from '$lib/components/containers/layout/Main.svelte'
@@ -169,6 +170,7 @@ export { default as TagCell } from '$lib/components/containers/tables/cells/TagC
 
 // Tags
 export { default as ErrorTag } from '$lib/components/containers/tags/ErrorTag.svelte'
+export { default as RoleTag } from '$lib/components/containers/tags/RoleTag.svelte'
 export { default as StatusTag } from '$lib/components/containers/tags/StatusTag.svelte'
 export { default as Tag } from '$lib/components/containers/tags/Tag.svelte'
 
