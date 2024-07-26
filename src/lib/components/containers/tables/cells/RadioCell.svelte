@@ -1,5 +1,5 @@
 <script>
-	import RadioInput from '$lib/index.js'
+	import { RadioInput } from '$lib/index.js'
 
 	export let callback, group, value
 </script>
