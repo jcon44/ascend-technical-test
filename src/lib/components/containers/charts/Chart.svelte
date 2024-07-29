@@ -7,6 +7,8 @@
 		title = 'Title',
 		domain = '',
 		range = '',
+		valueOneLabel,
+		valueTwoLabel = '',
 		fullDate = false,
 		yearOnly = false,
 		monthOnly = false,
@@ -68,6 +70,8 @@
 				{data}
 				{domain}
 				{range}
+				{valueOneLabel}
+				{valueTwoLabel}
 				{barColors}
 				{vertical}
 				{horizontal}
@@ -91,6 +95,8 @@
 				{data}
 				{domain}
 				{range}
+				{valueOneLabel}
+				{valueTwoLabel}
 				{seriesKey}
 				{areaColors}
 				{lineColors}
@@ -118,6 +124,8 @@
 				{data}
 				{domain}
 				{range}
+				{valueOneLabel}
+				{valueTwoLabel}
 				{sort}
 				{arcColors}
 				{ring}

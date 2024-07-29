@@ -28,6 +28,8 @@
 			lineColors = [],
 			domain, 
 			range,
+			valueOneLabel,
+			valueTwoLabel,
 			seriesKey,
 			fullDate,
 			yearOnly,
@@ -108,7 +110,13 @@
 		}
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, line: 0, color: '', series: '', domain: 0, range: 0}
+	let tooltip, tooltipData = { top: 0, left: 0, line: 0, color: '', title: '', valueOneLabel, valueOne: 0 }
+	
+	if (valueTwoLabel) {
+		tooltipData.valueTwoLabel = valueTwoLabel
+		tooltipData.valueTwo = 0
+	}
+
 	if (browser) {
 		tooltip = d3.select(`#${tooltipId}`)
 	}
@@ -155,8 +163,8 @@
 		
 		if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
 		tooltipData.series = s
-		tooltipData.domain = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
-		tooltipData.range = mouseValue
+		tooltipData.valueOne = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
+		if (valueTwoLabel) tooltipData.valueTwo = mouseValue
 		tooltipData.color = c
 	}
 
@@ -272,7 +280,7 @@
 	/>
 </svg>
 
-<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} series={tooltipData.series} domainLabel={domain} domain={tooltipData.domain} rangeLabel={range} range={tooltipData.range} />
+<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} tooltipInfo={tooltipData} />
 
 <style>
 	.area-chart-svg {

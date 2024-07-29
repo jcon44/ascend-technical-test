@@ -31,6 +31,8 @@
 			sort = null,
 			domain,
 			range,
+			valueOneLabel,
+			valueTwoLabel,
 			seriesKey = null,
 			tooltipId,
 			chartWidth = null,
@@ -141,7 +143,12 @@
 		}
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, series: '', domain: 0, range: 0}
+	let tooltip, tooltipData = { top: 0, left: 0, title: '', valueOneLabel, valueOne: 0 }
+	if (valueTwoLabel) {
+		tooltipData.valueTwoLabel = valueTwoLabel
+		tooltipData.valueTwo = 0
+	}
+
 	if (browser) {
 		tooltip = d3.select(`#${tooltipId}`)
 	}
@@ -156,15 +163,15 @@
 		tooltipData.left = e.offsetX - 60
 		tooltipData.series = s
 		if (vertical) {
-			tooltipData.domain = d[domain]
-			tooltipData.range = d[range]
+			tooltipData.valueOne = d[valueOneLabel]
+			if(valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
 		} else if (horizontal) {
-			tooltipData.range = d[domain]
-			tooltipData.domain = d[range]
+			tooltipData.valueOne = d[valueOneLabel]
+			if (valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
 		}
 		if (stacked) {
-			tooltipData.domain = d.data[0]
-			tooltipData.range = d[1] - d[0]
+			tooltipData.valueOne = d.data[0]
+			if (valueTwoLabel) tooltipData.valueTwo = d[1] - d[0]
 		}
 	}
 
@@ -306,7 +313,7 @@
 	{/if}
 </svg>
 
-<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} series={tooltipData.series} domainLabel={horizontal ? range : domain} domain={tooltipData.domain} rangeLabel={horizontal ? domain : range} range={tooltipData.range} />
+<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} tooltipInfo={tooltipData} />
 
 
 <style>

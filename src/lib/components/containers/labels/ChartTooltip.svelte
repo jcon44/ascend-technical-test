@@ -1,5 +1,5 @@
 <script>
-	export let tooltipId, x, y, domainLabel, domain, rangeLabel, range, series
+	export let tooltipId, x, y, tooltipInfo = {}
 </script>
 
 <div
@@ -8,12 +8,12 @@
 	style="top:{y}px;left:{x}px;"
 >
 	<div class="tooltip-text">
-		<p class="tooltip-title">{series}</p>
-		{#if domain}
-			<p class="values"><span>{domainLabel}:</span> {domain}</p>
+		<p class="tooltip-title">{tooltipInfo.title}</p>
+		{#if tooltipInfo.valueOneLabel}
+			<p class="values"><span>{tooltipInfo.valueOneLabel}:</span> {tooltipInfo.valueOne}</p>
 		{/if}
-		{#if range}
-			<p class="values"><span>{rangeLabel}:</span> {range}</p>
+		{#if tooltipInfo.valueTwoLabel}
+			<p class="values"><span>{tooltipInfo.valueTwoLabel}:</span> {tooltipInfo.valueTwo}</p>
 		{/if}
 	</div>
 </div>
