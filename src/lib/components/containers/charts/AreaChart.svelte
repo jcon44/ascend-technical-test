@@ -161,10 +161,9 @@
 
 		tooltipData.left = e.offsetX - 60
 		tooltipData.line = x + 3
-		tooltipData.title = d.data[domain]
 		
 		if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
-		tooltipData.series = s
+		tooltipData.title = s
 		tooltipData.valueOne = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
 		if (valueTwoLabel) tooltipData.valueTwo = mouseValue
 		tooltipData.color = c

@@ -161,8 +161,7 @@
 		const [x, y] = d3.pointer(e)
 		tooltipData.top = e.offsetY - 85
 		tooltipData.left = e.offsetX - 60
-		tooltipData.series = s
-		tooltipData.title = d.data[domain]
+		tooltipData.title = s
 		if (vertical) {
 			tooltipData.valueOne = d[valueOneLabel]
 			if(valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
