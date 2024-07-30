@@ -1,11 +1,11 @@
 <script>
-	export let tooltipId, x, y, tooltipInfo = {}
+	export let tooltipInfo = {}
 </script>
 
 <div
-	id={tooltipId}
+	id={tooltipInfo.tooltipId}
 	class="tooltip"
-	style="top:{y}px;left:{x}px;"
+	style="top:{tooltipInfo.y}px;left:{tooltipInfo.x}px;"
 >
 	<div class="tooltip-text">
 		<p class="tooltip-title">{tooltipInfo.title}</p>
@@ -38,11 +38,6 @@
 		color: white;
 		text-align: center;
 		line-height: 150%;
-		/* display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 0; */
 
 		& .tooltip-title {
 			font-size: 13px;

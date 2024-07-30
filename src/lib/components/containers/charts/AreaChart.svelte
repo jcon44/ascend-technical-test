@@ -110,7 +110,7 @@
 		}
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, line: 0, color: '', title: '', valueOneLabel, valueOne: 0 }
+	let tooltip, tooltipData = { top: 0, left: 0, line: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
 	
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
@@ -131,6 +131,7 @@
 		const mouseDate = xScale.invert(x)
 		const bisectDate = d3.bisector((d) => d[domain]).right
 		const xIndex = bisectDate(d, mouseDate, 1)
+		
 		let mouseValue = data[xIndex][range]
 		
 		if (stacked) {
@@ -160,6 +161,7 @@
 
 		tooltipData.left = e.offsetX - 60
 		tooltipData.line = x + 3
+		tooltipData.title = d.data[domain]
 		
 		if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
 		tooltipData.series = s
@@ -280,7 +282,7 @@
 	/>
 </svg>
 
-<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} tooltipInfo={tooltipData} />
+<ChartTooltip tooltipInfo={tooltipData} />
 
 <style>
 	.area-chart-svg {

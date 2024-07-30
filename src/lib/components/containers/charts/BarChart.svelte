@@ -143,7 +143,7 @@
 		}
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, title: '', valueOneLabel, valueOne: 0 }
+	let tooltip, tooltipData = { top: 0, left: 0, title: '', valueOneLabel, tooltipId, valueOne: 0 }
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
 		tooltipData.valueTwo = 0
@@ -162,6 +162,7 @@
 		tooltipData.top = e.offsetY - 85
 		tooltipData.left = e.offsetX - 60
 		tooltipData.series = s
+		tooltipData.title = d.data[domain]
 		if (vertical) {
 			tooltipData.valueOne = d[valueOneLabel]
 			if(valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
@@ -313,7 +314,7 @@
 	{/if}
 </svg>
 
-<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} tooltipInfo={tooltipData} />
+<ChartTooltip tooltipInfo={tooltipData} />
 
 
 <style>

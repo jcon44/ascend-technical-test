@@ -56,7 +56,7 @@
 		arcs = pie(data)
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, title: '', valueOneLabel, valueOne: 0 }
+	let tooltip, tooltipData = { top: 0, left: 0, title: '', tooltipId, valueOneLabel, valueOne: 0 }
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
 		tooltipData.valueTwo = 0
@@ -102,7 +102,7 @@
 			{/each}
 		</g>
 	</svg>
-	<ChartTooltip {tooltipId} x={tooltipData.left} y={tooltipData.top} tooltipInfo={tooltipData} />
+	<ChartTooltip tooltipInfo={tooltipData} />
 </div>
 
 <style>
