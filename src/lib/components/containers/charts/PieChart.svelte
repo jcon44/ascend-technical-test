@@ -75,8 +75,8 @@
 		tooltipData.top = e.offsetY - 85
 		tooltipData.left = e.offsetX - 10
 		tooltipData.title = d.data[domain]
-		tooltipData.valueOne = d[valueOneLabel]
-		if (valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
+		tooltipData.valueOne = d.data[valueOneLabel]
+		if (valueTwoLabel) tooltipData.valueTwo = d.data[valueTwoLabel]
 	}
 
 	function leaveTooltip(e) {
