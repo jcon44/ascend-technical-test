@@ -165,10 +165,10 @@
 
 		if (stacked) {
 			tooltipData.valueOne = d.data[0]
-			if (valueTwoLabel) tooltipData.valueTwo = d[1] - d[0]
+			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[1] - d[0]
 		} else {
-			tooltipData.valueOne = d[valueOneLabel]
-			if (valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
+			tooltipData.valueOne = d[tooltipData.volumeOneLabel]
+			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[tooltipData.valueTwoLabel]
 		}
 	}
 
