@@ -144,6 +144,7 @@
 	}
 
 	let tooltip, tooltipData = { top: 0, left: 0, title: '', valueOneLabel, tooltipId, valueOne: 0 }
+	
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
 		tooltipData.valueTwo = 0
@@ -158,17 +159,19 @@
 	}
 
 	function movingTooltip(e, d, s) {
-		console.log('barchart d: ', d)
+		// console.log('barchart d: ', d)
+
 		const [x, y] = d3.pointer(e)
-		tooltipData.top = e.offsetY - 85
+		
 		tooltipData.left = e.offsetX - 60
 		tooltipData.title = s
+		tooltipData.top = e.offsetY - 85
 
 		if (stacked) {
 			tooltipData.valueOne = d.data[0]
 			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[1] - d[0]
 		} else {
-			tooltipData.valueOne = d[tooltipData.volumeOneLabel]
+			tooltipData.valueOne = d[tooltipData.valueOneLabel]
 			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[tooltipData.valueTwoLabel]
 		}
 	}
