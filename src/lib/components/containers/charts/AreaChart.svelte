@@ -126,7 +126,7 @@
 	}
 
 	function movingTooltip(e, d, s, stack, i, c) {
-		console.log('areachart d: ', d)
+		// console.log('areachart d: ', d)
 
 		const [x, y] = d3.pointer(e)
 		
