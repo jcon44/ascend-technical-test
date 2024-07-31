@@ -50,11 +50,11 @@
 	let marginBottom = 24
 
 	let xScale, yScale, stroke, stack, area, lines =[]
-	let formatFull = d3.utcFormat("%B %d, %Y")
+	let formatFull = d3.utcFormat("%b %d, %Y")
 	let formatYear = d3.utcFormat("%Y")
-	let formatMonth = d3.utcFormat("%B")
-	let formatMonthDay = d3.utcFormat("%B %d")
-	let formatMonthYear = d3.utcFormat("%B %Y")
+	let formatMonth = d3.utcFormat("%b")
+	let formatMonthDay = d3.utcFormat("%b %d")
+	let formatMonthYear = d3.utcFormat("%b %Y")
 
 	$: {
 		if (stacked) {
