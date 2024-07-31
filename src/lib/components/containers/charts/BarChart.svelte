@@ -168,8 +168,10 @@
 			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[1] - d[0]
 		} else {
 			tooltipData.valueOne = d.data[tooltipData.volumeOneLabel]
-			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d.data[tooltipData.valueTwoLabel]
+			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[tooltipData.valueTwoLabel]
 		}
+
+		console.log('barchart d: ', d)
 	}
 
 	function leaveTooltip(e) {

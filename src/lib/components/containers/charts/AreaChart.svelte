@@ -166,8 +166,7 @@
 		tooltipData.title = s
 		tooltipData.valueOne = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
 		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[tooltipData.valueTwoLabel]
-		console.log('d: ', d)
-		console.log('s: ', s)
+		console.log('areachart d: ', d)
 		tooltipData.color = c
 	}
 
