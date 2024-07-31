@@ -162,16 +162,13 @@
 		tooltipData.top = e.offsetY - 85
 		tooltipData.left = e.offsetX - 60
 		tooltipData.title = s
-		if (vertical) {
-			tooltipData.valueOne = d[valueOneLabel]
-			if(valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
-		} else if (horizontal) {
-			tooltipData.valueOne = d[valueOneLabel]
-			if (valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
-		}
+
 		if (stacked) {
 			tooltipData.valueOne = d.data[0]
 			if (valueTwoLabel) tooltipData.valueTwo = d[1] - d[0]
+		} else {
+			tooltipData.valueOne = d[valueOneLabel]
+			if (valueTwoLabel) tooltipData.valueTwo = d[valueTwoLabel]
 		}
 	}
 
