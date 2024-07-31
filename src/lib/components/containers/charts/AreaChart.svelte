@@ -126,6 +126,8 @@
 	}
 
 	function movingTooltip(e, d, s, stack, i, c) {
+		console.log('areachart d: ', d)
+
 		const [x, y] = d3.pointer(e)
 		
 		const mouseDate = xScale.invert(x)
@@ -133,6 +135,11 @@
 		const xIndex = bisectDate(d, mouseDate, 1)
 		
 		let mouseValue = data[xIndex][range]
+	
+		tooltipData.color = c
+		tooltipData.left = e.offsetX - 60
+		tooltipData.line = x + 3
+		tooltipData.title = s
 		
 		if (stacked) {
 			const stackedMouseDate = data[xIndex][domain]
@@ -159,15 +166,11 @@
 			tooltipData.top = e.offsetY - 90
 		}
 
-		tooltipData.left = e.offsetX - 60
-		tooltipData.line = x + 3
 		
 		if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
-		tooltipData.title = s
+		
 		tooltipData.valueOne = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
-		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[tooltipData.valueTwoLabel]
-		console.log('areachart d: ', d)
-		tooltipData.color = c
+		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[xIndex][tooltipData.valueTwoLabel]
 	}
 
 	function leaveTooltip(e) {
