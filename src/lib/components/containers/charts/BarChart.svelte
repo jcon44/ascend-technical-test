@@ -158,6 +158,7 @@
 	}
 
 	function movingTooltip(e, d, s) {
+		console.log('barchart d: ', d)
 		const [x, y] = d3.pointer(e)
 		tooltipData.top = e.offsetY - 85
 		tooltipData.left = e.offsetX - 60
@@ -167,11 +168,9 @@
 			tooltipData.valueOne = d.data[0]
 			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[1] - d[0]
 		} else {
-			tooltipData.valueOne = d.data[tooltipData.volumeOneLabel]
-			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d.data[tooltipData.valueTwoLabel]
+			tooltipData.valueOne = d[tooltipData.volumeOneLabel]
+			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[tooltipData.valueTwoLabel]
 		}
-
-		console.log('barchart d: ', d)
 	}
 
 	function leaveTooltip(e) {
