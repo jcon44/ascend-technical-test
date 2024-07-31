@@ -167,8 +167,8 @@
 			tooltipData.valueOne = d.data[0]
 			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[1] - d[0]
 		} else {
-			tooltipData.valueOne = d[tooltipData.volumeOneLabel]
-			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[tooltipData.valueTwoLabel]
+			tooltipData.valueOne = d.data[tooltipData.volumeOneLabel]
+			if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d.data[tooltipData.valueTwoLabel]
 		}
 	}
 
