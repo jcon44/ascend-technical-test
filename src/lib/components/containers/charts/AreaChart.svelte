@@ -126,7 +126,7 @@
 	}
 
 	function movingTooltip(e, d, s, stack, i, c) {
-		// console.log('areachart d: ', d)
+		console.log('areachart d: ', d)
 
 		const [x, y] = d3.pointer(e)
 		
@@ -135,6 +135,7 @@
 		const xIndex = bisectDate(d, mouseDate, 1)
 		
 		let mouseValue = data[xIndex][range]
+		console.log('initial mouseValue (data[xIndex][range]): ', mouseValue)
 	
 		tooltipData.color = c
 		tooltipData.left = e.offsetX - 60
@@ -144,14 +145,21 @@
 		
 		if (stacked) {
 			const stackedMouseDate = data[xIndex][domain]
+			console.log('stackedMouseDate (data[xIndex][domain]): ', stackedMouseDate)
 			let allRelevantEntries = []
 			stack.forEach((series) => {
+				console.log('series: ', series)
 				for (let item of series) {
+					console.log('item: ', item)
 					if (item.data[0].getTime() === stackedMouseDate.getTime()) {
+						console.log('item.data[0].getTime(): ', item.data[0].getTime())
+						console.log('stackedMouseDate.getTime(): ', stackedMouseDate.getTime())
+						console.log('item.data[0].getTime() === stackedMouseDate.getTime(): ', item.data[0].getTime() === stackedMouseDate.getTime())
 						allRelevantEntries.push(item)
 					}
 				}
 			})
+			console.log('allRelevantEntries: ', allRelevantEntries )
 
 			if (i === 0) {
 				mouseValue = allRelevantEntries[0][1]
@@ -162,6 +170,7 @@
 			} else if (i === 3) {
 				mouseValue = allRelevantEntries[3][1] - allRelevantEntries[3][0]
 			}
+			console.log('final mouseValue: ', mouseValue)
 			
 		}
 		
