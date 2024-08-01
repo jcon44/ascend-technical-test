@@ -226,7 +226,7 @@
 						fill="gray"
 						text-anchor="middle"
 						x={xScale(d[domain]) + xScale.bandwidth() / 2}
-						y={22}
+						y={20}
 					>
 						{d[domain]}
 					</text>
