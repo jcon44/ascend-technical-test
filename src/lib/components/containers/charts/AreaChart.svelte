@@ -110,7 +110,7 @@
 		}
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, line: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
+	let tooltip, tooltipData = { y: 0, x: 0, line: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
 	
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel

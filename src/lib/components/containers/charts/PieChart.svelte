@@ -56,7 +56,7 @@
 		arcs = pie(data)
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, title: '', tooltipId, valueOneLabel, valueOne: 0 }
+	let tooltip, tooltipData = { y: 0, x: 0, title: '', tooltipId, valueOneLabel, valueOne: 0 }
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
 		tooltipData.valueTwo = 0
@@ -72,8 +72,8 @@
 
 	function movingTooltip(e, d) {
 		const [x, y] = d3.pointer(e)
-		tooltipData.top = e.offsetY - 85
-		tooltipData.left = e.offsetX - 10
+		tooltipData.y = e.offsetY - 85
+		tooltipData.x = e.offsetX - 10
 		tooltipData.title = d.data[domain]
 		tooltipData.valueOne = d.data[valueOneLabel]
 		if (valueTwoLabel) tooltipData.valueTwo = d.data[tooltipData.valueTwoLabel]
