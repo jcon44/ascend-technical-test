@@ -136,10 +136,10 @@
 		let mouseValue = data[xIndex][range]
 	
 		tooltipData.color = c
-		tooltipData.left = e.offsetX - 60
+		tooltipData.x = e.offsetX - 60
 		tooltipData.line = x + 3
 		tooltipData.title = s
-		tooltipData.top = e.offsetY - 90
+		tooltipData.y = e.offsetY - 90
 		
 		if (stacked) {
 			const stackedMouseDate = data[xIndex][domain]
@@ -164,7 +164,7 @@
 			
 		}
 		
-		if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
+		if (xScale(mouseDate) < marginLeft + 40) tooltipData.x = marginLeft
 		
 		tooltipData.valueOne = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
 		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = mouseValue
