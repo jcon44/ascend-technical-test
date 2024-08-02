@@ -1,6 +1,4 @@
 <script>
-	import { DialogBody, DialogFooter, DialogHeader } from '$lib/index.js'
-
 	export let store
 
 	let dialog
@@ -20,19 +18,19 @@
 		on:click|stopPropagation
 	>
 		{#if $$slots.header}
-			<DialogHeader>
+			<div class="dialog-header">
 				<slot name="header" />
-			</DialogHeader>
+			</div>
 		{/if}
 		{#if $$slots.body}
-			<DialogBody>
+			<div class="dialog-body">
 				<slot name="body" />
-			</DialogBody>
+			</div>
 		{/if}
 		{#if $$slots.footer}
-			<DialogFooter>
+			<div class="dialog-footer">
 				<slot name="footer" />
-			</DialogFooter>
+			</div>
 		{/if}
 	</dialog>
 </div>
