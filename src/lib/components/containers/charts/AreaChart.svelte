@@ -111,7 +111,7 @@
 		}
 	}
 
-	let tooltip, tooltipData = { y: 0, x: 0, line: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
+	let tooltip, tooltipLine, tooltipData = { y: 0, x: 0, line: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
 	
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
@@ -120,10 +120,12 @@
 
 	if (browser) {
 		tooltip = d3.select(`#${tooltipId}`)
+		tooltipLine = d3.select(`#${tooltipId}-line`)
 	}
 
 	function enterTooltip(e) {
 		tooltip.style('opacity', 1)
+		tooltipLine.style('opacity', 1)
 	}
 
 	function movingTooltip(e, d, s, stack, i, c) {
@@ -173,6 +175,7 @@
 
 	function leaveTooltip(e) {
 		tooltip.style('opacity', 0)
+		tooltipLine.style('opacity', 0)
 	}
 </script>
 
@@ -276,6 +279,8 @@
 
 	<!-- Tooltip Line -->
 	<line 
+		id={`${tooltipId}-line`}
+		class="line"
 		stroke='var(--neutral-trans-100)'
 		stroke-dasharray='2 3'
 		x1={tooltipData.line}
@@ -294,5 +299,9 @@
 
 	.axis-label {
 		font-size: 11px;
+	}
+
+	.line {
+		opacity: 0;
 	}
 </style>
