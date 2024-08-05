@@ -44,6 +44,7 @@
 	let innerWidth
 	$: width = innerWidth < 768 ? 294 : chartWidth 
 	$: height = innerWidth < 768 ? 350 : chartHeight ||  400
+	$: textOpacitySwitch = innerWidth < 678
 	let marginLeft = 15
 	let marginRight = 15
 	let marginTop = 24
@@ -238,8 +239,8 @@
 	<!-- Base Axis -->
 	<g transform="translate(0,{height - marginBottom})">
 		{#if stacked}
-			{#each stack as series, i}
-				{#each series as item}
+			{#each stack as series}
+				{#each series as item, i}
 					<line 
 						stroke="var(--neutral-050)"
 						stroke-width={2}
@@ -252,6 +253,7 @@
 						class="axis-label"
 						fill="gray"
 						text-anchor="middle"
+						fill-opacity={textOpacitySwitch ? i % 2 === 1 ? "0" : "1" :"1"}
 						x={xScale(item.data[0])}
 						y={22}
 					>
@@ -265,6 +267,7 @@
 					class="axis-label"
 					fill="gray"
 					text-anchor="middle"
+					fill-opacity={textOpacitySwitch ? i % 2 === 1 ? "0" : "1" : "1"}
 					x={xScale(d[domain])}
 					y={22}
 				>
