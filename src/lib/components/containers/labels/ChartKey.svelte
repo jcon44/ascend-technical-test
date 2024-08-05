@@ -26,5 +26,6 @@
 
 	.key-text {
 		font-size: 14px;
+		color: var(--neutral-400);
 	}
 </style>
