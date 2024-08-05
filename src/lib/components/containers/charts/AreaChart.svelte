@@ -111,7 +111,7 @@
 		}
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, line: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
+	let tooltip, tooltipData = { y: 0, x: 0, line: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
 	
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
@@ -127,7 +127,6 @@
 	}
 
 	function movingTooltip(e, d, s, stack, i, c) {
-		// console.log('areachart d: ', d)
 
 		const [x, y] = d3.pointer(e)
 		
@@ -138,9 +137,10 @@
 		let mouseValue = data[xIndex][range]
 	
 		tooltipData.color = c
-		tooltipData.left = e.offsetX - 60
+		tooltipData.x = e.offsetX - 60
 		tooltipData.line = x + 3
 		tooltipData.title = s
+		tooltipData.y = e.offsetY - 90
 		
 		if (stacked) {
 			const stackedMouseDate = data[xIndex][domain]
@@ -162,16 +162,13 @@
 			} else if (i === 3) {
 				mouseValue = allRelevantEntries[3][1] - allRelevantEntries[3][0]
 			}
-			tooltipData.top = e.offsetY - 90
-		} else {
-			tooltipData.top = e.offsetY - 90
+			
 		}
-
 		
-		if (xScale(mouseDate) < marginLeft + 40) tooltipData.left = marginLeft
+		if (xScale(mouseDate) < marginLeft + 40) tooltipData.x = marginLeft
 		
 		tooltipData.valueOne = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
-		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = d[xIndex][tooltipData.valueTwoLabel]
+		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = mouseValue
 	}
 
 	function leaveTooltip(e) {

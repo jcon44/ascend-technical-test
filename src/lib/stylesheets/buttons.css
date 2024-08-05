@@ -85,6 +85,11 @@ button {
 	justify-content: end;
 }
 
+/* Display */
+.btn-inline {
+	display: inline;
+}
+
 /* Width */
 .btn-fit {
 	width: fit-content;

@@ -143,7 +143,7 @@
 		}
 	}
 
-	let tooltip, tooltipData = { top: 0, left: 0, title: '', valueOneLabel, tooltipId, valueOne: 0 }
+	let tooltip, tooltipData = { y: 0, x: 0, title: '', valueOneLabel, tooltipId, valueOne: 0 }
 	
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
@@ -163,9 +163,9 @@
 
 		const [x, y] = d3.pointer(e)
 		
-		tooltipData.left = e.offsetX - 60
+		tooltipData.x = e.offsetX - 60
 		tooltipData.title = s
-		tooltipData.top = e.offsetY - 85
+		tooltipData.y = e.offsetY - 85
 
 		if (stacked) {
 			tooltipData.valueOne = d.data[0]
@@ -226,7 +226,7 @@
 						fill="gray"
 						text-anchor="middle"
 						x={xScale(d[domain]) + xScale.bandwidth() / 2}
-						y={22}
+						y={20}
 					>
 						{d[domain]}
 					</text>

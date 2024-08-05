@@ -89,9 +89,6 @@ export { default as PieChart } from '$lib/components/containers/charts/PieChart.
 
 // Dialogs
 export { default as Dialog } from '$lib/components/containers/dialogs/Dialog.svelte'
-export { default as DialogBody } from '$lib/components/containers/dialogs/DialogBody.svelte'
-export { default as DialogFooter } from '$lib/components/containers/dialogs/DialogFooter.svelte'
-export { default as DialogHeader } from '$lib/components/containers/dialogs/DialogHeader.svelte'
 export { default as DialogSection } from '$lib/components/containers/dialogs/DialogSection.svelte'
 
 // Footers
