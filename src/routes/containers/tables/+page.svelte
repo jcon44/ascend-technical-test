@@ -12,6 +12,9 @@
 			editable: 'B Editable Text',
 			radio: true,
 			status: 'pending',
+			// logoKey: '/src/lib/assets/images/default-logo.png',
+			textKey: 'Text One',
+			linkKey: 'mailto:blah@blah.com'
 		},
 		{
 			array: ['2', '4', '6'],
@@ -23,6 +26,9 @@
 			editable: 'A Editable Text',
 			radio: false,
 			status: 'approved',
+			logoKey: '/src/lib/assets/images/default-logo.png',
+			textKey: 'Text Two',
+			// linkKey: 'support@ascend-innovations.com'
 		},
 		// {
 		// 	array: ['1', '2', '3'],
@@ -44,12 +50,12 @@
 			type: 'text',
 			styles: ['flex: 2', 'max-width: 223px', 'white-space: nowrap', 'overflow: hidden', 'text-overflow: ellipsis', 'font-weight: bold'],
 		},
-		{
-			title: 'Array',
-			key: 'array',
-			type: 'array',
-			styles: ['flex: 2', 'max-width: 223px', 'white-space: nowrap', 'overflow: hidden', 'text-overflow: ellipsis'],
-		},
+		// {
+		// 	title: 'Array',
+		// 	key: 'array',
+		// 	type: 'array',
+		// 	styles: ['flex: 2', 'max-width: 223px', 'white-space: nowrap', 'overflow: hidden', 'text-overflow: ellipsis'],
+		// },
 		{
 			title: 'Date',
 			key: 'date',
@@ -83,6 +89,14 @@
 			type: 'radiolist',
 			styles: ['flex: 1'],
 		},
+		{
+			title: 'Logo Link',
+			type: 'logolink',
+			logoKey: 'logoKey',
+			textKey: 'textKey',
+			linkKey: 'linkKey',
+			styles: ['flex: 3'],
+		}
 	]
 </script>
 
