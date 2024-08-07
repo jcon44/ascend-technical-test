@@ -1,4 +1,4 @@
-import capitalize from '$lib/index.js'
+import { capitalize } from '$lib/index.js'
 
 export default function capitalizeAll(phrase) {
 	const wordArray = phrase.split(' ')
