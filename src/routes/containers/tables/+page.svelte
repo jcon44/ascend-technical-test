@@ -14,7 +14,7 @@
 			status: 'pending',
 			// logoKey: '/src/lib/assets/images/default-logo.png',
 			textKey: 'Text One',
-			linkKey: 'mailto:blah@blah.com'
+			linkKey: 'mailto:blah@blah.com',
 		},
 		{
 			array: ['2', '4', '6'],
@@ -96,7 +96,7 @@
 			textKey: 'textKey',
 			linkKey: 'linkKey',
 			styles: ['flex: 3'],
-		}
+		},
 	]
 </script>
 

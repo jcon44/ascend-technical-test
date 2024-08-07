@@ -8,9 +8,9 @@
 
 	const tabWidth = 144 // Tab.svelte min-width var(--spacing16) + .tab-list gap var(--spacing09)
 
-	$: tabListWidth = ((tabList?.length || 0) * tabWidth) 
+	$: tabListWidth = (tabList?.length || 0) * tabWidth
 
-	$: tablOverflow = (tabListWidth > tabBarMaxWidth)
+	$: tablOverflow = tabListWidth > tabBarMaxWidth
 
 	onMount(() => {
 		tabThing = document.getElementsByClassName('tab-list')[0]

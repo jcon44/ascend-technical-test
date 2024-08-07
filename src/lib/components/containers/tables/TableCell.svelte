@@ -53,7 +53,7 @@
 			bind:row
 		/>
 	{:else if column?.type === 'logolink'}
-		<LogoLinkCell 
+		<LogoLinkCell
 			bind:column
 			bind:row
 		/>
