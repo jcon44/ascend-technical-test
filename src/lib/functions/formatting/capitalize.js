@@ -7,7 +7,7 @@ export default function captitalize(word) {
 
 	letterArray[0] = capitalFirstLetter
 
-	const rejoinedWord = letterArray.join('')
+	const capitalizedWord = letterArray.join('')
 
-	return rejoinedWord
+	return capitalizedWord
 }

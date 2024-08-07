@@ -18,7 +18,7 @@
 		tabBarMaxWidth = tabThing.clientWidth
 
 		maxVisibleTabs = Math.floor(tabBarMaxWidth / tabWidth)
-		
+
 		visibleTabsWidth = maxVisibleTabs * tabWidth
 	})
 
