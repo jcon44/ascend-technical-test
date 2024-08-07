@@ -8,12 +8,13 @@
 
 	const tabWidth = 144 // Tab.svelte min-width var(--spacing16) + .tab-list gap var(--spacing09)
 
+	$: tabListWidth = ((tabList?.length || 0) * tabWidth) 
+
+	$: tablOverflow = (tabListWidth > tabBarMaxWidth)
+
 	onMount(() => {
-		// TODO: need to fix a bug where a resized window doesn't update the tabBar width which messes up navigation
 		tabThing = document.getElementsByClassName('tab-list')[0]
 		tabBarMaxWidth = tabThing.clientWidth
-		tabListWidth = tabList.length * tabWidth
-		tabOverflow = tabListWidth > tabBarMaxWidth
 		maxVisibleTabs = Math.floor(tabBarMaxWidth / tabWidth)
 		visibleTabsWidth = maxVisibleTabs * tabWidth
 	})
