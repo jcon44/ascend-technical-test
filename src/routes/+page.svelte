@@ -7,6 +7,7 @@
 	<p><a href="/containers/charts">Charts</a></p>
 	<p><a href="/containers/navbars">NavBars</a></p>
 	<p><a href="/containers/progress">Progress</a></p>
+	<p><a href="/containers/tabs">Tabs</a></p>
 	<p><a href="/containers/tables">Tables</a></p>
 	<p><a href="/containers/tags">Tags</a></p>
 	<p><a href="/containers/toasts">Toasts</a></p>

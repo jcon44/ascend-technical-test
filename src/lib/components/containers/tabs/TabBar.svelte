@@ -10,12 +10,15 @@
 
 	$: tabListWidth = (tabList?.length || 0) * tabWidth
 
-	$: tablOverflow = tabListWidth > tabBarMaxWidth
+	$: tabOverflow = tabListWidth > tabBarMaxWidth
 
 	onMount(() => {
 		tabThing = document.getElementsByClassName('tab-list')[0]
+
 		tabBarMaxWidth = tabThing.clientWidth
+
 		maxVisibleTabs = Math.floor(tabBarMaxWidth / tabWidth)
+		
 		visibleTabsWidth = maxVisibleTabs * tabWidth
 	})
 
