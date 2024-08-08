@@ -46,7 +46,10 @@
 			value={column.key}
 		/>
 	{:else if column?.type === 'tagarray'}
-		<TagArrayCell bind:row />
+		<TagArrayCell
+			bind:column
+			bind:row
+		/>
 	{:else if column?.type === 'tag'}
 		<TagCell bind:row />
 	{:else if column?.editable}

@@ -1,12 +1,15 @@
 <script>
 	import { ErrorTag, RoleTag, StatusTag, Tag } from '$lib/index.js'
 
-	export let row
+	export let column, row
 </script>
 
-<div class='tag-array'>
-	{#each row.tagArray as tag}
-		<Tag content={tag} type='neutral-prominent'/>
+<div class="tag-array">
+	{#each row[column.key] as tag}
+		<Tag
+			content={tag}
+			type="neutral-prominent"
+		/>
 	{/each}
 </div>
 
