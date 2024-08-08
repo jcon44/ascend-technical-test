@@ -164,6 +164,7 @@ export { default as LogoLinkCell } from '$lib/components/containers/tables/cells
 export { default as RadioCell } from '$lib/components/containers/tables/cells/RadioCell.svelte'
 export { default as TableCell } from '$lib/components/containers/tables/TableCell.svelte'
 export { default as TableColumnHeaderCell } from '$lib/components/containers/tables/TableColumnHeaderCell.svelte'
+export { default as TagArrayCell } from '$lib/components/containers/tables/cells/TagArrayCell.svelte'
 export { default as TagCell } from '$lib/components/containers/tables/cells/TagCell.svelte'
 
 // Tags

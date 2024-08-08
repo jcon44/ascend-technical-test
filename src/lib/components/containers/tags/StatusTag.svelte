@@ -8,6 +8,7 @@
 
 	const statusColorMap = {
 		approved: 'success',
+		complete: 'success',
 		default: 'neutral',
 		draft: 'neutral',
 		failed: 'error',
