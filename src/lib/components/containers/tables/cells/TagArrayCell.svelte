@@ -8,7 +8,7 @@
 	{#each row[column.key] as tag}
 		<Tag
 			content={tag}
-			type="neutral-prominent"
+			type="neutral-subtle"
 		/>
 	{/each}
 </div>
