@@ -329,7 +329,7 @@
 						on:mouseenter={enterTooltip}
 						on:mousemove={(e) => movingTooltip(e, d, d[seriesKey])}
 						on:mouseleave={leaveTooltip}
-						fill={barColors[i]}
+						fill={barColors.length > 1 ? barColors[i] : barColors[0]}
 						d={`
 							M${xScale(d[domain])},${yScale(d[range]) + 4}
 							a4,4 0 0 1 4,-4
@@ -345,7 +345,7 @@
 						on:mouseenter={enterTooltip}
 						on:mousemove={(e) => movingTooltip(e, d, d[seriesKey])}
 						on:mouseleave={leaveTooltip}
-						fill={barColors[i]}
+						fill={barColors.length > 1 ? barColors[i] : barColors[0]}
 						d={`
 							M${marginLeft},${yScale(d[range]) + 4}
 							h${width - xScale(d[domain]) - marginRight - 4}
