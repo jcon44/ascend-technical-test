@@ -1,5 +1,5 @@
 <script>
-	import { ArrayCell, BooleanCell, ButtonCell, CheckboxCell, DateCell, DefaultCell, EditableCell, LogoLinkCell, RadioCell, TagCell } from '$lib/index'
+	import { ArrayCell, BooleanCell, ButtonCell, CheckboxCell, DateCell, DefaultCell, EditableCell, LogoLinkCell, RadioCell, TagArrayCell, TagCell } from '$lib/index'
 
 	export let column, row
 </script>
@@ -45,6 +45,11 @@
 			callback={column.callback}
 			value={column.key}
 		/>
+	{:else if column?.type === 'tagarray'}
+		<TagArrayCell
+			bind:column
+			bind:row
+		/>
 	{:else if column?.type === 'tag'}
 		<TagCell bind:row />
 	{:else if column?.editable}
@@ -53,7 +58,7 @@
 			bind:row
 		/>
 	{:else if column?.type === 'logolink'}
-		<LogoLinkCell 
+		<LogoLinkCell
 			bind:column
 			bind:row
 		/>
