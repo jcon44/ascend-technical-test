@@ -12,9 +12,9 @@
 			editable: 'B Editable Text',
 			radio: true,
 			status: 'pending',
-			// logoKey: '/src/lib/assets/images/default-logo.png',
+			logoKey: '/src/lib/assets/images/default-logo.png',
 			textKey: 'Text One',
-			linkKey: 'mailto:blah@blah.com',
+			linkKey: '1234567890',
 		},
 		{
 			array: ['2', '4', '6'],

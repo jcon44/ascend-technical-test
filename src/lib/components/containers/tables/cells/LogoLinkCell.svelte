@@ -1,5 +1,18 @@
 <script>
 	export let column, row
+
+	console.log(Number(row[column.linkKey]))
+
+	let prefix, phone
+	if (row[column.linkKey]?.includes('@')) {
+		prefix = 'mailto:'
+	} else if (row[column.linkKey]?.includes('.')) {
+		prefix = 'https://'
+	} else if (Number(row[column.linkKey])) {
+		prefix = 'tel:'
+		phone = row[column.linkKey]
+		row[column.linkKey] = `${row[column.linkKey]?.slice(0,3)}-${row[column.linkKey]?.slice(3,6)}-${row[column.linkKey]?.slice(6)}`
+	}
 </script>
 
 <div
@@ -17,7 +30,7 @@
 	<div class="text-container {row[column.linkKey] ? 'link-height' : ''}">
 		<p>{row[column.textKey]}</p>
 		{#if row[column.linkKey]}
-			<p class="link"><a href={row[column.linkKey]}>{row[column.linkKey]}</a></p>
+			<p class="link"><a href={`${prefix}${ prefix === 'tel:' ? phone : row[column.linkKey]}`} target="_blank">{row[column.linkKey]}</a></p>
 		{/if}
 	</div>
 </div>
