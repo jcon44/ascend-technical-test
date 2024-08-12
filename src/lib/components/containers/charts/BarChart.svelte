@@ -192,8 +192,6 @@
 	}
 
 	function movingTooltip(e, d, s) {
-		// console.log('barchart d: ', d)
-
 		const [x, y] = d3.pointer(e)
 
 		tooltipData.x = e.offsetX - 60
