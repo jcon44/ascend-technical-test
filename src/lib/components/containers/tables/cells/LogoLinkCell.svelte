@@ -1,6 +1,8 @@
 <script>
 	export let column, row
 
+	console.log(row[column.linkKey])
+
 	let prefix, phone
 	if (row[column.linkKey]?.includes('@')) {
 		prefix = 'mailto:'
