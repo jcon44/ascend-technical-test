@@ -1,13 +1,15 @@
 <script>
 	export let column, row
 
-	console.log(row[column.linkKey])
-
 	let prefix, phone
 	if (row[column.linkKey]?.includes('@')) {
 		prefix = 'mailto:'
 	} else if (row[column.linkKey]?.includes('.')) {
 		prefix = 'https://'
+	} else if (row[column.linkKey].includes('-')) {
+		prefix = 'tel:'
+		const removeHypens = row[column.linkKey].split('-')
+		phone = removeHypens.join('')
 	} else {
 		prefix = 'tel:'
 		phone = row[column.linkKey]
