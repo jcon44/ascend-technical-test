@@ -26,7 +26,7 @@
 				/>
 			{/if}
 			<div class="alert-body body-s">
-				{body}
+				{@html body}
 			</div>
 		</div>
 	</div>
