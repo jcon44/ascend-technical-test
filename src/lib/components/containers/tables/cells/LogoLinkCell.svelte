@@ -69,6 +69,10 @@
 			text-overflow: ellipsis;
 			font-weight: bold;
 		}
+
+		& a {
+			color: var(--neutral-400);
+		}
 	}
 	.link {
 		font-size: 11px;
