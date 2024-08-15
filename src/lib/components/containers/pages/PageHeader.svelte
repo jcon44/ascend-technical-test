@@ -1,14 +1,20 @@
 <script>
-	export let titleText = '',
+	export let
+		titleJustification = 'center', 
+		titleText = '',
 		paragraphText = '',
 		headerButton = null,
 		headerPill = null
+	
+	if (headerPill) {
+		titleJustification = 'space-between'
+	}
 </script>
 
 <div class="page-header">
 	<div
 		class="page-header-top-row"
-		style={`justify-content: ${headerButton ? 'space-between' : 'center'}`}
+		style={`justify-content: ${titleJustification}`}
 	>
 		<div class="page-header-left-column">
 			<h1 class="headline-l-xxl">{titleText}</h1>
