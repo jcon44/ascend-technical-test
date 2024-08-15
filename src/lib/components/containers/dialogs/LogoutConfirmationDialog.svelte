@@ -1,5 +1,5 @@
 <script>
-	import { closeDialog, CancelButton, CloseDialogButton, ConfirmButton, Dialog } from 'ascend-ui'
+	import { closeDialog, CancelButton, CloseDialogButton, ConfirmButton, Dialog } from '$lib/index.js'
 
 	export let store, callback
 
