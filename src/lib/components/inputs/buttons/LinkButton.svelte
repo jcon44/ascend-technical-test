@@ -1,14 +1,14 @@
 <script>
 	import { ButtonContents } from '$lib/index.js'
 
-	export let bottomIcon,
+	export let bottomIcon = null,
 		classes,
 		disabled,
-		leftIcon,
-		rightIcon,
+		leftIcon = null,
+		rightIcon = null,
 		styles = [],
-		text,
-		topIcon,
+		text = '',
+		topIcon = null,
 		url = '',
 		target = false
 </script>
