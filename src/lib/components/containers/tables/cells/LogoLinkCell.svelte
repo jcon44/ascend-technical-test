@@ -57,6 +57,9 @@
 		}
 	}
 	.text-container {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		height: 24px;
 
 		& p {
