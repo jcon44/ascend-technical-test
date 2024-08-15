@@ -47,13 +47,14 @@
 		padding: var(--spacing02);
 		border: 1px solid var(--neutral-100);
 		border-radius: var(--spacing02);
+		min-width: 48px;
 		width: 48px;
 		height: 48px;
 
 		& img {
 			display: inline-block;
 			width: 100%;
-			height: 100%;
+			height: auto;
 		}
 	}
 	.text-container {
