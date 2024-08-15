@@ -6,7 +6,7 @@
 		headerButton = null,
 		headerPill = null
 	
-	if (headerPill) {
+	if (headerButton) {
 		titleJustification = 'space-between'
 	}
 </script>
