@@ -57,6 +57,7 @@
 		margin: var(--spacing09);
 		width: calc(100vw - var(--spacing12));
 		max-height: calc(100dvh - var(--spacing12));
+		overflow: hidden;
 	}
 	dialog:modal {
 		background-color: var(--background-base);
