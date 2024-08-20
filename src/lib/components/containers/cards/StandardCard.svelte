@@ -14,16 +14,18 @@
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
 >
-	{#if icon}
-		<div class="card-icon">
-			<svelte:component this={icon} />
-		</div>
-	{/if}
-	{#if title}
-		<div class="{chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
-			{title}
-		</div>
-	{/if}
+	<div class="icon-title-wrapper">
+		{#if icon}
+			<div class="card-icon">
+				<svelte:component this={icon} />
+			</div>
+		{/if}
+		{#if title}
+			<div class="{chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
+				{title}
+			</div>
+		{/if}
+	</div>
 	<div class="{chart ? 'chart-content' : 'card-content'} body-s-s">
 		<slot />
 	</div>
@@ -32,6 +34,11 @@
 <style>
 	.card-wrapper {
 		gap: var(--spacing05);
+	}
+	.icon-title-wrapper {
+		display: flex;
+		gap: var(--spacing06);
+		align-items: center;
 	}
 	.card-content {
 		display: flex;
