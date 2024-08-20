@@ -320,7 +320,7 @@
 		fill="white"
 		cx={tooltipData.line}
 		cy={tooltipData.circlePosition}
-		r=14
+		r=12
 	/>
 	<circle 
 		id={`${tooltipId}-inner-circle`}
