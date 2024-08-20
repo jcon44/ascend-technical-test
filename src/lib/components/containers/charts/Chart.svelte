@@ -1,9 +1,12 @@
 <script>
 	import { AreaChart, BarChart, Card, ChartKeyContainer, PieChart } from '$lib/index.js'
 	import { afterUpdate } from 'svelte'
+	import LayerBarChart from './LayerBarChart.svelte'
+	import LayerAreaChart from './LayerAreaChart.svelte'
 
 	export let data = [],
 		type = '',
+		icon = null,
 		title = 'Title',
 		domain = '',
 		range = '',
@@ -60,6 +63,7 @@
 </script>
 
 <Card
+	{icon}
 	{title}
 	chart
 	classes={['neutral-shadow-l']}
@@ -88,6 +92,11 @@
 				{chartHeight}
 				{chartWidth}
 			/>
+			<!-- <LayerBarChart 
+				{data}
+				{barColors}
+				{seriesKey}
+			/> -->
 			{#if stacked}
 				<ChartKeyContainer
 					data={keyContainerKeys}
@@ -117,6 +126,9 @@
 				{chartWidth}
 				{chartHeight}
 			/>
+			<!-- <LayerAreaChart 
+				{data}
+			/> -->
 			{#if stacked}
 				<ChartKeyContainer
 					data={keyContainerKeys}
@@ -144,10 +156,13 @@
 				colors={arcColors}
 				column={chartWidth < 500 ? true : false}
 			/>
+		{:else if type === 'geo'}
+			''
 		{:else if type === '' || data.length === 0}
 			<p>This chart has no data or parameters</p>
 		{/if}
 	</div>
+	<slot name="chart-footer" />
 </Card>
 
 <style>

@@ -99,8 +99,6 @@
 				.line()
 				.x((d) => xScale(d.data[0]))
 				.y((d) => yScale(d[1]))
-
-			//
 		} else {
 			for (let obj of data) {
 				obj[domain] = new Date(obj[domain])
@@ -110,6 +108,7 @@
 				.scaleTime()
 				.domain(d3.extent(data, (d) => d[domain]))
 				.range([marginLeft, width - marginRight])
+
 			yScale = d3
 				.scaleLinear()
 				.domain([0, d3.max(data, (d) => d[range])])
@@ -132,7 +131,9 @@
 
 	let tooltip,
 		tooltipLine,
-		tooltipData = { y: 0, x: 0, line: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
+		tooltipInnerCircle,
+		tooltipOuterCircle,
+		tooltipData = { y: 0, x: 0, line: 0, circlePosition: 0, color: '', title: '', tooltipId, valueOneLabel, valueOne: 0 }
 
 	if (valueTwoLabel) {
 		tooltipData.valueTwoLabel = valueTwoLabel
@@ -142,59 +143,44 @@
 	if (browser) {
 		tooltip = d3.select(`#${tooltipId}`)
 		tooltipLine = d3.select(`#${tooltipId}-line`)
+		tooltipInnerCircle = d3.select(`#${tooltipId}-inner-circle`)
+		tooltipOuterCircle = d3.select(`#${tooltipId}-outer-circle`)
 	}
 
 	function enterTooltip(e) {
 		tooltip.style('opacity', 1)
 		tooltipLine.style('opacity', 1)
+		tooltipInnerCircle.style('opacity', 1)
+		tooltipOuterCircle.style('opacity', 1)
 	}
 
-	function movingTooltip(e, d, s, stack, i, c) {
-		const [x, y] = d3.pointer(e)
-
-		const mouseDate = xScale.invert(x)
-		const bisectDate = d3.bisector((d) => d[domain]).right
-		const xIndex = bisectDate(d, mouseDate, 1)
-
-		let mouseValue = data[xIndex][range]
+	function movingTooltip(e, d, s, series, i, c) {
 
 		tooltipData.color = c
-		tooltipData.x = e.offsetX - 60
-		tooltipData.line = x + 3
+		tooltipData.x = xScale(data[i][domain]) - 60
+		tooltipData.line = xScale(data[i][domain])
 		tooltipData.title = s
 		tooltipData.y = e.offsetY - 90
 
+		let mouseValue
 		if (stacked) {
-			const stackedMouseDate = data[xIndex][domain]
-			let allRelevantEntries = []
-			stack.forEach((series) => {
-				for (let item of series) {
-					if (item.data[0].getTime() === stackedMouseDate.getTime()) {
-						allRelevantEntries.push(item)
-					}
-				}
-			})
-
-			if (i === 0) {
-				mouseValue = allRelevantEntries[0][1]
-			} else if (i === 1) {
-				mouseValue = allRelevantEntries[1][1] - allRelevantEntries[1][0]
-			} else if (i === 2) {
-				mouseValue = allRelevantEntries[2][1] - allRelevantEntries[2][0]
-			} else if (i === 3) {
-				mouseValue = allRelevantEntries[3][1] - allRelevantEntries[3][0]
-			}
+			mouseValue = d[1] - d[0]
+			tooltipData.circlePosition = yScale(d[1])
+			tooltipData.valueOne = fullDate ? formatFull(d.data[0]) : yearOnly ? formatYear(d.data[0]) : monthOnly ? formatMonth(d.data[0]) : monthDay ? formatMonthDay(d.data[0]) : monthYear ? formatMonthYear(d.data[0]) : formatFull(d.data[0])
+		} else {
+			mouseValue = data[i][range]
+			tooltipData.circlePosition = yScale(mouseValue)
+			tooltipData.valueOne = fullDate ? formatFull(data[i][domain]) : yearOnly ? formatYear(data[i][domain]) : monthOnly ? formatMonth(data[i][domain]) : monthDay ? formatMonthDay(data[i][domain]) : monthYear ? formatMonthYear(data[i][domain]) : formatFull(data[i][domain])
 		}
 
-		if (xScale(mouseDate) < marginLeft + 40) tooltipData.x = marginLeft
-
-		tooltipData.valueOne = fullDate ? formatFull(xScale.invert(x)) : yearOnly ? formatYear(xScale.invert(x)) : monthOnly ? formatMonth(xScale.invert(x)) : monthDay ? formatMonthDay(xScale.invert(x)) : monthYear ? formatMonthYear(xScale.invert(x)) : formatFull(xScale.invert(x))
 		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = mouseValue
 	}
 
 	function leaveTooltip(e) {
 		tooltip.style('opacity', 0)
 		tooltipLine.style('opacity', 0)
+		tooltipInnerCircle.style('opacity', 0)
+		tooltipOuterCircle.style('opacity', 0)
 	}
 </script>
 
@@ -217,9 +203,7 @@
 
 	<!-- Areas -->
 	{#if stacked}
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		{#each stack as series, i}
-			<!-- svelte-ignore missing-declaration -->
 			<path
 				stroke={lineColors[i]}
 				stroke-width={2}
@@ -228,15 +212,27 @@
 			/>
 			{#if !line}
 				<path
-					on:mouseenter={enterTooltip}
-					on:mousemove={(e) => movingTooltip(e, data, series.key, stack, i, lineColors[i])}
-					on:mouseleave={leaveTooltip}
 					fill={areaColors[i]}
 					d={area(series)}
 				/>
 			{/if}
+			{#each series as data, j}
+				{console.log(series, data)}
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<rect 
+					on:mouseenter={enterTooltip}
+					on:mousemove={(e) => movingTooltip(e, data, series.key, i, j, lineColors[0])}
+					on:mouseleave={leaveTooltip}
+					stroke="rgba(0, 0, 0, 0)"
+					stroke-width={1}
+					fill="rgba(0, 0, 0, 0)"
+					width={width / series.length}
+					height={height - yScale(data[1] - data[0])}
+					x={xScale(data.data[0]) - ((width / series.length) / 2)}
+					y={yScale(data[1])}
+				/>
+			{/each}
 		{/each}
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
 	{:else}
 		<path
 			stroke={lineColors[0]}
@@ -244,15 +240,24 @@
 			fill="none"
 			d={stroke(data)}
 		/>
-		<!-- svelte-ignore missing-declaration -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<path
-			on:mouseenter={enterTooltip}
-			on:mousemove={(e) => movingTooltip(e, data, data[0][seriesKey])}
-			on:mouseleave={leaveTooltip}
 			fill={line ? 'rgba(0,0,0,0)' : areaColors[0]}
 			d={area(data)}
 		/>
+		{#each data as d, i}
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<rect 
+				on:mouseenter={enterTooltip}
+				on:mousemove={(e) => movingTooltip(e, data, data[0][seriesKey], null, i, lineColors[0])}
+				on:mouseleave={leaveTooltip}
+				stroke="rgba(0, 0, 0, 0)"
+				stroke-width={1}
+				fill="rgba(0, 0, 0, 0)"
+				width={width / data.length}
+				height="100%"
+				x={xScale(d[domain]) - ((width / data.length) / 2) }
+			/>
+		{/each}
 	{/if}
 
 	<!-- Base Axis -->
@@ -307,6 +312,24 @@
 		y1={marginTop}
 		y2={height - marginBottom}
 	/>
+
+	<!-- Tooltip Circle -->
+	<circle 
+		id={`${tooltipId}-outer-circle`}
+		class="circle"
+		fill="white"
+		cx={tooltipData.line}
+		cy={tooltipData.circlePosition}
+		r=14
+	/>
+	<circle 
+		id={`${tooltipId}-inner-circle`}
+		class="circle"
+		fill={tooltipData.color}
+		cx={tooltipData.line}
+		cy={tooltipData.circlePosition}
+		r=6
+	/>
 </svg>
 
 <ChartTooltip tooltipInfo={tooltipData} />
@@ -320,7 +343,7 @@
 		font-size: 11px;
 	}
 
-	.line {
+	.line, .circle {
 		opacity: 0;
 	}
 </style>
