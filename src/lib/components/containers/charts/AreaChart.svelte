@@ -155,20 +155,20 @@
 	}
 
 	function movingTooltip(e, d, s, series, i, c) {
-
 		tooltipData.color = c
 		tooltipData.x = xScale(data[i][domain]) - 60
 		tooltipData.line = xScale(data[i][domain])
 		tooltipData.title = s
-		tooltipData.y = e.offsetY - 90
 
 		let mouseValue
 		if (stacked) {
 			mouseValue = d[1] - d[0]
+			tooltipData.y = yScale(d[1]) - 120 // e.offsetY - 90
 			tooltipData.circlePosition = yScale(d[1])
 			tooltipData.valueOne = fullDate ? formatFull(d.data[0]) : yearOnly ? formatYear(d.data[0]) : monthOnly ? formatMonth(d.data[0]) : monthDay ? formatMonthDay(d.data[0]) : monthYear ? formatMonthYear(d.data[0]) : formatFull(d.data[0])
 		} else {
 			mouseValue = data[i][range]
+			tooltipData.y = yScale(mouseValue) - 120 // e.offsetY - 90
 			tooltipData.circlePosition = yScale(mouseValue)
 			tooltipData.valueOne = fullDate ? formatFull(data[i][domain]) : yearOnly ? formatYear(data[i][domain]) : monthOnly ? formatMonth(data[i][domain]) : monthDay ? formatMonthDay(data[i][domain]) : monthYear ? formatMonthYear(data[i][domain]) : formatFull(data[i][domain])
 		}
