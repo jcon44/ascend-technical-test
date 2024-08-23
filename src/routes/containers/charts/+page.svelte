@@ -1,10 +1,11 @@
 <script>
-	import EyeSmallIcon from '$lib/assets/icons/s/EyeSmallIcon.svelte'
+	import GeoChart from '$lib/components/containers/charts/GeoChart.svelte'
 	import LayerAreaChart from '$lib/components/containers/charts/LayerAreaChart.svelte'
-import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelte'
+	import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelte'
 	import LayerPieChart from '$lib/components/containers/charts/LayerPieChart.svelte'
 	import SelectorInput from '$lib/components/inputs/selectors/SelectorInput.svelte'
 	import { Chart, Page, PageBody } from '$lib/index.js'
+	import { env } from '$env/dynamic/public'
 
 	let barData = [
 		{ x: 'Hospital 1', series: 'Source', value: 10 },
@@ -39,6 +40,21 @@ import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelt
 		{ date: '2021', series: 'Source', value: 2641 },
 		{ date: '2022', series: 'Source', value: 2732 },
 		{ date: '2023', series: 'Source', value: 2524 },
+	]
+
+	let citData = [
+		{ date: '2023-01-01', name: 'CIT', value: 14},
+		{ date: '2023-02-01', name: 'CIT', value: 9},
+		{ date: '2023-03-01', name: 'CIT', value: 15},
+		{ date: '2023-04-01', name: 'CIT', value: 19},
+		{ date: '2023-05-01', name: 'CIT', value: 31},
+		{ date: '2023-06-01', name: 'CIT', value: 17},
+		{ date: '2023-07-01', name: 'CIT', value: 23},
+		{ date: '2023-08-01', name: 'CIT', value: 34},
+		{ date: '2023-09-01', name: 'CIT', value: 20},
+		{ date: '2023-10-01', name: 'CIT', value: 30},
+		{ date: '2023-11-01', name: 'CIT', value: 27},
+		{ date: '2023-12-01', name: 'CIT', value: 23},
 	]
 
 	let realStacked = [
@@ -93,6 +109,27 @@ import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelt
 		{ name: 'AAH', value: 13 },
 		{ name: 'Logan-Champaign', value: 65 },
 	]
+
+	let firstGeoData = [
+            { lat: 39.99301430308352, lng: -83.07889125866988 },
+            { lat: 39.95803726523056, lng: -83.01417504517886 },
+            { lat: 39.96951622358259, lng: -82.96960197216313 },
+            { lat: 39.99467810445367, lng: -83.00654358750577 },
+    ]
+
+	let secondGeoData = [
+		{ lat: 39.993651990846004, lng:  -83.03040957396438 },
+		{ lat: 39.99191506361452, lng: -83.01083640022647 },
+		{ lat: 39.99648321748808, lng: -83.00200723755758 },
+		{ lat: 39.97843952972203, lng: -83.01152342283109 },
+		{ lat: 40.017166463612554, lng: -82.99771283044907 },
+	]
+
+	let markers = {
+		lhn: 'https://local-help-now.s3.us-east-2.amazonaws.com/Pin.svg'
+	}
+
+	$: geoData = 'firstGeoData'
 </script>
 
 <Page>
@@ -177,13 +214,13 @@ import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelt
 				<Chart
 					tooltipId="area"
 					type="area"
-					data={areaData}
+					data={citData}
 					title="Simple Area Chart"
 					domain="date"
 					range="value"
 					valueOneLabel="date"
 					valueTwoLabel="value"
-					yearOnly
+					monthOnly
 					seriesKey="series"
 				/>
 			</div>
@@ -217,18 +254,6 @@ import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelt
 			</div>
 			<div class="ring-chart">
 				<Chart
-					tooltipId="simple-v"
-					type='bar'
-					vertical
-					sort='descending'
-					title="Simple Vertical Bar Chart"
-					data={barData} 
-					domain="x" 
-					range="value"
-					seriesKey="series"
-					chartHeight={700}
-				/>
-				<Chart
 					tooltipId="ring"
 					type="pie"
 					data={pieData}
@@ -239,6 +264,28 @@ import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelt
 					ring
 				/>
 			</div> 
+			<div class="geo-chart">
+				<Chart 
+					title="Map With Multiple Markers"
+					type="geo"
+					tooltipId="geo"
+					data={geoData === 'firstGeoData' ? firstGeoData : secondGeoData}
+					markers={markers}
+					key={env.GOOGLE_MAPS_API_KEY}
+				>
+					<div slot="chart-header" style="margin-top: var(--spacing09)">
+						<SelectorInput 
+							id="bar-selector"
+							label="Random Selector"
+							optionList={[
+								'firstGeoData',
+								'secondGeoData'
+							]}
+							bind:selectedValue={geoData}
+						/>
+					</div>
+				</Chart>
+			</div>
 		</div>
 	</PageBody>
 </Page>
@@ -260,7 +307,8 @@ import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelt
 	.simple-area-chart,
 	.stacked-area-chart,
 	.pie-chart,
-	.ring-chart {
+	.ring-chart,
+	.geo-chart {
 		width: 100%;
 		height: 650px;
 		margin: auto;
@@ -282,5 +330,9 @@ import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelt
 
 	.simple-h-bar {
 		height: 50vh;
+	}
+
+	.geo-chart {
+		height: 800px;
 	}
 </style>

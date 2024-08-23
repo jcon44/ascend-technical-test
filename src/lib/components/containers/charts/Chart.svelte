@@ -1,5 +1,5 @@
 <script>
-	import { AreaChart, BarChart, Card, ChartKeyContainer, PieChart } from '$lib/index.js'
+	import { AreaChart, BarChart, Card, ChartKeyContainer, PieChart, GeoChart } from '$lib/index.js'
 	import { afterUpdate } from 'svelte'
 	import LayerBarChart from './LayerBarChart.svelte'
 	import LayerAreaChart from './LayerAreaChart.svelte'
@@ -29,6 +29,7 @@
 		seriesKey = '',
 		ring = false,
 		line = false,
+		markers = {},
 		singleXSmallSlot = false,
 		singleSmallSlot = false,
 		singleMediumSlot = false,
@@ -157,7 +158,10 @@
 				column={chartWidth < 500 ? true : false}
 			/>
 		{:else if type === 'geo'}
-			''
+			<GeoChart 
+				{data}
+				{markers}
+			/>
 		{:else if type === '' || data.length === 0}
 			<p>This chart has no data or parameters</p>
 		{/if}
