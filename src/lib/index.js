@@ -88,6 +88,7 @@ export { default as Chart } from '$lib/components/containers/charts/Chart.svelte
 export { default as BarChart } from '$lib/components/containers/charts/BarChart.svelte'
 export { default as AreaChart } from '$lib/components/containers/charts/AreaChart.svelte'
 export { default as PieChart } from '$lib/components/containers/charts/PieChart.svelte'
+export { default as GeoChart } from '$lib/components/containers/charts/GeoChart.svelte'
 
 // Dialogs
 export { default as Dialog } from '$lib/components/containers/dialogs/Dialog.svelte'
@@ -113,6 +114,7 @@ export { default as Label } from '$lib/components/containers/labels/Label.svelte
 export { default as ChartKey } from '$lib/components/containers/labels/ChartKey.svelte'
 export { default as ChartKeyContainer } from '$lib/components/containers/labels/ChartKeyContainer.svelte'
 export { default as ChartTooltip } from '$lib/components/containers/labels/ChartTooltip.svelte'
+export { default as GeoTooltip } from '$lib/components/containers/labels/GeoTooltip.svelte'
 
 // Layout
 export { default as Main } from '$lib/components/containers/layout/Main.svelte'
