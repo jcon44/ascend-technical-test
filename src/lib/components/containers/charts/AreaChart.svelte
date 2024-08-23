@@ -217,7 +217,6 @@
 				/>
 			{/if}
 			{#each series as data, j}
-				{console.log(series, data)}
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<rect 
 					on:mouseenter={enterTooltip}
