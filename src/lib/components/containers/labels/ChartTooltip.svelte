@@ -25,6 +25,7 @@
 		left: 0;
 		min-height: 70px;
 		min-width: 120px;
+		white-space: nowrap;
 		background-color: var(--neutral-base);
 		border-radius: 12px;
 		opacity: 0;
