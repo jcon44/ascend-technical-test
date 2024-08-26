@@ -30,6 +30,11 @@
 		ring = false,
 		line = false,
 		markers = {},
+		pillText = '',
+		pillKey = '',
+		addressKey = '',
+		infoTitleKey = '',
+		mapCenter,
 		singleXSmallSlot = false,
 		singleSmallSlot = false,
 		singleMediumSlot = false,
@@ -161,6 +166,11 @@
 			<GeoChart 
 				{data}
 				{markers}
+				{pillText}
+				{pillKey}
+				{addressKey}
+				{infoTitleKey}
+				{mapCenter}
 			/>
 		{:else if type === '' || data.length === 0}
 			<p>This chart has no data or parameters</p>

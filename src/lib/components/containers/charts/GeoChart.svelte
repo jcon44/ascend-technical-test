@@ -1,78 +1,58 @@
 <script>
+    import 'leaflet/dist/leaflet.css'
     import { Loader } from "@googlemaps/js-api-loader"
 	import { browser } from "$app/environment"
-	import GeoTooltip from "$lib/components/containers/labels/GeoTooltip.svelte"
+	import { onMount } from 'svelte'
 
     export let data,
-        tooltipId,
         markers,
-        key
+        pillText,
+        pillKey,
+        addressKey,
+        infoTitleKey,
+        mapCenter = {}
 
-    const loader = new Loader({
-        apiKey: key,
-        version: 'weekly',
-        });
-
-    let innerWidth,
-        innerHeight
-
-    $: {
+    onMount(async () => {
+        const L = await import('leaflet')
         if (browser) {
-            async function initMap() {
-                const { Map } = await loader.importLibrary('maps')
-                const { AdvancedMarkerElement, PinElement } = await loader.importLibrary('marker')
-                const map = new Map(document.getElementById("map"), {
-                    center: { lat: 39.97231129395548, lng: -82.99908022045317 },
-                    zoom: 13,
-                    mapId: 'geo-map' 
+            const map = L.map('map').setView([39.758948403189585, -84.19290454518598], 13)
+        
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            for (let point of data) {
+                const icon = L.icon({
+                    iconUrl: markers.lhn
                 })
-    
-                for (let point of data) {
-                    const glyphImage = document.createElement("img")
-                    glyphImage.src = markers.lhn
-    
-                    const glyph = new PinElement({
-                        glyph: glyphImage,
-                    })
-    
-                    const item = new AdvancedMarkerElement({
-                        map,
-                        content: glyph.element,
-                        position: point,
-                        gmpClickable: true
-                    })
 
-                    console.log(item.position)
+                const popup = L.popup({
+                    offset: [24, 24]
+                })
+                    .setLatLng(point.lat, point.lng)
+                    .setContent(
+                        `<div {id} class="geo-chart-tooltip" style="max-width:260px;">`+
+                            `<p style="font-size:16px;"><b>${point[infoTitleKey]}</b></p>` +
+                            `<div>`+
+                                `<p style="font-size:14px;">${pillText}: ${point[pillKey]}</p>` +
+                            `</div>` +
+                        `</div>`
+                    )
 
-                    item.addListener('click', (e) => {
-                        console.log(e)
-                        // grab map tooltip and toggle its visibility
-                        const tooltip = document.getElementById(`geo-${tooltipId}-tooltip`)
-                        if (tooltip.style.opacity === '1') {
-                            tooltip.style.opacity = '0'
-                        } else {
-                            tooltip.style.opacity = '1'
-                        } 
-                    })
-                }
+                const marker = L.marker([point.lat, point.lng], { icon: icon }).addTo(map)
+                marker.bindPopup(popup).openPopup()
             }
-    
-            initMap()
         }
-    }
+    })
 </script>
-
-<svelte:window bind:innerWidth bind:innerHeight />
 
 <div id="map">
 </div>
 
-<GeoTooltip 
-    id="geo-{tooltipId}-tooltip"
-/>
-
 <style>
     #map {
+        position: relative;
         height: 100%;
     }
 </style>
