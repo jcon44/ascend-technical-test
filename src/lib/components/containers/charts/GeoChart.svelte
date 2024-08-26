@@ -1,6 +1,5 @@
 <script>
     import 'leaflet/dist/leaflet.css'
-    import { Loader } from "@googlemaps/js-api-loader"
 	import { browser } from "$app/environment"
 	import { onMount } from 'svelte'
 
@@ -10,6 +9,8 @@
         pillKey,
         addressKey,
         infoTitleKey,
+        infoLink = false,
+        linkKey = '',
         mapCenter = {}
 
     onMount(async () => {
@@ -32,16 +33,18 @@
                 })
                     .setLatLng(point.lat, point.lng)
                     .setContent(
-                        `<div {id} class="geo-chart-tooltip" style="max-width:260px;">`+
-                            `<p style="font-size:16px;"><b>${point[infoTitleKey]}</b></p>` +
-                            `<div>`+
-                                `<p style="font-size:14px;">${pillText}: ${point[pillKey]}</p>` +
+                        `${infoLink ? `<a href=${point[linkKey]} style="color:inherit;text-decoration:none;">` : ''}` +
+                            `<div {id} class="geo-chart-tooltip" style="max-width:260px;">`+
+                                `<p style="font-size:16px;"><b>${point[infoTitleKey]}</b></p>` +
+                                `<div>`+
+                                    `<p style="font-size:14px;">${pillText}: ${point[pillKey]}</p>` +
+                                `</div>` +
                             `</div>` +
-                        `</div>`
+                        `${infoLink ? '</a>' : ''}`
                     )
 
                 const marker = L.marker([point.lat, point.lng], { icon: icon }).addTo(map)
-                marker.bindPopup(popup).openPopup()
+                marker.bindPopup(popup)
             }
         }
     })

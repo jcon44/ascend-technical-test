@@ -140,7 +140,8 @@
 			"lng": -84.18755780100692,
 			"name": "Miami Valley Hospital",
 			"count": 15,
-			"type": "hospital"
+			"type": "hospital",
+			"url": "https://www.example.com"
 		},
 		{
 			"full_address": "405 W Grand Ave, Dayton, OH 45405",
@@ -152,7 +153,8 @@
 			"lng": -84.2026657451856,
 			"name": "Kettering Health - Dayton",
 			"count": 10,
-			"type": "hospital"
+			"type": "hospital",
+			"url": "https://www.example.com"
 		},
 		{
 			"full_address": "3535 Southern Blvd, Kettering, OH 45429",
@@ -164,7 +166,8 @@
 			"lng": -84.19111608751633,
 			"name": "Kettering Health - Main Campus",
 			"count": 1,
-			"type": "hospital"
+			"type": "hospital",
+			"url": "https://www.example.com"
 		},
 		{
 			"full_address": "3417 Marshall Rd, Dayton, OH 45429",
@@ -176,7 +179,8 @@
 			"lng": -84.14159441635228,
 			"name": "Eastway Behavioral Health",
 			"count": 407,
-			"type": "provider"
+			"type": "provider",
+			"url": "https://www.example.com"
 		},
 		{
 			"full_address": "3095 Kettering Blvd, Moraine, OH 45439",
@@ -188,7 +192,8 @@
 			"lng": -84.20367446053149,
 			"name": "South Community",
 			"count": 868,
-			"type": "provider"
+			"type": "provider",
+			"url": "https://www.example.com"
 		},
 		{
 			"full_address": "707 S Edwin C Moses Blvd, Dayton, OH 45417",
@@ -200,7 +205,8 @@
 			"lng": -84.19794147402233,
 			"name": "Samaritan Behavioral Health",
 			"count": 2,
-			"type": "provider"
+			"type": "provider",
+			"url": "https://www.example.com"
 		},
 		{
 			"full_address": "11 W Monument Ave, Dayton, OH 45402",
@@ -212,7 +218,8 @@
 			"lng": -84.1935038163499,
 			"name": "Places Inc",
 			"count": 64,
-			"type": "provider"
+			"type": "provider",
+			"url": "https://www.example.com"
 		},
 		{
 			"full_address": "330 W 2nd St, Dayton, OH 45422",
@@ -224,7 +231,8 @@
 			"lng": -84.19777583169365,
 			"name": "Montgomery County Jail",
 			"count": 58,
-			"type": "jail"
+			"type": "jail",
+			"url": "https://www.example.com"
 		}
 	]
 

@@ -34,6 +34,8 @@
 		pillKey = '',
 		addressKey = '',
 		infoTitleKey = '',
+		infoLink,
+		linkKey,
 		mapCenter,
 		singleXSmallSlot = false,
 		singleSmallSlot = false,
@@ -170,6 +172,8 @@
 				{pillKey}
 				{addressKey}
 				{infoTitleKey}
+				{infoLink}
+				{linkKey}
 				{mapCenter}
 			/>
 		{:else if type === '' || data.length === 0}
