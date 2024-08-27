@@ -36,7 +36,6 @@
 		infoTitleKey = '',
 		infoLink,
 		linkKey,
-		mapCenter,
 		singleXSmallSlot = false,
 		singleSmallSlot = false,
 		singleMediumSlot = false,
@@ -174,7 +173,6 @@
 				{infoTitleKey}
 				{infoLink}
 				{linkKey}
-				{mapCenter}
 			/>
 		{:else if type === '' || data.length === 0}
 			<p>This chart has no data or parameters</p>

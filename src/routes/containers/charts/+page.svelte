@@ -118,15 +118,41 @@
     ]
 
 	let secondGeoData = [
-		{ lat: 39.993651990846004, lng:  -83.03040957396438 },
-		{ lat: 39.99191506361452, lng: -83.01083640022647 },
-		{ lat: 39.99648321748808, lng: -83.00200723755758 },
-		{ lat: 39.97843952972203, lng: -83.01152342283109 },
-		{ lat: 40.017166463612554, lng: -82.99771283044907 },
+		{ 
+			"name": "Miami Valley Hospital",
+			"count": 15,
+			lat: 39.993651990846004, 
+			lng:  -83.03040957396438 
+		},
+		{ 	
+			"name": "Miami Valley Hospital",
+			"count": 15,
+			lat: 39.99191506361452, 
+			lng: -83.01083640022647 
+		},
+		{ 
+			"name": "Miami Valley Hospital",
+			"count": 15,
+			lat: 39.99648321748808, 
+			lng: -83.00200723755758 
+		},
+		{ 
+			"name": "Miami Valley Hospital",
+			"count": 15,
+			lat: 39.97843952972203, 
+			lng: -83.01152342283109 
+		},
+		{ 
+			"name": "Miami Valley Hospital",
+			"count": 15,
+			lat: 40.017166463612554, 
+			lng: -82.99771283044907 
+		},
 	]
 
 	let markers = {
 		lhn: 'https://local-help-now.s3.us-east-2.amazonaws.com/Pin.svg'
+		// lhn: '/src/lib/assets/images/Pin.svg'
 	}
 
 	let realData = [
@@ -379,9 +405,8 @@
 					pillKey="count"
 					addressKey="full_address"
 					infoTitleKey="name"
-					data={geoData === 'firstGeoData' ? firstGeoData : realData}
+					data={geoData === 'secondGeoData' ? secondGeoData : realData}
 					markers={markers}
-					mapCenter={{ lat: 39.758295431837695, lng: -84.19123200285783 }}
 				>
 					<div slot="chart-header" style="margin-top: var(--spacing09)">
 						<SelectorInput 

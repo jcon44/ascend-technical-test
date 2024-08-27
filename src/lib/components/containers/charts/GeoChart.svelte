@@ -1,7 +1,7 @@
 <script>
     import 'leaflet/dist/leaflet.css'
 	import { browser } from "$app/environment"
-	import { onMount } from 'svelte'
+	import { afterUpdate } from 'svelte'
 
     export let data,
         markers,
@@ -10,24 +10,43 @@
         addressKey,
         infoTitleKey,
         infoLink = false,
-        linkKey = '',
-        mapCenter = {}
+        linkKey = ''
 
-    onMount(async () => {
+    $: data = data
+    let map
+
+    afterUpdate(async () => {
         const L = await import('leaflet')
         if (browser) {
-            const map = L.map('map').setView([39.758948403189585, -84.19290454518598], 13)
+            // Destroy existing map (if applicable) to redraw map with new data
+            if (map) {
+                map.remove()
+            }
+
+            // Calculate map zoom bounds to fit all data points
+            let coordinates = []
+            for (let point of data) {
+                coordinates.push([point.lat, point.lng])
+            }
+
+            const latLngBounds = L.latLngBounds(coordinates).pad(0.2)
+            const derivedMapCenter = latLngBounds.getCenter()
+
+            // Draw the map and tile background
+            map = L.map('map').setView([derivedMapCenter.lat, derivedMapCenter.lng])
+            map.fitBounds(latLngBounds)
         
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
+            // Construct and render markers with their info popups attached
             for (let point of data) {
                 const icon = L.icon({
                     iconUrl: markers.lhn
                 })
-
+                
                 const popup = L.popup({
                     offset: [24, 24]
                 })
