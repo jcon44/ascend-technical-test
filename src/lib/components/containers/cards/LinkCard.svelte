@@ -6,6 +6,7 @@
 		icon = undefined,
 		styles = [],
 		title = '',
+		titleTooltip = null,
 		url = ''
 </script>
 
@@ -19,6 +20,7 @@
 		{icon}
 		{styles}
 		{title}
+		{titleTooltip}
 	>
 		<slot />
 	</StandardCard>

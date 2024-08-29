@@ -11,5 +11,6 @@
 	<p><a href="/containers/tables">Tables</a></p>
 	<p><a href="/containers/tags">Tags</a></p>
 	<p><a href="/containers/toasts">Toasts</a></p>
+	<p><a href="/containers/tooltips">Tooltips</a></p>
 	<p><a href="/inputs/phone">Phone Number</a></p>
 </MainContent>

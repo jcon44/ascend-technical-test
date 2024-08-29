@@ -34,6 +34,7 @@ export { default as FlipBackwardSmallIcon } from '$lib/assets/icons/s/FlipBackwa
 export { default as InfoAlertCircleSmallIcon } from '$lib/assets/icons/s/InfoAlertCircleSmallIcon.svelte'
 export { default as MailIcon } from '$lib/assets/icons/s/MailIcon.svelte'
 export { default as MessageDotsSquareSmallIcon } from '$lib/assets/icons/s/MessageDotsSquareSmallIcon.svelte'
+export { default as NeutralAlertCircleSmallIcon } from '$lib/assets/icons/s/NeutralAlertCircleSmallIcon.svelte'
 export { default as PlusSmallIcon } from '$lib/assets/icons/s/PlusSmallIcon.svelte'
 export { default as ProfileSmallIcon } from '$lib/assets/icons/s/ProfileSmallIcon.svelte'
 export { default as SearchSmallIcon } from '$lib/assets/icons/s/SearchSmallIcon.svelte'
@@ -113,7 +114,6 @@ export { default as Icon } from '$lib/components/containers/icons/Icon.svelte'
 export { default as Label } from '$lib/components/containers/labels/Label.svelte'
 export { default as ChartKey } from '$lib/components/containers/labels/ChartKey.svelte'
 export { default as ChartKeyContainer } from '$lib/components/containers/labels/ChartKeyContainer.svelte'
-export { default as ChartTooltip } from '$lib/components/containers/labels/ChartTooltip.svelte'
 
 // Layout
 export { default as Main } from '$lib/components/containers/layout/Main.svelte'
@@ -184,6 +184,11 @@ export { default as TextMessageDisplayBubble } from '$lib/components/containers/
 // Toasts
 export { default as Toast } from '$lib/components/containers/toasts/Toast.svelte'
 export { default as ToastArea } from '$lib/components/containers/toasts/ToastArea.svelte'
+
+// Tooltips
+export { default as TooltipElement } from '$lib/components/containers/tooltips/TooltipElement.svelte'
+export { default as DefaultTooltipElement } from '$lib/components/containers/tooltips/DefaultTooltipElement.svelte'
+export { default as ChartTooltip } from '$lib/components/containers/tooltips/ChartTooltip.svelte'
 
 // --- FUNCTIONS --- //
 

@@ -45,7 +45,7 @@
 	$: width = innerWidth < 768 ? 294 : chartWidth
 	$: height = innerWidth < 768 ? 350 : chartHeight || 400
 	$: textOpacitySwitch = innerWidth < 678
-	let marginLeft = 15
+	let marginLeft = 50
 	let marginRight = 15
 	let marginTop = 24
 	let marginBottom = 24
@@ -199,6 +199,15 @@
 			y1={yScale(tick)}
 			y2={yScale(tick)}
 		/>
+		<text
+			class="axis-label"
+			fill="var(--neutral-400)"
+			text-anchor="end"
+			x={marginLeft - 15}
+			y={yScale(tick) + 5}
+		>
+			{tick}
+		</text>
 	{/each}
 
 	<!-- Areas -->

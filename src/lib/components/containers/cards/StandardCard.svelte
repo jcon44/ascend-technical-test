@@ -1,10 +1,15 @@
 <script>
+	import { DefaultTooltipElement } from "$lib/index.js"
+
 	export let callback = undefined,
 		classes = [],
 		icon = undefined,
 		styles = [],
 		title = '',
+		titleTooltip = null,
 		chart = false
+
+		console.log(titleTooltip)
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -24,6 +29,11 @@
 			<div class="{chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
 				{title}
 			</div>
+		{/if}
+		{#if titleTooltip}
+			<DefaultTooltipElement>
+				{titleTooltip?.content}
+			</DefaultTooltipElement>
 		{/if}
 	</div>
 	<div class="{chart ? 'chart-content' : 'card-content'} body-s-s">

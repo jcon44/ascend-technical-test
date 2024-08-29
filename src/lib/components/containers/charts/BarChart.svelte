@@ -41,8 +41,8 @@
 	let innerWidth
 	$: width = innerWidth < 768 ? 294 : chartWidth
 	$: height = innerWidth < 768 ? 400 : chartHeight || 400
-	let marginLeft = vertical ? 0 : 125
-	let marginRight = vertical ? 0 : 50
+	let marginLeft = vertical ? 25 : 125
+	let marginRight = vertical ? 20 : 50
 	let marginTop = vertical ? 24 : 20
 	let marginBottom = vertical ? 24 : 20
 	let xScale, yScale, stack
@@ -249,6 +249,15 @@
 					y1={yScale(tick)}
 					y2={yScale(tick)}
 				/>
+				<text
+					class="axis-label"
+					fill="var(--neutral-400)"
+					x={marginLeft - 15}
+					y={yScale(tick) + 5}
+					text-anchor="end"
+				>
+					{tick}
+				</text>
 			{/each}
 		{/if}
 	</g>
@@ -261,7 +270,7 @@
 		{#if vertical}
 			<line
 				stroke="var(--neutral-050)"
-				x1={marginLeft - 6}
+				x1={marginLeft + 20}
 				x2={width}
 			/>
 			{#if innerWidth >= 500}

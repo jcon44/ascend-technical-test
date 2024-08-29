@@ -8,6 +8,7 @@
 		type = '',
 		icon = null,
 		title = 'Title',
+		titleTooltip = null,
 		domain = '',
 		range = '',
 		valueOneLabel,
@@ -33,6 +34,7 @@
 		pillText = '',
 		pillKey = '',
 		addressKey = '',
+		geoJSON = {},
 		infoTitleKey = '',
 		infoLink,
 		linkKey,
@@ -72,6 +74,7 @@
 <Card
 	{icon}
 	{title}
+	{titleTooltip}
 	chart
 	classes={['neutral-shadow-l']}
 	styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%'}`, `height: 100%`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
@@ -170,6 +173,7 @@
 				{pillText}
 				{pillKey}
 				{addressKey}
+				{geoJSON}
 				{infoTitleKey}
 				{infoLink}
 				{linkKey}

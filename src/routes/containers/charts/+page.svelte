@@ -1,11 +1,7 @@
 <script>
 	import GeoChart from '$lib/components/containers/charts/GeoChart.svelte'
-	import LayerAreaChart from '$lib/components/containers/charts/LayerAreaChart.svelte'
-	import LayerBarChart from '$lib/components/containers/charts/LayerBarChart.svelte'
-	import LayerPieChart from '$lib/components/containers/charts/LayerPieChart.svelte'
 	import SelectorInput from '$lib/components/inputs/selectors/SelectorInput.svelte'
 	import { Chart, Page, PageBody } from '$lib/index.js'
-	import { env } from '$env/dynamic/public'
 
 	let barData = [
 		{ x: 'Hospital 1', series: 'Source', value: 10 },
@@ -262,23 +258,14 @@
 		}
 	]
 
-	$: geoData = 'secondGeoData'
+	$: geoData = 'realData'
 </script>
 
 <Page>
 	<PageBody size="full">
-		<!-- <div class="header">
-			<h2 class="headline-l-xl">Charts</h2>
-			<p class="p">Each chart component shares the following API for data and style:</p>
-			<ul>
-				<li><p><code>data</code>: An array of objects containing the chart data.</p></li>
-				<li><p><code>domain</code>: A string defining the data object key for the base axis or measurement for the chart data.</p></li>
-				<li><p><code>range</code>: A string defining the data object key for the value axis or measurement for the chart data.</p></li>
-				<li><p><code>styles</code>: (optional) An array of CSS styles that style the chart frame.</p></li>
-				<li><p><code>title</code>: (optional) A string representing the chart title.</p></li>
-			</ul>
-			<p>Additionally, each chart has a slot for header content and footer content. Suitable for buttons, text, or other components.</p>
-		</div> -->
+		<div class="header">
+			<h1>Charts</h1>
+		</div>
 		<div class="chart-container">
 			<div class="simple-v-bar">
 				<Chart
@@ -287,6 +274,7 @@
 					vertical
 					sort="descending"
 					title="Simple Vertical Bar Chart"
+					titleTooltip={{ content: 'This is a tooltip that will probably wrap. Maybe even twice.' }}
 					data={barData}
 					domain="x"
 					range="value"
@@ -412,8 +400,9 @@
 						<SelectorInput 
 							id="bar-selector"
 							label="Random Selector"
+							defaultOptionName={'realData'}
+							defaultOptionValue={'realData'}
 							optionList={[
-								'firstGeoData',
 								'secondGeoData'
 							]}
 							bind:selectedValue={geoData}
@@ -426,6 +415,10 @@
 </Page>
 
 <style>
+	.header {
+		margin-left: 50px;
+		padding-top: 100px;
+	}
 	.chart-container {
 		width: 100%;
 		min-height: 100vh;
@@ -434,7 +427,6 @@
 		flex-direction: column;
 		gap: var(--spacing15);
 	}
-
 	.simple-v-bar,
 	.simple-h-bar,
 	.stacked-v-bar,
@@ -457,16 +449,13 @@
 			padding-top: var(--spacing04);
 		}
 	}
-
 	.ring-chart {
 		display: flex;
 		gap: var(--spacing09);
 	}
-
 	.simple-h-bar {
 		height: 50vh;
 	}
-
 	.geo-chart {
 		height: 800px;
 	}
