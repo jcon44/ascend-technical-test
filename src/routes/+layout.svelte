@@ -143,10 +143,10 @@
 </script>
 
 <Shell>
-	<!-- <NavBar
+	<NavBar
 		keepOpen={true}
 		{navBarContents}
-	/> -->
+	/>
 	<Main>
 		<HeaderBar>
 			<ProfileButton url="/" />

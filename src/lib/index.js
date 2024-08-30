@@ -310,5 +310,8 @@ export { default as TextAreaInput } from '$lib/components/inputs/text/TextAreaIn
 export { default as TextInput } from '$lib/components/inputs/text/TextInput.svelte'
 export { default as TextMessageInputBubble } from '$lib/components/inputs/text/TextMessageInputBubble.svelte'
 
+// Toggles
+export { default as ToggleSwitch } from '$lib/components/inputs/toggles/ToggleSwitch.svelte'
+
 // Validation
 export { default as InputError } from '$lib/components/inputs/validation/InputError.svelte'
