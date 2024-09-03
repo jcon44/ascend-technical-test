@@ -8,8 +8,6 @@
 		title = '',
 		titleTooltip = null,
 		chart = false
-
-		console.log(titleTooltip)
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->

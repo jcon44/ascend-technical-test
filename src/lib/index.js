@@ -20,6 +20,7 @@ export { default as TemplatesIcon } from '$lib/assets/icons/m/TemplatesIcon.svel
 export { default as AlertCircleSmallIcon } from '$lib/assets/icons/s/AlertCircleSmallIcon.svelte'
 export { default as ArrowLeftSmallIcon } from '$lib/assets/icons/s/ArrowLeftSmallIcon.svelte'
 export { default as ArrowRightSmallIcon } from '$lib/assets/icons/s/ArrowRightSmallIcon.svelte'
+export { default as CardGridIcon } from '$lib/assets/icons/s/CardGridIcon.svelte'
 export { default as ChevronDoubleLeftSmallIcon } from '$lib/assets/icons/s/ChevronDoubleLeftSmallIcon.svelte'
 export { default as ChevronDoubleRightSmallIcon } from '$lib/assets/icons/s/ChevronDoubleRightSmallIcon.svelte'
 export { default as ChevronSingleRightSmallIcon } from '$lib/assets/icons/s/ChevronSingleRightSmallIcon.svelte'
@@ -33,6 +34,7 @@ export { default as FilterLinesSmallIcon } from '$lib/assets/icons/s/FilterLines
 export { default as FlipBackwardSmallIcon } from '$lib/assets/icons/s/FlipBackwardSmallIcon.svelte'
 export { default as InfoAlertCircleSmallIcon } from '$lib/assets/icons/s/InfoAlertCircleSmallIcon.svelte'
 export { default as MailIcon } from '$lib/assets/icons/s/MailIcon.svelte'
+export { default as MapPinIcon } from '$lib/assets/icons/s/MapPinIcon.svelte'
 export { default as MessageDotsSquareSmallIcon } from '$lib/assets/icons/s/MessageDotsSquareSmallIcon.svelte'
 export { default as NeutralAlertCircleSmallIcon } from '$lib/assets/icons/s/NeutralAlertCircleSmallIcon.svelte'
 export { default as PlusSmallIcon } from '$lib/assets/icons/s/PlusSmallIcon.svelte'
@@ -49,6 +51,7 @@ export { default as ArrowDownExtraSmallIcon } from '$lib/assets/icons/xs/ArrowDo
 export { default as ArrowLeftExtraSmallIcon } from '$lib/assets/icons/xs/ArrowLeftExtraSmallIcon.svelte'
 export { default as ArrowRightExtraSmallIcon } from '$lib/assets/icons/xs/ArrowRightExtraSmallIcon.svelte'
 export { default as ArrowUpExtraSmallIcon } from '$lib/assets/icons/xs/ArrowUpExtraSmallIcon.svelte'
+export { default as BulletListIcon } from '$lib/assets/icons/xs/BulletListIcon.svelte'
 export { default as CheckExtraSmallIcon } from '$lib/assets/icons/xs/CheckExtraSmallIcon.svelte'
 export { default as NeutralExtraSmallIcon } from '$lib/assets/icons/xs/NeutralExtraSmallIcon.svelte'
 export { default as ProfileExtraSmallIcon } from '$lib/assets/icons/xs/ProfileExtraSmallIcon.svelte'
@@ -130,6 +133,7 @@ export { default as NavBarHeader } from '$lib/components/containers/navbar/NavBa
 export { default as SimpleNavBar } from '$lib/components/containers/navbar/SimpleNavBar.svelte'
 
 // Pages
+export { default as DashboardPageTitle } from '$lib/components/containers/pages/DashboardPageTitle.svelte'
 export { default as Error404Page } from '$lib/components/containers/pages/Error404Page.svelte'
 export { default as LoginPage } from '$lib/components/containers/pages/LoginPage.svelte'
 export { default as Page } from '$lib/components/containers/pages/Page.svelte'
@@ -311,6 +315,7 @@ export { default as TextInput } from '$lib/components/inputs/text/TextInput.svel
 export { default as TextMessageInputBubble } from '$lib/components/inputs/text/TextMessageInputBubble.svelte'
 
 // Toggles
+export { default as ToggleButton } from '$lib/components/inputs/toggles/ToggleButton.svelte'
 export { default as ToggleSwitch } from '$lib/components/inputs/toggles/ToggleSwitch.svelte'
 
 // Validation

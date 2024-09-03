@@ -1,5 +1,9 @@
 <script>
-    export let leftIcon, rightIcon, checked = false
+	import { BulletListIcon, CardGridIcon } from "$lib/index.js"
+
+    export let leftIcon = BulletListIcon, 
+        rightIcon = CardGridIcon, 
+        checked = false
 </script>
 
 <label class="toggle-switch border-radius-s">

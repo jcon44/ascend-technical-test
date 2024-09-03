@@ -16,6 +16,7 @@
 		callback={selectTab}
 		classes={['btn-tab', 'btn-full']}
 		text={tab?.name}
+		url={tab?.url ? tab?.url : ''}
 		topIcon={icon}
 	/>
 </div>

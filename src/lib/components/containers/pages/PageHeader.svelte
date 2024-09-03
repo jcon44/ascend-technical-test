@@ -4,14 +4,15 @@
 		titleText = '',
 		paragraphText = '',
 		headerButton = null,
-		headerPill = null
+		headerPill = null,
+		styles = []
 	
 	if (headerButton) {
 		titleJustification = 'space-between'
 	}
 </script>
 
-<div class="page-header">
+<div class="page-header" style={styles.join(';')}>
 	<div
 		class="page-header-top-row"
 		style={`justify-content: ${titleJustification}`}
