@@ -1,17 +1,17 @@
 :root {
-	--heading-l-xxl-font-size: 66px;
-	--heading-l-xl-font-size: 46px;
-	--heading-l-l-font-size: 36px;
-	--heading-l-m-font-size: 32px;
-	--heading-l-s-font-size: 26px;
-	--heading-l-xs-font-size: 20px;
+	--heading-l-xxl-font-size: 40px;
+	--heading-l-xl-font-size: 33px;
+	--heading-l-l-font-size: 28px;
+	--heading-l-m-font-size: 23px;
+	--heading-l-s-font-size: 19px;
+	--heading-l-xs-font-size: 16px;
 
-	--heading-s-xxl-font-size: 46px;
-	--heading-s-xl-font-size: 36px;
-	--heading-s-l-font-size: 29px;
-	--heading-s-m-font-size: 26px;
-	--heading-s-s-font-size: 23px;
-	--heading-s-xs-font-size: 20px;
+	--heading-s-xxl-font-size: 29px;
+	--heading-s-xl-font-size: 26px;
+	--heading-s-l-font-size: 23px;
+	--heading-s-m-font-size: 20px;
+	--heading-s-s-font-size: 18px;
+	--heading-s-xs-font-size: 16px;
 
 	--body-xxl-font-size: 23px;
 	--body-xl-font-size: 20px;

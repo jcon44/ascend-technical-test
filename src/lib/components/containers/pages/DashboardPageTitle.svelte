@@ -16,7 +16,6 @@
 <div class="dashboard-page-title">
     <PageHeader 
         titleText={title}
-        smallTitle
         headerButton={titleButton}
         titleJustification={titleButton ? '' : 'space-between'}
         styles={['padding:0']}

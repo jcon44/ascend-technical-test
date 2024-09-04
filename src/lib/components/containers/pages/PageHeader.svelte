@@ -2,7 +2,6 @@
 	export let
 		titleJustification = 'center', 
 		titleText = '',
-		smallTitle = false,
 		paragraphText = '',
 		headerButton = null,
 		headerPill = null,
@@ -19,7 +18,7 @@
 		style={`justify-content: ${titleJustification}`}
 	>
 		<div class="page-header-left-column">
-			<h1 class="{smallTitle ? 'headline-smaller' : 'headline-l-xxl'}">{titleText}</h1>
+			<h1 class="headline-l-xxl">{titleText}</h1>
 		</div>
 		{#if headerButton}
 			<div class="page-header-right-column">
