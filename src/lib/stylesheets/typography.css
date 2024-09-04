@@ -23,17 +23,17 @@
 }
 
 @font-face {
-	font-family: 'VentiCF';
-	src: url('https://ascnd.s3.us-east-2.amazonaws.com/VentiCF-Regular.otf');
-}
-
-@font-face {
 	font-family: 'Manrope';
 	src: url('https://ascnd.s3.us-east-2.amazonaws.com/Manrope-VariableFont_wght.ttf');
 }
 
 * {
 	font-family: 'Manrope', Arial, sans-serif;
+}
+
+*[class*='headline-'] {
+	font-style: normal;
+	line-height: 120%;
 }
 
 *[class*='headline-l-xxl'] {

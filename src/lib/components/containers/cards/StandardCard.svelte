@@ -17,23 +17,25 @@
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
 >
-	<div class="icon-title-wrapper">
-		{#if icon}
-			<div class="card-icon">
-				<svelte:component this={icon} />
-			</div>
-		{/if}
-		{#if title}
-			<div class="{chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
-				{title}
-			</div>
-		{/if}
-		{#if titleTooltip}
-			<DefaultTooltipElement>
-				{titleTooltip?.content}
-			</DefaultTooltipElement>
-		{/if}
-	</div>
+	{#if icon || title || titleTooltip}
+		<div class="icon-title-wrapper">
+			{#if icon}
+				<div class="card-icon">
+					<svelte:component this={icon} />
+				</div>
+			{/if}
+			{#if title}
+				<div class="{chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
+					{title}
+				</div>
+			{/if}
+			{#if titleTooltip}
+				<DefaultTooltipElement>
+					{titleTooltip?.content}
+				</DefaultTooltipElement>
+			{/if}
+		</div>
+	{/if}
 	<div class="{chart ? 'chart-content' : 'card-content'} body-s-s">
 		<slot />
 	</div>
