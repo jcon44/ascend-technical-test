@@ -36,13 +36,6 @@
 	font-family: 'Manrope', Arial, sans-serif;
 }
 
-*[class*='headline-'] {
-	font-family: 'VentiCF', Arial, sans-serif;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
-}
-
 *[class*='headline-l-xxl'] {
 	font-size: var(--heading-l-xxl-font-size);
 }
