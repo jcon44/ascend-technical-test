@@ -3,11 +3,14 @@
 
 	export let callback = undefined,
 		chart = false,
+		type,
 		classes = [],
 		icon = undefined,
 		styles = [],
 		title = '',
 		titleTooltip = null,
+		titleButton = false,
+		titleButtonText = 'See More',
 		url = ''
 </script>
 
@@ -31,7 +34,10 @@
 		{styles}
 		{title}
 		{titleTooltip}
+		{titleButton}
+		{titleButtonText}
 		{chart}
+		{type}
 	>
 		<slot />
 	</StandardCard>

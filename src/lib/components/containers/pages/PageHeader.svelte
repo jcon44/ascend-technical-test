@@ -49,7 +49,4 @@
 		flex-direction: column;
 		gap: var(--spacing09);
 	}
-	.headline-smaller {
-		font-size: 40px;
-	}
 </style>

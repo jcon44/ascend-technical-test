@@ -1,8 +1,6 @@
 <script>
-	import { AreaChart, BarChart, Card, ChartKeyContainer, PieChart, GeoChart } from '$lib/index.js'
+	import { AreaChart, BarChart, Card, ChartKeyContainer, PieChart, GeoChart, TableChart } from '$lib/index.js'
 	import { afterUpdate } from 'svelte'
-	import LayerBarChart from './LayerBarChart.svelte'
-	import LayerAreaChart from './LayerAreaChart.svelte'
 
 	export let data = [],
 		type = '',
@@ -11,6 +9,7 @@
 		titleTooltip = null,
 		domain = '',
 		range = '',
+		rule = null,
 		valueOneLabel,
 		valueTwoLabel = '',
 		fullDate = false,
@@ -38,6 +37,9 @@
 		infoTitleKey = '',
 		infoLink,
 		linkKey,
+		tableColumns = [],
+		titleButton = false,
+		titleButtonText = 'See More',
 		singleXSmallSlot = false,
 		singleSmallSlot = false,
 		singleMediumSlot = false,
@@ -49,6 +51,8 @@
 		chartHeight,
 		chartHeader,
 		keyContainerKeys = []
+
+	if (data.length < 5 && type === 'table') titleButton = false
 
 	afterUpdate(() => {
 		// pull out the unique series values for the chart key
@@ -75,7 +79,10 @@
 	{icon}
 	{title}
 	{titleTooltip}
+	{titleButton}
+	{titleButtonText}
 	chart
+	{type}
 	classes={['neutral-shadow-l']}
 	styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%'}`, `height: 100%`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
 >
@@ -91,6 +98,7 @@
 				{data}
 				{domain}
 				{range}
+				{rule}
 				{valueOneLabel}
 				{valueTwoLabel}
 				{barColors}
@@ -121,6 +129,7 @@
 				{data}
 				{domain}
 				{range}
+				{rule}
 				{valueOneLabel}
 				{valueTwoLabel}
 				{seriesKey}
@@ -177,6 +186,11 @@
 				{infoTitleKey}
 				{infoLink}
 				{linkKey}
+			/>
+		{:else if type === 'table'}
+			<TableChart 
+				columns={tableColumns}
+				bind:list={data}
 			/>
 		{:else if type === '' || data.length === 0}
 			<p>This chart has no data or parameters</p>

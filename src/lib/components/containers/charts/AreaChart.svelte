@@ -1,6 +1,6 @@
 <script>
 	import * as d3 from 'd3'
-	import { ChartTooltip } from '$lib/index.js'
+	import { ChartTooltip, RuleTip } from '$lib/index.js'
 	import { browser } from '$app/environment'
 
 	/**
@@ -28,6 +28,7 @@
 		lineColors = [],
 		domain,
 		range,
+		rule = null,
 		valueOneLabel,
 		valueTwoLabel,
 		seriesKey,
@@ -49,6 +50,8 @@
 	let marginRight = 15
 	let marginTop = 24
 	let marginBottom = 24
+	let avgArray = []
+	let position = rule
 
 	let xScale,
 		yScale,
@@ -125,7 +128,12 @@
 				.x((d) => xScale(d[domain]))
 				.y((d) => yScale(d[range]))
 
-			//
+				if (rule === 'avg') {
+					let avg = 0
+					data.forEach((el) => avgArray.push(el[range]))
+					avgArray.forEach((el) => avg += el)
+					position = avg / avgArray.length
+				}
 		}
 	}
 
@@ -268,6 +276,8 @@
 		{/each}
 	{/if}
 
+	<!-- Rule -->
+
 	<!-- Base Axis -->
 	<g transform="translate(0,{height - marginBottom})">
 		{#if stacked}
@@ -338,8 +348,25 @@
 		cy={tooltipData.circlePosition}
 		r=6
 	/>
+
+	<!-- Rule -->
+	{#if rule}
+		<line 
+			class="rule"
+			stroke="var(--neutral-400)"
+			stroke-width="1"
+			stroke-dasharray="3 2"
+			x1={marginLeft}
+			x2={width}
+			y1={rule === 'avg' ? yScale(position) : yScale(rule)}
+			y2={rule === 'avg' ? yScale(position) : yScale(rule)}
+		/>
+	{/if}
 </svg>
 
+{#if rule}
+	<RuleTip value={rule} position={yScale(position)} />
+{/if}
 <ChartTooltip tooltipInfo={tooltipData} />
 
 <style>

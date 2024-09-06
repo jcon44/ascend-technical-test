@@ -1,5 +1,11 @@
 <script>
-	import { DateRange } from '$lib/index.js'
+import { Page, PageBody, DateRange, MonthPicker, MonthRange } from '$lib/index.js'
 </script>
 
-<DateRange styles={[`width: 25%`]} />
+<Page>
+	<PageBody>
+		<DateRange styles={[`width: 25%`]} />
+		<MonthPicker label="Month Picker" id='month-picker'/>
+		<MonthRange />
+	</PageBody>
+</Page>

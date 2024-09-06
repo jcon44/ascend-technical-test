@@ -88,11 +88,12 @@ export { default as RegistrationCard } from '$lib/components/containers/cards/Re
 export { default as StandardCard } from '$lib/components/containers/cards/StandardCard.svelte'
 
 // Charts
-export { default as Chart } from '$lib/components/containers/charts/Chart.svelte'
-export { default as BarChart } from '$lib/components/containers/charts/BarChart.svelte'
 export { default as AreaChart } from '$lib/components/containers/charts/AreaChart.svelte'
-export { default as PieChart } from '$lib/components/containers/charts/PieChart.svelte'
+export { default as BarChart } from '$lib/components/containers/charts/BarChart.svelte'
+export { default as Chart } from '$lib/components/containers/charts/Chart.svelte'
 export { default as GeoChart } from '$lib/components/containers/charts/GeoChart.svelte'
+export { default as PieChart } from '$lib/components/containers/charts/PieChart.svelte'
+export { default as TableChart } from '$lib/components/containers/charts/TableChart.svelte'
 
 // Dialogs
 export { default as Dialog } from '$lib/components/containers/dialogs/Dialog.svelte'
@@ -190,9 +191,10 @@ export { default as Toast } from '$lib/components/containers/toasts/Toast.svelte
 export { default as ToastArea } from '$lib/components/containers/toasts/ToastArea.svelte'
 
 // Tooltips
-export { default as TooltipElement } from '$lib/components/containers/tooltips/TooltipElement.svelte'
-export { default as DefaultTooltipElement } from '$lib/components/containers/tooltips/DefaultTooltipElement.svelte'
 export { default as ChartTooltip } from '$lib/components/containers/tooltips/ChartTooltip.svelte'
+export { default as DefaultTooltipElement } from '$lib/components/containers/tooltips/DefaultTooltipElement.svelte'
+export { default as RuleTip } from '$lib/components/containers/tooltips/RuleTip.svelte'
+export { default as TooltipElement } from '$lib/components/containers/tooltips/TooltipElement.svelte'
 
 // --- FUNCTIONS --- //
 
@@ -232,6 +234,14 @@ export { default as setStyles } from '$lib/functions/styling/setStyles.js'
 
 // Utility
 export { default as todaysDate } from '$lib/functions/utils/todaysDate.js'
+
+// Validation
+export { default as isValidDate } from '$lib/functions/validation/isValidDate.js'
+export { default as isValidDateRange } from '$lib/functions/validation/isValidDateRange.js'
+export { default as isValidEmail } from '$lib/functions/validation/isValidEmail.js'
+export { default as isValidMobilePhone } from '$lib/functions/validation/isValidMobilePhone.js'
+export { default as isValidTime } from '$lib/functions/validation/isValidTime.js'
+export { default as isValidZipCode } from '$lib/functions/validation/isValidZipCode.js'
 
 // --- INPUTS --- //
 
@@ -279,6 +289,9 @@ export { default as DateInput } from '$lib/components/inputs/datetime/date/DateI
 export { default as DatePicker } from '$lib/components/inputs/datetime/date/DatePicker.svelte'
 export { default as DateRange } from '$lib/components/inputs/datetime/date/DateRange.svelte'
 export { default as DateTimePicker } from '$lib/components/inputs/datetime/DateTimePicker.svelte'
+export { default as MonthInput } from '$lib/components/inputs/datetime/date/MonthInput.svelte'
+export { default as MonthPicker } from '$lib/components/inputs/datetime/date/MonthPicker.svelte'
+export { default as MonthRange } from '$lib/components/inputs/datetime/date/MonthRange.svelte'
 export { default as TimeInput } from '$lib/components/inputs/datetime/time/TimeInput.svelte'
 export { default as TimePicker } from '$lib/components/inputs/datetime/time/TimePicker.svelte'
 

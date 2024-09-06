@@ -6,14 +6,18 @@
 		prefix = 'mailto:'
 	} else if (row[column.linkKey]?.includes('.')) {
 		prefix = 'https://'
-	} else if (row[column.linkKey].includes('-')) {
+	} else if (row[column.linkKey]?.includes('-')) {
 		prefix = 'tel:'
 		const removeHypens = row[column.linkKey].split('-')
 		phone = removeHypens.join('')
 	} else {
-		prefix = 'tel:'
-		phone = row[column.linkKey]
-		row[column.linkKey] = `${row[column.linkKey]?.slice(0,3)}-${row[column.linkKey]?.slice(3,6)}-${row[column.linkKey]?.slice(6)}`
+		if (row[column.linkKey] === '') {
+			phone = ''
+		} else {
+			prefix = 'tel:'
+			phone = row[column.linkKey]
+			row[column.linkKey] = `${row[column.linkKey]?.slice(0,3)}-${row[column.linkKey]?.slice(3,6)}-${row[column.linkKey]?.slice(6)}`
+		}
 	}
 </script>
 

@@ -17,13 +17,13 @@
     let map,
         json = geoJSON,
         geojsonMarkerOptions = {
-        radius: 8,
-        fillColor: "#ff7800",
-        color: "#000",
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 0.8
-    }
+            radius: 8,
+            fillColor: "#ff7800",
+            color: "#000",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        }
 
     afterUpdate(async () => {
         const L = await import('leaflet')
@@ -83,7 +83,7 @@
     })
 </script>
 
-<div id="map">
+<div id="map" class="border-radius-s">
 </div>
 
 <style>

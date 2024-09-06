@@ -1,5 +1,5 @@
 <script>
-	import { DefaultTooltipElement } from "$lib/index.js"
+	import { DefaultTooltipElement, Button, ChevronSingleRightSmallIcon } from "$lib/index.js"
 
 	export let callback = undefined,
 		classes = [],
@@ -7,7 +7,9 @@
 		styles = [],
 		title = '',
 		titleTooltip = null,
-		chart = false
+		chart = false,
+		titleButton = false,
+		titleButtonText = 'See More'
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -34,6 +36,15 @@
 					{titleTooltip?.content}
 				</DefaultTooltipElement>
 			{/if}
+			{#if titleButton}
+				<div class='additional-information-button'>
+					<Button 
+						classes={['btn-link', 'btn-m']}
+						rightIcon={ChevronSingleRightSmallIcon}
+						text={titleButtonText}
+					/>
+				</div>
+			{/if}
 		</div>
 	{/if}
 	<div class="{chart ? 'chart-content' : 'card-content'} body-s-s">
@@ -58,6 +69,9 @@
 	}
 	.card-title {
 		font-size: var(--body-xl-font-size);
+	}
+	.additional-information-button {
+		margin-left: auto;
 	}
 	.chart-content {
 		display: flex;

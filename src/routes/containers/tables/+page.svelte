@@ -28,7 +28,7 @@
 			status: 'approved',
 			logoKey: '/src/lib/assets/images/default-logo.png',
 			textKey: 'Text Two',
-			// linkKey: 'support@ascend-innovations.com'
+			linkKey: ''
 		},
 		// {
 		// 	array: ['1', '2', '3'],

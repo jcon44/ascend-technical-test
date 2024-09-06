@@ -1,7 +1,7 @@
 <script>
 	import GeoChart from '$lib/components/containers/charts/GeoChart.svelte'
 	import SelectorInput from '$lib/components/inputs/selectors/SelectorInput.svelte'
-	import { Chart, Page, PageBody } from '$lib/index.js'
+	import { Chart, Page, PageBody, NextButton, StatusTag } from '$lib/index.js'
 
 	let barData = [
 		{ x: 'Hospital 1', series: 'Source', value: 10 },
@@ -258,11 +258,81 @@
 		}
 	]
 
+	const tableData = [
+		{
+			id: 1,
+			title: 'One',
+			description: 'This is filler text',
+			status: 'Pending'
+		},
+		{
+			id: 2,
+			title: 'Two',
+			description: 'This is filler text',
+			status: 'Pending'
+		},
+		{
+			id: 3,
+			title: 'Three',
+			description: 'This is filler text',
+			status: 'Approved'
+		},
+		{
+			id: 4,
+			title: 'Four',
+			description: 'This is filler text',
+			status: 'Pending'
+		},
+		{
+			id: 5,
+			title: 'Five',
+			description: 'This is filler text',
+			status: 'Approved'
+		},
+		{
+			id: 6,
+			title: 'Six',
+			description: 'This is filler text',
+			status: 'Approved'
+		},
+		{
+			id: 7,
+			title: 'Seven',
+			description: 'This is filler text',
+			status: 'Approved'
+		}
+	]
+
+	const tableColumns = [
+		{
+			id: 'title',
+			title: 'Title',
+			key: 'title',
+			type: 'text',
+			styles: ['flex: 1']
+		},
+		{
+			id: 'description',
+			title: 'Description',
+			key: 'description',
+			type: 'text',
+			styles: ['flex: 1']
+		},
+		{
+			id: '',
+			type: 'tag',
+			title: 'Status',
+			key: 'status',
+			component: StatusTag,
+			styles: ['flex: 1']
+		}
+	]
+
 	$: geoData = 'realData'
 </script>
 
 <Page>
-	<PageBody size="full">
+	<PageBody size="full" styles={['max-width: 1440px', 'margin: auto']}>
 		<div class="header">
 			<h1>Charts</h1>
 		</div>
@@ -278,6 +348,7 @@
 					data={barData}
 					domain="x"
 					range="value"
+					rule='avg'
 					seriesKey="series"
 				>
 					<div slot="chart-header" style="margin-top: var(--spacing09)">
@@ -287,6 +358,16 @@
 						/>
 					</div>
 				</Chart>
+			</div>
+
+			<div class="table-chart">
+				<Chart 
+					title="Table Chart"
+					type="table"
+					data={tableData}
+					titleButton
+					tableColumns={tableColumns}
+				/>
 			</div>
 
 			<!-- <div class="simple-h-bar">
@@ -339,6 +420,7 @@
 					title="Simple Area Chart"
 					domain="date"
 					range="value"
+					rule='avg'
 					valueOneLabel="date"
 					valueTwoLabel="value"
 					monthOnly

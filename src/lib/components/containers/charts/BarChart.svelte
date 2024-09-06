@@ -1,8 +1,7 @@
 <script>
 	import * as d3 from 'd3'
-	import { ChartTooltip } from '$lib/index.js'
+	import { ChartTooltip, RuleTip } from '$lib/index.js'
 	import { browser } from '$app/environment'
-	import { onMount } from 'svelte'
 
 	/**
 	 *  @param {array} data
@@ -35,6 +34,7 @@
 		valueTwoLabel,
 		seriesKey = null,
 		tooltipId,
+		rule = null,
 		chartWidth = null,
 		chartHeight = null
 
@@ -45,6 +45,8 @@
 	let marginRight = vertical ? 20 : 50
 	let marginTop = vertical ? 24 : 20
 	let marginBottom = vertical ? 24 : 20
+	let avgArray = []
+	let position = rule
 	let xScale, yScale, stack
 
 	$: {
@@ -108,6 +110,13 @@
 					.scaleLinear()
 					.domain([0, d3.max(data, (d) => d[range])])
 					.range([height - marginBottom, marginTop])
+
+				if (rule === 'avg') {
+					let avg = 0
+					data.forEach((el) => avgArray.push(el[range]))
+					avgArray.forEach((el) => avg += el)
+					position = avg / avgArray.length
+				}
 			}
 		}
 
@@ -366,8 +375,25 @@
 			{/each}
 		</g>
 	{/if}
+
+	<!-- Rule -->
+	{#if rule}
+		<line 
+			class="rule"
+			stroke="var(--neutral-400)"
+			stroke-width="1"
+			stroke-dasharray="3 2"
+			x1={marginLeft}
+			x2={width}
+			y1={rule === 'avg' ? yScale(position) : yScale(rule)}
+			y2={rule === 'avg' ? yScale(position) : yScale(rule)}
+		/>
+	{/if}
 </svg>
 
+{#if rule}
+	<RuleTip value={rule} position={yScale(position)} />
+{/if}
 <ChartTooltip tooltipInfo={tooltipData} />
 
 <style>
