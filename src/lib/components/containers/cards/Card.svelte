@@ -3,7 +3,6 @@
 
 	export let callback = undefined,
 		chart = false,
-		type,
 		classes = [],
 		icon = undefined,
 		styles = [],
@@ -37,7 +36,6 @@
 		{titleButton}
 		{titleButtonText}
 		{chart}
-		{type}
 	>
 		<slot />
 	</StandardCard>
