@@ -9,6 +9,7 @@
 		maxlength = '',
 		minlength = '',
 		name = '',
+		pattern = '',
 		placeholder = '',
 		required = false,
 		styles = [],
@@ -49,9 +50,10 @@
 		type="text"
 		{autofocus}
 		{id}
-		{name}
 		{maxlength}
 		{minlength}
+		{name}
+		{pattern}
 		{placeholder}
 		{required}
 		{tabindex}
