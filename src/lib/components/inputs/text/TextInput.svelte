@@ -2,7 +2,7 @@
 	import { Label, Tag, InputError } from '$lib/index.js'
 
 	export let autofocus = false,
-	    changeCallback,
+	    changeCallback = null,
 		description = '',
 		id = '',
 		label = '',
@@ -18,7 +18,7 @@
 		text = '',
 		validationText = '',
 		validValue = true,
-		validationCallback
+		validationCallback = null
 </script>
 
 <div class="text-control">
