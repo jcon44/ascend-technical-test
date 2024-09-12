@@ -2,6 +2,7 @@
 	import { Label, Tag, InputError } from '$lib/index.js'
 
 	export let autofocus = false,
+	    changeCallback = null,
 		description = '',
 		id = '',
 		label = '',
@@ -9,6 +10,7 @@
 		maxlength = '',
 		minlength = '',
 		name = '',
+		pattern = null,
 		placeholder = '',
 		required = false,
 		styles = [],
@@ -16,7 +18,7 @@
 		text = '',
 		validationText = '',
 		validValue = true,
-		validationCallback
+		validationCallback = null
 </script>
 
 <div class="text-control">
@@ -44,14 +46,16 @@
 	<input
 		bind:value={text}
 		on:blur={validationCallback}
+		on:change={changeCallback}
 		class="text-input"
 		style={styles.join(';')}
 		type="text"
 		{autofocus}
 		{id}
-		{name}
 		{maxlength}
 		{minlength}
+		{name}
+		{pattern}
 		{placeholder}
 		{required}
 		{tabindex}
