@@ -16,4 +16,5 @@
 	<p><a href="/inputs/phone">Phone Number</a></p>
 	<p><a href="/inputs/date">Date Time</a></p>
 	<p><a href="/inputs/toggles">Toggles</a></p>
+	<p><a href="/inputs/selectors">Selectors</a></p>
 </MainContent>

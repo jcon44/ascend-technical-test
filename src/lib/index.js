@@ -23,7 +23,9 @@ export { default as ArrowRightSmallIcon } from '$lib/assets/icons/s/ArrowRightSm
 export { default as CardGridIcon } from '$lib/assets/icons/s/CardGridIcon.svelte'
 export { default as ChevronDoubleLeftSmallIcon } from '$lib/assets/icons/s/ChevronDoubleLeftSmallIcon.svelte'
 export { default as ChevronDoubleRightSmallIcon } from '$lib/assets/icons/s/ChevronDoubleRightSmallIcon.svelte'
+export { default as ChevronSingleDownSmallIcon } from '$lib/assets/icons/s/ChevronSingleDownSmallIcon.svelte'
 export { default as ChevronSingleRightSmallIcon } from '$lib/assets/icons/s/ChevronSingleRightSmallIcon.svelte'
+export { default as ChevronSingleUpSmallIcon } from '$lib/assets/icons/s/ChevronSingleUpSmallIcon.svelte'
 export { default as ClockRefreshIcon } from '$lib/assets/icons/s/ClockRefreshIcon.svelte'
 export { default as CloseSmallIcon } from '$lib/assets/icons/s/CloseSmallIcon.svelte'
 export { default as CloseSmallWhiteIcon } from '$lib/assets/icons/s/CloseSmallWhiteIcon.svelte'
@@ -316,6 +318,8 @@ export { default as RadioList } from '$lib/components/inputs/radio/RadioList.sve
 export { default as RadioOption } from '$lib/components/inputs/radio/RadioOption.svelte'
 
 // Selectors
+export { default as CheckboxSelectOption } from '$lib/components/inputs/selectors/CheckboxSelectOption.svelte' 
+export { default as MultiSelector } from '$lib/components/inputs/selectors/MultiSelector.svelte'
 export { default as SelectorInput } from '$lib/components/inputs/selectors/SelectorInput.svelte'
 
 // Tel
