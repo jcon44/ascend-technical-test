@@ -28,10 +28,10 @@
 		sort = null,
 		ring = false,
 		tooltipId,
-		chartHeight
+		chartHeight = 306
 
 	let width = 306
-	let height = chartHeight || 306
+	let height = chartHeight
 	let pie, arcPath, arcs
 
 	$: {
@@ -112,7 +112,16 @@
 
 <style>
 	.svg-container {
-		width: 100%;
+		display: block;
+		min-width: 200px;
+		min-height: 200px;
+		max-width: 280px;
+		max-height: 280px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	.pie-chart-svg {

@@ -35,12 +35,12 @@
 		seriesKey = null,
 		tooltipId,
 		rule = null,
-		chartWidth = null,
-		chartHeight = null
+		chartWidth = 700,
+		chartHeight = 400
 
 	let innerWidth
 	$: width = innerWidth < 768 ? 294 : chartWidth
-	$: height = innerWidth < 768 ? 400 : chartHeight || 400
+	$: height = innerWidth < 768 ? 400 : chartHeight
 	let marginLeft = vertical ? 25 : 125
 	let marginRight = vertical ? 20 : 50
 	let marginTop = vertical ? 24 : 20
@@ -49,6 +49,7 @@
 	let position = rule
 	let xScale, yScale, stack
 
+	
 	$: {
 		if (vertical) {
 			if (stacked) {
@@ -398,8 +399,9 @@
 
 <style>
 	.bar-chart-svg {
-		width: 100%;
 		display: block;
+		width: 100%;
+		height: 100%;
 	}
 
 	.axis-label {

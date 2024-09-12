@@ -1,5 +1,5 @@
 <script>
-	import { DefaultTooltipElement, Button, ChevronSingleRightSmallIcon } from "$lib/index.js"
+	import { DefaultTooltipElement, Button, ChevronSingleRightSmallIcon, CardHeader } from "$lib/index.js"
 
 	export let callback = undefined,
 		classes = [],
@@ -19,35 +19,14 @@
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
 >
-	{#if icon || title || titleTooltip}
-		<div class="icon-title-wrapper">
-			{#if icon}
-				<div class="card-icon">
-					<svelte:component this={icon} />
-				</div>
-			{/if}
-			{#if title}
-				<div class="{chart ? 'body-xxl font-weight' : 'headline-s-m'} card-title">
-					{title}
-				</div>
-			{/if}
-			{#if titleTooltip}
-				<DefaultTooltipElement>
-					{titleTooltip?.content}
-				</DefaultTooltipElement>
-			{/if}
-			{#if titleButton}
-				<div class='additional-information-button'>
-					<Button 
-						classes={['btn-link', 'btn-m']}
-						rightIcon={ChevronSingleRightSmallIcon}
-						text={titleButtonText}
-					/>
-				</div>
-			{/if}
-		</div>
-	{/if}
-	<div class="{chart ? 'chart-content' : 'card-content'} body-s-s">
+	<CardHeader 
+		{icon}
+		{title}
+		{titleTooltip}
+		{titleButton}
+		{titleButtonText}
+	/>
+	<div class="card-content body-s-s">
 		<slot />
 	</div>
 </div>
@@ -55,11 +34,8 @@
 <style>
 	.card-wrapper {
 		gap: var(--spacing05);
-	}
-	.icon-title-wrapper {
 		display: flex;
-		gap: var(--spacing06);
-		align-items: center;
+		flex-direction: column;
 	}
 	.card-content {
 		display: flex;
@@ -67,30 +43,8 @@
 		height: 100%;
 		justify-content: space-between;
 	}
-	.card-title {
-		font-size: var(--body-xl-font-size);
-	}
-	.additional-information-button {
-		margin-left: auto;
-	}
-	.chart-content {
-		display: flex;
-		flex-direction: column;
-		gap: var(--spacing09);
-		height: calc(100% - 48px);
-	}
 	.hover-link:hover {
 		box-shadow: var(--neutral-shadow-m);
 		text-decoration: none;
-	}
-	.font-weight {
-		font-weight: 700;
-		letter-spacing: 0.5px;
-	}
-
-	@media screen and (min-width: 768px) {
-		.card-title {
-			font-size: var(--body-xxl-font-size);
-		}
 	}
 </style>

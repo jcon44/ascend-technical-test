@@ -5,7 +5,8 @@
 		button = null,
 		icon = null,
 		tag = false,
-		title
+		title,
+		styles = []
 </script>
 
 <div class="alert">

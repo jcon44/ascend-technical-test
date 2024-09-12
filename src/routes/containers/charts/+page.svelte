@@ -1,7 +1,10 @@
 <script>
 	import GeoChart from '$lib/components/containers/charts/GeoChart.svelte'
 	import SelectorInput from '$lib/components/inputs/selectors/SelectorInput.svelte'
-	import { Chart, Page, PageBody, NextButton, StatusTag } from '$lib/index.js'
+	import { Chart, Page, PageBody, NextButton, StatusTag, Card } from '$lib/index.js'
+
+	// export let data
+	// let polygons = data.zipCodes
 
 	let barData = [
 		{ x: 'Hospital 1', series: 'Source', value: 10 },
@@ -355,6 +358,12 @@
 						<SelectorInput 
 							id="bar-selector"
 							label="Random Selector"
+							defaultOptionName={'realData'}
+							defaultOptionValue={'realData'}
+							optionList={[
+								'secondGeoData'
+							]}
+							bind:selectedValue={geoData}
 						/>
 					</div>
 				</Chart>
@@ -380,23 +389,22 @@
 					domain="value"
 					range="x"
 				/>
-			</div>
+			</div> -->
 			<div class="stacked-v-bar">
 				<Chart
 					tooltipId="stacked-v"
 					type="bar"
 					vertical
-					stacked
+					stacked={true}
 					data={stackedBarData}
 					title="Stacked Vertical Bar Chart"
 					domain="x"
 					range="value"
-					,
 					labelKey="name"
 					seriesKey="name"
 				/>
 			</div>
-			<div class="stacked-h-bar">
+			<!-- <div class="stacked-h-bar">
 				<Chart
 					tooltipId="stacked-h"
 					type="bar"
@@ -411,7 +419,6 @@
 					seriesKey="name"
 				/>
 			</div> -->
-			<div>
 			<div class="simple-area-chart">
 				<Chart
 					tooltipId="area"
@@ -421,11 +428,37 @@
 					domain="date"
 					range="value"
 					rule='avg'
+					line
 					valueOneLabel="date"
 					valueTwoLabel="value"
 					monthOnly
 					seriesKey="series"
-				/>
+				>
+				<div slot="chart-header" style="margin-top: var(--spacing09);margin-bottom: var(--spacing09)">
+					<SelectorInput 
+						id="bar-selector"
+						label="Random Selector"
+						defaultOptionName={'realData'}
+						defaultOptionValue={'realData'}
+						optionList={[
+							'secondGeoData'
+						]}
+						bind:selectedValue={geoData}
+					/>
+				</div>
+				<div slot="chart-footer" style="margin-top: var(--spacing09)">
+					<SelectorInput 
+						id="bar-selector"
+						label="Random Selector"
+						defaultOptionName={'realData'}
+						defaultOptionValue={'realData'}
+						optionList={[
+							'secondGeoData'
+						]}
+						bind:selectedValue={geoData}
+					/>
+				</div>
+				</Chart>
 			</div>
 			<div class="stacked-area-chart">
 				<Chart
@@ -443,7 +476,7 @@
 					stacked
 				/>
 			</div>
-			<div class="pie-chart">
+			<!-- <div class="pie-chart">
 				<Chart
 					tooltipId="pie"
 					type="pie"
@@ -454,19 +487,49 @@
 					seriesKey="name"
 					sort="descending"
 				/>
-			</div>
+			</div> -->
 			<div class="ring-chart">
-				<Chart
-					tooltipId="ring"
-					type="pie"
-					data={pieData}
-					title="Ring Chart"
-					domain="name"
-					range="value"
-					seriesKey="name"
-					ring
-				/>
-			</div> 
+				<div style="width: 75%">
+					<Chart
+						tooltipId="simple-v"
+						type="bar"
+						vertical
+						sort="descending"
+						title="Simple Vertical Bar Chart"
+						titleTooltip={{ content: 'This is a tooltip that will probably wrap. Maybe even twice.' }}
+						data={barData}
+						domain="x"
+						range="value"
+						rule='avg'
+						seriesKey="series"
+					>
+						<!-- <div slot="chart-header" style="margin-top: var(--spacing09)">
+							<SelectorInput 
+								id="bar-selector"
+								label="Random Selector"
+								defaultOptionName={'realData'}
+								defaultOptionValue={'realData'}
+								optionList={[
+									'secondGeoData'
+								]}
+								bind:selectedValue={geoData}
+							/>
+						</div> -->
+					</Chart>
+				</div>
+				<div style="width: 25%">
+					<Chart
+						tooltipId="ring"
+						type="pie"
+						data={pieData}
+						title="Ring Chart"
+						domain="name"
+						range="value"
+						seriesKey="name"
+						ring
+					/>
+				</div>
+			</div>
 			<div class="geo-chart">
 				<Chart 
 					title="Map With Multiple Markers"
@@ -475,9 +538,9 @@
 					pillKey="count"
 					addressKey="full_address"
 					infoTitleKey="name"
-					data={geoData === 'secondGeoData' ? secondGeoData : realData}
 					markers={markers}
-				>
+					data={geoData === 'secondGeoData' ? secondGeoData : realData}
+					>
 					<div slot="chart-header" style="margin-top: var(--spacing09)">
 						<SelectorInput 
 							id="bar-selector"
@@ -534,6 +597,10 @@
 	.ring-chart {
 		display: flex;
 		gap: var(--spacing09);
+		height: 500px;
+	}
+	.table-chart {
+		height: fit-content;
 	}
 	.simple-h-bar {
 		height: 50vh;

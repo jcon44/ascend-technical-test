@@ -17,12 +17,12 @@
     let map,
         json = geoJSON,
         geojsonMarkerOptions = {
-            radius: 8,
+            radius: 4,
             fillColor: "#ff7800",
             color: "#000",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
+            weight: 0,
+            opacity: 0.4,
+            fillOpacity: 0.5
         }
 
     afterUpdate(async () => {
@@ -51,9 +51,11 @@
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-            // if (geoJSON !== null) {
-            //     L.geoJSON(json, geojsonMarkerOptions).addTo(map)
-            // }
+            if (geoJSON !== null) {
+                for (let zip of json) {
+                    L.geoJSON(zip, geojsonMarkerOptions).addTo(map)
+                }
+            }
 
             // Construct and render markers with their info popups attached
             for (let point of data) {

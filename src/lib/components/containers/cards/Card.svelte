@@ -2,8 +2,6 @@
 	import { LinkCard, StandardCard } from '$lib/index.js'
 
 	export let callback = undefined,
-		chart = false,
-		type,
 		classes = [],
 		icon = undefined,
 		styles = [],
@@ -36,8 +34,6 @@
 		{titleTooltip}
 		{titleButton}
 		{titleButtonText}
-		{chart}
-		{type}
 	>
 		<slot />
 	</StandardCard>

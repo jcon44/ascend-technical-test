@@ -81,6 +81,7 @@ export { default as ErrorAlert } from '$lib/components/containers/alerts/ErrorAl
 
 // Cards
 export { default as Card } from '$lib/components/containers/cards/Card.svelte'
+export { default as CardHeader } from '$lib/components/containers/cards/CardHeader.svelte'
 export { default as LinkCard } from '$lib/components/containers/cards/LinkCard.svelte'
 export { default as LoginCard } from '$lib/components/containers/cards/LoginCard.svelte'
 export { default as MetricCard } from '$lib/components/containers/cards/MetricCard.svelte'

@@ -39,12 +39,12 @@
 		monthYear,
 		line = false,
 		stacked = false,
-		chartWidth = null,
-		chartHeight = null
+		chartWidth = 700,
+		chartHeight = 400
 
 	let innerWidth
 	$: width = innerWidth < 768 ? 294 : chartWidth
-	$: height = innerWidth < 768 ? 350 : chartHeight || 400
+	$: height = innerWidth < 768 ? 350 : chartHeight
 	$: textOpacitySwitch = innerWidth < 678
 	let marginLeft = 50
 	let marginRight = 15
@@ -371,7 +371,9 @@
 
 <style>
 	.area-chart-svg {
+		display: block;
 		width: 100%;
+		height: 100%;
 	}
 
 	.axis-label {

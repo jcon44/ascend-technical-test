@@ -1,58 +1,48 @@
 <script>
-	import { AreaChart, BarChart, Card, ChartKeyContainer, PieChart, GeoChart, TableChart } from '$lib/index.js'
-	import { afterUpdate } from 'svelte'
+    import { AreaChart, BarChart, CardHeader, ChartKeyContainer, GeoChart, PieChart, TableChart } from "$lib/index.js";
+    import { afterUpdate } from "svelte";
 
-	export let data = [],
-		type = '',
-		icon = null,
-		title = 'Title',
-		titleTooltip = null,
-		domain = '',
-		range = '',
-		rule = null,
-		valueOneLabel,
-		valueTwoLabel = '',
-		fullDate = false,
+    export let type = '',
+        data,
+        domain,
+        range,
+        valueOneLabel,
+        valueTwoLabel = '',
+        stacked,
+        seriesKey = '',
+        sort = '',
+        tooltipId = '',
+        vertical = false,
+        horizontal = false,
+        icon = null, 
+        title = '',
+        rule = null,
+        line = false,
+        ring = false,
+        markers = {},
+        pillText = '',
+		pillKey = '',
+		addressKey = '',
+        infoTitleKey = '',
+		infoLink,
+		linkKey,
+        tableColumns = [],
+        fullDate = false,
 		yearOnly = false,
 		monthOnly = false,
 		monthDay = false,
 		monthYear = false,
-		tooltipId = '',
-		barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
-		areaColors = ['var(--secondary-trans-600)', 'var(--secondary-trans-500)', 'var(--secondary-trans-400)', 'var(--secondary-trans-300)', 'var(--secondary-trans-200)', 'var(--secondary-trans-100)'],
+        titleTooltip = null,
+        titleButton = false, 
+        titleButtonText = 'See More',
+        barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
+        areaColors = ['var(--secondary-trans-600)', 'var(--secondary-trans-500)', 'var(--secondary-trans-400)', 'var(--secondary-trans-300)', 'var(--secondary-trans-200)', 'var(--secondary-trans-100)'],
 		lineColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)'],
-		arcColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
-		vertical = false,
-		horizontal = false,
-		stacked = false,
-		sort = '',
-		seriesKey = '',
-		ring = false,
-		line = false,
-		markers = {},
-		pillText = '',
-		pillKey = '',
-		addressKey = '',
-		geoJSON = {},
-		infoTitleKey = '',
-		infoLink,
-		linkKey,
-		tableColumns = [],
-		titleButton = false,
-		titleButtonText = 'See More',
-		singleXSmallSlot = false,
-		singleSmallSlot = false,
-		singleMediumSlot = false,
-		stackedSmallSlot = false,
-		stackedMediumSlot = false,
-		stackedLargeSlot = false
+        arcColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)']
 
-	let chartWidth,
-		chartHeight,
-		chartHeader,
-		keyContainerKeys = []
+    let chartWidth, chartHeight, keyContainerKeys = []
 
-	if (data.length < 5 && type === 'table') titleButton = false
+    if (data.length < 5 && type === 'table') titleButton = false
 
 	afterUpdate(() => {
 		// pull out the unique series values for the chart key
@@ -75,161 +65,144 @@
 	})
 </script>
 
-<Card
-	{icon}
-	{title}
-	{titleTooltip}
-	{titleButton}
-	{titleButtonText}
-	chart
-	{type}
-	classes={['neutral-shadow-l']}
-	styles={['position: relative', `max-width: ${type === 'pie' ? '354px' : '100%'}`, `height: 100%`, 'border: 1px solid var(--neutral-100)', 'border-radius: 24px', 'padding: var(--spacing09)', 'font-weight: 700']}
->
-	<slot name="chart-header" />
-	<div
-		class="chart-wrapper {singleXSmallSlot ? 'single-xs-slots' : ''} {singleSmallSlot ? 'single-s-slots' : ''} {singleMediumSlot ? 'single-m-slots' : ''} {stacked ? 'stacked-xs-slots' : ''} {stackedSmallSlot ? 'stacked-s-slots' : ''} {stackedMediumSlot ? 'stacked-m-slots' : ''} {stackedLargeSlot ? 'stacked-l-slots' : ''}"
-		bind:clientWidth={chartWidth}
-		bind:clientHeight={chartHeight}
-	>
-		{#if type === 'bar'}
-			<BarChart
-				{tooltipId}
-				{data}
-				{domain}
-				{range}
-				{rule}
-				{valueOneLabel}
-				{valueTwoLabel}
-				{barColors}
-				{vertical}
-				{horizontal}
-				{stacked}
-				{sort}
-				{seriesKey}
-				{chartHeight}
-				{chartWidth}
-			/>
-			<!-- <LayerBarChart 
-				{data}
-				{barColors}
-				{seriesKey}
-			/> -->
-			{#if stacked}
-				<ChartKeyContainer
-					data={keyContainerKeys}
-					{seriesKey}
-					colors={barColors}
-					column={chartWidth < 500 ? true : false}
-				/>
-			{/if}
-		{:else if type === 'area'}
-			<AreaChart
-				{tooltipId}
-				{data}
-				{domain}
-				{range}
-				{rule}
-				{valueOneLabel}
-				{valueTwoLabel}
-				{seriesKey}
-				{areaColors}
-				{lineColors}
-				{stacked}
-				{line}
-				{fullDate}
-				{yearOnly}
-				{monthOnly}
-				{monthDay}
-				{monthYear}
-				{chartWidth}
-				{chartHeight}
-			/>
-			<!-- <LayerAreaChart 
-				{data}
-			/> -->
-			{#if stacked}
-				<ChartKeyContainer
-					data={keyContainerKeys}
-					{seriesKey}
-					colors={lineColors}
-					column={chartWidth < 500 ? true : false}
-				/>
-			{/if}
-		{:else if type === 'pie'}
-			<PieChart
-				{tooltipId}
-				{data}
-				{domain}
-				{range}
-				{valueOneLabel}
-				{valueTwoLabel}
-				{sort}
-				{arcColors}
-				{ring}
-				height={280}
-			/>
-			<ChartKeyContainer
-				{data}
-				{seriesKey}
-				colors={arcColors}
-				column={chartWidth < 500 ? true : false}
-			/>
-		{:else if type === 'geo'}
-			<GeoChart 
-				{data}
-				{markers}
-				{pillText}
-				{pillKey}
-				{addressKey}
-				{geoJSON}
-				{infoTitleKey}
-				{infoLink}
-				{linkKey}
-			/>
-		{:else if type === 'table'}
-			<TableChart 
-				columns={tableColumns}
-				bind:list={data}
-			/>
-		{:else if type === '' || data.length === 0}
-			<p>This chart has no data or parameters</p>
-		{/if}
-	</div>
-	<slot name="chart-footer" />
-</Card>
+<div class="chart neutral-shadow-l">
+    <CardHeader 
+        {icon}
+        {title}
+        {titleTooltip}
+        {titleButton}
+        {titleButtonText}
+    />
+    <div class="chart-content">
+        {#if $$slots["chart-header"]}
+            <div class="chart-header">
+                <slot name="chart-header" />
+            </div>
+        {/if}
+        <div class="visualization-container">
+            <div 
+                class="chart-sizer {type === 'table' ? 'table-position' : ''}" 
+                bind:clientWidth={chartWidth}
+                bind:clientHeight={chartHeight}
+            >
+                {#if type === 'bar'}
+                    <BarChart
+                        {data}
+                        {domain}
+                        {range}
+                        {seriesKey}
+                        {valueOneLabel}
+                        {valueTwoLabel}
+                        {sort}
+                        {stacked}
+                        {tooltipId}
+                        {vertical}
+                        {horizontal}
+                        {rule}
+                        {barColors}
+                        {chartWidth}
+                        {chartHeight}
+                    />
+                {:else if type === 'area'}
+                    <AreaChart 
+                        {data}
+                        {domain}
+                        {range}
+                        {seriesKey}
+                        {valueOneLabel}
+                        {valueTwoLabel}
+                        {rule}
+                        {tooltipId}
+                        {stacked}
+                        {line}
+                        {fullDate}
+                        {yearOnly}
+                        {monthOnly}
+                        {monthDay}
+                        {monthYear}
+                        {areaColors}
+                        {lineColors}
+                        {chartWidth}
+                        {chartHeight}
+                    />
+                {:else if type === 'pie'}
+                    <PieChart
+                        {data}
+                        {domain}
+                        {range}
+                        {tooltipId}
+                        {valueOneLabel}
+                        {valueTwoLabel}
+                        {sort}
+                        {arcColors}
+                        {ring}
+                        {chartHeight}
+                    />
+                {:else if type === 'table'}
+                    <TableChart
+                        columns={tableColumns}
+                        bind:list={data}
+                    />
+                {:else if type === 'geo'}
+                    <GeoChart
+                        {data}
+                        {markers}
+                        {pillKey}
+                        {pillText}
+                        {addressKey}
+                        {infoTitleKey}
+                        {infoLink}
+                        {linkKey}
+                    />
+                {:else}
+                    Please specify a chart type.
+                {/if}
+            </div>
+        </div>
+        {#if stacked || type === 'pie'}
+            <ChartKeyContainer
+                data={type === 'area' || type === 'bar' ? keyContainerKeys : data}
+                {seriesKey}
+                colors={arcColors}
+                column={chartWidth < 500 ? true : false}
+            />
+        {/if}
+        {#if $$slots["chart-footer"]}
+            <div class="chart-footer">
+                <slot name="chart-footer" />
+            </div>
+        {/if}
+    </div>
+</div>
 
 <style>
-	.chart-wrapper {
-		margin-top: var(--spacing09);
-		height: calc(100% - var(--spacing09));
-	}
+    .chart {
+        height: 100%;
+        border: 1px solid var(--neutral-100);
+        border-radius: 24px;
+        padding: var(--spacing09);
+        position: relative;
 
-	.single-xs-slots {
-		height: calc(100% - 123px);
-	}
-
-	.single-s-slots {
-		height: calc(100% - 185px);
-	}
-
-	.single-m-slots {
-		height: calc(100% - 260px);
-	}
-
-	.stacked-xs-slots {
-		height: calc(100% - 45px);
-	}
-
-	.stacked-s-slots {
-		height: calc(100% - 178px);
-	}
-
-	.stacked-m-slots {
-		height: calc(100% - 230px);
-	}
-
-	.stacked-l-slots {
-		height: calc(100% - 310px);
-	}
+        display: flex;
+        flex-direction: column;
+    }
+    .chart-content {
+        height: 100%;    
+        display: flex;
+        flex-direction: column;
+    }
+    .visualization-container {
+        position: relative;
+        flex-grow: 1;
+    }
+    .chart-sizer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .table-position {
+        position: relative;
+    }
 </style>
