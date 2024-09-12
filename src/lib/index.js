@@ -303,6 +303,7 @@ export { default as EmailInput } from '$lib/components/inputs/email/EmailInput.s
 
 // Number
 export { default as CharacterCounter } from '$lib/components/inputs/number/CharacterCounter.svelte'
+export { default as NumberInput } from '$lib/components/inputs/number/NumberInput.svelte'
 export { default as ZipCodeInput } from '$lib/components/inputs/number/ZipCodeInput.svelte'
 
 // Pagination

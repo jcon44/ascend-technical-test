@@ -21,12 +21,14 @@
 		{id}
 		{label}
 	/>
+	<!-- svelte-ignore a11y-autofocus -->
 	<input
 		bind:value={zip}
 		class="zip-input"
 		maxlength="5"
 		minlength="5"
 		type="text"
+		{autofocus}
 		{id}
 		{placeholder}
 		{required}
