@@ -30,6 +30,8 @@
 		sort = null,
 		domain,
 		range,
+		domainLabel = '',
+		rangeLabel = '',
 		valueOneLabel,
 		valueTwoLabel,
 		seriesKey = null,
@@ -39,18 +41,34 @@
 		chartHeight = 400
 
 	let innerWidth
-	$: width = innerWidth < 768 ? 294 : chartWidth
-	$: height = innerWidth < 768 ? 400 : chartHeight
+	$: width = chartWidth 
+	$: height = chartHeight
 	let marginLeft = vertical ? 25 : 125
 	let marginRight = vertical ? 20 : 50
 	let marginTop = vertical ? 24 : 20
-	let marginBottom = vertical ? 24 : 20
+	let marginBottom = vertical ? domainLabel ? 50 : 24 : 20
 	let avgArray = []
 	let position = rule
 	let xScale, yScale, stack
 
 	
+
+	
 	$: {
+		// Re-assign margins based on small screens
+		if (innerWidth < 768) {
+			if (vertical) {
+				marginLeft = rangeLabel ? 35 : 20
+			} else if (horizontal) {
+
+			}
+
+		} else if (innerWidth >= 768) {
+			if (vertical) {
+				marginLeft = rangeLabel ? 40 : 25
+			}
+		}
+
 		if (vertical) {
 			if (stacked) {
 				stack = d3
@@ -251,6 +269,18 @@
 				</text>
 			{/each}
 		{:else if vertical}
+			{#if rangeLabel}
+				<text
+					text-anchor="middle"
+					x={marginLeft}
+					y={height / 2 - 40}
+					transform="rotate(-90, {marginLeft - 15}, {height / 2})"
+					class="axis-label"
+					fill="var(--neutral-400)"
+				>
+					{rangeLabel}
+				</text>
+			{/if}
 			{#each yScale.ticks() as tick}
 				<line
 					stroke="var(--neutral-050)"
@@ -278,9 +308,20 @@
 		transform="translate(0,{height - marginBottom})"
 	>
 		{#if vertical}
+			{#if domainLabel}
+				<text
+					text-anchor="middle"
+					x={width / 2}
+					y={45}
+					class="axis-label"
+					fill="var(--neutral-400)"
+				>
+					{domainLabel}
+				</text>
+			{/if}
 			<line
 				stroke="var(--neutral-050)"
-				x1={marginLeft + 20}
+				x1={rangeLabel ? marginLeft + 40 : marginLeft + 20}
 				x2={width}
 			/>
 			{#if innerWidth >= 500}

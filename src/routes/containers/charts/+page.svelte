@@ -351,6 +351,8 @@
 					data={barData}
 					domain="x"
 					range="value"
+					domainLabel="Blue"
+					rangeLabel="Big Measure"
 					rule='avg'
 					seriesKey="series"
 				>

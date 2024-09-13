@@ -6,6 +6,8 @@
         data,
         domain,
         range,
+        domainLabel,
+        rangeLabel,
         valueOneLabel,
         valueTwoLabel = '',
         stacked,
@@ -90,6 +92,8 @@
                         {data}
                         {domain}
                         {range}
+                        {domainLabel}
+                        {rangeLabel}
                         {seriesKey}
                         {valueOneLabel}
                         {valueTwoLabel}
@@ -108,6 +112,8 @@
                         {data}
                         {domain}
                         {range}
+                        {domainLabel}
+                        {rangeLabel}
                         {seriesKey}
                         {valueOneLabel}
                         {valueTwoLabel}

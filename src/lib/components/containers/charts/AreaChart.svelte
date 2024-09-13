@@ -28,6 +28,8 @@
 		lineColors = [],
 		domain,
 		range,
+		domainLabel = '',
+		rangeLabel = '',
 		rule = null,
 		valueOneLabel,
 		valueTwoLabel,
@@ -43,13 +45,13 @@
 		chartHeight = 400
 
 	let innerWidth
-	$: width = innerWidth < 768 ? 294 : chartWidth
-	$: height = innerWidth < 768 ? 350 : chartHeight
+	$: width = chartWidth
+	$: height = chartHeight
 	$: textOpacitySwitch = innerWidth < 678
 	let marginLeft = 50
 	let marginRight = 15
 	let marginTop = 24
-	let marginBottom = 24
+	let marginBottom = domainLabel ? 50 : 24
 	let avgArray = []
 	let position = rule
 
@@ -57,8 +59,8 @@
 		yScale,
 		stroke,
 		stack,
-		area,
-		lines = []
+		area
+
 	let formatFull = d3.utcFormat('%b %d, %Y')
 	let formatYear = d3.utcFormat('%Y')
 	let formatMonth = d3.utcFormat('%b')
@@ -66,6 +68,12 @@
 	let formatMonthYear = d3.utcFormat('%b %Y')
 
 	$: {
+		if (innerWidth < 768) {
+			marginLeft = rangeLabel ? 70 : 35
+		} else if (innerWidth >= 768) {
+			marginLeft = rangeLabel ? 80 : 50
+		}
+
 		if (stacked) {
 			for (let obj of data) {
 				obj[domain] = new Date(obj[domain])
@@ -199,6 +207,18 @@
 	viewBox="0 0 {width} {height}"
 >
 	<!-- Y-Axis lines -->
+	{#if rangeLabel}
+		<text
+			text-anchor="middle"
+			x={marginLeft}
+			y={height / 2 - 40}
+			transform="rotate(-90, {marginLeft - 15}, {height / 2})"
+			fill="var(--neutral-400)"
+			class="axis-label"
+		>
+			{rangeLabel}
+		</text>
+	{/if}
 	{#each yScale.ticks() as tick}
 		<line
 			stroke="var(--neutral-050)"
@@ -278,8 +298,20 @@
 
 	<!-- Rule -->
 
+	<!-- TODO: ADD RANGE AND DOMAIN LABELS TO AREA CHART -->
 	<!-- Base Axis -->
 	<g transform="translate(0,{height - marginBottom})">
+		{#if domainLabel}
+			<text
+				text-anchor="middle"
+				x={width / 2}
+				y={45}
+				class="axis-label"
+				fill="var(--neutral-400)"
+			>
+				{domainLabel}
+			</text>
+		{/if}
 		{#if stacked}
 			{#each stack as series}
 				{#each series as item, i}
