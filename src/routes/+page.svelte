@@ -5,6 +5,7 @@
 <MainContent>
 	<h1>Ascend UI Component Library</h1>
 	<p><a href="/containers/charts">Charts</a></p>
+	<p><a href="/containers/labels">Labels</a></p>
 	<p><a href="/containers/navbars">NavBars</a></p>
 	<p><a href="/containers/progress">Progress</a></p>
 	<p><a href="/containers/tabs">Tabs</a></p>
