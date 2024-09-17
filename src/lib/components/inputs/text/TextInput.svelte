@@ -22,22 +22,24 @@
 </script>
 
 <div class="text-control">
-	<div class="text-title">
-		{#if label}
-			<Label
-				{id}
-				{label}
-			/>
-		{/if}
-		{#if tag !== null}
-			<Tag
-				content={tag?.content || ''}
-				icon={tag?.icon || null}
-				side={tag?.side || ''}
-				type={tag?.type || ''}
-			/>
-		{/if}
-	</div>
+	{#if label || tag}
+		<div class="text-title">
+			{#if label}
+				<Label
+					{id}
+					{label}
+				/>
+			{/if}
+			{#if tag !== null}
+				<Tag
+					content={tag?.content || ''}
+					icon={tag?.icon || null}
+					side={tag?.side || ''}
+					type={tag?.type || ''}
+				/>
+			{/if}
+		</div>
+	{/if}
 
 	{#if description}
 		<div class="body-xs">{description}</div>
