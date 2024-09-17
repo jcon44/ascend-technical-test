@@ -283,6 +283,7 @@ export { default as ContinueButton } from '$lib/components/inputs/buttons/Contin
 export { default as CreateAccountButton } from '$lib/components/inputs/buttons/CreateAccountButton.svelte'
 export { default as EditButton } from '$lib/components/inputs/buttons/EditButton.svelte'
 export { default as ExportCSVButton } from '$lib/components/inputs/buttons/ExportCSVButton.svelte'
+export { default as ExportDataButton } from '$lib/components/inputs/buttons/ExportDataButton.svelte'
 export { default as FilterAndSortButton } from '$lib/components/inputs/buttons/FilterAndSortButton.svelte'
 export { default as HomeButton } from '$lib/components/inputs/buttons/HomeButton.svelte'
 export { default as LinkButton } from '$lib/components/inputs/buttons/LinkButton.svelte'
