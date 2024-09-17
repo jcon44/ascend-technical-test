@@ -9,7 +9,7 @@
 		styles = []
 </script>
 
-<div class="alert">
+<div class="alert" style={styles.join(';')}>
 	<div class="alert-content">
 		<div class="alert-icon">
 			{#if icon}
