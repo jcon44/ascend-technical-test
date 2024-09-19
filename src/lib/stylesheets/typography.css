@@ -104,15 +104,15 @@
 	font-size: var(--body-xl-font-size);
 }
 
-*[class*='body-l'], *[class*='body-l'] {
+*[class*='body-l'], *[class*='body-bold-l'] {
 	font-size: var(--body-l-font-size);
 }
 
-*[class*='body-m'], *[class*='body-m'] {
+*[class*='body-m'], *[class*='body-bold-m'] {
 	font-size: var(--body-m-font-size);
 }
 
-*[class*='body-s'], *[class*='body-s'] {
+*[class*='body-s'], *[class*='body-bold-s'] {
 	font-size: var(--body-s-font-size);
 }
 

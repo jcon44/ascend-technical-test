@@ -10,6 +10,7 @@
 		tabindex = '',
 		tag = null,
 		validValue = true,
+		validationText = '',
 		validationCallback
 </script>
 
