@@ -90,6 +90,10 @@ button {
 	display: inline;
 }
 
+.padding-left {
+	padding-left: var(--spacing13);
+}
+
 /* Width */
 .btn-fit {
 	width: fit-content;
