@@ -55,6 +55,7 @@ export { default as MentalHealthSmallIcon } from '$lib/assets/icons/s/MentalHeal
 export { default as MessageDotsSquareSmallIcon } from '$lib/assets/icons/s/MessageDotsSquareSmallIcon.svelte'
 export { default as NeutralAlertCircleSmallIcon } from '$lib/assets/icons/s/NeutralAlertCircleSmallIcon.svelte'
 export { default as NotificationTextSmallIcon } from '$lib/assets/icons/s/NotificationTextSmallIcon.svelte'
+export { default as PhoneSmallIcon } from '$lib/assets/icons/s/PhoneSmallIcon.svelte'
 export { default as PlusSmallIcon } from '$lib/assets/icons/s/PlusSmallIcon.svelte'
 export { default as ProfileSmallIcon } from '$lib/assets/icons/s/ProfileSmallIcon.svelte'
 export { default as ProfilePlusSmallIcon } from '$lib/assets/icons/s/ProfilePlusSmallIcon.svelte'
