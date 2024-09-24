@@ -3,8 +3,7 @@
 	import SelectorInput from '$lib/components/inputs/selectors/SelectorInput.svelte'
 	import { Chart, Page, PageBody, NextButton, StatusTag, Card } from '$lib/index.js'
 
-	// export let data
-	// let polygons = data.zipCodes
+	export let data
 
 	let barData = [
 		{ x: 'Hospital 1', series: 'Source', value: 10 },
@@ -536,26 +535,27 @@
 				<Chart 
 					title="Map With Multiple Markers"
 					type="geo"
+					mapId="first-map"
+					pillText="Total"
+					pillKey="count"
+					addressKey="full_address"
+					infoTitleKey="zip"
+					markers={markers}
+					geoJSON={data.zipCodes}
+				/>
+			</div>
+			<div class="geo-chart">
+				<Chart 
+					title="Map With Multiple Markers"
+					type="geo"
+					mapId="second-map"
 					pillText="Total Number of Claims"
 					pillKey="count"
 					addressKey="full_address"
 					infoTitleKey="name"
 					markers={markers}
-					data={geoData === 'secondGeoData' ? secondGeoData : realData}
-					>
-					<div slot="chart-header" style="margin-top: var(--spacing09)">
-						<SelectorInput 
-							id="bar-selector"
-							label="Random Selector"
-							defaultOptionName={'realData'}
-							defaultOptionValue={'realData'}
-							optionList={[
-								'secondGeoData'
-							]}
-							bind:selectedValue={geoData}
-						/>
-					</div>
-				</Chart>
+					data={realData}
+				/>
 			</div>
 		</div>
 	</PageBody>

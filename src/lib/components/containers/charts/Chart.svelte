@@ -3,7 +3,7 @@
     import { afterUpdate } from "svelte";
 
     export let type = '',
-        data,
+        data = [],
         domain,
         range,
         domainLabel,
@@ -22,6 +22,8 @@
         line = false,
         ring = false,
         markers = {},
+        geoJSON,
+        mapId,
         pillText = '',
 		pillKey = '',
 		addressKey = '',
@@ -44,7 +46,7 @@
 
     let chartWidth, chartHeight, keyContainerKeys = []
 
-    if (data.length < 5 && type === 'table') titleButton = false
+    if (data?.length < 5 && type === 'table') titleButton = false
 
 	afterUpdate(() => {
 		// pull out the unique series values for the chart key
@@ -152,6 +154,8 @@
                 {:else if type === 'geo'}
                     <GeoChart
                         {data}
+                        {geoJSON}
+                        {mapId}
                         {markers}
                         {pillKey}
                         {pillText}
