@@ -36,6 +36,7 @@ export { default as CloseSmallWhiteIcon } from '$lib/assets/icons/s/CloseSmallWh
 export { default as CreditCardSearchSmallIcon } from '$lib/assets/icons/s/CreditCardSearchSmallIcon.svelte'
 export { default as Edit01SmallIcon } from '$lib/assets/icons/s/Edit01SmallIcon.svelte'
 export { default as Edit04SmallIcon } from '$lib/assets/icons/s/Edit04SmallIcon.svelte'
+export { default as Edit05SmallIcon } from '$lib/assets/icons/s/Edit05SmallIcon.svelte'
 export { default as EyeSmallIcon } from '$lib/assets/icons/s/EyeSmallIcon.svelte'
 export { default as FileCheck02SmallIcon } from '$lib/assets/icons/s/FileCheck02SmallIcon.svelte'
 export { default as FilterLinesSmallIcon } from '$lib/assets/icons/s/FilterLinesSmallIcon.svelte'
