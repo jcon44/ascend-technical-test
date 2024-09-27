@@ -35,7 +35,6 @@
             if (geoJSON !== null) {
                 if (Array.isArray(geoJSON)) {
                     for (let zip of geoJSON) {
-                        console.log(zip)
                         const geoPoly = L.geoJSON(zip, zip.options).addTo(map)
                         geoJsonBounds.push(geoPoly.getBounds())
 

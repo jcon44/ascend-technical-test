@@ -30,16 +30,6 @@ export async function load({}) {
                 "content-type": "application/json"
             }
         })
-
-        // const zips = await fetch('https://data-warehouse.internal.prod-hipaa.ascend-innovations.com/api/dashboard/encounters/count/zip', {
-        //     method: 'POST',
-        //     headers: {
-        //         "content-type": "application/json",
-        //         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMzMDUwODQzLCJpYXQiOjE3MjUyNzQ4NDMsImp0aSI6IjZkNDI1YjFjNmJmNDQ3ODhiNTIzN2EwZDE1NjdhNmYwIiwidXNlcl9pZCI6MX0.fDvbpFjMm1I6gdCa7uTX2yMcy6LmQKx7EvaPjkytrEk'
-        //     }
-        // })
-
-        // const chartZips = await zips.json()
     
         const zipCodes = await response.json()
 
