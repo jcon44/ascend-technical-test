@@ -44,7 +44,7 @@
 <div class="multi-selector">
     <div 
         {id} 
-        class="multi-selector-control" 
+        class="multi-selector-control { open ? 'open-selector-control' : ''}" 
         style={styles.join(';')} 
         aria="select"
     >
@@ -63,15 +63,16 @@
             {/if}
         </div>
         {#if open}
-            <div class="hr"></div>
-            <div class="options-list">
-                {#each optionList as optionItem}
-                    <CheckboxSelectOption
-                        id={optionItem.value}
-                        bind:checked={optionItem.selected}
-                        value={optionItem.value}
-                    />
-                {/each}
+            <div class="list-content">
+                <div class="options-list">
+                    {#each optionList as optionItem}
+                        <CheckboxSelectOption
+                            id={optionItem.value}
+                            bind:checked={optionItem.selected}
+                            value={optionItem.value}
+                        />
+                    {/each}
+                </div>
             </div>
         {/if}
     </div>
@@ -81,6 +82,9 @@
 </div>
 
 <style>
+    .multi-selector {
+        position: relative;
+    }
     .multi-selector-control {
         min-width: 260px;
 		display: flex;
@@ -91,6 +95,9 @@
 		border: var(--spacing00) solid var(--neutral-100);
         overflow: hidden;
 	}
+    .open-selector-control {
+        border-radius: var(--spacing05) var(--spacing05) 0 0;
+    }
     .label-wrapper {
         display: flex;
         justify-content: space-between;
@@ -99,10 +106,17 @@
     .label-wrapper:hover {
         background: var(--neutral-100);
     }
-    .hr {
-        height: 1px;
+    .list-content {
         width: 100%;
-        background-color: var(--neutral-100);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border-radius: 0 0 var(--spacing05) var(--spacing05);
+        border-right: var(--spacing00) solid var(--neutral-100);
+        border-bottom: var(--spacing00) solid var(--neutral-100);
+        border-left: var(--spacing00) solid var(--neutral-100);
+        z-index: 1;
     }
     .options-list {
         padding: var(--spacing06);
