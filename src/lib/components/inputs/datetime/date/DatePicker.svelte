@@ -5,6 +5,7 @@
 		id = '',
 		label = '',
 		styles = [],
+		fill,
 		required = false,
 		validValue,
 		validationText
@@ -14,7 +15,7 @@
 	class="date-picker-selector"
 	style={styles.join(';')}
 >
-	<div class="date-picker">
+	<div class="date-picker { fill ? 'full-width' : '' }">
 		<Label
 			{id}
 			{label}
@@ -23,6 +24,7 @@
 			bind:date
 			{id}
 			{required}
+			styles={['width: 100%']}
 		/>
 	</div>
 	{#if validValue === false}
@@ -35,5 +37,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing03);
+	}
+	.full-width {
+		width: 100%;
 	}
 </style>

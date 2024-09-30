@@ -3,8 +3,8 @@ import { Page, PageBody, DateRange, MonthPicker, MonthRange } from '$lib/index.j
 </script>
 
 <Page>
-	<PageBody>
-		<DateRange styles={[`width: 25%`]} />
+	<PageBody size="full">
+		<DateRange styles={[`width: 100%`]} fill />
 		<MonthPicker label="Month Picker" id='month-picker'/>
 		<MonthRange />
 	</PageBody>

@@ -2,8 +2,11 @@
 	import { DatePicker, InputError } from '$lib/index.js'
 
 	export let start,
+		startLabel = 'Start Date',
 		end,
+		endLabel = 'End Date',
 		styles = [],
+		fill = false,
 		required = false,
 		validValue,
 		validationText
@@ -17,14 +20,18 @@
 		<DatePicker
 			bind:date={start}
 			id="start-date"
-			label="Start Date"
+			label={startLabel}
+			styles={['width: 100%']}
 			{required}
+			{fill}
 		/>
 		<DatePicker
 			bind:date={end}
 			id="end-date"
-			label="End Date"
+			label={endLabel}
+			styles={['width: 100%']}
 			{required}
+			{fill}
 		/>
 	</div>
 	{#if validValue === false}
@@ -35,7 +42,7 @@
 <style>
 	.date-range {
 		display: flex;
-		justify-content: space-between;
+		/* justify-content: space-between; */
 		gap: var(--spacing09);
 	}
 </style>
