@@ -22,6 +22,10 @@
 					{
 						text: 'Tooltips',
 						url: '/containers/tooltips'
+					},
+					{
+						text: 'Accordions',
+						url: '/containers/accordions'
 					}
 				]
 			},

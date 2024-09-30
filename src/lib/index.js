@@ -100,6 +100,9 @@ export { default as LoremIpsum } from '$lib/assets/filler/LoremIpsum.svelte'
 
 // --- CONTAINERS --- //
 
+// Accordions
+export { default as Accordion } from '$lib/components/containers/accordions/Accordion.svelte'
+
 // Action Bars
 export { default as ActionBar } from '$lib/components/containers/actionbars/ActionBar.svelte'
 
