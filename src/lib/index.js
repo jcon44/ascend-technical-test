@@ -22,6 +22,7 @@ export { default as AlertCircleSmallIcon } from '$lib/assets/icons/s/AlertCircle
 export { default as ArrowLeftSmallIcon } from '$lib/assets/icons/s/ArrowLeftSmallIcon.svelte'
 export { default as ArrowRightSmallIcon } from '$lib/assets/icons/s/ArrowRightSmallIcon.svelte'
 export { default as Building08SmallIcon } from '$lib/assets/icons/s/Building08SmallIcon.svelte'
+export { default as CalendarDateSmallIcon } from '$lib/assets/icons/s/CalendarDateSmallIcon.svelte'
 export { default as CalendarSmallIcon } from '$lib/assets/icons/s/CalendarSmallIcon.svelte'
 export { default as CardGridIcon } from '$lib/assets/icons/s/CardGridIcon.svelte'
 export { default as CheckDone01SmallIcon } from '$lib/assets/icons/s/CheckDone01SmallIcon.svelte'
