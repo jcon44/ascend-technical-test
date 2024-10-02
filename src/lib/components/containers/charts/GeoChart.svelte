@@ -4,7 +4,6 @@
 	import { afterUpdate } from 'svelte'
 
     export let data,
-        markers,
         pillText,
         pillKey,
         addressKey,
@@ -86,7 +85,7 @@
             if (data.type !== 'Feature') {
                 for (let point of data) {
                     const icon = L.icon({
-                        iconUrl: markers.lhn
+                        iconUrl: point.marker
                     })
                     
                     const popup = L.popup({
