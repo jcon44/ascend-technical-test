@@ -1,4 +1,4 @@
-export default function formatTimeStamp(dateTimeString) {
+export default function formatTimeStamp(dateTimeString, reverse = false) {
 	const dateTimeObject = new Date(dateTimeString)
 
 	if (isNaN(dateTimeObject)) {
@@ -16,7 +16,7 @@ export default function formatTimeStamp(dateTimeString) {
 	const ampm = thisHour < 12 ? 'AM' : 'PM'
 	const timeString = `${thisHour > 12 ? thisHour - 12 : thisHour}:${thisMinute}${ampm}`
 
-	const timeStampString = `${timeString} ${dateString}`
+	const timeStampString = reverse ? `${dateString} ${timeString}` : `${timeString} ${dateString}`
 
 	return timeStampString
 }

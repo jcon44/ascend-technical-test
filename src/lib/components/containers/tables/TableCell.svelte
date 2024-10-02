@@ -1,5 +1,5 @@
 <script>
-	import { ArrayCell, BooleanCell, ButtonCell, CheckboxCell, DateCell, DefaultCell, EditableCell, LogoLinkCell, RadioCell, TagArrayCell, TagCell } from '$lib/index'
+	import { ArrayCell, BooleanCell, ButtonCell, CheckboxCell, DateCell, DateTimeCell, DefaultCell, EditableCell, LogoLinkCell, RadioCell, TagArrayCell, TagCell } from '$lib/index'
 
 	export let column, row
 </script>
@@ -36,6 +36,11 @@
 		/>
 	{:else if column?.type === 'date'}
 		<DateCell
+			bind:column
+			bind:row
+		/>
+	{:else if column?.type === 'datetime'}
+		<DateTimeCell 
 			bind:column
 			bind:row
 		/>

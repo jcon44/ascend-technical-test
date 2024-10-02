@@ -202,6 +202,7 @@ export { default as BooleanCell } from '$lib/components/containers/tables/cells/
 export { default as ButtonCell } from '$lib/components/containers/tables/cells/ButtonCell.svelte'
 export { default as CheckboxCell } from '$lib/components/containers/tables/cells/CheckboxCell.svelte'
 export { default as DateCell } from '$lib/components/containers/tables/cells/DateCell.svelte'
+export { default as DateTimeCell } from '$lib/components/containers/tables/cells/DateTimeCell.svelte'
 export { default as DefaultCell } from '$lib/components/containers/tables/cells/DefaultCell.svelte'
 export { default as EditableCell } from '$lib/components/containers/tables/cells/EditableCell.svelte'
 export { default as LogoLinkCell } from '$lib/components/containers/tables/cells/LogoLinkCell.svelte'
