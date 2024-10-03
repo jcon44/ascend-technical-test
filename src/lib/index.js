@@ -244,6 +244,7 @@ export { default as capitalize } from '$lib/functions/formatting/capitalize.js'
 export { default as capitalizeAll } from '$lib/functions/formatting/capitalizeAll.js'
 export { default as convertDBDateToJSDate } from '$lib/functions/formatting/convertDBDateToJSDate.js'
 export { default as formatDate } from '$lib/functions/formatting/formatDate.js'
+export { default as formatPhoneNumberForDB } from '$lib/functions/formatting/formatPhoneNumberForDB.js'
 export { default as formatTimeStamp } from '$lib/functions/formatting/formatTimeStamp.js'
 export { default as parseURL } from '$lib/functions/formatting/parseURL.js'
 
