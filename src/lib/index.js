@@ -49,6 +49,7 @@ export { default as Translate01SmallIcon } from '$lib/assets/icons/s/Translate01
 export { default as Link03SmallIcon } from '$lib/assets/icons/s/Link03SmallIcon.svelte'
 export { default as MapPin04SmallIcon } from '$lib/assets/icons/s/MapPin04SmallIcon.svelte'
 export { default as MailIcon } from '$lib/assets/icons/s/MailIcon.svelte'
+export { default as Mail02SmallIcon } from '$lib/assets/icons/s/Mail02SmallIcon.svelte'
 export { default as MapPinIcon } from '$lib/assets/icons/s/MapPinIcon.svelte'
 export { default as MedicalCircleSmallIcon } from '$lib/assets/icons/s/MedicalCircleSmallIcon.svelte'
 export { default as MedicalCrossSmallIcon } from '$lib/assets/icons/s/MedicalCrossSmallIcon.svelte'
