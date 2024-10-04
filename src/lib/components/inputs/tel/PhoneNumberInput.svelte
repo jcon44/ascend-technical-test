@@ -14,12 +14,6 @@
 		validationText = '',
 		validationCallback,
 		validValue = true
-
-	function digitsOnly() {
-		if (phoneNumber.length) {
-			phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
-		}
-	}
 </script>
 
 <div class="phone-number-control">
@@ -41,11 +35,9 @@
 	</div>
 	<input
 		bind:value={phoneNumber}
-		on:keyup={digitsOnly}
 		on:blur={validationCallback}
 		class="phone-number-input {validValue === false ? 'error' : ''}"
 		style={styles.join(';')}
-		pattern={`^[0-9]{10}$`}
 		type="tel"
 		{id}
 		{maxlength}
