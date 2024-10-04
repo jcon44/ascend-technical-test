@@ -4,7 +4,7 @@
 	export let id = '',
 		label = '',
 		tag = null,
-		maxlength = '14',
+		maxlength = '10',
 		minlength = '10',
 		phoneNumber = '',
 		placeholder = '',
@@ -14,12 +14,6 @@
 		validationText = '',
 		validationCallback,
 		validValue = true
-
-	function digitsOnly() {
-		if (phoneNumber.length) {
-			phoneNumber = phoneNumber.replaceAll(/[^\d()\-\s]/g, '')
-		}
-	}
 </script>
 
 <div class="phone-number-control">
@@ -41,11 +35,9 @@
 	</div>
 	<input
 		bind:value={phoneNumber}
-		on:keyup={digitsOnly}
 		on:blur={validationCallback}
 		class="phone-number-input {validValue === false ? 'error' : ''}"
 		style={styles.join(';')}
-		pattern="[0-9()\s\-]+"
 		type="tel"
 		{id}
 		{maxlength}
