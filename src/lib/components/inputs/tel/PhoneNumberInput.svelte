@@ -17,7 +17,7 @@
 
 	function digitsOnly() {
 		if (phoneNumber.length) {
-			phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
+			phoneNumber = phoneNumber.replaceAll(/[^\d()\-\s]/g, '')
 		}
 	}
 </script>
