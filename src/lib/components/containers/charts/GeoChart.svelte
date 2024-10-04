@@ -95,9 +95,9 @@
                         .setContent(
                             `${infoLink ? `<a href=${point[linkKey]} style="color:inherit;text-decoration:none;">` : ''}` +
                                 `<div {id} class="geo-chart-tooltip" style="max-width:260px;">`+
-                                    `<p style="font-size:16px;"><b>${addressKey ? 'Home Address' : point[infoTitleKey]}</b></p>` +
+                                    `<p style="font-size:16px;"><b>${point.type === 'home' ? 'Home Address' : point[infoTitleKey]}</b></p>` +
                                     `<div>`+
-                                        `${addressKey ? `<p style="font-size:14px;">${point[addressKey]}</p>` : `<p style="font-size:14px;">${pillText}: ${point[pillKey]}</p>`}` +
+                                        `${point.type === 'home' ? `<p style="font-size:14px;">${point[addressKey]}</p>` : `<p style="font-size:14px;">${pillText}: ${point[pillKey]}</p>`}` +
                                     `</div>` +
                                 `</div>` +
                             `${infoLink ? '</a>' : ''}`
