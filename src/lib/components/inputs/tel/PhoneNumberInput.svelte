@@ -45,7 +45,7 @@
 		on:blur={validationCallback}
 		class="phone-number-input {validValue === false ? 'error' : ''}"
 		style={styles.join(';')}
-		pattern="[0-9()\-\s]+"
+		pattern="[0-9()\- ]+"
 		type="tel"
 		{id}
 		{maxlength}
