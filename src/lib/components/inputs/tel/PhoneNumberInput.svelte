@@ -4,7 +4,7 @@
 	export let id = '',
 		label = '',
 		tag = null,
-		maxlength = '10',
+		maxlength = '14',
 		minlength = '10',
 		phoneNumber = '',
 		placeholder = '',
