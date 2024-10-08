@@ -1,4 +1,4 @@
-export default function formatDate(timestamp) {
+export default function formatDate(timestamp, fullYear = false) {
 	timestamp = new Date(timestamp)
 
 	let day = timestamp.getDate()
@@ -9,7 +9,7 @@ export default function formatDate(timestamp) {
 
 	if (month < 10) month = `0${month}`
 
-	year = year.toString().substring(2, 4)
+	year = fullYear ? year.toString() : year.toString().substring(2, 4)
 
 	return `${month}/${day}/${year}`
 }
