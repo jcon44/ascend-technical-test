@@ -33,6 +33,7 @@
 		bind:value={email}
 		on:blur={validationCallback}
 		class="email-input"
+		pattern=".+@.+\..+"
 		style={styles.join(';')}
 		type="email"
 		{id}
