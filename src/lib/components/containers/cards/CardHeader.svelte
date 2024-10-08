@@ -3,8 +3,7 @@
     export let icon = null, 
         title = '', 
         titleTooltip = null,
-        titleButton = false, 
-        titleButtonText = 'See More'
+        titleButton = null
 </script>
 
 {#if icon || title || titleTooltip}
@@ -29,7 +28,8 @@
                 <Button 
                     classes={['btn-link', 'btn-m']}
                     rightIcon={ChevronSingleRightSmallIcon}
-                    text={titleButtonText}
+                    text={titleButton?.text || 'See More'}
+                    url={titleButton?.url || '#'}
                 />
             </div>
         {/if}

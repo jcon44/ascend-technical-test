@@ -375,7 +375,10 @@
 					title="Table Chart"
 					type="table"
 					data={tableData}
-					titleButton
+					titleButton={{
+						text: 'See More',
+						url: '/'
+					}}
 					tableColumns={tableColumns}
 				/>
 			</div>

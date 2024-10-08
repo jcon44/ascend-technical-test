@@ -37,8 +37,7 @@
 		monthDay = false,
 		monthYear = false,
         titleTooltip = null,
-        titleButton = false, 
-        titleButtonText = 'See More',
+        titleButton = false,
         barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
         areaColors = ['var(--secondary-trans-600)', 'var(--secondary-trans-500)', 'var(--secondary-trans-400)', 'var(--secondary-trans-300)', 'var(--secondary-trans-200)', 'var(--secondary-trans-100)'],
 		lineColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)'],
@@ -75,7 +74,6 @@
         {title}
         {titleTooltip}
         {titleButton}
-        {titleButtonText}
     />
     <div class="chart-content">
         {#if $$slots["chart-header"]}
