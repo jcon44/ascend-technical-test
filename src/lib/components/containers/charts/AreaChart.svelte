@@ -152,9 +152,6 @@
 		const dayInterval = d3.timeDay.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
 		const monthInterval = d3.timeMonth.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
 		const yearInterval = d3.timeYear.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
-		console.log('day ', dayInterval)
-		console.log('month ', monthInterval)
-		console.log('year ', yearInterval)
 
 		if (yearInterval >= 2 && yearInterval <= 20) {
 			labelFormat = formatYear
@@ -166,7 +163,6 @@
 			tickFormat = d3.timeMonth
 			everyOther = false
 			if (monthInterval >= 13) everyOther = true
-			console.log(monthInterval, everyOther)
 		} else if (dayInterval <= 31) {
 			labelFormat = formatMonthDay
 			tickFormat = d3.timeDay
