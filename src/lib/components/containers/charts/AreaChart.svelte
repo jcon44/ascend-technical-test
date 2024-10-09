@@ -61,11 +61,14 @@
 		stack,
 		area
 
-	let formatFull = d3.utcFormat('%b %d, %Y')
+	let formatFull = d3.utcFormat('%-m/%-d/%Y')
 	let formatYear = d3.utcFormat('%Y')
 	let formatMonth = d3.utcFormat('%b')
-	let formatMonthDay = d3.utcFormat('%b %d')
-	let formatMonthYear = d3.utcFormat('%b %Y')
+	let formatMonthDay = d3.utcFormat('%-m/%-d')
+	let formatMonthYear = d3.utcFormat('%-m/%Y')
+	$: tickFormat = d3.timeDay
+	$: labelFormat = formatFull
+	$: everyOther = false
 
 	$: {
 		if (innerWidth < 768) {
@@ -142,6 +145,32 @@
 					avgArray.forEach((el) => avg += el)
 					position = avg / avgArray.length
 				}
+		}
+
+		// calculate the tick frequency here
+		// while still in the update block
+		const dayInterval = d3.timeDay.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
+		const monthInterval = d3.timeMonth.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
+		const yearInterval = d3.timeYear.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
+		console.log('day ', dayInterval)
+		console.log('month ', monthInterval)
+		console.log('year ', yearInterval)
+
+		if (yearInterval >= 2 && yearInterval <= 20) {
+			labelFormat = formatYear
+			tickFormat = d3.timeYear
+			everyOther = false
+			if (yearInterval >= 11) everyOther = true
+		} else if (monthInterval >= 2 && monthInterval <= 23) {
+			labelFormat = formatMonthYear // eo
+			tickFormat = d3.timeMonth
+			everyOther = false
+			if (monthInterval >= 13) everyOther = true
+			console.log(monthInterval, everyOther)
+		} else if (dayInterval <= 31) {
+			labelFormat = formatMonthDay
+			tickFormat = d3.timeDay
+			everyOther = false
 		}
 	}
 
@@ -336,16 +365,23 @@
 				{/each}
 			{/each}
 		{:else}
-			{#each data as d, i}
+			<!-- {#each data as d, i} -->
+			{#each xScale.ticks(tickFormat) as tick, i}
 				<text
 					class="axis-label"
 					fill="gray"
 					text-anchor="middle"
 					fill-opacity={textOpacitySwitch ? (i % 2 === 1 ? '0' : '1') : '1'}
-					x={xScale(d[domain])}
+					x={xScale(tick)}
 					y={22}
 				>
-					{fullDate ? formatFull(d[domain]) : yearOnly ? formatYear(d[domain]) : monthOnly ? formatMonth(d[domain]) : monthDay ? formatMonthDay(d[domain]) : monthYear ? formatMonthYear(d[domain]) : formatFull(d[domain])}
+					{#if everyOther}
+						{i % 2 === 1 ? labelFormat(tick) : ''}
+					{:else}
+						{labelFormat(tick)}
+					{/if}
+					<!-- {formatMonthYear(tick)} -->
+					<!-- {fullDate ? formatFull(d[domain]) : yearOnly ? formatYear(d[domain]) : monthOnly ? formatMonth(d[domain]) : monthDay ? formatMonthDay(d[domain]) : monthYear ? formatMonthYear(d[domain]) : formatFull(d[domain])} -->
 				</text>
 			{/each}
 		{/if}
