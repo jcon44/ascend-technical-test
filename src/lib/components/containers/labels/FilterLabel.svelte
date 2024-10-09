@@ -3,8 +3,6 @@
     export let filter = {}
     if (filter.label.length > 1) {
         filter.label = filter.label?.join(', ')
-    } else if (filter.tooltip.includes('Range')) {
-        filter.label = filter.label?.join(' - ')
     }
 </script>
 
