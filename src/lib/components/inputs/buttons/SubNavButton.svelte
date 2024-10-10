@@ -5,7 +5,7 @@
     export let pageData = undefined,
         sublink
 
-    $: currentPageLink = $page.url.pathname.includes(sublink.url)
+    $: currentPageLink = $page.url.pathname === '/' ? $page.url.pathname === '/' : $page.url.pathname.includes(sublink.url)
 </script>
 
 <div class="subnav-button-wrapper">
@@ -32,6 +32,6 @@
         border-radius: var(--border-radius-s);
     }
     .current-page-link {
-        background-color: var(--secondary-base);
+        background-color: var(--primary-base);
     }
 </style>
