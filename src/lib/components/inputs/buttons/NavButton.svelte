@@ -10,7 +10,7 @@
 		open = !open
 	}
 
-	$: currentPageLink = $page.url.pathname.includes(pageData?.url)
+	$: currentPageLink = $page.url.pathname === '/' ? $page.url.pathname === '/' : $page.url.pathname.includes(pageData?.url)
 </script>
 
 <div class="navbar-button-wrapper">
@@ -55,7 +55,7 @@
 		border-radius: var(--border-radius-s);
 	}
 	.current-page-link {
-		background-color: var(--secondary-base);
+		background-color: var(--primary-base);
 	}
 	.sub-nav-wrapper {
 		overflow-y: hidden;
