@@ -5,7 +5,7 @@
     export let pageData = undefined,
         sublink
 
-    $: currentPageLink = $page.url.pathname === '/' ? $page.url.pathname === '/' : $page.url.pathname.includes(sublink.url)
+    $: currentPageLink = $page.url.pathname === '/' ? $page.url.pathname === sublink.url : $page.url.pathname.includes(sublink.url)
 </script>
 
 <div class="subnav-button-wrapper">
