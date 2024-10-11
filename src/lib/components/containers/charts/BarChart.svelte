@@ -2,6 +2,7 @@
 	import * as d3 from 'd3'
 	import { ChartTooltip, RuleTip } from '$lib/index.js'
 	import { browser } from '$app/environment'
+	import { onMount } from 'svelte'
 
 	/**
 	 *  @param {array} data
@@ -211,9 +212,11 @@
 		tooltipData.valueTwo = 0
 	}
 
-	if (browser) {
-		tooltip = d3.select(`#${tooltipId}`)
-	}
+	onMount(() => {
+		if (browser) {
+			tooltip = d3.select(`#${tooltipId}`)
+		}
+	})
 
 	function enterTooltip(e) {
 		tooltip.style('opacity', 1)

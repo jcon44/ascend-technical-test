@@ -2,6 +2,7 @@
 	import * as d3 from 'd3'
 	import { ChartTooltip } from '$lib/index.js'
 	import { browser } from '$app/environment'
+	import { onMount } from 'svelte'
 
 	/**
 	 *  @param {array} data
@@ -67,9 +68,11 @@
 		tooltipData.valueTwo = 0
 	}
 
-	if (browser) {
-		tooltip = d3.select(`#${tooltipId}`).style('opacity', 0)
-	}
+	onMount(() => {
+		if (browser) {
+			tooltip = d3.select(`#${tooltipId}`).style('opacity', 0)
+		}
+	})
 
 	function enterTooltip(e) {
 		tooltip.style('opacity', 1)

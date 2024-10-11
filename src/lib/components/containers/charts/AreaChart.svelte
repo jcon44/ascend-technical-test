@@ -2,6 +2,7 @@
 	import * as d3 from 'd3'
 	import { ChartTooltip, RuleTip } from '$lib/index.js'
 	import { browser } from '$app/environment'
+	import { onMount } from 'svelte'
 
 	/**
 	 *  @param {array} data
@@ -181,12 +182,14 @@
 		tooltipData.valueTwo = 0
 	}
 
-	if (browser) {
-		tooltip = d3.select(`#${tooltipId}`)
-		tooltipLine = d3.select(`#${tooltipId}-line`)
-		tooltipInnerCircle = d3.select(`#${tooltipId}-inner-circle`)
-		tooltipOuterCircle = d3.select(`#${tooltipId}-outer-circle`)
-	}
+	onMount(() => {
+		if (browser) {
+			tooltip = d3.select(`#${tooltipId}`)
+			tooltipLine = d3.select(`#${tooltipId}-line`)
+			tooltipInnerCircle = d3.select(`#${tooltipId}-inner-circle`)
+			tooltipOuterCircle = d3.select(`#${tooltipId}-outer-circle`)
+		}
+	})
 
 	function enterTooltip(e) {
 		tooltip.style('opacity', 1)
