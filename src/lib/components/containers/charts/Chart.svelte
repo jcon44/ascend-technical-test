@@ -36,6 +36,8 @@
 		monthOnly = false,
 		monthDay = false,
 		monthYear = false,
+        quarters,
+        fiscalQuarters,
         titleTooltip = null,
         titleButton = false,
         barColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)', 'var(--secondary-300)', 'var(--secondary-200)', 'var(--secondary-100)', 'var(--secondary-050)'],
@@ -126,6 +128,8 @@
                         {monthOnly}
                         {monthDay}
                         {monthYear}
+                        {quarters}
+                        {fiscalQuarters}
                         {areaColors}
                         {lineColors}
                         {chartWidth}

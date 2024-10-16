@@ -40,6 +40,8 @@
 		monthOnly,
 		monthDay,
 		monthYear,
+		quarters = false,
+		fiscalQuarters = false,
 		line = false,
 		stacked = false,
 		chartWidth = 700,
@@ -67,6 +69,9 @@
 	let formatMonth = d3.utcFormat('%b')
 	let formatMonthDay = d3.utcFormat('%-m/%-d')
 	let formatMonthYear = d3.utcFormat('%-m/%Y')
+	let formatFiscalQuarter = (d) => `Q${d3.utcFormat('%q')(d)} SFY${d3.utcFormat('%Y')(d)}`
+	let formatQuarter = (d) => `Q${d3.utcFormat(`%q %Y`)(d)}` // offset by 2 quarters
+	
 	$: tickFormat = d3.timeDay
 	$: labelFormat = formatFull
 	$: everyOther = false

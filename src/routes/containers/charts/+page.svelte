@@ -547,7 +547,7 @@
 					geoJSON={data.zipCodes}
 				/>
 			</div>
-			<div class="geo-chart">
+			<!-- <div class="geo-chart">
 				<Chart 
 					title="Map With Multiple Markers"
 					type="geo"
@@ -559,7 +559,7 @@
 					markers={markers}
 					data={realData}
 				/>
-			</div>
+			</div> -->
 		</div>
 	</PageBody>
 </Page>
