@@ -1,6 +1,7 @@
 <script>
 	export let date,
 		id = '',
+		name = '',
 		required = false,
 		styles = []
 </script>
@@ -12,6 +13,7 @@
 	type="date"
 	{id}
 	{required}
+	{name}
 />
 
 <style>

@@ -5,6 +5,8 @@
 		startLabel = 'Start Date',
 		end,
 		endLabel = 'End Date',
+		id = '',
+		name = '',
 		styles = [],
 		fill = false,
 		required = false,
@@ -19,7 +21,8 @@
 	<div class="date-range">
 		<DatePicker
 			bind:date={start}
-			id="start-date"
+			id={`start-${id}`}
+			name={`start-${name}`}
 			label={startLabel}
 			styles={['width: 100%']}
 			{required}
@@ -27,7 +30,8 @@
 		/>
 		<DatePicker
 			bind:date={end}
-			id="end-date"
+			id={`end-${id}`}
+			name={`end-${name}`}
 			label={endLabel}
 			styles={['width: 100%']}
 			{required}

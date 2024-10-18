@@ -4,6 +4,7 @@
 	export let date,
 		id = '',
 		label = '',
+		name = '',
 		styles = [],
 		fill,
 		required = false,
@@ -23,6 +24,7 @@
 		<DateInput
 			bind:date
 			{id}
+			{name}
 			{required}
 			styles={['width: 100%']}
 		/>
