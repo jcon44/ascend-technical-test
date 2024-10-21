@@ -69,8 +69,8 @@
 	let formatMonth = d3.utcFormat('%b')
 	let formatMonthDay = d3.utcFormat('%-m/%-d')
 	let formatMonthYear = d3.utcFormat('%-m/%Y')
-	let formatFiscalQuarter = (d) => `Q${d3.utcFormat('%q')(d)} SFY${d3.utcFormat('%Y')(d)}`
-	let formatQuarter = (d) => `Q${d3.utcFormat(`%q %Y`)(d)}` // offset by 2 quarters
+	let formatFiscalQuarter = (d) => `Q${d3.utcFormat('%q')(d)} SFY${d3.utcFormat('%Y')(d)}` // offset by 2 quarters
+	let formatQuarter = (d) => `Q${d3.utcFormat(`%q %Y`)(d)}`
 	
 	$: tickFormat = d3.timeDay
 	$: labelFormat = formatFull

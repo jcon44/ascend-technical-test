@@ -27,6 +27,7 @@
 		barColors = [],
 		vertical = false,
 		horizontal = false,
+		timeseries,
 		stacked = false,
 		sort = null,
 		domain,
@@ -83,11 +84,15 @@
 					),
 				)
 
-				xScale = d3
-					.scaleBand()
-					.domain(data.map((d) => d[domain]))
-					.range([marginLeft, width - marginRight])
-					.padding(0.3)
+				if (timeseries) {
+					// date parsing and quarter assignment
+				} else {
+					xScale = d3
+						.scaleBand()
+						.domain(data.map((d) => d[domain]))
+						.range([marginLeft, width - marginRight])
+						.padding(0.3)
+				}
 
 				yScale = d3
 					.scaleLinear()
@@ -119,11 +124,15 @@
 						.range([marginLeft, width - marginRight])
 						.padding(0.3)
 				} else {
-					xScale = d3
-						.scaleBand()
-						.domain(data.map((d) => d[domain]))
-						.range([marginLeft, width - marginRight])
-						.padding(0.3)
+					if (timeseries) {
+						// date parsing and quarter assignment
+					} else {
+						xScale = d3
+							.scaleBand()
+							.domain(data.map((d) => d[domain]))
+							.range([marginLeft, width - marginRight])
+							.padding(0.3)
+					}
 				}
 
 				yScale = d3

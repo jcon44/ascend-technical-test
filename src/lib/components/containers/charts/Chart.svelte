@@ -16,6 +16,7 @@
         tooltipId = '',
         vertical = false,
         horizontal = false,
+        timeseries = false,
         icon = null, 
         title = '',
         rule = null,
@@ -104,6 +105,7 @@
                         {tooltipId}
                         {vertical}
                         {horizontal}
+                        {timeseries}
                         {rule}
                         {barColors}
                         {chartWidth}

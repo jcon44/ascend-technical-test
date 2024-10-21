@@ -29,6 +29,7 @@
 		background-color: var(--neutral-base);
 		border-radius: 12px;
 		opacity: 0;
+		pointer-events: none;
 	}
 
 	.tooltip-text {
