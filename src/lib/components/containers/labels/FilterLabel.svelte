@@ -1,15 +1,14 @@
 <script>
     import { TooltipElement } from "$lib/index.js";
     export let filter = {}
-    if (filter.label.length > 1) {
-        filter.label = filter.label?.join(', ')
-    }
+
+    filter.text = filter.label?.join(', ')
 </script>
 
 <TooltipElement>
     <div slot="element" class="filter-label">
         <svelte:component this={filter.icon} />
-        <p class="body-bold-xs">{filter.label}</p>
+        <p class="body-bold-xs">{filter.text}</p>
     </div>
     <div slot="content">
         {filter.tooltip}
