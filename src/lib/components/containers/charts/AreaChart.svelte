@@ -1,6 +1,6 @@
 <script>
 	import * as d3 from 'd3'
-	import { ChartTooltip, RuleTip } from '$lib/index.js'
+	import { ChartTooltip, RuleTip, abbreviateNumber } from '$lib/index.js'
 	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
 
@@ -267,7 +267,7 @@
 			x={marginLeft - 15}
 			y={yScale(tick) + 5}
 		>
-			{tick}
+			{abbreviateNumber(tick, 1000)}
 		</text>
 	{/each}
 

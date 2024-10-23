@@ -41,18 +41,18 @@
 	]
 
 	let citData = [
-		{ date: '2023-01-01', name: 'CIT', value: 14},
-		{ date: '2023-02-01', name: 'CIT', value: 9},
-		{ date: '2023-03-01', name: 'CIT', value: 15},
-		{ date: '2023-04-01', name: 'CIT', value: 19},
-		{ date: '2023-05-01', name: 'CIT', value: 31},
-		{ date: '2023-06-01', name: 'CIT', value: 17},
-		{ date: '2023-07-01', name: 'CIT', value: 23},
-		{ date: '2023-08-01', name: 'CIT', value: 34},
-		{ date: '2023-09-01', name: 'CIT', value: 20},
-		{ date: '2023-10-01', name: 'CIT', value: 30},
-		{ date: '2023-11-01', name: 'CIT', value: 27},
-		{ date: '2023-12-01', name: 'CIT', value: 23},
+		{ date: '2023-01-01', name: 'CIT', value: 1400},
+		{ date: '2023-02-01', name: 'CIT', value: 900},
+		{ date: '2023-03-01', name: 'CIT', value: 1500},
+		{ date: '2023-04-01', name: 'CIT', value: 1900},
+		{ date: '2023-05-01', name: 'CIT', value: 3100},
+		{ date: '2023-06-01', name: 'CIT', value: 1700},
+		{ date: '2023-07-01', name: 'CIT', value: 2300},
+		{ date: '2023-08-01', name: 'CIT', value: 340},
+		{ date: '2023-09-01', name: 'CIT', value: 200},
+		{ date: '2023-10-01', name: 'CIT', value: 300},
+		{ date: '2023-11-01', name: 'CIT', value: 2700},
+		{ date: '2023-12-01', name: 'CIT', value: 2300},
 	]
 
 	let realStacked = [
