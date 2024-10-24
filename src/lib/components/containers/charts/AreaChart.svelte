@@ -69,8 +69,14 @@
 	let formatMonth = d3.utcFormat('%b')
 	let formatMonthDay = d3.utcFormat('%-m/%-d')
 	let formatMonthYear = d3.utcFormat('%-m/%Y')
-	let formatFiscalQuarter = (d) => `Q${d3.utcFormat('%q')(d)} SFY${d3.utcFormat('%Y')(d)}` // offset by 2 quarters
 	let formatQuarter = (d) => `Q${d3.utcFormat(`%q %Y`)(d)}`
+	let formatFiscalQuarter = (d) => {
+		if (Number(d3.utcFormat('%q')(d)) < 3) {
+			return `Q${Number(d3.utcFormat('%q')(d)) + 2} SFY${d3.utcFormat('%Y')(d)}`
+		} else {
+			return `Q${Number(d3.utcFormat('%q')(d)) - 2} SFY${Number(d3.utcFormat('%Y')(d)) + 1}`
+		}
+	} // offset by 2 quarters
 	
 	$: tickFormat = d3.timeDay
 	$: labelFormat = formatFull
@@ -159,7 +165,13 @@
 		const monthInterval = d3.timeMonth.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
 		const yearInterval = d3.timeYear.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
 
-		if (yearInterval >= 2 && yearInterval <= 20) {
+		if (quarters) {
+			labelFormat = formatQuarter
+			tickFormat = d3.timeQuarter
+		} else if (fiscalQuarters) {
+			labelFormat = formatFiscalQuarter
+			tickFormat = d3.timeQuarter
+		} else if (yearInterval >= 2 && yearInterval <= 20) {
 			labelFormat = formatYear
 			tickFormat = d3.timeYear
 			everyOther = false
@@ -214,12 +226,12 @@
 			mouseValue = d[1] - d[0]
 			tooltipData.y = yScale(d[1]) - 120 // e.offsetY - 90
 			tooltipData.circlePosition = yScale(d[1])
-			tooltipData.valueOne = fullDate ? formatFull(d.data[0]) : yearOnly ? formatYear(d.data[0]) : monthOnly ? formatMonth(d.data[0]) : monthDay ? formatMonthDay(d.data[0]) : monthYear ? formatMonthYear(d.data[0]) : formatFull(d.data[0])
+			tooltipData.valueOne = fullDate ? formatFull(d.data[0]) : yearOnly ? formatYear(d.data[0]) : monthOnly ? formatMonth(d.data[0]) : monthDay ? formatMonthDay(d.data[0]) : monthYear ? formatMonthYear(d.data[0]) : quarters ? formatQuarter(d.data[0]) : formatFull(d.data[0])
 		} else {
 			mouseValue = data[i][range]
 			tooltipData.y = yScale(mouseValue) - 120 // e.offsetY - 90
 			tooltipData.circlePosition = yScale(mouseValue)
-			tooltipData.valueOne = fullDate ? formatFull(data[i][domain]) : yearOnly ? formatYear(data[i][domain]) : monthOnly ? formatMonth(data[i][domain]) : monthDay ? formatMonthDay(data[i][domain]) : monthYear ? formatMonthYear(data[i][domain]) : formatFull(data[i][domain])
+			tooltipData.valueOne = fullDate ? formatFull(data[i][domain]) : yearOnly ? formatYear(data[i][domain]) : monthOnly ? formatMonth(data[i][domain]) : monthDay ? formatMonthDay(data[i][domain]) : monthYear ? formatMonthYear(data[i][domain]) : quarters ? formatQuarter(d.data[0]) : formatFull(data[i][domain])
 		}
 
 		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = mouseValue
@@ -364,12 +376,16 @@
 						x={xScale(item.data[0])}
 						y={22}
 					>
-						{fullDate ? formatFull(item.data[0]) : yearOnly ? formatYear(item.data[0]) : monthOnly ? formatMonth(item.data[0]) : monthDay ? formatMonthDay(item.data[0]) : monthYear ? formatMonthYear(item.data[0]) : formatFull(item.data[0])}
+						<!-- {#if everyOther}
+							{i % 2 === 1 ? labelFormat(tick) : ''}
+						{:else}
+							{labelFormat(tick)}
+						{/if} -->
+						{fullDate ? formatFull(item.data[0]) : yearOnly ? formatYear(item.data[0]) : monthOnly ? formatMonth(item.data[0]) : monthDay ? formatMonthDay(item.data[0]) : monthYear ? formatMonthYear(item.data[0]) : quarters ? formatQuarter(item.data[0]) : formatFull(item.data[0])}
 					</text>
 				{/each}
 			{/each}
 		{:else}
-			<!-- {#each data as d, i} -->
 			{#each xScale.ticks(tickFormat) as tick, i}
 				<text
 					class="axis-label"
@@ -381,11 +397,11 @@
 				>
 					{#if everyOther}
 						{i % 2 === 1 ? labelFormat(tick) : ''}
+					{:else if quarters || fiscalQuarters}
+						{i % 3 === 1 ? labelFormat(tick) : ''}
 					{:else}
 						{labelFormat(tick)}
 					{/if}
-					<!-- {formatMonthYear(tick)} -->
-					<!-- {fullDate ? formatFull(d[domain]) : yearOnly ? formatYear(d[domain]) : monthOnly ? formatMonth(d[domain]) : monthDay ? formatMonthDay(d[domain]) : monthYear ? formatMonthYear(d[domain]) : formatFull(d[domain])} -->
 				</text>
 			{/each}
 		{/if}

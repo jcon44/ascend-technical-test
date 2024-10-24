@@ -436,6 +436,7 @@
 					valueOneLabel="date"
 					valueTwoLabel="value"
 					monthOnly
+					fiscalQuarters
 					seriesKey="series"
 				>
 				<div slot="chart-header" style="margin-top: var(--spacing09);margin-bottom: var(--spacing09)">
