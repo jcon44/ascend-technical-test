@@ -130,6 +130,68 @@
 				obj[domain] = new Date(obj[domain])
 			}
 
+			// calculate the tick frequency here
+			// while still in the update block
+			const dayInterval = d3.timeDay.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
+			const monthInterval = d3.timeMonth.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
+			const yearInterval = d3.timeYear.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
+
+			let allValues = []
+			if (quarters) {
+				labelFormat = formatQuarter
+				tickFormat = d3.timeQuarter
+			} else if (fiscalQuarters) {
+				labelFormat = formatFiscalQuarter
+				tickFormat = d3.timeQuarter
+			} else if (yearInterval >= 2 && yearInterval <= 20) {
+				labelFormat = formatYear
+				tickFormat = d3.timeYear
+				everyOther = false
+
+				// sequential accumulation of values into a single date point.
+				// DATA ARRAY MUST BE ORDERED BY DATE FOR THIS TO WORK
+				let years =[]
+				let yearIndex = 0
+				for (let i = 0; i < data.length; i++) {
+					if (i === 0) {
+						years.push(data[i])
+					} else if (data[i][domain].getFullYear() === data[i-1][domain].getFullYear()) {
+						years[yearIndex][range] += data[i][range]
+					} else if (data[i][domain].getFullYear() !== data[i-1][domain].getFullYear()) {
+						yearIndex++
+						years.push(data[i])
+					}
+				}
+				console.log(years)
+				data = years
+				if (yearInterval >= 11) everyOther = true
+			} else if (monthInterval >= 2 && monthInterval <= 23) {
+				labelFormat = formatMonthYear // eo
+				tickFormat = d3.timeMonth
+				everyOther = false
+
+				// sequential accumulation of values into a single date point.
+				// DATA ARRAY MUST BE ORDERED BY DATE FOR THIS TO WORK
+				let months = []
+				let monthIndex = 0
+				for (let i = 0; i < data.length; i++) {
+					if (i === 0) {
+						months.push(data[i])
+					} else if (data[i][domain].getMonth() === data[i-1][domain].getMonth()) {
+						months[monthIndex][range] += data[i][range]
+					} else if (data[i][domain].getMonth() !== data[i-1][domain].getMonth()) {
+						monthIndex++
+						months.push(data[i])
+					}
+				}
+				data = months
+				if (monthInterval >= 13) everyOther = true
+			} else if (dayInterval <= 31) {
+				labelFormat = formatMonthDay
+				tickFormat = d3.timeDay
+				everyOther = false
+			}
+
 			xScale = d3
 				.scaleTime()
 				.domain(d3.extent(data, (d) => d[domain]))
@@ -157,34 +219,6 @@
 					avgArray.forEach((el) => avg += el)
 					position = avg / avgArray.length
 				}
-		}
-
-		// calculate the tick frequency here
-		// while still in the update block
-		const dayInterval = d3.timeDay.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
-		const monthInterval = d3.timeMonth.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
-		const yearInterval = d3.timeYear.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
-
-		if (quarters) {
-			labelFormat = formatQuarter
-			tickFormat = d3.timeQuarter
-		} else if (fiscalQuarters) {
-			labelFormat = formatFiscalQuarter
-			tickFormat = d3.timeQuarter
-		} else if (yearInterval >= 2 && yearInterval <= 20) {
-			labelFormat = formatYear
-			tickFormat = d3.timeYear
-			everyOther = false
-			if (yearInterval >= 11) everyOther = true
-		} else if (monthInterval >= 2 && monthInterval <= 23) {
-			labelFormat = formatMonthYear // eo
-			tickFormat = d3.timeMonth
-			everyOther = false
-			if (monthInterval >= 13) everyOther = true
-		} else if (dayInterval <= 31) {
-			labelFormat = formatMonthDay
-			tickFormat = d3.timeDay
-			everyOther = false
 		}
 	}
 
