@@ -162,7 +162,6 @@
 						years.push(data[i])
 					}
 				}
-				console.log(years)
 				data = years
 				if (yearInterval >= 11) everyOther = true
 			} else if (monthInterval >= 2 && monthInterval <= 23) {

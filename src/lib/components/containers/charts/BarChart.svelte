@@ -53,8 +53,22 @@
 	let position = rule
 	let xScale, yScale, stack
 
+	let formatFull = d3.utcFormat('%-m/%-d/%Y')
+	let formatYear = d3.utcFormat('%Y')
+	let formatMonth = d3.utcFormat('%b')
+	let formatMonthDay = d3.utcFormat('%-m/%-d')
+	let formatMonthYear = d3.utcFormat('%-m/%Y')
+	let formatQuarter = (d) => `Q${d3.utcFormat(`%q %Y`)(d)}`
+	let formatFiscalQuarter = (d) => {
+		if (Number(d3.utcFormat('%q')(d)) < 3) {
+			return `Q${Number(d3.utcFormat('%q')(d)) + 2} SFY${d3.utcFormat('%Y')(d)}`
+		} else {
+			return `Q${Number(d3.utcFormat('%q')(d)) - 2} SFY${Number(d3.utcFormat('%Y')(d)) + 1}`
+		}
+	} // offset by 2 quarters
 	
-
+	$: tickFormat = d3.timeDay
+	$: labelFormat = formatFull
 	
 	$: {
 		// Re-assign margins based on small screens
