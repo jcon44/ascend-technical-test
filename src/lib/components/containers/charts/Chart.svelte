@@ -177,7 +177,7 @@
             <ChartKeyContainer
                 data={type === 'area' || type === 'bar' ? keyContainerKeys : data}
                 {seriesKey}
-                colors={type === 'bar' ? barColors : type === 'area' ? areaColors : arcColors}
+                colors={type === 'bar' ? barColors : type === 'area' ? lineColors : arcColors}
                 column={chartWidth < 500 ? true : false}
             />
         {/if}

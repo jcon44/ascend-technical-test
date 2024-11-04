@@ -257,6 +257,8 @@
 		let mouseValue
 		if (stacked) {
 			mouseValue = d[1] - d[0]
+			tooltipData.x = xScale(d.data[0]) - 60
+			tooltipData.line = xScale(d.data[0])
 			tooltipData.y = yScale(d[1]) - 120 // e.offsetY - 90
 			tooltipData.circlePosition = yScale(d[1])
 			tooltipData.valueOne = fullDate ? formatFull(d.data[0]) : yearOnly ? formatYear(d.data[0]) : monthOnly ? formatMonth(d.data[0]) : monthDay ? formatMonthDay(d.data[0]) : monthYear ? formatMonthYear(d.data[0]) : quarters ? formatQuarter(d.data[0]) : formatFull(d.data[0])
@@ -341,7 +343,7 @@
 					stroke-width={1}
 					fill="rgba(0, 0, 0, 0)"
 					width={width / series.length}
-					height={height - yScale(data[1] - data[0])}
+					height={height - yScale(data[1] - data[0]) - 24}
 					x={xScale(data.data[0]) - ((width / series.length) / 2)}
 					y={yScale(data[1])}
 				/>
@@ -359,6 +361,7 @@
 			d={area(data)}
 		/>
 		{#each data as d, i}
+
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<rect 
 				on:mouseenter={enterTooltip}
@@ -370,6 +373,7 @@
 				width={width / data.length}
 				height="100%"
 				x={xScale(d[domain]) - ((width / data.length) / 2) }
+				y={-24}
 			/>
 		{/each}
 	{/if}
