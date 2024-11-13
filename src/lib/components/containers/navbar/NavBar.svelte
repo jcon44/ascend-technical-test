@@ -87,6 +87,7 @@
 		flex-direction: column;
 		gap: var(--spacing09);
 		height: 100vh;
+		max-width: var(--spacing21);
 		scrollbar-width: var(--spacing02);
 		z-index: 10;
 	}
