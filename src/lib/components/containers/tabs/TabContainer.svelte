@@ -27,4 +27,7 @@
 		gap: var(--spacing06);
 		width: 100%;
 	}
+	.tab-content {
+		width: 100%;
+	}
 </style>
