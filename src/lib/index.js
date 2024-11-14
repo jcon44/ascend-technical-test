@@ -30,7 +30,7 @@ export { default as ArrowLeftSmallIcon } from '$lib/assets/icons/s/ArrowLeftSmal
 export { default as ArrowRightSmallIcon } from '$lib/assets/icons/s/ArrowRightSmallIcon.svelte'
 export { default as Building08SmallIcon } from '$lib/assets/icons/s/Building08SmallIcon.svelte'
 export { default as CalendarDateSmallIcon } from '$lib/assets/icons/s/CalendarDateSmallIcon.svelte'
-export { default as CalendarQuartersSmallIcon } from '$lib/assets/icons/s/CalendarQuartersIcon.svelte'
+export { default as CalendarQuartersSmallIcon } from '$lib/assets/icons/s/CalendarQuartersSmallIcon.svelte'
 export { default as CalendarSmallIcon } from '$lib/assets/icons/s/CalendarSmallIcon.svelte'
 export { default as CardGridIcon } from '$lib/assets/icons/s/CardGridIcon.svelte'
 export { default as CheckDone01SmallIcon } from '$lib/assets/icons/s/CheckDone01SmallIcon.svelte'
