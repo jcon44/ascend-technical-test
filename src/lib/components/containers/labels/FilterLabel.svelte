@@ -2,13 +2,13 @@
     import { TooltipElement } from "$lib/index.js";
     export let filter = {}
 
-    filter.text = filter.label?.join(', ')
+    let text = filter.label?.join(', ')
 </script>
 
 <TooltipElement>
     <div slot="element" class="filter-label">
         <svelte:component this={filter.icon} />
-        <p class="body-bold-xs">{filter.text}</p>
+        <p class="body-bold-xs">{text}</p>
     </div>
     <div slot="content">
         {filter.tooltip}
