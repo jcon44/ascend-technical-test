@@ -5,6 +5,8 @@
 		checked = false,
 		value = ''
 
+	$: isChecked = checked
+
 	function checkBox() {
 		checked = !checked
 		if (callback) callback(checked, value)
@@ -15,7 +17,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	class="checkbox-container"
-	on:click|stopPropagation={checkBox}
+	on:click|preventDefault={checkBox}
 >
 	<input
 		type="checkbox"
@@ -26,7 +28,7 @@
 		class="checkmark"
 		style={`background-color: ${checked ? 'var(--primary-500);' : ''}`}
 	>
-		{#if checked}
+		{#if isChecked}
 			<CheckExtraSmallIcon />
 		{/if}
 	</div>
