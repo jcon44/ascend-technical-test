@@ -57,6 +57,8 @@
 	let marginBottom = domainLabel ? 50 : 24
 	let avgArray = []
 	let position = rule
+	
+	let chartData = [...data]
 
 	let xScale,
 		yScale,
@@ -90,16 +92,16 @@
 		}
 
 		if (stacked) {
-			for (let obj of data) {
+			for (let obj of chartData) {
 				obj[domain] = new Date(obj[domain])
 			}
 
 			stack = d3
 				.stack()
-				.keys(d3.union(data.map((d) => d[seriesKey])))
+				.keys(d3.union(chartData.map((d) => d[seriesKey])))
 				.value(([, D], key) => D.get(key)[range])(
 				d3.index(
-					data,
+					chartData,
 					(d) => d[domain],
 					(d) => d[seriesKey],
 				),
@@ -107,7 +109,7 @@
 
 			xScale = d3
 				.scaleTime()
-				.domain(d3.extent(data, (d) => d[domain]))
+				.domain(d3.extent(chartData, (d) => d[domain]))
 				.range([marginLeft, width - marginRight])
 
 			yScale = d3
@@ -117,24 +119,24 @@
 
 			area = d3
 				.area()
-				.x((d) => xScale(d.data[0]))
+				.x((d) => xScale(d.chartData[0]))
 				.y0((d) => yScale(d[0]))
 				.y1((d) => yScale(d[1]))
 
 			stroke = d3
 				.line()
-				.x((d) => xScale(d.data[0]))
+				.x((d) => xScale(d.chartData[0]))
 				.y((d) => yScale(d[1]))
 		} else {
-			for (let obj of data) {
+			for (let obj of chartData) {
 				obj[domain] = new Date(obj[domain])
 			}
 
 			// calculate the tick frequency here
 			// while still in the update block
-			const dayInterval = d3.timeDay.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
-			const monthInterval = d3.timeMonth.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
-			const yearInterval = d3.timeYear.count(d3.min(data, (d) => d[domain]), d3.max(data, (d) => d[domain]))
+			const dayInterval = d3.timeDay.count(d3.min(chartData, (d) => d[domain]), d3.max(chartData, (d) => d[domain]))
+			const monthInterval = d3.timeMonth.count(d3.min(chartData, (d) => d[domain]), d3.max(chartData, (d) => d[domain]))
+			const yearInterval = d3.timeYear.count(d3.min(chartData, (d) => d[domain]), d3.max(chartData, (d) => d[domain]))
 
 			let allValues = []
 			if (quarters) {
@@ -148,42 +150,42 @@
 				tickFormat = d3.timeYear
 				everyOther = false
 
-				// sequential accumulation of values into a single date point.
-				// DATA ARRAY MUST BE ORDERED BY DATE FOR THIS TO WORK
-				let years =[]
-				let yearIndex = 0
-				for (let i = 0; i < data.length; i++) {
-					if (i === 0) {
-						years.push(data[i])
-					} else if (data[i][domain].getFullYear() === data[i-1][domain].getFullYear()) {
-						years[yearIndex][range] += data[i][range]
-					} else if (data[i][domain].getFullYear() !== data[i-1][domain].getFullYear()) {
-						yearIndex++
-						years.push(data[i])
-					}
-				}
-				data = years
+			// 	// sequential accumulation of values into a single date point.
+			// 	// DATA ARRAY MUST BE ORDERED BY DATE FOR THIS TO WORK
+			// 	let years =[]
+			// 	let yearIndex = 0
+			// 	for (let i = 0; i < chartData.length; i++) {
+			// 		if (i === 0) {
+			// 			years.push(chartData[i])
+			// 		} else if (chartData[i][domain].getFullYear() === chartData[i-1][domain].getFullYear()) {
+			// 			years[yearIndex][range] += chartData[i][range]
+			// 		} else if (chartData[i][domain].getFullYear() !== chartData[i-1][domain].getFullYear()) {
+			// 			yearIndex++
+			// 			years.push(chartData[i])
+			// 		}
+			// 	}
+			// 	chartData = years
 				if (yearInterval >= 11) everyOther = true
 			} else if (monthInterval >= 2 && monthInterval <= 23) {
 				labelFormat = formatMonthYear // eo
 				tickFormat = d3.timeMonth
 				everyOther = false
 
-				// sequential accumulation of values into a single date point.
-				// DATA ARRAY MUST BE ORDERED BY DATE FOR THIS TO WORK
+			// 	// sequential accumulation of values into a single date point.
+			// 	// DATA ARRAY MUST BE ORDERED BY DATE FOR THIS TO WORK
 				let months = []
 				let monthIndex = 0
-				for (let i = 0; i < data.length; i++) {
+				for (let i = 0; i < chartData.length; i++) {
 					if (i === 0) {
-						months.push(data[i])
-					} else if (data[i][domain].getMonth() === data[i-1][domain].getMonth()) {
-						months[monthIndex][range] += data[i][range]
-					} else if (data[i][domain].getMonth() !== data[i-1][domain].getMonth()) {
+						months.push(chartData[i])
+					} else if (chartData[i][domain].getMonth() === chartData[i-1][domain].getMonth()) {
+						months[monthIndex][range] += chartData[i][range]
+					} else if (chartData[i][domain].getMonth() !== chartData[i-1][domain].getMonth()) {
 						monthIndex++
-						months.push(data[i])
+						months.push(chartData[i])
 					}
 				}
-				data = months
+				chartData = months
 				if (monthInterval >= 13) everyOther = true
 			} else if (dayInterval <= 31) {
 				labelFormat = formatMonthDay
@@ -193,12 +195,12 @@
 
 			xScale = d3
 				.scaleTime()
-				.domain(d3.extent(data, (d) => d[domain]))
+				.domain(d3.extent(chartData, (d) => d[domain]))
 				.range([marginLeft, width - marginRight])
 
 			yScale = d3
 				.scaleLinear()
-				.domain([0, d3.max(data, (d) => d[range])])
+				.domain([0, d3.max(chartData, (d) => d[range])])
 				.range([height - marginBottom, marginTop])
 
 			area = d3
@@ -214,7 +216,7 @@
 
 				if (rule === 'avg') {
 					let avg = 0
-					data.forEach((el) => avgArray.push(el[range]))
+					chartData.forEach((el) => avgArray.push(el[range]))
 					avgArray.forEach((el) => avg += el)
 					position = avg / avgArray.length
 				}
@@ -250,8 +252,8 @@
 
 	function movingTooltip(e, d, s, series, i, c) {
 		tooltipData.color = c
-		tooltipData.x = xScale(data[i][domain]) - 60
-		tooltipData.line = xScale(data[i][domain])
+		tooltipData.x = xScale(chartData[i][domain]) - 60
+		tooltipData.line = xScale(chartData[i][domain])
 		tooltipData.title = s
 
 		let mouseValue
@@ -263,10 +265,10 @@
 			tooltipData.circlePosition = yScale(d[1])
 			tooltipData.valueOne = fullDate ? formatFull(d.data[0]) : yearOnly ? formatYear(d.data[0]) : monthOnly ? formatMonth(d.data[0]) : monthDay ? formatMonthDay(d.data[0]) : monthYear ? formatMonthYear(d.data[0]) : quarters ? formatQuarter(d.data[0]) : formatFull(d.data[0])
 		} else {
-			mouseValue = data[i][range]
+			mouseValue = chartData[i][range]
 			tooltipData.y = yScale(mouseValue) - 120 // e.offsetY - 90
 			tooltipData.circlePosition = yScale(mouseValue)
-			tooltipData.valueOne = fullDate ? formatFull(data[i][domain]) : yearOnly ? formatYear(data[i][domain]) : monthOnly ? formatMonth(data[i][domain]) : monthDay ? formatMonthDay(data[i][domain]) : monthYear ? formatMonthYear(data[i][domain]) : quarters ? formatQuarter(d.data[0]) : formatFull(data[i][domain])
+			tooltipData.valueOne = fullDate ? formatFull(chartData[i][domain]) : yearOnly ? formatYear(chartData[i][domain]) : monthOnly ? formatMonth(chartData[i][domain]) : monthDay ? formatMonthDay(chartData[i][domain]) : monthYear ? formatMonthYear(chartData[i][domain]) : quarters ? formatQuarter(d.data[0]) : formatFull(chartData[i][domain])
 		}
 
 		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = mouseValue
@@ -287,7 +289,7 @@
 	viewBox="0 0 {width} {height}"
 >
 	<!-- Y-Axis lines -->
-	{#if rangeLabel}
+	<!-- {#if rangeLabel}
 		<text
 			text-anchor="middle"
 			x={marginLeft}
@@ -298,7 +300,7 @@
 		>
 			{rangeLabel}
 		</text>
-	{/if}
+	{/if} -->
 	{#each yScale.ticks() as tick}
 		<line
 			stroke="var(--neutral-050)"
@@ -314,7 +316,8 @@
 			x={marginLeft - 15}
 			y={yScale(tick) + 5}
 		>
-			{abbreviateNumber(tick, 1000)}
+			{tick}
+			<!-- {abbreviateNumber(tick, 1000)} -->
 		</text>
 	{/each}
 
@@ -354,25 +357,25 @@
 			stroke={lineColors[0]}
 			stroke-width="2"
 			fill="none"
-			d={stroke(data)}
+			d={stroke(chartData)}
 		/>
 		<path
 			fill={line ? 'rgba(0,0,0,0)' : areaColors[0]}
-			d={area(data)}
+			d={area(chartData)}
 		/>
-		{#each data as d, i}
+		{#each chartData as d, i}
 
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<rect 
 				on:mouseenter={enterTooltip}
-				on:mousemove={(e) => movingTooltip(e, data, data[0][seriesKey], null, i, lineColors[0])}
+				on:mousemove={(e) => movingTooltip(e, chartData, chartData[0][seriesKey], null, i, lineColors[0])}
 				on:mouseleave={leaveTooltip}
 				stroke="rgba(0, 0, 0, 0)"
 				stroke-width={1}
 				fill="rgba(0, 0, 0, 0)"
-				width={width / data.length}
+				width={width / chartData.length}
 				height="100%"
-				x={xScale(d[domain]) - ((width / data.length) / 2) }
+				x={xScale(d[domain]) - ((width / chartData.length) / 2) }
 				y={-24}
 			/>
 		{/each}

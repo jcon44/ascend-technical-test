@@ -3,8 +3,6 @@
 	import SelectorInput from '$lib/components/inputs/selectors/SelectorInput.svelte'
 	import { Chart, Page, PageBody, NextButton, StatusTag, Card } from '$lib/index.js'
 
-	export let data
-
 	let barData = [
 		{ x: 'Hospital 1', series: 'Source', value: 10 },
 		{ x: 'Hospital 2', series: 'Source', value: 15 },
@@ -64,23 +62,23 @@
 		{ date: '2023-06-27T00:00:00-05:00', name: 'CIT', value: 1900},
 		{ date: '2023-07-01T00:00:00-05:00', name: 'CIT', value: 2000},
 		{ date: '2023-07-15T00:00:00-05:00', name: 'CIT', value: 2300},
-		{ date: '2024-07-25T00:00:00-05:00', name: 'CIT', value: 800},
-		{ date: '2024-08-01T00:00:00-05:00', name: 'CIT', value: 500},
-		{ date: '2024-08-15T00:00:00-05:00', name: 'CIT', value: 340},
-		{ date: '2024-08-25T00:00:00-05:00', name: 'CIT', value: 300},
-		{ date: '2024-09-01T00:00:00-05:00', name: 'CIT', value: 200},
-		{ date: '2024-09-15T00:00:00-05:00', name: 'CIT', value: 250},
-		{ date: '2024-09-25T00:00:00-05:00', name: 'CIT', value: 300},
-		{ date: '2025-10-01T00:00:00-05:00', name: 'CIT', value: 700},
-		{ date: '2025-10-20T00:00:00-05:00', name: 'CIT', value: 1000},
-		{ date: '2025-11-01T00:00:00-05:00', name: 'CIT', value: 2200},
-		{ date: '2025-11-10T00:00:00-05:00', name: 'CIT', value: 2400},
-		{ date: '2025-11-15T00:00:00-05:00', name: 'CIT', value: 2600},
-		{ date: '2025-11-20T00:00:00-05:00', name: 'CIT', value: 2700},
-		{ date: '2025-11-25T00:00:00-05:00', name: 'CIT', value: 2500},
-		{ date: '2025-12-01T00:00:00-05:00', name: 'CIT', value: 2300},
-		{ date: '2025-12-15T00:00:00-05:00', name: 'CIT', value: 2400},
-		{ date: '2025-12-25T00:00:00-05:00', name: 'CIT', value: 2000},
+		{ date: '2023-07-25T00:00:00-05:00', name: 'CIT', value: 800},
+		{ date: '2023-08-01T00:00:00-05:00', name: 'CIT', value: 500},
+		{ date: '2023-08-15T00:00:00-05:00', name: 'CIT', value: 340},
+		{ date: '2023-08-25T00:00:00-05:00', name: 'CIT', value: 300},
+		{ date: '2023-09-01T00:00:00-05:00', name: 'CIT', value: 200},
+		{ date: '2023-09-15T00:00:00-05:00', name: 'CIT', value: 250},
+		{ date: '2023-09-25T00:00:00-05:00', name: 'CIT', value: 300},
+		{ date: '2023-10-01T00:00:00-05:00', name: 'CIT', value: 700},
+		{ date: '2023-10-20T00:00:00-05:00', name: 'CIT', value: 1000},
+		{ date: '2023-11-01T00:00:00-05:00', name: 'CIT', value: 2200},
+		{ date: '2023-11-10T00:00:00-05:00', name: 'CIT', value: 2400},
+		{ date: '2023-11-15T00:00:00-05:00', name: 'CIT', value: 2600},
+		{ date: '2023-11-20T00:00:00-05:00', name: 'CIT', value: 2700},
+		{ date: '2023-11-25T00:00:00-05:00', name: 'CIT', value: 2500},
+		{ date: '2023-12-01T00:00:00-05:00', name: 'CIT', value: 2300},
+		{ date: '2023-12-15T00:00:00-05:00', name: 'CIT', value: 2400},
+		{ date: '2023-12-25T00:00:00-05:00', name: 'CIT', value: 2000},
 	]
 
 	let realStacked = [
@@ -359,6 +357,12 @@
 	]
 
 	$: geoData = 'realData'
+
+	console.log(citData)
+	export let data
+
+	const chartData = [...data.time_series]
+	console.log(chartData)
 </script>
 
 <Page>
@@ -367,7 +371,7 @@
 			<h1>Charts</h1>
 		</div>
 		<div class="chart-container">
-			<div class="simple-v-bar">
+			<!-- <div class="simple-v-bar">
 				<Chart
 					tooltipId="simple-v"
 					type="bar"
@@ -396,9 +400,9 @@
 						/>
 					</div>
 				</Chart>
-			</div>
+			</div> -->
 
-			<div class="table-chart">
+			<!-- <div class="table-chart">
 				<Chart 
 					title="Table Chart"
 					type="table"
@@ -409,7 +413,7 @@
 					}}
 					tableColumns={tableColumns}
 				/>
-			</div>
+			</div> -->
 
 			<!-- <div class="simple-h-bar">
 				<Chart
@@ -422,7 +426,7 @@
 					range="x"
 				/>
 			</div> -->
-			<div class="stacked-v-bar">
+			<!-- <div class="stacked-v-bar">
 				<Chart
 					tooltipId="stacked-v"
 					type="bar"
@@ -435,7 +439,7 @@
 					labelKey="name"
 					seriesKey="name"
 				/>
-			</div>
+			</div> -->
 			<!-- <div class="stacked-h-bar">
 				<Chart
 					tooltipId="stacked-h"
@@ -455,16 +459,14 @@
 				<Chart
 					tooltipId="area"
 					type="area"
-					data={citData}
+					data={chartData}
 					title="Simple Area Chart"
 					domain="date"
 					range="value"
-					rule='avg'
-					line
+					monthYear
 					valueOneLabel="date"
 					valueTwoLabel="value"
-					monthOnly
-					seriesKey="series"
+					seriesKey="name"
 				>
 				<div slot="chart-header" style="margin-top: var(--spacing09);margin-bottom: var(--spacing09)">
 					<SelectorInput 
@@ -492,7 +494,7 @@
 				</div>
 				</Chart>
 			</div>
-			<div class="stacked-area-chart">
+			<!-- <div class="stacked-area-chart">
 				<Chart
 					tooltipId="stacked-area"
 					type="area"
@@ -507,7 +509,7 @@
 					yearOnly
 					stacked
 				/>
-			</div>
+			</div> -->
 			<!-- <div class="pie-chart">
 				<Chart
 					tooltipId="pie"
@@ -520,7 +522,7 @@
 					sort="descending"
 				/>
 			</div> -->
-			<div class="ring-chart">
+			<!-- <div class="ring-chart">
 				<div style="width: 75%">
 					<Chart
 						tooltipId="simple-v"
@@ -535,7 +537,7 @@
 						rule='avg'
 						seriesKey="series"
 					>
-						<!-- <div slot="chart-header" style="margin-top: var(--spacing09)">
+						<div slot="chart-header" style="margin-top: var(--spacing09)">
 							<SelectorInput 
 								id="bar-selector"
 								label="Random Selector"
@@ -546,10 +548,10 @@
 								]}
 								bind:selectedValue={geoData}
 							/>
-						</div> -->
+						</div>
 					</Chart>
-				</div>
-				<div style="width: 25%">
+				</div> -->
+				<!-- <div style="width: 25%">
 					<Chart
 						tooltipId="ring"
 						type="pie"
@@ -560,9 +562,9 @@
 						seriesKey="name"
 						ring
 					/>
-				</div>
-			</div>
-			<div class="geo-chart">
+				</div> -->
+			<!-- </div> -->
+			<!-- <div class="geo-chart">
 				<Chart 
 					title="Map With Multiple Markers"
 					type="geo"
@@ -574,7 +576,7 @@
 					markers={markers}
 					geoJSON={data.zipCodes}
 				/>
-			</div>
+			</div> -->
 			<!-- <div class="geo-chart">
 				<Chart 
 					title="Map With Multiple Markers"
