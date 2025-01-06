@@ -3,6 +3,8 @@
 	import { ChartTooltip, RuleTip, abbreviateNumber } from '$lib/index.js'
 	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
+	import consolidateMonths from '$lib/functions/charts/consolidateMonths'
+	import consolidateYears from '$lib/functions/charts/consolidateYears'
 
 	/**
 	 *  @param {array} data
@@ -57,7 +59,6 @@
 	let marginBottom = domainLabel ? 50 : 24
 	let avgArray = []
 	let position = rule
-	
 	let chartData = [...data]
 
 	let xScale,
@@ -150,42 +151,14 @@
 				tickFormat = d3.timeYear
 				everyOther = false
 
-			// 	// sequential accumulation of values into a single date point.
-			// 	// DATA ARRAY MUST BE ORDERED BY DATE FOR THIS TO WORK
-			// 	let years =[]
-			// 	let yearIndex = 0
-			// 	for (let i = 0; i < chartData.length; i++) {
-			// 		if (i === 0) {
-			// 			years.push(chartData[i])
-			// 		} else if (chartData[i][domain].getFullYear() === chartData[i-1][domain].getFullYear()) {
-			// 			years[yearIndex][range] += chartData[i][range]
-			// 		} else if (chartData[i][domain].getFullYear() !== chartData[i-1][domain].getFullYear()) {
-			// 			yearIndex++
-			// 			years.push(chartData[i])
-			// 		}
-			// 	}
-			// 	chartData = years
+				chartData = [...consolidateYears(chartData, domain, range)]
 				if (yearInterval >= 11) everyOther = true
 			} else if (monthInterval >= 2 && monthInterval <= 23) {
 				labelFormat = formatMonthYear // eo
 				tickFormat = d3.timeMonth
 				everyOther = false
-
-			// 	// sequential accumulation of values into a single date point.
-			// 	// DATA ARRAY MUST BE ORDERED BY DATE FOR THIS TO WORK
-				let months = []
-				let monthIndex = 0
-				for (let i = 0; i < chartData.length; i++) {
-					if (i === 0) {
-						months.push(chartData[i])
-					} else if (chartData[i][domain].getMonth() === chartData[i-1][domain].getMonth()) {
-						months[monthIndex][range] += chartData[i][range]
-					} else if (chartData[i][domain].getMonth() !== chartData[i-1][domain].getMonth()) {
-						monthIndex++
-						months.push(chartData[i])
-					}
-				}
-				chartData = months
+				
+				chartData = [...consolidateMonths(chartData, domain, range)]
 				if (monthInterval >= 13) everyOther = true
 			} else if (dayInterval <= 31) {
 				labelFormat = formatMonthDay
@@ -289,7 +262,7 @@
 	viewBox="0 0 {width} {height}"
 >
 	<!-- Y-Axis lines -->
-	<!-- {#if rangeLabel}
+	{#if rangeLabel}
 		<text
 			text-anchor="middle"
 			x={marginLeft}
@@ -300,7 +273,7 @@
 		>
 			{rangeLabel}
 		</text>
-	{/if} -->
+	{/if}
 	{#each yScale.ticks() as tick}
 		<line
 			stroke="var(--neutral-050)"
@@ -316,8 +289,8 @@
 			x={marginLeft - 15}
 			y={yScale(tick) + 5}
 		>
-			{tick}
-			<!-- {abbreviateNumber(tick, 1000)} -->
+			<!-- {tick} -->
+			{abbreviateNumber(tick, 1000)}
 		</text>
 	{/each}
 
@@ -364,7 +337,6 @@
 			d={area(chartData)}
 		/>
 		{#each chartData as d, i}
-
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<rect 
 				on:mouseenter={enterTooltip}

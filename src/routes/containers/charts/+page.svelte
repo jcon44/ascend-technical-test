@@ -358,7 +358,6 @@
 
 	$: geoData = 'realData'
 
-	console.log(citData)
 	export let data
 
 	const chartData = [...data.time_series]
@@ -466,7 +465,7 @@
 					monthYear
 					valueOneLabel="date"
 					valueTwoLabel="value"
-					seriesKey="name"
+					seriesKey="series"
 				>
 				<div slot="chart-header" style="margin-top: var(--spacing09);margin-bottom: var(--spacing09)">
 					<SelectorInput 
