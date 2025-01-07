@@ -39,46 +39,46 @@
 	]
 
 	let citData = [
-		{ date: '2023-01-01T00:00:00-05:00', name: 'CIT', value: 1400},
-		{ date: '2023-01-15T00:00:00-05:00', name: 'CIT', value: 1600},
-		{ date: '2023-01-25T00:00:00-05:00', name: 'CIT', value: 1300},
-		{ date: '2023-02-01T00:00:00-05:00', name: 'CIT', value: 1000},
-		{ date: '2023-02-15T00:00:00-05:00', name: 'CIT', value: 900},
-		{ date: '2023-02-25T00:00:00-05:00', name: 'CIT', value: 700},
-		{ date: '2023-03-01T00:00:00-05:00', name: 'CIT', value: 1300},
-		{ date: '2023-03-15T00:00:00-05:00', name: 'CIT', value: 1500},
-		{ date: '2023-03-20T00:00:00-05:00', name: 'CIT', value: 1500},
-		{ date: '2023-03-25T00:00:00-05:00', name: 'CIT', value: 1400},
-		{ date: '2023-04-01T00:00:00-05:00', name: 'CIT', value: 1900},
-		{ date: '2023-04-10T00:00:00-05:00', name: 'CIT', value: 2100},
-		{ date: '2023-04-15T00:00:00-05:00', name: 'CIT', value: 2000},
-		{ date: '2023-04-20T00:00:00-05:00', name: 'CIT', value: 1900},
-		{ date: '2023-04-25T00:00:00-05:00', name: 'CIT', value: 1900},
-		{ date: '2023-05-01T00:00:00-05:00', name: 'CIT', value: 3100},
-		{ date: '2023-05-15T00:00:00-05:00', name: 'CIT', value: 3000},
-		{ date: '2023-06-01T00:00:00-05:00', name: 'CIT', value: 1700},
-		{ date: '2023-06-10T00:00:00-05:00', name: 'CIT', value: 1500},
-		{ date: '2023-06-20T00:00:00-05:00', name: 'CIT', value: 1600},
-		{ date: '2023-06-27T00:00:00-05:00', name: 'CIT', value: 1900},
-		{ date: '2023-07-01T00:00:00-05:00', name: 'CIT', value: 2000},
-		{ date: '2023-07-15T00:00:00-05:00', name: 'CIT', value: 2300},
-		{ date: '2023-07-25T00:00:00-05:00', name: 'CIT', value: 800},
-		{ date: '2023-08-01T00:00:00-05:00', name: 'CIT', value: 500},
-		{ date: '2023-08-15T00:00:00-05:00', name: 'CIT', value: 340},
-		{ date: '2023-08-25T00:00:00-05:00', name: 'CIT', value: 300},
-		{ date: '2023-09-01T00:00:00-05:00', name: 'CIT', value: 200},
-		{ date: '2023-09-15T00:00:00-05:00', name: 'CIT', value: 250},
-		{ date: '2023-09-25T00:00:00-05:00', name: 'CIT', value: 300},
-		{ date: '2023-10-01T00:00:00-05:00', name: 'CIT', value: 700},
-		{ date: '2023-10-20T00:00:00-05:00', name: 'CIT', value: 1000},
-		{ date: '2023-11-01T00:00:00-05:00', name: 'CIT', value: 2200},
-		{ date: '2023-11-10T00:00:00-05:00', name: 'CIT', value: 2400},
-		{ date: '2023-11-15T00:00:00-05:00', name: 'CIT', value: 2600},
-		{ date: '2023-11-20T00:00:00-05:00', name: 'CIT', value: 2700},
-		{ date: '2023-11-25T00:00:00-05:00', name: 'CIT', value: 2500},
-		{ date: '2023-12-01T00:00:00-05:00', name: 'CIT', value: 2300},
-		{ date: '2023-12-15T00:00:00-05:00', name: 'CIT', value: 2400},
-		{ date: '2023-12-25T00:00:00-05:00', name: 'CIT', value: 2000},
+		{ date: '2023-01-01T00:00:00-05:00', series: 'CIT', value: 1400},
+		{ date: '2023-01-15T00:00:00-05:00', series: 'CIT', value: 1600},
+		{ date: '2023-01-25T00:00:00-05:00', series: 'CIT', value: 1300},
+		{ date: '2023-02-01T00:00:00-05:00', series: 'CIT', value: 1000},
+		{ date: '2023-02-15T00:00:00-05:00', series: 'CIT', value: 900},
+		{ date: '2023-02-25T00:00:00-05:00', series: 'CIT', value: 700},
+		{ date: '2023-03-01T00:00:00-05:00', series: 'CIT', value: 1300},
+		{ date: '2023-03-15T00:00:00-05:00', series: 'CIT', value: 1500},
+		{ date: '2023-03-20T00:00:00-05:00', series: 'CIT', value: 1500},
+		{ date: '2023-03-25T00:00:00-05:00', series: 'CIT', value: 1400},
+		{ date: '2023-04-01T00:00:00-05:00', series: 'CIT', value: 1900},
+		{ date: '2023-04-10T00:00:00-05:00', series: 'CIT', value: 2100},
+		{ date: '2023-04-15T00:00:00-05:00', series: 'CIT', value: 2000},
+		{ date: '2023-04-20T00:00:00-05:00', series: 'CIT', value: 1900},
+		{ date: '2023-04-25T00:00:00-05:00', series: 'CIT', value: 1900},
+		{ date: '2023-05-01T00:00:00-05:00', series: 'CIT', value: 3100},
+		{ date: '2023-05-15T00:00:00-05:00', series: 'CIT', value: 3000},
+		{ date: '2023-06-01T00:00:00-05:00', series: 'CIT', value: 1700},
+		{ date: '2023-06-10T00:00:00-05:00', series: 'CIT', value: 1500},
+		{ date: '2023-06-20T00:00:00-05:00', series: 'CIT', value: 1600},
+		{ date: '2023-06-27T00:00:00-05:00', series: 'CIT', value: 1900},
+		{ date: '2023-07-01T00:00:00-05:00', series: 'CIT', value: 2000},
+		{ date: '2023-07-15T00:00:00-05:00', series: 'CIT', value: 2300},
+		{ date: '2023-07-25T00:00:00-05:00', series: 'CIT', value: 800},
+		{ date: '2023-08-01T00:00:00-05:00', series: 'CIT', value: 500},
+		{ date: '2023-08-15T00:00:00-05:00', series: 'CIT', value: 340},
+		{ date: '2023-08-25T00:00:00-05:00', series: 'CIT', value: 300},
+		{ date: '2023-09-01T00:00:00-05:00', series: 'CIT', value: 200},
+		{ date: '2023-09-15T00:00:00-05:00', series: 'CIT', value: 250},
+		{ date: '2023-09-25T00:00:00-05:00', series: 'CIT', value: 300},
+		{ date: '2023-10-01T00:00:00-05:00', series: 'CIT', value: 700},
+		{ date: '2023-10-20T00:00:00-05:00', series: 'CIT', value: 1000},
+		{ date: '2023-11-01T00:00:00-05:00', series: 'CIT', value: 2200},
+		{ date: '2023-11-10T00:00:00-05:00', series: 'CIT', value: 2400},
+		{ date: '2023-11-15T00:00:00-05:00', series: 'CIT', value: 2600},
+		{ date: '2023-11-20T00:00:00-05:00', series: 'CIT', value: 2700},
+		{ date: '2023-11-25T00:00:00-05:00', series: 'CIT', value: 2500},
+		{ date: '2023-12-01T00:00:00-05:00', series: 'CIT', value: 2300},
+		{ date: '2023-12-15T00:00:00-05:00', series: 'CIT', value: 2400},
+		{ date: '2023-12-25T00:00:00-05:00', series: 'CIT', value: 2000},
 	]
 
 	let realStacked = [
@@ -361,7 +361,6 @@
 	export let data
 
 	const chartData = [...data.time_series]
-	console.log(chartData)
 </script>
 
 <Page>
@@ -458,7 +457,7 @@
 				<Chart
 					tooltipId="area"
 					type="area"
-					data={chartData}
+					data={geoData === 'realData' ? chartData : citData}
 					title="Simple Area Chart"
 					domain="date"
 					range="value"
@@ -474,7 +473,7 @@
 						defaultOptionName={'realData'}
 						defaultOptionValue={'realData'}
 						optionList={[
-							'secondGeoData'
+							'citData'
 						]}
 						bind:selectedValue={geoData}
 					/>

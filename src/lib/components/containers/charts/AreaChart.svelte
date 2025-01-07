@@ -25,7 +25,7 @@
 	 *      seriesKey - string property that declares the object key differentiating each series
 	 */
 
-	export let data = [],
+	export let data,
 		tooltipId,
 		areaColors = [],
 		lineColors = [],
@@ -59,7 +59,7 @@
 	let marginBottom = domainLabel ? 50 : 24
 	let avgArray = []
 	let position = rule
-	let chartData = [...data]
+	$: chartData = JSON.parse(JSON.stringify(data)) // copies and removes references to original data
 
 	let xScale,
 		yScale,
@@ -81,9 +81,50 @@
 		}
 	} // offset by 2 quarters
 	
-	$: tickFormat = d3.timeDay
-	$: labelFormat = formatFull
-	$: everyOther = false
+	let tickFormat = d3.timeDay,
+		labelFormat = formatFull,
+		everyOther = false,
+		dayInterval, 
+		monthInterval, 
+		yearInterval
+		
+	// WHAT THE FUCK DO I DO WITH THIS
+	// runs before data is updated. Lifecycle hooks do not work. Reactive blocks do not work
+	// maybe toy around with await blocks?
+	$: if (chartData !== undefined) {
+		for (let obj of chartData) {
+			obj[domain] = new Date(obj[domain])
+		}
+		const min = d3.min(chartData, d => d[domain])
+		const max = d3.max(chartData, d => d[domain])
+		dayInterval = d3.timeDay.count(min, max)
+		monthInterval = d3.timeMonth.count(min, max)
+		yearInterval = d3.timeYear.count(min, max)
+		if (quarters) {
+			labelFormat = formatQuarter
+			tickFormat = d3.timeQuarter
+		} else if (fiscalQuarters) {
+			labelFormat = formatFiscalQuarter
+			tickFormat = d3.timeQuarter
+		} else if (yearInterval >= 2 && yearInterval <= 20) {
+			labelFormat = formatYear
+			tickFormat = d3.timeYear
+			everyOther = false
+			chartData = [...consolidateYears(chartData, domain, range)]
+			if (yearInterval >= 11) everyOther = true
+		} else if (monthInterval >= 2 && monthInterval <= 23) {
+			labelFormat = formatMonthYear // eo
+			tickFormat = d3.timeMonth
+			everyOther = false
+			chartData = [...consolidateMonths(chartData, domain, range)]
+			if (monthInterval >= 13) everyOther = true
+		} else if (dayInterval <= 31) {
+			labelFormat = formatMonthDay
+			tickFormat = d3.timeDay
+			everyOther = false
+		}
+	}
+
 
 	$: {
 		if (innerWidth < 768) {
@@ -129,42 +170,9 @@
 				.x((d) => xScale(d.chartData[0]))
 				.y((d) => yScale(d[1]))
 		} else {
-			for (let obj of chartData) {
-				obj[domain] = new Date(obj[domain])
-			}
-
-			// calculate the tick frequency here
-			// while still in the update block
-			const dayInterval = d3.timeDay.count(d3.min(chartData, (d) => d[domain]), d3.max(chartData, (d) => d[domain]))
-			const monthInterval = d3.timeMonth.count(d3.min(chartData, (d) => d[domain]), d3.max(chartData, (d) => d[domain]))
-			const yearInterval = d3.timeYear.count(d3.min(chartData, (d) => d[domain]), d3.max(chartData, (d) => d[domain]))
-
-			let allValues = []
-			if (quarters) {
-				labelFormat = formatQuarter
-				tickFormat = d3.timeQuarter
-			} else if (fiscalQuarters) {
-				labelFormat = formatFiscalQuarter
-				tickFormat = d3.timeQuarter
-			} else if (yearInterval >= 2 && yearInterval <= 20) {
-				labelFormat = formatYear
-				tickFormat = d3.timeYear
-				everyOther = false
-
-				chartData = [...consolidateYears(chartData, domain, range)]
-				if (yearInterval >= 11) everyOther = true
-			} else if (monthInterval >= 2 && monthInterval <= 23) {
-				labelFormat = formatMonthYear // eo
-				tickFormat = d3.timeMonth
-				everyOther = false
-				
-				chartData = [...consolidateMonths(chartData, domain, range)]
-				if (monthInterval >= 13) everyOther = true
-			} else if (dayInterval <= 31) {
-				labelFormat = formatMonthDay
-				tickFormat = d3.timeDay
-				everyOther = false
-			}
+			// for (let obj of chartData) {
+			// 	obj[domain] = new Date(obj[domain])
+			// }
 
 			xScale = d3
 				.scaleTime()
@@ -289,7 +297,6 @@
 			x={marginLeft - 15}
 			y={yScale(tick) + 5}
 		>
-			<!-- {tick} -->
 			{abbreviateNumber(tick, 1000)}
 		</text>
 	{/each}
