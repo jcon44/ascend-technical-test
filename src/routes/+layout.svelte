@@ -6,7 +6,8 @@
 
 	const navBarContents = {
 		primaryPageList: [
-			{
+			{	
+				startOpen: true,
 				icon: HomeIcon,
 				text: 'Containers',
 				url: '/',

@@ -1,6 +1,7 @@
 <script>
 	import { Button, SubNavButton, NavButtonChevronDownIcon, NavButtonChevronUpIcon } from '$lib/index.js'
 	import { page } from '$app/stores'
+	import { onMount } from 'svelte'
 
 	export let pageData = undefined,
 		navBarOpen,
@@ -9,6 +10,10 @@
 	function toggleSubNav() {
 		open = !open
 	}
+
+	onMount(() => {
+		if (pageData.startOpen === true) open = true
+	})
 
 	$: currentPageLink = $page.url.pathname.includes(pageData?.url)
 </script>
