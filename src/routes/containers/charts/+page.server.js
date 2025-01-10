@@ -13,12 +13,12 @@ export async function load({ locals }) {
 
 
     const filters = {
-		admit_time__range: [`${year - 1}-${month}-${date}`, `${year}-${month}-${date}`],
+		fiscal_year__range: [`2018`, '2024'],
 		board_name: boardName,
 	}
     if (hasAccess || skip_auth) {
         try {
-            const resp = await fetch(`${env.DATA_WAREHOUSE_BASE_URL}/api/dashboard/encounters/count/timeseries`, {
+            const filterResp = await fetch(`${env.DATA_WAREHOUSE_BASE_URL}/api/dashboard/filters/medicaid/demographics`, {
                 method: 'POST',
                 body: JSON.stringify(filters),
                 headers: {
@@ -26,17 +26,21 @@ export async function load({ locals }) {
                     Authorization: `Bearer ${env.DATA_WAREHOUSE_TOKEN}`,
                 },
             })
-            
-            const encounters = await resp.json()
-
-            encounters['total_count'] = Number(encounters['total_count']).toLocaleString()
-			encounters['time_series'].map((el) => {
-				el.series = 'Behavioral Health Encounters'
-				el.value = Number(el.value)
-				return el
-			})
     
-            return encounters
+            const demoFilters = await filterResp.json()
+    
+            const resp = await fetch(`${env.DATA_WAREHOUSE_BASE_URL}/api/dashboard/medicaid/demographics/count/timeseries`, {
+                method: 'POST',
+                body: JSON.stringify(filters),
+                headers: {
+                    'content-type': 'application/json',
+                    Authorization: `Bearer ${env.DATA_WAREHOUSE_TOKEN}`,
+                },
+            })
+    
+            const boardDemographics = await resp.json()
+    
+            return { boardDemographics, demoFilters }
         } catch (err) {
             throw new Error(err)
         }

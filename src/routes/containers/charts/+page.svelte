@@ -2,6 +2,7 @@
 	import GeoChart from '$lib/components/containers/charts/GeoChart.svelte'
 	import SelectorInput from '$lib/components/inputs/selectors/SelectorInput.svelte'
 	import { Chart, Page, PageBody, NextButton, StatusTag, Card } from '$lib/index.js'
+	import { afterUpdate } from 'svelte'
 
 	let barData = [
 		{ x: 'Hospital 1', series: 'Source', value: 10 },
@@ -360,7 +361,21 @@
 
 	export let data
 
-	const chartData = [...data.time_series]
+	$: combinedData = JSON.parse(JSON.stringify(data.boardDemographics.ethnicity)) || []
+	afterUpdate(() => {
+		combinedData = []
+		for (let ethnicity in data.ethnicity) {
+			for (let point of data[ethnicity].time_series) {
+				point.ethnicity = ethnicity
+				combinedData.push(point)
+			}
+		}
+		combinedData.sort((a, b) => a.date - b.date)
+		console.log(combinedData)
+	})
+
+	// const chartData = [...data.time_series]
+	
 </script>
 
 <Page>
@@ -457,10 +472,11 @@
 				<Chart
 					tooltipId="area"
 					type="area"
-					data={geoData === 'realData' ? chartData : citData}
+					data={geoData === 'realData' ? combinedData : citData}
 					title="Simple Area Chart"
 					domain="date"
 					range="value"
+					stacked
 					monthYear
 					valueOneLabel="date"
 					valueTwoLabel="value"
