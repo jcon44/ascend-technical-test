@@ -87,8 +87,7 @@
 		dayInterval, 
 		monthInterval, 
 		yearInterval
-		
-	// WHAT THE FUCK DO I DO WITH THIS
+
 	// runs before data is updated. Lifecycle hooks do not work. Reactive blocks do not work
 	// maybe toy around with await blocks?
 	$: if (chartData !== undefined) {
@@ -134,10 +133,6 @@
 		}
 
 		if (stacked) {
-			for (let obj of chartData) {
-				obj[domain] = new Date(obj[domain])
-			}
-
 			stack = d3
 				.stack()
 				.keys(d3.union(chartData.map((d) => d[seriesKey])))
@@ -161,19 +156,15 @@
 
 			area = d3
 				.area()
-				.x((d) => xScale(d.chartData[0]))
+				.x((d) => xScale(d.data[0]))
 				.y0((d) => yScale(d[0]))
 				.y1((d) => yScale(d[1]))
 
 			stroke = d3
 				.line()
-				.x((d) => xScale(d.chartData[0]))
+				.x((d) => xScale(d.data[0]))
 				.y((d) => yScale(d[1]))
 		} else {
-			// for (let obj of chartData) {
-			// 	obj[domain] = new Date(obj[domain])
-			// }
-
 			xScale = d3
 				.scaleTime()
 				.domain(d3.extent(chartData, (d) => d[domain]))

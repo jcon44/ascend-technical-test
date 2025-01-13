@@ -361,21 +361,7 @@
 
 	export let data
 
-	$: combinedData = JSON.parse(JSON.stringify(data.boardDemographics.ethnicity)) || []
-	afterUpdate(() => {
-		combinedData = []
-		for (let ethnicity in data.ethnicity) {
-			for (let point of data[ethnicity].time_series) {
-				point.ethnicity = ethnicity
-				combinedData.push(point)
-			}
-		}
-		combinedData.sort((a, b) => a.date - b.date)
-		console.log(combinedData)
-	})
-
-	// const chartData = [...data.time_series]
-	
+	$: combinedData = JSON.parse(JSON.stringify(data.boardDemographics.ethnicity))
 </script>
 
 <Page>
@@ -469,6 +455,7 @@
 				/>
 			</div> -->
 			<div class="simple-area-chart">
+				{#if combinedData.length !== 0}
 				<Chart
 					tooltipId="area"
 					type="area"
@@ -477,7 +464,7 @@
 					domain="date"
 					range="value"
 					stacked
-					monthYear
+					yearOnly
 					valueOneLabel="date"
 					valueTwoLabel="value"
 					seriesKey="series"
@@ -507,6 +494,7 @@
 					/>
 				</div>
 				</Chart>
+				{/if}
 			</div>
 			<!-- <div class="stacked-area-chart">
 				<Chart
