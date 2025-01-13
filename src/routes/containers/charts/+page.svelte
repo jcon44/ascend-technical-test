@@ -467,7 +467,7 @@
 					yearOnly
 					valueOneLabel="date"
 					valueTwoLabel="value"
-					seriesKey="series"
+					seriesKey="ethnicity"
 				>
 				<div slot="chart-header" style="margin-top: var(--spacing09);margin-bottom: var(--spacing09)">
 					<SelectorInput 

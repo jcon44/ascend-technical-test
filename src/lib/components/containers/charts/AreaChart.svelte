@@ -99,31 +99,34 @@
 		dayInterval = d3.timeDay.count(min, max)
 		monthInterval = d3.timeMonth.count(min, max)
 		yearInterval = d3.timeYear.count(min, max)
-		if (quarters) {
-			labelFormat = formatQuarter
-			tickFormat = d3.timeQuarter
-		} else if (fiscalQuarters) {
-			labelFormat = formatFiscalQuarter
-			tickFormat = d3.timeQuarter
-		} else if (yearInterval >= 2 && yearInterval <= 20) {
-			labelFormat = formatYear
-			tickFormat = d3.timeYear
-			everyOther = false
-			chartData = [...consolidateYears(chartData, domain, range)]
-			if (yearInterval >= 11) everyOther = true
-		} else if (monthInterval >= 2 && monthInterval <= 23) {
-			labelFormat = formatMonthYear // eo
-			tickFormat = d3.timeMonth
-			everyOther = false
-			chartData = [...consolidateMonths(chartData, domain, range)]
-			if (monthInterval >= 13) everyOther = true
-		} else if (dayInterval <= 31) {
-			labelFormat = formatMonthDay
-			tickFormat = d3.timeDay
-			everyOther = false
+		if (stacked) {
+			// todo
+		} else {
+			if (quarters) {
+				labelFormat = formatQuarter
+				tickFormat = d3.timeQuarter
+			} else if (fiscalQuarters) {
+				labelFormat = formatFiscalQuarter
+				tickFormat = d3.timeQuarter
+			} else if (yearInterval >= 2 && yearInterval <= 20) {
+				labelFormat = formatYear
+				tickFormat = d3.timeYear
+				everyOther = false
+				chartData = [...consolidateYears(chartData, domain, range)]
+				if (yearInterval >= 11) everyOther = true
+			} else if (monthInterval >= 2 && monthInterval <= 23) {
+				labelFormat = formatMonthYear // eo
+				tickFormat = d3.timeMonth
+				everyOther = false
+				chartData = [...consolidateMonths(chartData, domain, range)]
+				if (monthInterval >= 13) everyOther = true
+			} else if (dayInterval <= 31) {
+				labelFormat = formatMonthDay
+				tickFormat = d3.timeDay
+				everyOther = false
+			}
 		}
 	}
-
 
 	$: {
 		if (innerWidth < 768) {
