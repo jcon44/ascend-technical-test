@@ -6,7 +6,7 @@
         { value: 'This', selected: false },
         { value: 'That', selected: false },
         { value: 'The Other', selected: false },
-        { value: 'Blah', selected: false },
+        { value: 'Blah', selected: true },
         { value: 'What?', selected: false },
         { value: 'Last', selected: false },
     ]

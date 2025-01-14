@@ -11,7 +11,7 @@
         validationText = '',
         optionList = []
 
-    let open = false, allUnselected = false
+    let open = false, allUnselected = null
 
     function openToggle() {
         open = !open
