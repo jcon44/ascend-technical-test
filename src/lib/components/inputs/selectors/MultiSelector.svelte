@@ -91,31 +91,31 @@
 		flex-direction: column;
 		width: 100%;
 		background: none;
-		border-radius: var(--spacing05);
-		border: var(--spacing00) solid var(--neutral-100);
         overflow: hidden;
 	}
     .open-selector-control {
-        border-radius: var(--spacing05) var(--spacing05) 0 0;
+        border-radius: var(--spacing05);
     }
     .label-wrapper {
         display: flex;
         justify-content: space-between;
         padding: var(--spacing05) var(--spacing05) var(--spacing05) var(--spacing09);
+        border-radius: var(--spacing05);
+		border: var(--spacing00) solid var(--neutral-100);
+        cursor: pointer;
     }
     .label-wrapper:hover {
         background: var(--neutral-100);
     }
     .list-content {
         width: 100%;
-        position: absolute;
         top: 100%;
         left: 0;
+        margin-top: var(--spacing03);
         background-color: white;
-        border-radius: 0 0 var(--spacing05) var(--spacing05);
-        border-right: var(--spacing00) solid var(--neutral-100);
-        border-bottom: var(--spacing00) solid var(--neutral-100);
-        border-left: var(--spacing00) solid var(--neutral-100);
+        /* border-top: var(--spacing00) solid var(--neutral-100); */
+        border-radius: var(--spacing05);
+		border: var(--spacing00) solid var(--neutral-100);
         z-index: 1;
     }
     .options-list {
