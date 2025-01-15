@@ -361,6 +361,8 @@
 
 	export let data
 
+	let emptyData
+
 	$: combinedData = JSON.parse(JSON.stringify(data.boardDemographics.ethnicity))
 </script>
 
@@ -455,7 +457,6 @@
 				/>
 			</div> -->
 			<div class="simple-area-chart">
-				{#if combinedData.length !== 0}
 				<Chart
 					tooltipId="area"
 					type="area"
@@ -494,7 +495,6 @@
 					/>
 				</div>
 				</Chart>
-				{/if}
 			</div>
 			<!-- <div class="stacked-area-chart">
 				<Chart

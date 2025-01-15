@@ -1,5 +1,6 @@
 <script>
     import { AreaChart, BarChart, CardHeader, ChartKeyContainer, GeoChart, PieChart, TableChart } from "$lib/index.js";
+    import AlertCircleSmallIcon from "$lib/assets/icons/s/AlertCircleSmallIcon.svelte"
     import { afterUpdate } from "svelte";
 
     export let type = '',
@@ -79,112 +80,119 @@
         {titleButton}
     />
     <div class="chart-content">
-        {#if $$slots["chart-header"]}
-            <div class="chart-header">
-                <slot name="chart-header" />
+        {#if !data || data.length === 0}
+            <div class="no-data-panel">
+                <AlertCircleSmallIcon colorOverride="var(--neutral-400)" />
+                <p>No data to display</p>
             </div>
-        {/if}
-        <div class="visualization-container">
-            <div 
-                class="chart-sizer {type === 'table' ? 'table-position' : ''}" 
-                bind:clientWidth={chartWidth}
-                bind:clientHeight={chartHeight}
-            >
-                {#if type === 'bar'}
-                    <BarChart
-                        {data}
-                        {domain}
-                        {range}
-                        {domainLabel}
-                        {rangeLabel}
-                        {seriesKey}
-                        {valueOneLabel}
-                        {valueTwoLabel}
-                        {sort}
-                        {stacked}
-                        {tooltipId}
-                        {vertical}
-                        {horizontal}
-                        {timeseries}
-                        {rule}
-                        {barColors}
-                        {chartWidth}
-                        {chartHeight}
-                    />
-                {:else if type === 'area'}
-                    <AreaChart 
-                        {data}
-                        {domain}
-                        {range}
-                        {domainLabel}
-                        {rangeLabel}
-                        {seriesKey}
-                        {valueOneLabel}
-                        {valueTwoLabel}
-                        {rule}
-                        {tooltipId}
-                        {stacked}
-                        {line}
-                        {fullDate}
-                        {yearOnly}
-                        {monthOnly}
-                        {monthDay}
-                        {monthYear}
-                        {quarters}
-                        {fiscalQuarters}
-                        {areaColors}
-                        {lineColors}
-                        {chartWidth}
-                        {chartHeight}
-                    />
-                {:else if type === 'pie'}
-                    <PieChart
-                        {data}
-                        {domain}
-                        {range}
-                        {tooltipId}
-                        {valueOneLabel}
-                        {valueTwoLabel}
-                        {sort}
-                        {arcColors}
-                        {ring}
-                        {chartHeight}
-                    />
-                {:else if type === 'table'}
-                    <TableChart
-                        columns={tableColumns}
-                        bind:list={data}
-                    />
-                {:else if type === 'geo'}
-                    <GeoChart
-                        {data}
-                        {geoJSON}
-                        {mapId}
-                        {markers}
-                        {pillKey}
-                        {pillText}
-                        {addressKey}
-                        {infoTitleKey}
-                        {infoLink}
-                        {linkKey}
-                    />
-                {:else}
-                    Please specify a chart type.
-                {/if}
+        {:else}
+            {#if $$slots["chart-header"]}
+                <div class="chart-header">
+                    <slot name="chart-header" />
+                </div>
+            {/if}
+            <div class="visualization-container">
+                <div 
+                    class="chart-sizer {type === 'table' ? 'table-position' : ''}" 
+                    bind:clientWidth={chartWidth}
+                    bind:clientHeight={chartHeight}
+                >
+                    {#if type === 'bar'}
+                        <BarChart
+                            {data}
+                            {domain}
+                            {range}
+                            {domainLabel}
+                            {rangeLabel}
+                            {seriesKey}
+                            {valueOneLabel}
+                            {valueTwoLabel}
+                            {sort}
+                            {stacked}
+                            {tooltipId}
+                            {vertical}
+                            {horizontal}
+                            {timeseries}
+                            {rule}
+                            {barColors}
+                            {chartWidth}
+                            {chartHeight}
+                        />
+                    {:else if type === 'area'}
+                        <AreaChart 
+                            {data}
+                            {domain}
+                            {range}
+                            {domainLabel}
+                            {rangeLabel}
+                            {seriesKey}
+                            {valueOneLabel}
+                            {valueTwoLabel}
+                            {rule}
+                            {tooltipId}
+                            {stacked}
+                            {line}
+                            {fullDate}
+                            {yearOnly}
+                            {monthOnly}
+                            {monthDay}
+                            {monthYear}
+                            {quarters}
+                            {fiscalQuarters}
+                            {areaColors}
+                            {lineColors}
+                            {chartWidth}
+                            {chartHeight}
+                        />
+                    {:else if type === 'pie'}
+                        <PieChart
+                            {data}
+                            {domain}
+                            {range}
+                            {tooltipId}
+                            {valueOneLabel}
+                            {valueTwoLabel}
+                            {sort}
+                            {arcColors}
+                            {ring}
+                            {chartHeight}
+                        />
+                    {:else if type === 'table'}
+                        <TableChart
+                            columns={tableColumns}
+                            bind:list={data}
+                        />
+                    {:else if type === 'geo'}
+                        <GeoChart
+                            {data}
+                            {geoJSON}
+                            {mapId}
+                            {markers}
+                            {pillKey}
+                            {pillText}
+                            {addressKey}
+                            {infoTitleKey}
+                            {infoLink}
+                            {linkKey}
+                        />
+                    {:else}
+                        Please specify a chart type.
+                    {/if}
+                </div>
             </div>
-        </div>
-        {#if stacked || type === 'pie'}
-            <ChartKeyContainer
-                data={type === 'area' || type === 'bar' ? keyContainerKeys : data}
-                {seriesKey}
-                colors={type === 'bar' ? barColors : type === 'area' ? lineColors : arcColors}
-                column={chartWidth < 500 ? true : false}
-            />
-        {/if}
-        {#if $$slots["chart-footer"]}
-            <div class="chart-footer">
-                <slot name="chart-footer" />
-            </div>
+            {#if stacked || type === 'pie'}
+                <ChartKeyContainer
+                    data={type === 'area' || type === 'bar' ? keyContainerKeys : data}
+                    {seriesKey}
+                    colors={type === 'bar' ? barColors : type === 'area' ? lineColors : arcColors}
+                    column={chartWidth < 500 ? true : false}
+                />
+            {/if}
+            {#if $$slots["chart-footer"]}
+                <div class="chart-footer">
+                    <slot name="chart-footer" />
+                </div>
+            {/if}
         {/if}
     </div>
 </div>
@@ -218,5 +226,20 @@
     }
     .table-position {
         position: relative;
+    }
+    .no-data-panel {
+        border-radius: 12px;
+        background-color: var(--neutral-050);
+        height: 100%;
+        margin-top: var(--spacing09);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: var(--spacing03);
+
+        & p {
+            color: var(--neutral-400);
+        }
     }
 </style>
