@@ -188,11 +188,11 @@
                     column={chartWidth < 500 ? true : false}
                 />
             {/if}
-            {#if $$slots["chart-footer"]}
-                <div class="chart-footer">
-                    <slot name="chart-footer" />
-                </div>
-            {/if}
+        {/if}
+        {#if $$slots["chart-footer"]}
+            <div class="chart-footer">
+                <slot name="chart-footer" />
+            </div>
         {/if}
     </div>
 </div>
