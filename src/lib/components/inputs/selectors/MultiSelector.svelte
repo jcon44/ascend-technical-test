@@ -1,20 +1,28 @@
 <script>
-    import { Label, CheckboxSelectOption, ChevronSingleUpSmallIcon, ChevronSingleDownSmallIcon, InputError } from "$lib/index.js"
+    import { Label, CheckboxSelectOption, ChevronSingleUpSmallIcon, ChevronSingleDownSmallIcon, InputError, SearchBar } from "$lib/index.js"
 	import { beforeUpdate } from "svelte"
 
     export let id = '',
         label = '',
         styles = [],
-        callback = null,
         validValue = true,
+        callback = null,
+        searchCallback = defaultSearchCallback,
         validationCallback = null,
         validationText = '',
-        optionList = []
+        optionList = [],
+        query = '',
+        searchable = false
 
-    let open = false, allUnselected = null
+    let open = false, allUnselected = null, allOptions = optionList
 
     function openToggle() {
         open = !open
+    }
+
+    function defaultSearchCallback() {
+        optionList = allOptions
+        optionList = optionList.filter((el) => el.value.toLowerCase().includes(query.toLowerCase()))
     }
 
     beforeUpdate(() => {
@@ -64,6 +72,11 @@
         </div>
         {#if open}
             <div class="list-content">
+                {#if searchable}
+                    <div class="search-bar-wrapper">
+                        <SearchBar bind:query={query} callback={searchCallback} />
+                    </div>
+                {/if}
                 <div class="options-list">
                     {#each optionList as optionItem}
                         <CheckboxSelectOption
@@ -104,9 +117,6 @@
 		border: var(--spacing00) solid var(--neutral-100);
         cursor: pointer;
     }
-    .label-wrapper:hover {
-        background: var(--neutral-100);
-    }
     .list-content {
         width: 100%;
         top: 100%;
@@ -118,8 +128,13 @@
 		border: var(--spacing00) solid var(--neutral-100);
         z-index: 1;
     }
+    .search-bar-wrapper {
+        padding-left: var(--spacing05);
+        padding-right: var(--spacing05);
+        padding-top: var(--spacing05);
+    }
     .options-list {
-        padding: var(--spacing06);
+        padding: var(--spacing05);
         max-height: 220px;
         overflow-y: scroll;
     }
