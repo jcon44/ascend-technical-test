@@ -80,7 +80,7 @@
         {titleButton}
     />
     <div class="chart-content">
-        {#if (type === 'geo' && geoJSON.length === 0) ||(type !== 'geo' && data.length === 0)}
+        {#if (type === 'geo' && geoJSON?.length === 0) ||(type !== 'geo' && data.length === 0)}
             <div class="no-data-panel">
                 <AlertCircleSmallIcon colorOverride="var(--neutral-400)" />
                 <p>No data to display</p>
