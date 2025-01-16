@@ -24,7 +24,7 @@
         line = false,
         ring = false,
         markers = {},
-        geoJSON,
+        geoJSON = [],
         mapId,
         pillText = '',
 		pillKey = '',

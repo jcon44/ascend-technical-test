@@ -31,7 +31,7 @@
 
             map = L.map(mapId)
 
-            if (geoJSON !== null) {
+            if (geoJSON.length > 0) {
                 if (Array.isArray(geoJSON)) {
                     for (let zip of geoJSON) {
                         const geoPoly = L.geoJSON(zip, zip.options).addTo(map)
