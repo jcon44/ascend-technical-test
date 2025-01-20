@@ -64,6 +64,7 @@ export { default as MedicalCircleSmallIcon } from '$lib/assets/icons/s/MedicalCi
 export { default as MedicalCrossSmallIcon } from '$lib/assets/icons/s/MedicalCrossSmallIcon.svelte'
 export { default as MedicalSquareSmallIcon } from '$lib/assets/icons/s/MedicalSquareSmallIcon.svelte'
 export { default as MentalHealthSmallIcon } from '$lib/assets/icons/s/MentalHealthSmallIcon.svelte'
+export { default as MentalHealthHeartSmallIcon } from '$lib/assets/icons/s/MentalHealthHeartSmallIcon.svelte'
 export { default as MessageDotsSquareSmallIcon } from '$lib/assets/icons/s/MessageDotsSquareSmallIcon.svelte'
 export { default as MessageTextSquare01SmallIcon } from '$lib/assets/icons/s/MessageTextSquare01SmallIcon.svelte'
 export { default as MessageQuestionSquareSmallIcon } from '$lib/assets/icons/s/MessageQuestionSquareSmallIcon.svelte'
