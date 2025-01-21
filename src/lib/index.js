@@ -24,6 +24,7 @@ export { default as SurveyIcon } from '$lib/assets/icons/m/SurveyIcon.svelte'
 export { default as TemplatesIcon } from '$lib/assets/icons/m/TemplatesIcon.svelte'
 
 // Icons (Small)
+export { default as ActivitySmallIcon } from '$lib/assets/icons/s/ActivitySmallIcon.svelte'
 export { default as AgeSmallIcon } from '$lib/assets/icons/s/AgeSmallIcon.svelte'
 export { default as AlertCircleSmallIcon } from '$lib/assets/icons/s/AlertCircleSmallIcon.svelte'
 export { default as ArrowLeftSmallIcon } from '$lib/assets/icons/s/ArrowLeftSmallIcon.svelte'
