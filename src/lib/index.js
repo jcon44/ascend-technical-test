@@ -283,6 +283,9 @@ export { default as getGlobalColorPalette } from '$lib/functions/styling/getGlob
 export { default as getIcon } from '$lib/functions/styling/getIcon.js'
 export { default as setStyles } from '$lib/functions/styling/setStyles.js'
 
+// Tables
+export { default as paginateTable } from '$lib/functions/tables/paginateTable.js'
+
 // Utility
 export { default as todaysDate } from '$lib/functions/utils/todaysDate.js'
 
