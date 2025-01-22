@@ -1,5 +1,4 @@
 export default function paginateTable(data, direction, pageSize = 10) {
-    console.log(data)
     if (direction === 'previous') {
         if (data.currentPage !== 1) {
             data.leftIndex -= pageSize
