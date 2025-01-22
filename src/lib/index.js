@@ -56,6 +56,7 @@ export { default as FlipBackwardSmallIcon } from '$lib/assets/icons/s/FlipBackwa
 export { default as HandHeartSmallIcon } from '$lib/assets/icons/s/HandHeartSmallIcon.svelte'
 export { default as HandshakeSmallIcon } from '$lib/assets/icons/s/HandshakeSmallIcon.svelte'
 export { default as InfoAlertCircleSmallIcon } from '$lib/assets/icons/s/InfoAlertCircleSmallIcon.svelte'
+export { default as InteractionsSmallIcon } from '$lib/assets/icons/s/InteractionsSmallIcons.svelte'
 export { default as Translate01SmallIcon } from '$lib/assets/icons/s/Translate01SmallIcon.svelte'
 export { default as Link03SmallIcon } from '$lib/assets/icons/s/Link03SmallIcon.svelte'
 export { default as MapPin04SmallIcon } from '$lib/assets/icons/s/MapPin04SmallIcon.svelte'
