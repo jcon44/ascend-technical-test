@@ -460,11 +460,10 @@
 				<Chart
 					tooltipId="area"
 					type="area"
-					data={geoData === 'realData' ? combinedData : citData}
+					data={citData}
 					title="Simple Area Chart"
 					domain="date"
 					range="value"
-					stacked
 					yearOnly
 					valueOneLabel="date"
 					valueTwoLabel="value"

@@ -3,6 +3,7 @@
 	import { ChartTooltip, RuleTip, abbreviateNumber } from '$lib/index.js'
 	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
+	import { spring } from "svelte/motion"
 	import consolidateMonths from '$lib/functions/charts/consolidateMonths'
 	import consolidateYears from '$lib/functions/charts/consolidateYears'
 
@@ -87,6 +88,15 @@
 		dayInterval, 
 		monthInterval, 
 		yearInterval
+
+	// tooltip motion transition
+	let coords = spring(
+		{ x: 50,  y: 50 },
+		{
+			stiffness: 0.1,
+			damping: 0.5
+		}
+	)
 
 	// runs before data is updated. Lifecycle hooks do not work. Reactive blocks do not work
 	// maybe toy around with await blocks?
@@ -239,12 +249,14 @@
 			tooltipData.y = yScale(d[1]) - 120 // e.offsetY - 90
 			tooltipData.circlePosition = yScale(d[1])
 			tooltipData.valueOne = fullDate ? formatFull(d.data[0]) : yearOnly ? formatYear(d.data[0]) : monthOnly ? formatMonth(d.data[0]) : monthDay ? formatMonthDay(d.data[0]) : monthYear ? formatMonthYear(d.data[0]) : quarters ? formatQuarter(d.data[0]) : formatFull(d.data[0])
+			coords.set({ x: xScale(d.data[0]), y: yScale(d[1]) })
 		} else {
 			mouseValue = chartData[i][range]
 			tooltipData.y = yScale(mouseValue) - 120 // e.offsetY - 90
 			tooltipData.circlePosition = yScale(mouseValue)
 			tooltipData.valueOne = fullDate ? formatFull(chartData[i][domain]) : yearOnly ? formatYear(chartData[i][domain]) : monthOnly ? formatMonth(chartData[i][domain]) : monthDay ? formatMonthDay(chartData[i][domain]) : monthYear ? formatMonthYear(chartData[i][domain]) : quarters ? formatQuarter(d.data[0]) : formatFull(chartData[i][domain])
-		}
+			coords.set({ x: xScale(chartData[i][domain]), y: yScale(mouseValue) })
+		} 
 
 		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = mouseValue
 	}
@@ -426,27 +438,29 @@
 		class="line"
 		stroke="var(--neutral-trans-100)"
 		stroke-dasharray="2 3"
-		x1={tooltipData.line}
-		x2={tooltipData.line}
+		x1={$coords.x}
+		x2={$coords.x}
 		y1={marginTop}
 		y2={height - marginBottom}
-	/>
-
+		/>
+		
+		<!-- x1={tooltipData.line}
+		x2={tooltipData.line} -->
 	<!-- Tooltip Circle -->
 	<circle 
 		id={`${tooltipId}-outer-circle`}
 		class="circle"
 		fill="white"
-		cx={tooltipData.line}
-		cy={tooltipData.circlePosition}
+		cx={$coords.x}
+		cy={$coords.y}
 		r=12
 	/>
 	<circle 
 		id={`${tooltipId}-inner-circle`}
 		class="circle"
 		fill={tooltipData.color}
-		cx={tooltipData.line}
-		cy={tooltipData.circlePosition}
+		cx={$coords.x}
+		cy={$coords.y}
 		r=6
 	/>
 
