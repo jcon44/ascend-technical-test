@@ -8,7 +8,7 @@
 <TooltipElement>
     <div slot="element" class="filter-label">
         <svelte:component this={filter.icon} />
-        <p class="body-bold-xs">{text}</p>
+        <p class="body-bold-xs text">{text}</p>
     </div>
     <div slot="content">
         {filter.tooltip}
@@ -21,5 +21,11 @@
         align-items: center;
         gap: var(--spacing03);
         color: var(--neutral-400);
+    }
+    .text{
+        max-width: 300px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 </style>
