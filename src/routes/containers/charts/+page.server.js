@@ -40,14 +40,14 @@ export async function load({ locals }) {
     
             const boardDemographics = await resp.json()
             let combinedData = []
-		    for (let ethnicity in boardDemographics.ethnicity) {
-                for (let point of boardDemographics.ethnicity[ethnicity].time_series) {
-                    point.ethnicity = ethnicity
+		    for (let age in boardDemographics.age_group) {
+                for (let point of boardDemographics.age_group[age].time_series) {
+                    point.age = age
                     combinedData.push(point)
                 }
             }
             combinedData.sort((a, b) => a.date - b.date)
-            boardDemographics.ethnicity = combinedData
+            boardDemographics.age_group = combinedData
     
             return { boardDemographics, demoFilters }
         } catch (err) {

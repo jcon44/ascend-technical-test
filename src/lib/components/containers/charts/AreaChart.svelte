@@ -66,7 +66,8 @@
 		yScale,
 		stroke,
 		stack,
-		area
+		area,
+		opacity = []
 
 	let formatFull = d3.utcFormat('%-m/%-d/%Y')
 	let formatYear = d3.utcFormat('%Y')
@@ -177,6 +178,8 @@
 				.line()
 				.x((d) => xScale(d.data[0]))
 				.y((d) => yScale(d[1]))
+
+			opacity = Array(stack[0].length).fill(1) // initialize area opacity array
 		} else {
 			xScale = d3
 				.scaleTime()
@@ -243,6 +246,7 @@
 
 		let mouseValue
 		if (stacked) {
+			changeOpacityOnHover(series)
 			mouseValue = d[1] - d[0]
 			tooltipData.line = xScale(d.data[0])
 			tooltipData.circlePosition = yScale(d[1])
@@ -268,13 +272,29 @@
 		tooltipInnerCircle.style('opacity', 0)
 		tooltipOuterCircle.style('opacity', 0)
 	}
+
+	function changeOpacityOnHover(i) {
+		opacity = opacity.map((o, index) =>{
+			o = index === i ? 1 : 0.5
+			return o
+		})
+	}
+
+	function resetOpacity() {
+		opacity = opacity.map((o) => {
+			o = 1
+			return o
+		})
+	}
 </script>
 
 <svelte:window bind:innerWidth />
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <svg
 	class="area-chart-svg"
 	viewBox="0 0 {width} {height}"
+	on:mouseleave={() => resetOpacity()}
 >
 	<!-- Y-Axis lines -->
 	{#if rangeLabel}
@@ -312,20 +332,24 @@
 	{#if stacked}
 		{#each stack as series, i}
 			<path
+				class="line-path"
 				stroke={lineColors[i]}
 				stroke-width={2}
 				fill="none"
-				d={stroke(series)}
+				opacity={opacity[i]}
+				d={stroke(series)}	
 			/>
 			{#if !line}
 				<path
+					class="area-path"
 					fill={areaColors[i]}
 					d={area(series)}
+					opacity={opacity[i]}
 				/>
 			{/if}
 			{#each series as data, j}
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<rect 
+				<rect
 					on:mouseenter={enterTooltip}
 					on:mousemove={(e) => movingTooltip(e, data, series.key, i, j, lineColors[0])}
 					on:mouseleave={leaveTooltip}
@@ -334,7 +358,7 @@
 					fill="rgba(0, 0, 0, 0)"
 					width={width / series.length}
 					height={height - yScale(data[1] - data[0]) - 24}
-					x={xScale(data.data[0]) - ((width / series.length) / 2)}
+					x={xScale(data.data[0]) - ((width / series.length)) / 2}
 					y={yScale(data[1])}
 				/>
 			{/each}
@@ -494,6 +518,11 @@
 
 	.axis-label {
 		font-size: 11px;
+	}
+
+	.area-path,
+	.line-path {
+		transition: all ease-out 300ms;
 	}
 
 	.line, .circle {

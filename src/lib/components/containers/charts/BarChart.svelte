@@ -51,7 +51,8 @@
 	let marginBottom = vertical ? domainLabel ? 50 : 24 : 20
 	let avgArray = []
 	let position = rule
-	let xScale, yScale, stack
+	let xScale, yScale, stack, opacity = []
+	$: chartData = JSON.parse(JSON.stringify(data)) // copies and removes references to original data
 
 	let formatFull = d3.utcFormat('%-m/%-d/%Y')
 	let formatYear = d3.utcFormat('%Y')
@@ -89,10 +90,10 @@
 			if (stacked) {
 				stack = d3
 					.stack()
-					.keys(d3.union(data.map((d) => d[seriesKey])))
+					.keys(d3.union(chartData.map((d) => d[seriesKey])))
 					.value(([, D], key) => D.get(key)[range])(
 					d3.index(
-						data,
+						chartData,
 						(d) => d[domain],
 						(d) => d[seriesKey],
 					),
@@ -103,7 +104,7 @@
 				} else {
 					xScale = d3
 						.scaleBand()
-						.domain(data.map((d) => d[domain]))
+						.domain(chartData.map((d) => d[domain]))
 						.range([marginLeft, width - marginRight])
 						.padding(0.3)
 				}
@@ -112,13 +113,16 @@
 					.scaleLinear()
 					.domain([0, d3.max(stack, (d) => d3.max(d, (d) => d[1]))])
 					.range([height - marginBottom, marginTop])
+
+				opacity = Array(stack.length).fill(1)
+				
 			} else {
 				if (sort === 'ascending') {
 					xScale = d3
 						.scaleBand()
 						.domain(
 							d3.groupSort(
-								data,
+								chartData,
 								([d]) => d[range],
 								(d) => d[domain],
 							),
@@ -130,7 +134,7 @@
 						.scaleBand()
 						.domain(
 							d3.groupSort(
-								data,
+								chartData,
 								([d]) => -d[range],
 								(d) => d[domain],
 							),
@@ -143,7 +147,7 @@
 					} else {
 						xScale = d3
 							.scaleBand()
-							.domain(data.map((d) => d[domain]))
+							.domain(chartData.map((d) => d[domain]))
 							.range([marginLeft, width - marginRight])
 							.padding(0.3)
 					}
@@ -151,12 +155,14 @@
 
 				yScale = d3
 					.scaleLinear()
-					.domain([0, d3.max(data, (d) => d[range])])
+					.domain([0, d3.max(chartData, (d) => d[range])])
 					.range([height - marginBottom, marginTop])
+
+				opacity = Array(chartData.length).fill(1)
 
 				if (rule === 'avg') {
 					let avg = 0
-					data.forEach((el) => avgArray.push(el[range]))
+					chartData.forEach((el) => avgArray.push(el[range]))
 					avgArray.forEach((el) => avg += el)
 					position = avg / avgArray.length
 				}
@@ -167,10 +173,10 @@
 			if (stacked) {
 				stack = d3
 					.stack()
-					.keys(d3.union(data.map((d) => d[seriesKey])))
+					.keys(d3.union(chartData.map((d) => d[seriesKey])))
 					.value(([, D], key) => D.get(key)[domain])(
 					d3.index(
-						data,
+						chartData,
 						(d) => d[range],
 						(d) => d[seriesKey],
 					),
@@ -178,7 +184,7 @@
 
 				yScale = d3
 					.scaleBand()
-					.domain(data.map((d) => d[range]))
+					.domain(chartData.map((d) => d[range]))
 					.range([marginTop, height - marginBottom])
 					.padding(0.2)
 
@@ -192,7 +198,7 @@
 						.scaleBand()
 						.domain(
 							d3.groupSort(
-								data,
+								chartData,
 								([d]) => d[domain],
 								(d) => d[range],
 							),
@@ -204,7 +210,7 @@
 						.scaleBand()
 						.domain(
 							d3.groupSort(
-								data,
+								chartData,
 								([d]) => -d[domain],
 								(d) => d[range],
 							),
@@ -214,14 +220,14 @@
 				} else {
 					yScale = d3
 						.scaleBand()
-						.domain(data.map((d) => d[range]))
+						.domain(chartData.map((d) => d[range]))
 						.range([marginTop, height - marginBottom])
 						.padding(0.2)
 				}
 
 				xScale = d3
 					.scaleLinear()
-					.domain([0, d3.max(data, (d) => d[domain])])
+					.domain([0, d3.max(chartData, (d) => d[domain])])
 					.range([width - marginRight, marginLeft])
 			}
 		}
@@ -245,12 +251,12 @@
 		tooltip.style('opacity', 1)
 	}
 
-	function movingTooltip(e, d, s) {
+	function movingTooltip(e, d, s, i) {
 		const [x, y] = d3.pointer(e)
-
 		tooltipData.x = e.offsetX - 60
 		tooltipData.title = s
 		tooltipData.y = e.offsetY - 85
+		changeOpacityOnHover(i)
 
 		if (stacked) {
 			tooltipData.valueOne = d.data[0]
@@ -263,6 +269,21 @@
 
 	function leaveTooltip(e) {
 		tooltip.style('opacity', 0)
+		resetOpacity()
+	}
+
+	function changeOpacityOnHover(i) {
+		opacity = opacity.map((o, index) =>{
+			o = index === i ? 1 : 0.5
+			return o
+		})
+	}
+
+	function resetOpacity() {
+		opacity = opacity.map((o) => {
+			o = 1
+			return o
+		})
 	}
 </script>
 
@@ -283,7 +304,7 @@
 				y1={marginTop}
 				y2={height - marginBottom}
 			/>
-			{#each data as d}
+			{#each chartData as d}
 				<text
 					class="axis-label"
 					fill="gray"
@@ -351,7 +372,7 @@
 				x2={width}
 			/>
 			{#if innerWidth >= 500}
-				{#each data as d}
+				{#each chartData as d}
 					<text
 						class="axis-label"
 						fill="gray"
@@ -374,9 +395,11 @@
 					{#if vertical}
 						<!-- svelte-ignore a11y-no-static-element-interactions -->
 						<path
+							class="bar"
 							on:mouseenter={enterTooltip}
-							on:mousemove={(e) => movingTooltip(e, d, series.key)}
+							on:mousemove={(e) => movingTooltip(e, d, series.key, i)}
 							on:mouseleave={leaveTooltip}
+							opacity={opacity[i]}
 							fill={barColors[i]}
 							d={`
 								M${xScale(d.data[0])},${yScale(d[1]) + 4}
@@ -405,14 +428,16 @@
 		</g>
 	{:else}
 		<g class="bars">
-			{#each data as d, i}
+			{#each chartData as d, i}
 				{#if vertical}
 					<!-- svelte-ignore a11y-no-static-element-interactions -->
 					<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 					<path
+						class="bar"
 						on:mouseenter={enterTooltip}
-						on:mousemove={(e) => movingTooltip(e, d, d[seriesKey])}
+						on:mousemove={(e) => movingTooltip(e, d, d[seriesKey], i)}
 						on:mouseleave={leaveTooltip}
+						opacity={opacity[i]}
 						fill={barColors.length > 1 ? barColors[i] : barColors[0]}
 						d={`
 							M${xScale(d[domain])},${yScale(d[range]) + 4}
@@ -473,5 +498,9 @@
 
 	.axis-label {
 		font-size: 11px;
+	}
+
+	.bar {
+		transition: all ease-out 300ms;
 	}
 </style>

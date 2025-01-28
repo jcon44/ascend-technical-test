@@ -363,7 +363,7 @@
 
 	let emptyData
 
-	$: combinedData = JSON.parse(JSON.stringify(data.boardDemographics.ethnicity))
+	$: combinedData = JSON.parse(JSON.stringify(data.boardDemographics.age_group))
 </script>
 
 <Page>
@@ -372,7 +372,7 @@
 			<h1>Charts</h1>
 		</div>
 		<div class="chart-container">
-			<!-- <div class="simple-v-bar">
+			<div class="simple-v-bar">
 				<Chart
 					tooltipId="simple-v"
 					type="bar"
@@ -387,21 +387,8 @@
 					rangeLabel="Big Measure"
 					rule='avg'
 					seriesKey="series"
-				>
-					<div slot="chart-header" style="margin-top: var(--spacing09)">
-						<SelectorInput 
-							id="bar-selector"
-							label="Random Selector"
-							defaultOptionName={'realData'}
-							defaultOptionValue={'realData'}
-							optionList={[
-								'secondGeoData'
-							]}
-							bind:selectedValue={geoData}
-						/>
-					</div>
-				</Chart>
-			</div> -->
+				/>
+			</div>
 
 			<!-- <div class="table-chart">
 				<Chart 
@@ -427,7 +414,7 @@
 					range="x"
 				/>
 			</div> -->
-			<!-- <div class="stacked-v-bar">
+			<div class="stacked-v-bar">
 				<Chart
 					tooltipId="stacked-v"
 					type="bar"
@@ -440,7 +427,7 @@
 					labelKey="name"
 					seriesKey="name"
 				/>
-			</div> -->
+			</div>
 			<!-- <div class="stacked-h-bar">
 				<Chart
 					tooltipId="stacked-h"
@@ -460,14 +447,15 @@
 				<Chart
 					tooltipId="area"
 					type="area"
-					data={citData}
+					data={combinedData}
 					title="Simple Area Chart"
 					domain="date"
 					range="value"
+					stacked
 					yearOnly
 					valueOneLabel="date"
 					valueTwoLabel="value"
-					seriesKey="ethnicity"
+					seriesKey="age"
 				>
 				<div slot="chart-header" style="margin-top: var(--spacing09);margin-bottom: var(--spacing09)">
 					<SelectorInput 
