@@ -30,6 +30,7 @@
 		border-radius: 12px;
 		opacity: 0;
 		pointer-events: none;
+		transition: opacity ease-out 300ms;
 	}
 
 	.tooltip-text {

@@ -357,13 +357,46 @@
 		}
 	]
 
+	const scatterData = [
+		{ date: '2025-4-1', value: 55, series: 'Scatter' },
+		{ date: '2025-4-2', value: 28, series: 'Scatter' },
+		{ date: '2025-4-3', value: 63, series: 'Scatter' },
+		{ date: '2025-4-4', value: 89, series: 'Scatter' },
+		{ date: '2025-4-5', value: 44, series: 'Scatter'},
+		{ date: '2025-4-6', value: 66, series: 'Scatter' },
+		{ date: '2025-4-7', value: 17, series: 'Scatter' },
+		{ date: '2025-4-8', value: 29, series: 'Scatter' },
+		{ date: '2025-4-9', value: 59, series: 'Scatter' },
+		{ date: '2025-4-10', value: 13, series: 'Scatter' },
+		{ date: '2025-4-11', value: 92, series: 'Scatter' },
+		{ date: '2025-4-12', value: 8, series: 'Scatter' },
+		{ date: '2025-4-13', value: 71, series: 'Scatter' },
+		{ date: '2025-4-14', value: 87, series: 'Scatter' },
+		{ date: '2025-4-15', value: 70, series: 'Scatter' },
+		{ date: '2025-4-16', value: 53, series: 'Scatter' },
+		{ date: '2025-4-17', value: 15, series: 'Scatter' },
+		{ date: '2025-4-18', value: 99, series: 'Scatter' },
+		{ date: '2025-4-19', value: 14, series: 'Scatter' },
+		{ date: '2025-4-20', value: 27, series: 'Scatter' },
+		{ date: '2025-4-21', value: 75, series: 'Scatter' },
+		{ date: '2025-4-22', value: 58, series: 'Scatter' },
+		{ date: '2025-4-23', value: 91, series: 'Scatter' },
+		{ date: '2025-4-24', value: 98, series: 'Scatter' },
+		{ date: '2025-4-25', value: 22, series: 'Scatter' },
+		{ date: '2025-4-26', value: 7, series: 'Scatter' },
+		{ date: '2025-4-27', value: 93, series: 'Scatter' },
+		{ date: '2025-4-28', value: 82, series: 'Scatter' },
+		{ date: '2025-4-29', value: 46, series: 'Scatter' },
+		{ date: '2025-4-30', value: 16, series: 'Scatter' },
+	]
+
 	$: geoData = 'realData'
 
 	export let data
 
 	let emptyData
 
-	$: combinedData = JSON.parse(JSON.stringify(data.boardDemographics.age_group))
+	// $: combinedData = JSON.parse(JSON.stringify(data.boardDemographics.age_group))
 </script>
 
 <Page>
@@ -383,6 +416,8 @@
 					data={barData}
 					domain="x"
 					range="value"
+					valueOneLabel="x"
+					valueTwoLabel="value"
 					domainLabel="Blue"
 					rangeLabel="Big Measure"
 					rule='avg'
@@ -424,8 +459,12 @@
 					title="Stacked Vertical Bar Chart"
 					domain="x"
 					range="value"
+					valueOneLabel="x"
+					valueTwoLabel="value"
 					labelKey="name"
 					seriesKey="name"
+					lineColors={['var(--primary-700)', 'var(--primary-base)', 'var(--primary-300)']}
+					areaColors={['var(--primary-trans-700)', 'var(--primary-trans-500)', 'var(--primary-trans-300)']}
 				/>
 			</div>
 			<!-- <div class="stacked-h-bar">
@@ -447,15 +486,14 @@
 				<Chart
 					tooltipId="area"
 					type="area"
-					data={combinedData}
+					data={citData}
 					title="Simple Area Chart"
 					domain="date"
 					range="value"
-					stacked
 					yearOnly
 					valueOneLabel="date"
 					valueTwoLabel="value"
-					seriesKey="age"
+					seriesKey="series"
 				>
 				<div slot="chart-header" style="margin-top: var(--spacing09);margin-bottom: var(--spacing09)">
 					<SelectorInput 
@@ -483,7 +521,7 @@
 				</div>
 				</Chart>
 			</div>
-			<!-- <div class="stacked-area-chart">
+			<div class="stacked-area-chart">
 				<Chart
 					tooltipId="stacked-area"
 					type="area"
@@ -498,7 +536,7 @@
 					yearOnly
 					stacked
 				/>
-			</div> -->
+			</div>
 			<!-- <div class="pie-chart">
 				<Chart
 					tooltipId="pie"
@@ -553,6 +591,20 @@
 					/>
 				</div> -->
 			<!-- </div> -->
+			<div class="scatterplot-chart">
+				<Chart 
+					tooltipId="scatter"
+					data={scatterData}
+					title="Scatterplot Chart"
+					type="scatter"
+					domain="date"
+					range="value"
+					seriesKey="series"
+					valueOneLabel="date"
+					valueTwoLabel="value"
+					monthDay
+				/>
+			</div>
 			<div class="geo-chart">
 				<Chart 
 					title="Map With Multiple Markers"
@@ -604,6 +656,7 @@
 	.stacked-area-chart,
 	.pie-chart,
 	.ring-chart,
+	.scatterplot-chart,
 	.geo-chart {
 		width: 100%;
 		height: 650px;

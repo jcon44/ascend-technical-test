@@ -89,7 +89,7 @@
 		height: 100vh;
 		max-width: var(--spacing21);
 		scrollbar-width: var(--spacing02);
-		z-index: 10;
+		z-index: 420;
 	}
 	.navbar:hover {
 		box-shadow:

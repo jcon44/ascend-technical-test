@@ -365,12 +365,14 @@
 		{/each}
 	{:else}
 		<path
+			class="line-path"
 			stroke={lineColors[0]}
 			stroke-width="2"
 			fill="none"
 			d={stroke(chartData)}
 		/>
 		<path
+			class="area-path"
 			fill={line ? 'rgba(0,0,0,0)' : areaColors[0]}
 			d={area(chartData)}
 		/>
@@ -393,7 +395,6 @@
 
 	<!-- Rule -->
 
-	<!-- TODO: ADD RANGE AND DOMAIN LABELS TO AREA CHART -->
 	<!-- Base Axis -->
 	<g transform="translate(0,{height - marginBottom})">
 		{#if domainLabel}

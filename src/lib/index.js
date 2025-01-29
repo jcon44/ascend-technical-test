@@ -142,6 +142,7 @@ export { default as Chart } from '$lib/components/containers/charts/Chart.svelte
 export { default as GeoChart } from '$lib/components/containers/charts/GeoChart.svelte'
 export { default as PieChart } from '$lib/components/containers/charts/PieChart.svelte'
 export { default as TableChart } from '$lib/components/containers/charts/TableChart.svelte'
+export { default as ScatterplotChart } from '$lib/components/containers/charts/ScatterplotChart.svelte'
 
 // Dialogs
 export { default as Dialog } from '$lib/components/containers/dialogs/Dialog.svelte'
