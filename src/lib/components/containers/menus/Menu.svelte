@@ -52,7 +52,7 @@
 		position: absolute;
 		right: 0;
 		top: 0;
-		z-index: 9;
+		z-index: 420;
 	}
 	.closed-overlay {
 		display: none;
@@ -66,7 +66,7 @@
 		right: var(--spacing09);
 		top: var(--spacing14);
 		width: var(--spacing21);
-		z-index: 10;
+		z-index: 420;
 	}
 	.menu-header {
 		display: flex;
