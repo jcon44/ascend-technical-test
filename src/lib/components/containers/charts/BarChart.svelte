@@ -115,7 +115,6 @@
 					.range([height - marginBottom, marginTop])
 
 				opacity = Array(stack.length).fill(1)
-				
 			} else {
 				if (sort === 'ascending') {
 					xScale = d3
@@ -252,8 +251,9 @@
 	}
 
 	function movingTooltip(e, d, s, i) {
+		let tooltipWidth = tooltip.node().getBoundingClientRect().width
 		const [x, y] = d3.pointer(e)
-		tooltipData.x = e.offsetX - 60
+		tooltipData.x = e.offsetX - (tooltipWidth / 2)
 		tooltipData.title = s
 		tooltipData.y = e.offsetY - 85
 		changeOpacityOnHover(i)
