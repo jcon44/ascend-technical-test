@@ -8,12 +8,12 @@
 	style="top:{tooltipInfo.y}px;left:{tooltipInfo.x}px;"
 >
 	<div class="tooltip-text">
-		<p class="tooltip-title">{tooltipInfo.title}</p>
+		<p class="tooltip-title"><b>{tooltipInfo.title}</b></p>
 		{#if tooltipInfo.valueOneLabel}
-			<p class="values"><span>{tooltipInfo.valueOneLabel}:</span> {tooltipInfo.valueOne}</p>
+			<p class="values"><span>{tooltipInfo.valueOneLabel}:</span> <b>{tooltipInfo.valueOne}</b></p>
 		{/if}
 		{#if tooltipInfo.valueTwoLabel}
-			<p class="values"><span>{tooltipInfo.valueTwoLabel}:</span> {tooltipInfo.valueTwo}</p>
+			<p class="values"><span>{tooltipInfo.valueTwoLabel}:</span> <b>{tooltipInfo.valueTwo}</b></p>
 		{/if}
 	</div>
 </div>
