@@ -356,7 +356,7 @@
 					stroke="rgba(0, 0, 0, 0)"
 					stroke-width={1}
 					fill="rgba(0, 0, 0, 0)"
-					width={width / series.length}
+					width={(width + marginRight + 2*marginLeft) / series.length}
 					height={height - yScale(data[1] - data[0]) - 24}
 					x={xScale(data.data[0]) - ((width / series.length)) / 2}
 					y={yScale(data[1])}
@@ -385,7 +385,7 @@
 				stroke="rgba(0, 0, 0, 0)"
 				stroke-width={1}
 				fill="rgba(0, 0, 0, 0)"
-				width={width / chartData.length}
+				width={(width + marginRight + marginLeft) / chartData.length}
 				height="100%"
 				x={xScale(d[domain]) - ((width / chartData.length) / 2) }
 				y={-24}
