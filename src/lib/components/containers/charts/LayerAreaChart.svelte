@@ -1,36 +1,9 @@
 <script>
-    import {
-        Axis,
-        Bar,
-        Bars,
-        Area,
-        Chart,
-        Highlight,
-        Labels,
-        LinearGradient,
-        Pattern,
-        RectClipPath,
-        Rule,
-        Svg,
-        Text,
-        Tooltip,
-        TooltipItem,
-        createStackData,
-        stackOffsetSeparated,
-		AreaStack,
-    } from 'layerchart';
-    import { scaleBand, scaleOrdinal, scaleTime } from 'd3-scale';
-    import {
-        Field,
-        ToggleGroup,
-        ToggleOption,
-        formatDate,
-        PeriodType,
-        Toggle,
-        Switch,
-    } from 'svelte-ux';
+	import { Axis, Bar, Bars, Area, Chart, Highlight, Labels, LinearGradient, Pattern, RectClipPath, Rule, Svg, Text, Tooltip, TooltipItem, createStackData, stackOffsetSeparated, AreaStack } from 'layerchart'
+	import { scaleBand, scaleOrdinal, scaleTime } from 'd3-scale'
+	import { Field, ToggleGroup, ToggleOption, formatDate, PeriodType, Toggle, Switch } from 'svelte-ux'
 
-    let areaData = [
+	let areaData = [
 		{ date: '2018', series: 'Source', value: 2505 },
 		{ date: '2019', series: 'Source', value: 2845 },
 		{ date: '2020', series: 'Source', value: 2807 },
@@ -39,7 +12,7 @@
 		{ date: '2023', series: 'Source', value: 2524 },
 	]
 
-    let stackedAreaData = [
+	let stackedAreaData = [
 		{ date: '2024-01-04', name: 'Company 1', value: 25 },
 		{ date: '2024-01-04', name: 'Company 2', value: 50 },
 		{ date: '2024-01-04', name: 'Company 3', value: 12 },
@@ -71,34 +44,50 @@
 </script>
 
 <div class="chart-height">
-    <Chart
-        data={areaData}
-        x="date"
-        xScale={scaleTime()}
-        xNice
-        y="value"
-        yDomain={[0, null]}
-        yNice
-        padding={{ left: 16, right: 16, bottom: 20 }}
-        tooltip={{ mode: "bisect-x" }}
-    >
-        <Svg>
-            <Axis placement="left" grid rule />
-            <Axis
-                placement="bottom"
-                format={(d) => formatDate(d, PeriodType.Day, { variant: "short" })}
-                rule
-            />
-            <Area
-                line={{ stroke: "var(--secondary-base)", strokeWidth: "5", fill: 'none' }}
-                fill="var(--secondary-trans-500)"
-            />
-            <Highlight points lines={{ stroke: "var(--neutral-base)", strokeWidth: '3' }} />
-        </Svg>
-        <Tooltip x="data" y="data" anchor="top" header={(data) => formatDate(data.date, "eee, MMMM do")} let:data>
-            <TooltipItem label="value" value={data.value} />
-          </Tooltip>
-    </Chart>
+	<Chart
+		data={areaData}
+		x="date"
+		xScale={scaleTime()}
+		xNice
+		y="value"
+		yDomain={[0, null]}
+		yNice
+		padding={{ left: 16, right: 16, bottom: 20 }}
+		tooltip={{ mode: 'bisect-x' }}
+	>
+		<Svg>
+			<Axis
+				placement="left"
+				grid
+				rule
+			/>
+			<Axis
+				placement="bottom"
+				format={(d) => formatDate(d, PeriodType.Day, { variant: 'short' })}
+				rule
+			/>
+			<Area
+				line={{ stroke: 'var(--secondary-base)', strokeWidth: '5', fill: 'none' }}
+				fill="var(--secondary-trans-500)"
+			/>
+			<Highlight
+				points
+				lines={{ stroke: 'var(--neutral-base)', strokeWidth: '3' }}
+			/>
+		</Svg>
+		<Tooltip
+			x="data"
+			y="data"
+			anchor="top"
+			header={(data) => formatDate(data.date, 'eee, MMMM do')}
+			let:data
+		>
+			<TooltipItem
+				label="value"
+				value={data.value}
+			/>
+		</Tooltip>
+	</Chart>
 </div>
 
 <!-- <div class="chart-height">
@@ -121,7 +110,7 @@
 </div> -->
 
 <style>
-    .chart-height {
-        height: 400px;
-    }
+	.chart-height {
+		height: 400px;
+	}
 </style>

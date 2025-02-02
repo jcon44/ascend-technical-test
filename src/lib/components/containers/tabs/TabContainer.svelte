@@ -15,7 +15,10 @@
 		on:tabselect={(event) => handleTabSelection(event)}
 	/>
 	<div class="tab-content">
-		<svelte:component this={tabList[currentTab].content} data={tabList[currentTab].data} />
+		<svelte:component
+			this={tabList[currentTab].content}
+			data={tabList[currentTab].data}
+		/>
 	</div>
 </div>
 

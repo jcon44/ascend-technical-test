@@ -40,12 +40,12 @@
 			bind:row
 		/>
 	{:else if column?.type === 'datefullyear'}
-		<FullYearDateCell 
+		<FullYearDateCell
 			bind:column
 			bind:row
 		/>
 	{:else if column?.type === 'datetime'}
-		<DateTimeCell 
+		<DateTimeCell
 			bind:column
 			bind:row
 		/>

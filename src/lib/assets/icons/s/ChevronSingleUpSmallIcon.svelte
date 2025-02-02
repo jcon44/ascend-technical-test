@@ -9,13 +9,13 @@
 	onMount(() => (palette = getGlobalColorPalette()))
 </script>
 
-<Icon 
+<Icon
 	size="24"
-	{styles}	
+	{styles}
 >
 	<path
 		d="M18 15L12 9L6 15"
-		stroke={colorOverride || "#717171"}
+		stroke={colorOverride || '#717171'}
 		stroke-width="2"
 		stroke-linecap="round"
 		stroke-linejoin="round"

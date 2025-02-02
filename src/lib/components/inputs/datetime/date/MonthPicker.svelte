@@ -1,5 +1,5 @@
 <script>
-	import { MonthInput, Label, InputError } from "$lib/index.js";
+	import { MonthInput, Label, InputError } from '$lib/index.js'
 
 	export let month,
 		id = '',
@@ -15,11 +15,11 @@
 	style={styles.join(';')}
 >
 	<div class="month-picker">
-		<Label 
+		<Label
 			{id}
 			{label}
 		/>
-		<MonthInput 
+		<MonthInput
 			bind:month
 			{id}
 			{required}

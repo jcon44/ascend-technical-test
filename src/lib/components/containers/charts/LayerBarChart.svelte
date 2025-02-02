@@ -1,24 +1,9 @@
 <script>
-     import {
-        Axis,
-        Bar,
-        Bars,
-        Chart,
-        Highlight,
-        Labels,
-        Pattern,
-        RectClipPath,
-        Rule,
-        Svg,
-        Text,
-        Tooltip,
-        TooltipItem,
-        stackOffsetSeparated,
-    } from 'layerchart';
-    import { scaleBand } from 'd3-scale';
-    import { formatDate } from 'svelte-ux';
+	import { Axis, Bar, Bars, Chart, Highlight, Labels, Pattern, RectClipPath, Rule, Svg, Text, Tooltip, TooltipItem, stackOffsetSeparated } from 'layerchart'
+	import { scaleBand } from 'd3-scale'
+	import { formatDate } from 'svelte-ux'
 
-    export let data,
+	export let data,
 		barColors,
 		vertical = false,
 		horizontal = false,
@@ -31,67 +16,84 @@
 		seriesKey = null,
 		tooltipId
 
-    let innerWidth, chartWidth = null, chartHeight = null
-    $: width = innerWidth < 768 ? 294 : chartWidth
-    $: height = innerWidth < 768 ? 400 : chartHeight || 400
-    let xScale, yScale, stack
+	let innerWidth,
+		chartWidth = null,
+		chartHeight = null
+	$: width = innerWidth < 768 ? 294 : chartWidth
+	$: height = innerWidth < 768 ? 400 : chartHeight || 400
+	let xScale, yScale, stack
 
-    // const colorKeys = [...new Set(stackedBarData.map((d) => d.name))];
-    // const keyColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)']
+	// const colorKeys = [...new Set(stackedBarData.map((d) => d.name))];
+	// const keyColors = ['var(--secondary-600)', 'var(--secondary-base)', 'var(--secondary-400)']
 </script>
 
 <Chart
-    {data}
-    x={domain}
-    xScale={scaleBand().padding(0.4)}
-    y={range}
-    yDomain={[0, null]}
-    yNice
-    padding={{ top: 10, left: 1, right: 1, bottom: 28 }}
-    tooltip={{ mode: 'bisect-band' }}
+	{data}
+	x={domain}
+	xScale={scaleBand().padding(0.4)}
+	y={range}
+	yDomain={[0, null]}
+	yNice
+	padding={{ top: 10, left: 1, right: 1, bottom: 28 }}
+	tooltip={{ mode: 'bisect-band' }}
 >
-    <Svg>
-        <Axis 
-            placement="left" 
-            rule
-            grid={{
-                stroke: "var(--neutral-050)"
-            }}
-        />
-        <Axis
-            placement="bottom"
-            rule={{ stroke: "var(--neutral-050)"}}
-            tickLabelProps={{
-                dy: 12,
-                fill: "var(--neutral-400)",
-                'font-size': '11px',
-                class: "font-size"
-            }}
-        />
-        <Bars radius={4} rounded="top" stroke={barColors} strokeWidth={1} fill={barColors} />
-        <Highlight area={{ fill: 'var(--secondary-base)' }}>
-            <svelte:fragment slot="area" let:area>
-                <RectClipPath
-                    x={area.x}
-                    y={area.y}
-                    width={area.width}
-                    height={area.height}
-                    spring
-                >
-                    <Bars radius={4} fill="var(--secondary-base)" />
-                </RectClipPath>
-            </svelte:fragment>
-        </Highlight>
-    </Svg>
-    <Tooltip
-        anchor="top"
-        x="data"
-        y="data"
-        header={(data) => data[seriesKey]} 
-        let:data
-    >
-        <TooltipItem label={range} value={data[range]} />
-    </Tooltip>
+	<Svg>
+		<Axis
+			placement="left"
+			rule
+			grid={{
+				stroke: 'var(--neutral-050)',
+			}}
+		/>
+		<Axis
+			placement="bottom"
+			rule={{ stroke: 'var(--neutral-050)' }}
+			tickLabelProps={{
+				dy: 12,
+				fill: 'var(--neutral-400)',
+				'font-size': '11px',
+				class: 'font-size',
+			}}
+		/>
+		<Bars
+			radius={4}
+			rounded="top"
+			stroke={barColors}
+			strokeWidth={1}
+			fill={barColors}
+		/>
+		<Highlight area={{ fill: 'var(--secondary-base)' }}>
+			<svelte:fragment
+				slot="area"
+				let:area
+			>
+				<RectClipPath
+					x={area.x}
+					y={area.y}
+					width={area.width}
+					height={area.height}
+					spring
+				>
+					<Bars
+						radius={4}
+						fill="var(--secondary-base)"
+					/>
+				</RectClipPath>
+			</svelte:fragment>
+		</Highlight>
+	</Svg>
+	<Tooltip
+		anchor="top"
+		x="data"
+		y="data"
+		header={(data) => data[seriesKey]}
+		let:data
+	>
+		<TooltipItem
+			label={range}
+			value={data[range]}
+		/>
+	</Tooltip>
 </Chart>
 
 <!-- <div class="chart-height">

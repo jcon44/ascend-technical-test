@@ -6,7 +6,7 @@
 
 	const navBarContents = {
 		primaryPageList: [
-			{	
+			{
 				startOpen: true,
 				icon: HomeIcon,
 				text: 'Containers',
@@ -14,28 +14,28 @@
 				sublinks: [
 					{
 						text: 'Alerts',
-						url: '/containers/alerts'
+						url: '/containers/alerts',
 					},
 					{
 						text: 'Charts',
-						url: '/containers/charts'
+						url: '/containers/charts',
 					},
 					{
 						text: 'Tooltips',
-						url: '/containers/tooltips'
+						url: '/containers/tooltips',
 					},
 					{
 						text: 'Accordions',
-						url: '/containers/accordions'
-					}
-				]
+						url: '/containers/accordions',
+					},
+				],
 			},
 			{
 				icon: TemplatesIcon,
 				text: 'Inputs',
-				url: '/'
-			}
-		]
+				url: '/',
+			},
+		],
 	}
 </script>
 

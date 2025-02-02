@@ -3,7 +3,7 @@
 	import { ChartTooltip, RuleTip, abbreviateNumber } from '$lib/index.js'
 	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
-	import { spring } from "svelte/motion"
+	import { spring } from 'svelte/motion'
 	import consolidateMonths from '$lib/functions/charts/consolidateMonths'
 	import consolidateYears from '$lib/functions/charts/consolidateYears'
 
@@ -82,21 +82,21 @@
 			return `Q${Number(d3.utcFormat('%q')(d)) - 2} SFY${Number(d3.utcFormat('%Y')(d)) + 1}`
 		}
 	} // offset by 2 quarters
-	
+
 	let tickFormat = d3.timeDay,
 		labelFormat = formatFull,
 		everyOther = false,
-		dayInterval, 
-		monthInterval, 
+		dayInterval,
+		monthInterval,
 		yearInterval
 
 	// tooltip motion transition
 	let coords = spring(
-		{ x: 50,  y: 50 },
+		{ x: 50, y: 50 },
 		{
 			stiffness: 0.1,
-			damping: 0.5
-		}
+			damping: 0.5,
+		},
 	)
 
 	// runs before data is updated. Lifecycle hooks do not work. Reactive blocks do not work
@@ -105,8 +105,8 @@
 		for (let obj of chartData) {
 			obj[domain] = new Date(obj[domain])
 		}
-		const min = d3.min(chartData, d => d[domain])
-		const max = d3.max(chartData, d => d[domain])
+		const min = d3.min(chartData, (d) => d[domain])
+		const max = d3.max(chartData, (d) => d[domain])
 		dayInterval = d3.timeDay.count(min, max)
 		monthInterval = d3.timeMonth.count(min, max)
 		yearInterval = d3.timeYear.count(min, max)
@@ -202,12 +202,12 @@
 				.x((d) => xScale(d[domain]))
 				.y((d) => yScale(d[range]))
 
-				if (rule === 'avg') {
-					let avg = 0
-					chartData.forEach((el) => avgArray.push(el[range]))
-					avgArray.forEach((el) => avg += el)
-					position = avg / avgArray.length
-				}
+			if (rule === 'avg') {
+				let avg = 0
+				chartData.forEach((el) => avgArray.push(el[range]))
+				avgArray.forEach((el) => (avg += el))
+				position = avg / avgArray.length
+			}
 		}
 	}
 
@@ -252,16 +252,16 @@
 			tooltipData.circlePosition = yScale(d[1])
 			tooltipData.valueOne = fullDate ? formatFull(d.data[0]) : yearOnly ? formatYear(d.data[0]) : monthOnly ? formatMonth(d.data[0]) : monthDay ? formatMonthDay(d.data[0]) : monthYear ? formatMonthYear(d.data[0]) : quarters ? formatQuarter(d.data[0]) : formatFull(d.data[0])
 			coords.set({ x: xScale(d.data[0]), y: yScale(d[1]) })
-			tooltipData.x = $coords.x - (tooltipWidth / 2)
+			tooltipData.x = $coords.x - tooltipWidth / 2
 			tooltipData.y = $coords.y - 120
 		} else {
 			mouseValue = chartData[i][range]
 			tooltipData.circlePosition = yScale(mouseValue)
 			tooltipData.valueOne = fullDate ? formatFull(chartData[i][domain]) : yearOnly ? formatYear(chartData[i][domain]) : monthOnly ? formatMonth(chartData[i][domain]) : monthDay ? formatMonthDay(chartData[i][domain]) : monthYear ? formatMonthYear(chartData[i][domain]) : quarters ? formatQuarter(d.data[0]) : formatFull(chartData[i][domain])
 			coords.set({ x: xScale(chartData[i][domain]), y: yScale(mouseValue) })
-			tooltipData.x = $coords.x - (tooltipWidth / 2)
+			tooltipData.x = $coords.x - tooltipWidth / 2
 			tooltipData.y = $coords.y - 120
-		} 
+		}
 
 		if (tooltipData.valueTwoLabel) tooltipData.valueTwo = mouseValue
 	}
@@ -274,7 +274,7 @@
 	}
 
 	function changeOpacityOnHover(i) {
-		opacity = opacity.map((o, index) =>{
+		opacity = opacity.map((o, index) => {
 			o = index === i ? 1 : 0.5
 			return o
 		})
@@ -337,7 +337,7 @@
 				stroke-width={2}
 				fill="none"
 				opacity={opacity[i]}
-				d={stroke(series)}	
+				d={stroke(series)}
 			/>
 			{#if !line}
 				<path
@@ -356,9 +356,9 @@
 					stroke="rgba(0, 0, 0, 0)"
 					stroke-width={1}
 					fill="rgba(0, 0, 0, 0)"
-					width={(width + marginRight + 2*marginLeft) / series.length}
+					width={(width + marginRight + 2 * marginLeft) / series.length}
 					height={height - yScale(data[1] - data[0]) - 24}
-					x={xScale(data.data[0]) - ((width / series.length)) / 2}
+					x={xScale(data.data[0]) - width / series.length / 2}
 					y={yScale(data[1])}
 				/>
 			{/each}
@@ -378,7 +378,7 @@
 		/>
 		{#each chartData as d, i}
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<rect 
+			<rect
 				on:mouseenter={enterTooltip}
 				on:mousemove={(e) => movingTooltip(e, chartData, chartData[0][seriesKey], null, i, lineColors[0])}
 				on:mouseleave={leaveTooltip}
@@ -387,7 +387,7 @@
 				fill="rgba(0, 0, 0, 0)"
 				width={(width + marginRight + marginLeft) / chartData.length}
 				height="100%"
-				x={xScale(d[domain]) - ((width / chartData.length) / 2) }
+				x={xScale(d[domain]) - width / chartData.length / 2}
 				y={-24}
 			/>
 		{/each}
@@ -468,31 +468,31 @@
 		x2={$coords.x}
 		y1={marginTop}
 		y2={height - marginBottom}
-		/>
-		
-		<!-- x1={tooltipData.line}
+	/>
+
+	<!-- x1={tooltipData.line}
 		x2={tooltipData.line} -->
 	<!-- Tooltip Circle -->
-	<circle 
+	<circle
 		id={`${tooltipId}-outer-circle`}
 		class="circle"
 		fill="white"
 		cx={$coords.x}
 		cy={$coords.y}
-		r=12
+		r="12"
 	/>
-	<circle 
+	<circle
 		id={`${tooltipId}-inner-circle`}
 		class="circle"
 		fill={tooltipData.color}
 		cx={$coords.x}
 		cy={$coords.y}
-		r=6
+		r="6"
 	/>
 
 	<!-- Rule -->
 	{#if rule}
-		<line 
+		<line
 			class="rule"
 			stroke="var(--neutral-400)"
 			stroke-width="1"
@@ -506,7 +506,10 @@
 </svg>
 
 {#if rule}
-	<RuleTip value={rule} position={yScale(position)} />
+	<RuleTip
+		value={rule}
+		position={yScale(position)}
+	/>
 {/if}
 <ChartTooltip tooltipInfo={tooltipData} />
 
@@ -526,7 +529,8 @@
 		transition: all ease-out 300ms;
 	}
 
-	.line, .circle {
+	.line,
+	.circle {
 		opacity: 0;
 	}
 </style>

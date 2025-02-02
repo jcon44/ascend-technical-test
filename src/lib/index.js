@@ -376,7 +376,7 @@ export { default as RadioList } from '$lib/components/inputs/radio/RadioList.sve
 export { default as RadioOption } from '$lib/components/inputs/radio/RadioOption.svelte'
 
 // Selectors
-export { default as CheckboxSelectOption } from '$lib/components/inputs/selectors/CheckboxSelectOption.svelte' 
+export { default as CheckboxSelectOption } from '$lib/components/inputs/selectors/CheckboxSelectOption.svelte'
 export { default as MultiSelector } from '$lib/components/inputs/selectors/MultiSelector.svelte'
 export { default as SelectorInput } from '$lib/components/inputs/selectors/SelectorInput.svelte'
 

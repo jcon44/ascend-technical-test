@@ -20,7 +20,10 @@
 	on:keyUp={checkBox}
 >
 	<div class="left-option-column">
-		<CheckboxInput bind:checked callback={checkBox} />
+		<CheckboxInput
+			bind:checked
+			callback={checkBox}
+		/>
 	</div>
 	<div class="right-option-column">
 		<div class="option-name semibold">{name}</div>

@@ -2,7 +2,8 @@
 	import { NavBarHeader, NavButton } from '$lib/index.js'
 	import { slide } from 'svelte/transition'
 
-	export let hoverOpen = false,
+	export let callback = null,
+		hoverOpen = false,
 		keepOpen = true,
 		navBarContents,
 		url = '/',
@@ -48,6 +49,7 @@
 					{#each navBarContents.primaryPageList as pageData}
 						<div class="nav-button">
 							<NavButton
+								{callback}
 								{pageData}
 								{navBarOpen}
 							/>
@@ -59,6 +61,7 @@
 					{#each navBarContents?.secondaryPageList as pageData}
 						<div class="nav-button">
 							<NavButton
+								{callback}
 								{pageData}
 								{navBarOpen}
 							/>
@@ -103,6 +106,7 @@
 		height: var(--spacing33);
 		justify-content: space-between;
 		max-height: 100vh;
+		overflow-y: auto;
 	}
 	.nav-button {
 		width: 100%;

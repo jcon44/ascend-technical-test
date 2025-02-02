@@ -1,5 +1,5 @@
 <script>
-	import { ChevronSingleDownSmallIcon, ChevronSingleUpSmallIcon } from "$lib/index.js";
+	import { ChevronSingleDownSmallIcon, ChevronSingleUpSmallIcon } from '$lib/index.js'
 
 	export let title
 

@@ -1,37 +1,37 @@
 <script>
-    import { Button } from '$lib/index.js'
-    import { page } from '$app/stores'
+	import { Button } from '$lib/index.js'
+	import { page } from '$app/stores'
 
-    export let pageData = undefined,
-        sublink
+	export let pageData = undefined,
+		sublink
 
-    $: currentPageLink = sublink.url === '/' ? $page.url.pathname === sublink.url : $page.url.pathname.includes(sublink.url)
+	$: currentPageLink = sublink.url === '/' ? $page.url.pathname === sublink.url : $page.url.pathname.includes(sublink.url)
 </script>
 
 <div class="subnav-button-wrapper">
-    <div class={`current-page-indicator ${currentPageLink ? 'current-page-link' : ''}`}></div>
-    <div class="nav-button">
-        <Button 
-            text={sublink.text}
-            url={sublink.url ?? ''}
-            classes={['padding-left', 'btn-full', 'btn-left', 'btn-l', 'btn-full', 'btn-white']}
-        />
-    </div>
+	<div class={`current-page-indicator ${currentPageLink ? 'current-page-link' : ''}`}></div>
+	<div class="nav-button">
+		<Button
+			text={sublink.text}
+			url={sublink.url ?? ''}
+			classes={['padding-left', 'btn-full', 'btn-left', 'btn-l', 'btn-full', 'btn-white']}
+		/>
+	</div>
 </div>
 
 <style>
-    .subnav-button-wrapper {
-        display: flex;
-        width: 100%;
-    }
-    .nav-button {
-        width: 100%;
-    }
-    .current-page-indicator {
-        width: var(--spacing02);
-        border-radius: var(--border-radius-s);
-    }
-    .current-page-link {
-        background-color: var(--primary-base);
-    }
+	.subnav-button-wrapper {
+		display: flex;
+		width: 100%;
+	}
+	.nav-button {
+		width: 100%;
+	}
+	.current-page-indicator {
+		width: var(--spacing02);
+		border-radius: var(--border-radius-s);
+	}
+	.current-page-link {
+		background-color: var(--primary-base);
+	}
 </style>

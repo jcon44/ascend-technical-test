@@ -1,5 +1,5 @@
 <script>
-	import { DefaultTooltipElement, Button, ChevronSingleRightSmallIcon, CardHeader } from "$lib/index.js"
+	import { DefaultTooltipElement, Button, ChevronSingleRightSmallIcon, CardHeader } from '$lib/index.js'
 
 	export let callback = undefined,
 		classes = [],
@@ -19,7 +19,7 @@
 	on:click={callback ? callback : ''}
 	on:keyup={callback ? callback : ''}
 >
-	<CardHeader 
+	<CardHeader
 		{icon}
 		{title}
 		{titleTooltip}

@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte'
 
 	export let styles = [],
-			colorOverride
+		colorOverride
 
 	let palette = {}
 

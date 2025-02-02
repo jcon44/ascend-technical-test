@@ -36,13 +36,13 @@
 	{/if}
 	<!-- svelte-ignore a11y-autofocus -->
 	<input
-		bind:value={value}
+		bind:value
 		class="number-input"
-		max={max}
-		min={min}
+		{max}
+		{min}
 		on:blur={validationCallback}
 		on:change={changeCallback}
-		step={step}
+		{step}
 		type="number"
 		{autofocus}
 		{id}

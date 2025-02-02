@@ -1,7 +1,8 @@
 <script>
 	import { Button, XCircleSmallIcon } from '$lib/index.js'
 
-	export let callback, text = 'Clear'
+	export let callback,
+		text = 'Clear'
 </script>
 
 <Button

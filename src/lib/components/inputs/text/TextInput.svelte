@@ -2,7 +2,7 @@
 	import { Label, Tag, InputError } from '$lib/index.js'
 
 	export let autofocus = false,
-	    changeCallback = null,
+		changeCallback = null,
 		description = '',
 		id = '',
 		label = '',

@@ -17,7 +17,7 @@
 	}
 </script>
 
-<Dialog bind:store={store}>
+<Dialog bind:store>
 	<div
 		class="dialog-header-slot-contents"
 		slot="header"

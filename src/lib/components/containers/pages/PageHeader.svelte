@@ -1,18 +1,20 @@
 <script>
-	export let
-		titleJustification = 'center', 
+	export let titleJustification = 'center',
 		titleText = '',
 		paragraphText = '',
 		headerButton = null,
 		headerPill = null,
 		styles = []
-	
+
 	if (headerButton) {
 		titleJustification = 'space-between'
 	}
 </script>
 
-<div class="page-header" style={styles.join(';')}>
+<div
+	class="page-header"
+	style={styles.join(';')}
+>
 	<div
 		class="page-header-top-row"
 		style={`justify-content: ${titleJustification}`}

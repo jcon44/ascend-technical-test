@@ -11,7 +11,6 @@
 // 	const month = today.getMonth() + 1
 // 	const date = today.getDate()
 
-
 //     const filters = {
 // 		fiscal_year__range: [`2018`, '2024'],
 // 		board_name: boardName,
@@ -26,9 +25,9 @@
 //                     Authorization: `Bearer ${env.DATA_WAREHOUSE_TOKEN}`,
 //                 },
 //             })
-    
+
 //             const demoFilters = await filterResp.json()
-    
+
 //             const resp = await fetch(`${env.DATA_WAREHOUSE_BASE_URL}/api/dashboard/medicaid/demographics/count/timeseries`, {
 //                 method: 'POST',
 //                 body: JSON.stringify(filters),
@@ -37,7 +36,7 @@
 //                     Authorization: `Bearer ${env.DATA_WAREHOUSE_TOKEN}`,
 //                 },
 //             })
-    
+
 //             const boardDemographics = await resp.json()
 //             let combinedData = []
 // 		    for (let age in boardDemographics.age_group) {
@@ -48,7 +47,7 @@
 //             }
 //             combinedData.sort((a, b) => a.date - b.date)
 //             boardDemographics.age_group = combinedData
-    
+
 //             return { boardDemographics, demoFilters }
 //         } catch (err) {
 //             throw new Error(err)

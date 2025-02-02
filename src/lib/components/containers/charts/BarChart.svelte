@@ -43,15 +43,18 @@
 		chartHeight = 400
 
 	let innerWidth
-	$: width = chartWidth 
+	$: width = chartWidth
 	$: height = chartHeight
 	let marginLeft = vertical ? 25 : 125
 	let marginRight = vertical ? 20 : 50
 	let marginTop = vertical ? 24 : 20
-	let marginBottom = vertical ? domainLabel ? 50 : 24 : 20
+	let marginBottom = vertical ? (domainLabel ? 50 : 24) : 20
 	let avgArray = []
 	let position = rule
-	let xScale, yScale, stack, opacity = []
+	let xScale,
+		yScale,
+		stack,
+		opacity = []
 	$: chartData = JSON.parse(JSON.stringify(data)) // copies and removes references to original data
 
 	let formatFull = d3.utcFormat('%-m/%-d/%Y')
@@ -67,19 +70,17 @@
 			return `Q${Number(d3.utcFormat('%q')(d)) - 2} SFY${Number(d3.utcFormat('%Y')(d)) + 1}`
 		}
 	} // offset by 2 quarters
-	
+
 	$: tickFormat = d3.timeDay
 	$: labelFormat = formatFull
-	
+
 	$: {
 		// Re-assign margins based on small screens
 		if (innerWidth < 768) {
 			if (vertical) {
 				marginLeft = rangeLabel ? 35 : 20
 			} else if (horizontal) {
-
 			}
-
 		} else if (innerWidth >= 768) {
 			if (vertical) {
 				marginLeft = rangeLabel ? 40 : 25
@@ -162,7 +163,7 @@
 				if (rule === 'avg') {
 					let avg = 0
 					chartData.forEach((el) => avgArray.push(el[range]))
-					avgArray.forEach((el) => avg += el)
+					avgArray.forEach((el) => (avg += el))
 					position = avg / avgArray.length
 				}
 			}
@@ -253,7 +254,7 @@
 	function movingTooltip(e, d, s, i) {
 		let tooltipWidth = tooltip.node().getBoundingClientRect().width
 		const [x, y] = d3.pointer(e)
-		tooltipData.x = e.offsetX - (tooltipWidth / 2)
+		tooltipData.x = e.offsetX - tooltipWidth / 2
 		tooltipData.title = s
 		tooltipData.y = e.offsetY - 85
 		changeOpacityOnHover(i)
@@ -273,7 +274,7 @@
 	}
 
 	function changeOpacityOnHover(i) {
-		opacity = opacity.map((o, index) =>{
+		opacity = opacity.map((o, index) => {
 			o = index === i ? 1 : 0.5
 			return o
 		})
@@ -471,7 +472,7 @@
 
 	<!-- Rule -->
 	{#if rule}
-		<line 
+		<line
 			class="rule"
 			stroke="var(--neutral-400)"
 			stroke-width="1"
@@ -485,7 +486,10 @@
 </svg>
 
 {#if rule}
-	<RuleTip value={rule} position={yScale(position)} />
+	<RuleTip
+		value={rule}
+		position={yScale(position)}
+	/>
 {/if}
 <ChartTooltip tooltipInfo={tooltipData} />
 

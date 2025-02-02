@@ -3,12 +3,14 @@
 	import { page } from '$app/stores'
 	import { onMount } from 'svelte'
 
-	export let pageData = undefined,
+	export let callback = null,
+		pageData = undefined,
 		navBarOpen,
 		open = false
 
 	function toggleSubNav() {
 		open = !open
+		if (callback) callback()
 	}
 
 	onMount(() => {
@@ -28,16 +30,14 @@
 				leftIcon={pageData?.icon ?? null}
 				text={navBarOpen ? pageData?.text : ''}
 				url={pageData?.url ?? ''}
-				rightIcon={pageData.sublinks?.length > 0 ? open ? NavButtonChevronUpIcon : NavButtonChevronDownIcon : ''}
+				rightIcon={pageData.sublinks?.length > 0 ? (open ? NavButtonChevronUpIcon : NavButtonChevronDownIcon) : ''}
 			/>
 		</div>
 	</div>
 	{#if pageData.sublinks?.length > 0}
 		<div class="sub-nav-wrapper {open ? 'open' : 'closed'}">
 			{#each pageData.sublinks as sublink}
-				<SubNavButton 
-					{sublink}
-				/>
+				<SubNavButton {sublink} />
 			{/each}
 		</div>
 	{/if}
