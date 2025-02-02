@@ -42,7 +42,7 @@ import {
 	ArrowUpExtraSmallIcon,
 	CheckExtraSmallIcon,
 	NeutralExtraSmallIcon,
-} from '$lib/index.js'
+} from '../../index.js'
 
 export default function getIcon(iconSize, iconName) {
 	const iconDictionary = {
