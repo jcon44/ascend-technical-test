@@ -366,7 +366,7 @@
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<rect
 					on:mouseenter={enterTooltip}
-					on:mousemove={(e) => movingTooltip(e, data, series.key, i, j, lineColors[0])}
+					on:mousemove={(e) => movingTooltip(e, data, series.key, i, j, lineColors[i])}
 					on:mouseleave={leaveTooltip}
 					stroke="rgba(0, 0, 0, 0)"
 					stroke-width={1}
