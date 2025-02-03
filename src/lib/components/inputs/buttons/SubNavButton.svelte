@@ -2,8 +2,7 @@
 	import { Button } from '$lib/index.js'
 	import { page } from '$app/stores'
 
-	export let pageData = undefined,
-		sublink
+	export let sublink
 
 	$: currentPageLink = sublink.url === '/' ? $page.url.pathname === sublink.url : $page.url.pathname.includes(sublink.url)
 </script>
@@ -14,7 +13,7 @@
 		<Button
 			classes={['padding-left', 'btn-full', 'btn-left', 'btn-l', 'btn-full', 'btn-white']}
 			text={sublink.text}
-			url={sublink.url ?? ''}
+			url={sublink?.url ?? ''}
 		/>
 	</div>
 </div>
