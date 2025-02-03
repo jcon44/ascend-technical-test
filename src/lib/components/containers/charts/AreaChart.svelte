@@ -1,6 +1,6 @@
 <script>
 	import * as d3 from 'd3'
-	import { ChartTooltip, RuleTip, abbreviateNumber } from '$lib/index.js'
+	import { ChartTooltip, RuleTip, abbreviateNumber, hexToRGB } from '$lib/index.js'
 	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
@@ -28,7 +28,6 @@
 
 	export let data,
 		tooltipId,
-		areaColors = [],
 		lineColors = [],
 		domain,
 		range,
@@ -60,6 +59,7 @@
 	let marginBottom = domainLabel ? 50 : 24
 	let avgArray = []
 	let position = rule
+	let areaColors = []
 	$: chartData = JSON.parse(JSON.stringify(data)) // copies and removes references to original data
 
 	let xScale,
@@ -221,6 +221,18 @@
 		tooltipData.valueTwoLabel = valueTwoLabel
 		tooltipData.valueTwo = 0
 	}
+
+	for (let color of lineColors) {
+		let hex
+		if (browser) {
+			let style = window.getComputedStyle(document.body)
+			color =  color.slice(4, -1)
+			hex = style.getPropertyValue(`${color}`)
+			areaColors.push(hexToRGB(hex, 0.5))
+		}
+	}
+
+	console.log(areaColors)
 
 	onMount(() => {
 		if (browser) {
