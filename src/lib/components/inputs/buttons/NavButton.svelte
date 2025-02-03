@@ -3,14 +3,12 @@
 	import { page } from '$app/stores'
 	import { onMount } from 'svelte'
 
-	export let callback = null,
-		pageData = undefined,
+	export let pageData = undefined,
 		navBarOpen,
 		open = false
 
 	function toggleSubNav() {
 		open = !open
-		if (callback) callback()
 	}
 
 	onMount(() => {
@@ -37,10 +35,7 @@
 	{#if pageData.sublinks?.length > 0}
 		<div class="sub-nav-wrapper {open ? 'open' : 'closed'}">
 			{#each pageData.sublinks as sublink}
-				<SubNavButton
-					callback={toggleSubNav}
-					{sublink}
-				/>
+				<SubNavButton {sublink} />
 			{/each}
 		</div>
 	{/if}
