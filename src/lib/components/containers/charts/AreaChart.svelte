@@ -29,6 +29,7 @@
 	export let data,
 		tooltipId,
 		lineColors = [],
+		areaColors = [],
 		domain,
 		range,
 		domainLabel = '',
@@ -59,7 +60,6 @@
 	let marginBottom = domainLabel ? 50 : 24
 	let avgArray = []
 	let position = rule
-	let areaColors = []
 	$: chartData = JSON.parse(JSON.stringify(data)) // copies and removes references to original data
 
 	let xScale,
