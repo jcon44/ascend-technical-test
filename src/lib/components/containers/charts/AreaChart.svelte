@@ -1,6 +1,6 @@
 <script>
 	import * as d3 from 'd3'
-	import { ChartTooltip, RuleTip, abbreviateNumber, hexToRGB } from '$lib/index.js'
+	import { ChartTooltip, RuleTip, abbreviateNumber } from '$lib/index.js'
 	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
 	import { spring } from 'svelte/motion'
@@ -102,16 +102,6 @@
 	// runs before data is updated. Lifecycle hooks do not work. Reactive blocks do not work
 	// maybe toy around with await blocks?
 	$: if (chartData !== undefined) {
-		if (browser) {
-			for (let color of lineColors) {
-				let hex
-				let style = window.getComputedStyle(document.body)
-				color =  color.slice(4, -1)
-				hex = style.getPropertyValue(`${color}`)
-				areaColors.push(hexToRGB(hex, 0.5))
-			}
-		}
-		
 		for (let obj of chartData) {
 			obj[domain] = new Date(obj[domain])
 		}
