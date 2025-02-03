@@ -33,8 +33,11 @@
 
 <style>
 	.progress-spinner-container {
-		width: 100%;
+		align-items: center;
+		display: flex;
 		height: 100%;
+		justify-content: center;
+		width: 100%;
 	}
 	.progress-spinner {
 		animation-iteration-count: infinite;
