@@ -222,24 +222,20 @@
 		tooltipData.valueTwo = 0
 	}
 
-	for (let color of lineColors) {
-		let hex
-		if (browser) {
-			let style = window.getComputedStyle(document.body)
-			color =  color.slice(4, -1)
-			hex = style.getPropertyValue(`${color}`)
-			areaColors.push(hexToRGB(hex, 0.5))
-		}
-	}
-
-	console.log(areaColors)
-
 	onMount(() => {
 		if (browser) {
 			tooltip = d3.select(`#${tooltipId}`)
 			tooltipLine = d3.select(`#${tooltipId}-line`)
 			tooltipInnerCircle = d3.select(`#${tooltipId}-inner-circle`)
 			tooltipOuterCircle = d3.select(`#${tooltipId}-outer-circle`)
+
+			for (let color of lineColors) {
+				let hex
+				let style = window.getComputedStyle(document.body)
+				color =  color.slice(4, -1)
+				hex = style.getPropertyValue(`${color}`)
+				areaColors.push(hexToRGB(hex, 0.5))
+			}
 		}
 	})
 
