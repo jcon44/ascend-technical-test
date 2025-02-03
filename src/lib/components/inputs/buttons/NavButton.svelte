@@ -8,9 +8,9 @@
 		navBarOpen,
 		open = false
 
-	function toggleSubNav() {
+	async function toggleSubNav() {
 		open = !open
-		if (callback) callback()
+		if (callback) await callback()
 	}
 
 	onMount(() => {
