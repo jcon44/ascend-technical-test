@@ -2,7 +2,8 @@
 	import { Button } from '$lib/index.js'
 	import { page } from '$app/stores'
 
-	export let pageData = undefined,
+	export let callback = null,
+		pageData = undefined,
 		sublink
 
 	$: currentPageLink = sublink.url === '/' ? $page.url.pathname === sublink.url : $page.url.pathname.includes(sublink.url)
@@ -12,9 +13,10 @@
 	<div class={`current-page-indicator ${currentPageLink ? 'current-page-link' : ''}`}></div>
 	<div class="nav-button">
 		<Button
+			classes={['padding-left', 'btn-full', 'btn-left', 'btn-l', 'btn-full', 'btn-white']}
 			text={sublink.text}
 			url={sublink.url ?? ''}
-			classes={['padding-left', 'btn-full', 'btn-left', 'btn-l', 'btn-full', 'btn-white']}
+			{callback}
 		/>
 	</div>
 </div>

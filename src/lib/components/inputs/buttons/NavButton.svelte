@@ -37,7 +37,10 @@
 	{#if pageData.sublinks?.length > 0}
 		<div class="sub-nav-wrapper {open ? 'open' : 'closed'}">
 			{#each pageData.sublinks as sublink}
-				<SubNavButton {sublink} />
+				<SubNavButton
+					callback={toggleSubNav}
+					{sublink}
+				/>
 			{/each}
 		</div>
 	{/if}
