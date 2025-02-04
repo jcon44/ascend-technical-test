@@ -3,6 +3,7 @@
 
 	export let closedHeaderComponent,
 		openHeaderComponent,
+		textHeaderComponent,
 		keepOpen,
 		navBarOpen,
 		toggleNavbar,
@@ -14,6 +15,7 @@
 		<a href={url}>
 			<svelte:component this={openHeaderComponent} />
 		</a>
+		<svelte:component this={textHeaderComponent} />
 		<NavBarToggleButton
 			callback={toggleNavbar}
 			{keepOpen}

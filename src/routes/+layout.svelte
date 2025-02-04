@@ -1,40 +1,54 @@
 <script>
 	import './styles.css'
-	import { AscendLogoIcon, HeaderBar, HomeIcon, Main, NavBar, ProfileButton, Shell, TemplatesIcon, ToastArea } from '$lib/index.js'
+	import { AscendLogoIcon, HomeIcon, MetricsIcon, CommunityIcon, ProfileIcon, Users03SmallIcon, AdministratorsIcon } from '$lib/index.js'
+	import { HeaderBar, Main, NavBar, ProfileButton, Shell, ToastArea } from '$lib/index.js'
+	import TextComponent from './TextComponent.svelte'
 
 	const NavIcon = AscendLogoIcon
 
 	const navBarContents = {
 		primaryPageList: [
 			{
-				startOpen: true,
 				icon: HomeIcon,
-				text: 'Containers',
+				text: 'Home',
+				url: '/'
+			},
+			{
+				icon: MetricsIcon,
+				text: 'Metrics',
 				url: '/',
 				sublinks: [
 					{
-						text: 'Alerts',
-						url: '/containers/alerts',
-					},
-					{
-						text: 'Charts',
-						url: '/containers/charts',
-					},
-					{
-						text: 'Tooltips',
-						url: '/containers/tooltips',
-					},
-					{
-						text: 'Accordions',
-						url: '/containers/accordions',
-					},
-				],
+						text: 'Home',
+						url: '/home'
+					}
+				]
 			},
 			{
-				icon: TemplatesIcon,
-				text: 'Inputs',
+				icon: CommunityIcon,
+				text: 'Staff',
+				url: '/staff',
+			},
+			{
+				icon: ProfileIcon,
+				text: 'Caregivers',
+				url: '/caregivers',
+			},
+			{
+				icon: Users03SmallIcon,
+				text: 'Children',
 				url: '/',
 			},
+			{
+				icon: AdministratorsIcon,
+				text: 'Administrators',
+				url: '/',
+			},
+			{
+				icoon: HomeIcon,
+				text: 'Icons (dev)',
+				url: '/icons'
+			}
 		],
 	}
 </script>
@@ -44,6 +58,7 @@
 		keepOpen={true}
 		openHeaderComponent={NavIcon}
 		closedHeaderComponent={NavIcon}
+		textHeaderComponent={TextComponent}
 		{navBarContents}
 	/>
 	<Main>

@@ -1,5 +1,5 @@
 {
-	"name": "ascend-ui",
+	"name": "ascend-technical-test",
 	"version": "0.1.367",
 	"scripts": {
 		"build": "npm i && npm run format && vite build",

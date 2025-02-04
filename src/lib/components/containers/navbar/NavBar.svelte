@@ -8,7 +8,8 @@
 		navBarContents,
 		url = '/',
 		closedHeaderComponent = undefined,
-		openHeaderComponent = undefined
+		openHeaderComponent = undefined,
+		textHeaderComponent = undefined
 
 	$: navBarOpen = hoverOpen || keepOpen
 
@@ -42,6 +43,7 @@
 				{toggleNavbar}
 				{closedHeaderComponent}
 				{openHeaderComponent}
+				{textHeaderComponent}
 				{url}
 			/>
 			<div class="page-list">

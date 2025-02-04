@@ -7,6 +7,7 @@
 	$: statusKey = status ? status.replace(' ', '').toLowerCase() : 'default'
 
 	const statusColorMap = {
+		active: 'success',
 		approved: 'success',
 		complete: 'success',
 		default: 'neutral',
