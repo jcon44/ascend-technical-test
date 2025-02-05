@@ -23,5 +23,6 @@
     justify-content: space-between;
     color: var(--neutral-400);
     margin-top: 2em;
+    margin-bottom: 1em;
   }
 </style>

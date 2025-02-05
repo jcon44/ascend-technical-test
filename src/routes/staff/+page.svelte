@@ -115,6 +115,34 @@
 			supervisor: 'Dana Boggs',
 			status: 'Archived'
 		},
+		{
+			staffMember: 'John Doe',
+			title: 'Supervisor',
+			program: 'Healthy Families America',
+			supervisor: 'Stephanie Herndon',
+			status: 'Archived'
+		},
+		{
+			staffMember: 'John Doe',
+			title: 'Data Coordinator',
+			program: 'Healthy Families America',
+			supervisor: 'Stephanie Herndon',
+			status: 'Archived'
+		},
+		{
+			staffMember: 'John Doe',
+			title: 'Supervisor',
+			program: 'Nurse Family Partnership',
+			supervisor: 'Moriah Brown',
+			status: 'Archived'
+		},
+		{
+			staffMember: 'John Doe',
+			title: 'Home Visitor',
+			program: 'Parents as Teachers',
+			supervisor: 'Dana Boggs',
+			status: 'Archived'
+		},
 	]
 </script>
 
@@ -175,7 +203,7 @@
 					columns={tableColumns}
 					bind:list
 					paging="true"
-					pageSize={5}
+					pageSize={10}
 					page={1}
 				/>
 			</div>

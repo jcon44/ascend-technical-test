@@ -5,7 +5,7 @@
 		list = [],
 		chart = false
 	export let paging, pageSize, page
-	let totalPages = list.length / pageSize;
+	let totalPages = Math.ceil(list.length / pageSize);
 	let pagedList = list.slice((page - 1) * pageSize, page * pageSize);
 
 	let incrementPage = () => {
