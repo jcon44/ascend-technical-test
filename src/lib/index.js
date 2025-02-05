@@ -211,6 +211,7 @@ export { default as Table } from '$lib/components/containers/tables/Table.svelte
 export { default as TableBody } from '$lib/components/containers/tables/TableBody.svelte'
 export { default as TableHeaders } from '$lib/components/containers/tables/TableHeaders.svelte'
 export { default as TableRow } from '$lib/components/containers/tables/TableRow.svelte'
+export { default as TableFooter } from '$lib/components/containers/tables/TableFooter.svelte'
 
 // Table Cells
 export { default as ArrayCell } from '$lib/components/containers/tables/cells/ArrayCell.svelte'

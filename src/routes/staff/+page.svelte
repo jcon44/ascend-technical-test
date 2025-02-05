@@ -174,6 +174,9 @@
 				<Table
 					columns={tableColumns}
 					bind:list
+					paging="true"
+					pageSize={5}
+					page={1}
 				/>
 			</div>
 		</div>
